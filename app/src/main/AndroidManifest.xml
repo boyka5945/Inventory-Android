@@ -45,7 +45,8 @@
         </activity>
         <activity android:name=".activity.NewRequisitionActivity" />
         <activity android:name=".activity.NewRequisitionFormActivity" />
-        <activity android:name=".activity.DisbursementMenuActivity"></activity>
+        <activity android:name=".activity.DisbursementMenuActivity" />
+        <activity android:name=".activity.RetrievalListActivity"></activity>
     </application>
 
 </manifest>
