@@ -28,4 +28,13 @@ public class Requisition_Detail extends HashMap<String, String>
         this.put(Key.REQUISITION_DETAIL_11_NEXT_COLLECTION_DATE, nextCollectionDate);
     }
     
+    
+    public Requisition_Detail(String itemCode, String description,
+                              String uom, String requestQty)
+    {
+        this.put(Key.REQUISITION_DETAIL_2_ITEM_CODE, itemCode);
+        this.put(Key.REQUISITION_DETAIL_3_ITEM_DESCRIPTION, description);
+        this.put(Key.REQUISITION_DETAIL_4_ITEM_UOM, uom);
+        this.put(Key.REQUISITION_DETAIL_6_REQUEST_QTY, requestQty);
+    }
 }

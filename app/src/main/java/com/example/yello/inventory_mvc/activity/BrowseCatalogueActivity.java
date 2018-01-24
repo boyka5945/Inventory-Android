@@ -65,8 +65,9 @@ public class BrowseCatalogueActivity extends AppCompatActivity
     {
         switch (item.getItemId())
         {
-            case (R.id.category_1_clip):
-                startListFragment(UrlString.getStationeryByCriteria + R.string.category_1_clip);
+            case (R.id.show_new_requisition_form):
+                Intent intent = new Intent(this, NewRequisitionActivity.class);
+                this.startActivity(intent);
                 return true;
   
             default:

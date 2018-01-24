@@ -11,15 +11,15 @@
 
     <item
         android:id="@+id/action_settings"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_action_filter"
+        android:icon="@drawable/ic_menu_black_24dp"
         android:orderInCategory="100"
-        android:title="@string/filter_stationery">
+        android:title="@string/menu"
+        app:showAsAction="always">
 
         <menu>
             <item
-                android:id="@+id/category_1_clip"
-                android:title="@string/category_1_clip" />
+                android:id="@+id/show_new_requisition_form"
+                android:title="@string/show_requisition_form" />
         </menu>
 
     </item>

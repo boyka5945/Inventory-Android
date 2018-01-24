@@ -43,6 +43,8 @@
     <string name="UOM">UOM</string>
     <string name="add_request">Add Request</string>
     <string name="add">Add To Form</string>
+    <string name="menu">Menu</string>
+    <string name="show_requisition_form">Show Requisition Form</string>
 
 
 </resources>

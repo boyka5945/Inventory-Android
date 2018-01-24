@@ -32,6 +32,6 @@ public class NewRequisitionActivity extends AppCompatActivity
                     .beginTransaction()
                     .add(R.id.frameLayout, fragment)
                     .commit();
-        } 
+        }
     }
 }
