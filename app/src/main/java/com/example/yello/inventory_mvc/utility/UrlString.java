@@ -6,8 +6,8 @@ package com.example.yello.inventory_mvc.utility;
 
 public final class UrlString
 {
-    public static final String ip = "192.168.43.205";
-    public static final String server = "";
+    public static final String ip = "172.17.253.95";
+    public static final String server = "/AD_Inventory_WCF";
     public static final String host = "http://" + ip + server + "/Service.svc";
     
     
