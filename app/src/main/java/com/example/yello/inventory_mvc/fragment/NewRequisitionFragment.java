@@ -23,7 +23,6 @@ import java.util.List;
  */
 public class NewRequisitionFragment extends Fragment implements View.OnClickListener
 {
-    private List<Requisition_Detail> form = RequisitionForm.getInstance();
     private Requisition_Detail newItem = null;
     private EditText editTextQty = null;
     
@@ -70,7 +69,15 @@ public class NewRequisitionFragment extends Fragment implements View.OnClickList
     public void onClick(View v)
     {
         newItem.put(Key.REQUISITION_DETAIL_6_REQUEST_QTY, String.valueOf(editTextQty.getText()));
-        form.add(newItem);
+        try
+        {
+            RequisitionForm.addRequestItem(newItem);
+        }
+        catch (Exception e)
+        {
+            Toast.makeText(getActivity(), "Error while adding request item", Toast.LENGTH_LONG).show();
+        }
+        
         Toast.makeText(getActivity(), editTextQty.getText(), Toast.LENGTH_LONG).show();
     }
 }

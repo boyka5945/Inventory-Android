@@ -17,17 +17,15 @@ import java.util.List;
 
 public class NewRequisitionFormActivity extends ListActivity
 {
-    List<Requisition_Detail> form;
     
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_requisition_form);
-        form = RequisitionForm.getInstance();
         this.setListAdapter(new SimpleAdapter(
                 this,
-                form,
+                RequisitionForm.getInstance(),
                 android.R.layout.simple_list_item_2,
                 new String[]{Key.REQUISITION_DETAIL_3_ITEM_DESCRIPTION, Key.REQUISITION_DETAIL_6_REQUEST_QTY},
                 new int[]{android.R.id.text1, android.R.id.text2}));

@@ -66,8 +66,7 @@ public class BrowseCatalogueActivity extends AppCompatActivity
         switch (item.getItemId())
         {
             case (R.id.show_new_requisition_form):
-                Intent intent = new Intent(this, NewRequisitionActivity.class);
-                this.startActivity(intent);
+                startActivity(new Intent(this, NewRequisitionFormActivity.class));
                 return true;
   
             default:
