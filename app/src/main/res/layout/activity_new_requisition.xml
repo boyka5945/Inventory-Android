@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.example.yello.inventory_mvc.activity.NewRequisitionActivity">
 
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 </android.support.constraint.ConstraintLayout>

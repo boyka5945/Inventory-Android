@@ -73,9 +73,9 @@ public class StationeryCatalogueFragment extends ListFragment
             {
                 SimpleAdapter adapter = new SimpleAdapter(containerActivity.getApplicationContext(),
                                                           result,
-                                                          android.R.layout.simple_list_item_2,
-                                                          new String[] {Key.STATIONERY_2_DESCRIPTION, Key.STATIONERY_3_UOM},
-                                                          new int[] {android.R.id.text1, android.R.id.text2});
+                                                          android.R.layout.simple_list_item_1,
+                                                          new String[] {Key.STATIONERY_2_DESCRIPTION},
+                                                          new int[] {android.R.id.text1});
                 
                 StationeryCatalogueFragment.this.setListAdapter(adapter);
             }

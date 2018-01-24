@@ -38,9 +38,11 @@
     <string name="category_16_tape">Tape</string>
     <string name="category_17_tparency">Tparency</string>
     <string name="category_18_tray">Tray</string>
-
-
-
+    <string name="category">Category</string>
+    <string name="description">Description</string>
+    <string name="UOM">UOM</string>
+    <string name="add_request">Add Request</string>
+    <string name="add">Add To Form</string>
 
 
 </resources>
