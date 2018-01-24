@@ -44,7 +44,8 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity android:name=".activity.NewRequisitionActivity" />
-        <activity android:name=".activity.NewRequisitionFormActivity"></activity>
+        <activity android:name=".activity.NewRequisitionFormActivity" />
+        <activity android:name=".activity.DisbursementMenuActivity"></activity>
     </application>
 
 </manifest>

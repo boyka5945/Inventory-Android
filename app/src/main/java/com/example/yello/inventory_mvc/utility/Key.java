@@ -65,4 +65,14 @@ public final class Key
     public static final String USER_6_ROLE = "Role";
     public static final String USER_7_DEPARTMENT_CODE = "DepartmentCode";
 
+    //FOR DEPARTMENT
+
+    public static final String DEPARTMENT_1_CODE = "DepartmentCode";
+    public static final String DEPARTMENT_2_NAME = "DepartmentName";
+    public static final String DEPARTMENT_3_CONTACT_NAME = "ContactName";
+/*    public static final String DEPARTMENT_4_PHONE_NO = "PhoneNo";
+    public static final String DEPARTMENT_5_FAX_NO = "FaxNo";*/
+    public static final String DEPARTMENT_6_COLLECTION_POINT_ID = "CollectionPointID";
+
+
 }
