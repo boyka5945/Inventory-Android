@@ -56,10 +56,13 @@ public final class Key
 
     public static final String USER_1_USERID = "UserID";
     public static final String USER_2_PASSWORD = "Password";
+    /*
     public static final String USER_3_NAME = "Name";
     public static final String USER_4_CONTACT_NUMBER = "ContactNo";
     public static final String USER_5_ADDRESS = "Address";
+    public static final String USER_8_USER_EMAIL = "User_Email";
+    */
     public static final String USER_6_ROLE = "Role";
     public static final String USER_7_DEPARTMENT_CODE = "DepartmentCode";
-    public static final String USER_8_USER_EMAIL = "User_Email";
+
 }
