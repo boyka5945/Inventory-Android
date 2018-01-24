@@ -83,6 +83,7 @@ public class StationeryCatalogueFragment extends ListFragment
         return view;
     }
     
+    
     @Override
     public void onListItemClick(ListView l, View v, int position, long id)
     {

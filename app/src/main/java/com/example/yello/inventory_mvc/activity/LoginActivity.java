@@ -1,8 +1,9 @@
-package com.example.yello.inventory_mvc;
+package com.example.yello.inventory_mvc.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -28,6 +29,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.yello.inventory_mvc.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -333,7 +336,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
-                finish();
+                // TODO: AFTER LOGIN DO SOMETHING
+                // finish();
+                Intent intent = new Intent(getApplicationContext(), BrowseCatalogueActivity.class);
+                LoginActivity.this.startActivity(intent);
+                
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();

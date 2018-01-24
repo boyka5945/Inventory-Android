@@ -13,4 +13,34 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="no_stationery_found">There is not result found</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_stationery">search...</string>
+    <string name="filter_stationery">Filter stationery</string>
+
+    <string name="category_1_clip">Clip</string>
+    <string name="category_2_envelope">Envelope</string>
+    <string name="category_3_eraser">Eraser</string>
+    <string name="category_4_exercise">Exercise</string>
+    <string name="category_5_file">File</string>
+    <string name="category_6_pad">Pad</string>
+    <string name="category_7_paper">Paper</string>
+    <string name="category_8_pen">Pen</string>
+    <string name="category_9_puncher">Puncher</string>
+    <string name="category_10_ruler">Ruler</string>
+    <string name="category_11_scissors">Scissors</string>
+    <string name="category_12_sharpener">Sharpener</string>
+    <string name="category_13_shorthand">Shorthand</string>
+    <string name="category_14_stapler">Stapler</string>
+    <string name="category_15_tacks">Tacks</string>
+    <string name="category_16_tape">Tape</string>
+    <string name="category_17_tparency">Tparency</string>
+    <string name="category_18_tray">Tray</string>
+
+
+
+
+
 </resources>

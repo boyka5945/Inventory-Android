@@ -6,7 +6,12 @@ package com.example.yello.inventory_mvc.utility;
 
 public final class Key
 {
-    // TO BE SAME AS THE PROPERTIES NAME IN WCF
+    // <--- FOR PASSING VALUE BETWEEN BUNDLE --->
+    public  static  final String BUNDLE_URL = "url";
+    public  static  final String BUNDLE_STATIONERY = "stationery";
+    
+    
+    // <--- FOR MODEL : TO BE THE SAME AS THE PROPERTIES NAME IN WCF (JSON) --->
     
     // FOR STATIONERY
     public static final String STATIONERY_1_ITEM_CODE = "ItemCode";
@@ -41,4 +46,9 @@ public final class Key
     public static final String REQUISITION_DETAIL_9_RETRIEVED_DATE = "RetrievedDate";
     public static final String REQUISITION_DETAIL_10_ALLOCATE_QTY = "AllocateQty";
     public static final String REQUISITION_DETAIL_11_NEXT_COLLECTION_DATE = "NextCollectionDate";
+    
+    
+    // FOR CATEGORY
+    public static final String CATEGORY_1_ID = "ItemCode";
+    public static final String CATEGORY_2_NAME = "Description";
 }
