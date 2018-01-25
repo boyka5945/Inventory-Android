@@ -31,5 +31,11 @@ public final class UrlString
     
     // UriTemplate = "/GetAllCategories"
     public static final String getAllCategories = host + "/GetAllCategories";
+
+    //UriTemplate = "/GetPendingRequestByDept/{deptCode}"
+    public static final String getPendingRequestbyDept=host+"/GetPendingRequestByDept/";
+
+    //UriTemplate = "GetDetailByReqNo/{reqNo}'
+    public static final String getDetailsByReqNo=host+"/GetDetailByReqNo/";
     
 }
