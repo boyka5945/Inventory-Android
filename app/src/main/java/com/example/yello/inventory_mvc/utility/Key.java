@@ -9,7 +9,7 @@ public final class Key
     // <--- FOR PASSING VALUE BETWEEN BUNDLE --->
     public  static  final String BUNDLE_URL = "url";
     public  static  final String BUNDLE_STATIONERY = "stationery";
-    
+    public  static  final String BUNDLE_REQUISITION = "requisitionRecord";
     
     // <--- FOR MODEL : TO BE THE SAME AS THE PROPERTIES NAME IN WCF (JSON) --->
     
@@ -78,6 +78,7 @@ public final class Key
 
     public static final String RETRIEVAL_ITEM_1_DESCRIPTION ="Description";
     public static final String RETRIEVAL_ITEM_2_QTY ="Qty";
+    public static final String RETRIEVAL_ITEM_3_LOCATION ="Location";
 
 
 }
