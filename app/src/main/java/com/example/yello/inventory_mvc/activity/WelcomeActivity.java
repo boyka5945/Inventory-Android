@@ -38,13 +38,13 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(new Intent(this, NewRequisitionActivity.class));
                 return true;
             case R.id.stationeryRetrieval:
-                startActivity(new Intent(this, NewRequisitionActivity.class));
+                startActivity(new Intent(this, RetrievalListActivity.class));
                 return true;
             case R.id.disbursementList:
-                startActivity(new Intent(this, NewRequisitionActivity.class));
+                startActivity(new Intent(this, DisbursementMenuActivity.class));
                 return true;
             case R.id.logout:
-                startActivity(new Intent(this, LoginActivity.class));
+                startActivity(new Intent(this, LoginActivity                            .class));
                 return true;
 
             default:
