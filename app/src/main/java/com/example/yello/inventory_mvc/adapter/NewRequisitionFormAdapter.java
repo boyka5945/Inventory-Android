@@ -51,6 +51,7 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
         LayoutInflater inflater = (LayoutInflater) getContext()
                 .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         convertView = inflater.inflate(resource, null);
+        convertView.setLongClickable(true);
         
         editTextQty = ((EditText) convertView.findViewById(R.id.editText_quantity));
         editTextQty.setTag(position);

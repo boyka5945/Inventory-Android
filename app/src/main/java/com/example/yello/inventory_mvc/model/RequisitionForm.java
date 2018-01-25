@@ -53,6 +53,17 @@ public class RequisitionForm
         }
     }
     
+    public static Requisition_Detail removeRequestItem(int position) throws Exception
+    {
+        try
+        {
+            return _requisitionForm.remove(position);
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.getMessage());
+        }
+    }
     
     public static Boolean removeRequestItem(Requisition_Detail item) throws Exception
     {
