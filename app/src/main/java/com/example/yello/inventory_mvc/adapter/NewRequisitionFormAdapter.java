@@ -92,8 +92,8 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
                             requestItem.get(Key.REQUISITION_DETAIL_2_ITEM_CODE), newQty))
                     {
                         currentEditText.setText(String.valueOf(newQty));
-                        Toast.makeText(getContext(), "Quantity has been updated.",
-                                       Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getContext(), "Quantity has been updated.",
+                                       //Toast.LENGTH_SHORT).show();
                         return true;
                     }
                     else
@@ -126,10 +126,10 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
                 if (RequisitionForm.updateRequestQty(
                         requestItem.get(Key.REQUISITION_DETAIL_2_ITEM_CODE), 1))
                 {
-                    int newQty = Integer.valueOf(editTextQty.getText().toString()) + 1;
+                    int newQty = Integer.valueOf(currentEditText.getText().toString()) + 1;
                     currentEditText.setText(String.valueOf(newQty));
                     
-                    Toast.makeText(getContext(), "Quantity +1", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(), "Quantity +1", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -155,10 +155,10 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
                 if (RequisitionForm.updateRequestQty(
                         requestItem.get(Key.REQUISITION_DETAIL_2_ITEM_CODE), -1))
                 {
-                    int newQty = Integer.valueOf(editTextQty.getText().toString()) - 1;
+                    int newQty = Integer.valueOf(currentEditText.getText().toString()) - 1;
                     currentEditText.setText(String.valueOf(newQty));
                     
-                    Toast.makeText(getContext(), "Quantity -1", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(), "Quantity -1", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -184,12 +184,6 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
         {
             return 0;
         }
-    }
-    
-    protected class Tags
-    {
-        String name;
-        Integer pos;
     }
     
 }

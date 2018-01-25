@@ -2,6 +2,7 @@ package com.example.yello.inventory_mvc.activity;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -53,6 +54,11 @@ public class NewRequisitionFormActivity extends Activity implements AdapterView.
                     @Override
                     protected Boolean doInBackground(String... params)
                     {
+                        if(RequisitionForm.getLength() == 0)
+                        {
+                            return false;
+                        }
+                        
                         try
                         {
                             Requisition_Detail.addNewRequisition(RequisitionForm.getInstance());
@@ -78,7 +84,7 @@ public class NewRequisitionFormActivity extends Activity implements AdapterView.
                         else
                         {
                             Toast.makeText(NewRequisitionFormActivity.this,
-                                           "Error occured when submitting the requisition",
+                                           "Your requistion form is empty.",
                                            Toast.LENGTH_LONG).show();
                         }
                         
@@ -128,6 +134,15 @@ public class NewRequisitionFormActivity extends Activity implements AdapterView.
                 }.execute();
             }
         });
+    
+        Button backToCatalogue = (Button) this.findViewById(R.id.button_back_to_catalogue);
+        backToCatalogue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                startActivity(new Intent(NewRequisitionFormActivity.this, BrowseCatalogueActivity.class));
+            }
+        });
     }
     
     
@@ -135,7 +150,7 @@ public class NewRequisitionFormActivity extends Activity implements AdapterView.
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id)
     {
-        Toast.makeText(this,position,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this.getApplicationContext(),position,Toast.LENGTH_LONG).show();
         return true;
     }
 

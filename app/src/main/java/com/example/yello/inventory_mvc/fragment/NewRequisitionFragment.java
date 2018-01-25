@@ -1,5 +1,6 @@
 package com.example.yello.inventory_mvc.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,6 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.yello.inventory_mvc.R;
+import com.example.yello.inventory_mvc.activity.BrowseCatalogueActivity;
+import com.example.yello.inventory_mvc.activity.NewRequisitionActivity;
+import com.example.yello.inventory_mvc.activity.NewRequisitionFormActivity;
 import com.example.yello.inventory_mvc.model.RequisitionForm;
 import com.example.yello.inventory_mvc.model.Requisition_Detail;
 import com.example.yello.inventory_mvc.utility.Key;
@@ -61,12 +65,31 @@ public class NewRequisitionFragment extends Fragment implements View.OnClickList
         }
         
         Button addToFormBtn = (Button) view.findViewById(R.id.button);
-        
         addToFormBtn.setOnClickListener(this);
+        
+        Button backToCatalogue = (Button) view.findViewById(R.id.button_back_to_catalogue);
+        backToCatalogue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                startActivity(new Intent(getActivity(), BrowseCatalogueActivity.class));
+            }
+        });
+        
+        Button goToForm = (Button) view.findViewById(R.id.button_go_to_form);
+        goToForm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                startActivity(new Intent(getActivity(), NewRequisitionFormActivity.class));
+            }
+        });
+        
+        
         return view;
     }
     
-    
+    // TODO: remove hardcoded toast message
     @Override
     public void onClick(View v)
     {
@@ -92,7 +115,7 @@ public class NewRequisitionFragment extends Fragment implements View.OnClickList
                 Toast.makeText(getActivity(), "Error while adding request item", Toast.LENGTH_LONG).show();
             }
     
-            Toast.makeText(getActivity(), quantity + " x " + textViewItemCode.getText() + " was added into form.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), quantity + " x " + textViewItemCode.getText() + " was added into requisition form.", Toast.LENGTH_SHORT).show();
         }
     }
     

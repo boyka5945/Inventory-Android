@@ -18,6 +18,10 @@ public class RequisitionForm
         return _requisitionForm;
     }
     
+    public static int getLength()
+    {
+        return _requisitionForm.size();
+    }
     
     public static Boolean addRequestItem(Requisition_Detail newItem) throws Exception
     {
