@@ -313,19 +313,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         protected Boolean doInBackground(Void... params) {
 
 
-//            User login = null;
-//            try {
-//
-//                login = User.validateUser(mEmail, mPassword);
-//
-//            } catch (Exception e) {
-//                return false;
-//            }
+            User login = null;
+            try {
 
-//            return(login.get(Key.USER_1_USERID ) != "null");
+                login = User.validateUser(mEmail, mPassword);
+
+            } catch (Exception e) {
+               return false;
+           }
+
+            return(login.get(Key.USER_1_USERID ) != "null");
             
             // NEW PASSWORD : S1234, PASSWORD 123456
-            return  true;
+
         }
 
         @Override

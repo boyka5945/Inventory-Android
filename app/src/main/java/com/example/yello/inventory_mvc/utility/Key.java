@@ -9,6 +9,7 @@ public final class Key
     // <--- FOR PASSING VALUE BETWEEN BUNDLE --->
     public  static  final String BUNDLE_URL = "url";
     public  static  final String BUNDLE_STATIONERY = "stationery";
+    public  static  final String BUNDLE_REQUISITION = "requisitionRecord";
     public  static  final String BUNDLE_CATEGORY = "category";
     
     
@@ -64,5 +65,21 @@ public final class Key
     */
     public static final String USER_6_ROLE = "Role";
     public static final String USER_7_DEPARTMENT_CODE = "DepartmentCode";
+
+    //FOR DEPARTMENT
+
+    public static final String DEPARTMENT_1_CODE = "DepartmentCode";
+    public static final String DEPARTMENT_2_NAME = "DepartmentName";
+    public static final String DEPARTMENT_3_CONTACT_NAME = "ContactName";
+/*    public static final String DEPARTMENT_4_PHONE_NO = "PhoneNo";
+    public static final String DEPARTMENT_5_FAX_NO = "FaxNo";*/
+    public static final String DEPARTMENT_6_COLLECTION_POINT_ID = "CollectionPointID";
+
+    //FOR RETRIEVAL_ITEM
+
+    public static final String RETRIEVAL_ITEM_1_DESCRIPTION ="Description";
+    public static final String RETRIEVAL_ITEM_2_QTY ="Qty";
+    public static final String RETRIEVAL_ITEM_3_LOCATION ="Location";
+
 
 }

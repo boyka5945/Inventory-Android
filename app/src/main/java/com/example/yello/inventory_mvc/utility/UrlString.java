@@ -41,4 +41,9 @@ public final class UrlString
     // UriTemplate = "/AddNewRequest/{requesterID}
     public static final String addNewRequest = host + "/AddNewRequest/";
     
+
+    // UriTemplate = "/GetAllRequisitionRecords"
+    public static final String getAllRequisitionRecords = host + "/GetAllRequisitionRecords";
+
+
 }
