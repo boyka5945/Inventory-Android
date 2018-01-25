@@ -17,10 +17,11 @@ import java.util.List;
 
 public class Retrieval_Item extends HashMap<String,String> {
 
-    public Retrieval_Item(String description, String qty)
+    public Retrieval_Item(String description, String qty, String location)
     {
         this.put(Key.RETRIEVAL_ITEM_1_DESCRIPTION, description);
         this.put(Key.RETRIEVAL_ITEM_2_QTY, qty);
+        this.put(Key.RETRIEVAL_ITEM_3_LOCATION, location);
 
     }
 
@@ -38,7 +39,8 @@ public class Retrieval_Item extends HashMap<String,String> {
                 JSONObject obj = array.getJSONObject(i);
 
                 retrieval.add(new Retrieval_Item(obj.getString(Key.RETRIEVAL_ITEM_1_DESCRIPTION),
-                        obj.getString(Key.RETRIEVAL_ITEM_2_QTY)
+                        obj.getString(Key.RETRIEVAL_ITEM_2_QTY),
+                        obj.getString(Key.RETRIEVAL_ITEM_3_LOCATION)
 
                 ));
             }
