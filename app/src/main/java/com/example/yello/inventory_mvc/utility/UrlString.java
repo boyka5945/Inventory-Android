@@ -37,5 +37,8 @@ public final class UrlString
 
     // UriTemplate = "/GetUser/{userid}/{password}"
     public static final String validateUser = host + "/GetUser/";
+
+
+    public static final String getRetrievalItems = host + "/GetRetrievalItems/";
     
 }

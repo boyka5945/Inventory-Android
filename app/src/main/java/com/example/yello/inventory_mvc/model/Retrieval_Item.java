@@ -17,7 +17,7 @@ import java.util.List;
 
 public class Retrieval_Item extends HashMap<String,String> {
 
-    public Retrieval_Item(String description, String qty)
+   public Retrieval_Item(String description, String qty)
     {
         this.put(Key.RETRIEVAL_ITEM_1_DESCRIPTION, description);
         this.put(Key.RETRIEVAL_ITEM_2_QTY, qty);

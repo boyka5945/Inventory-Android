@@ -13,7 +13,7 @@ import java.util.List;
 
 public class RetrievalListActivity extends ListActivity {
 
-    @Override
+   @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrieval_list);

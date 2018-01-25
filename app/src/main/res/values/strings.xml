@@ -47,4 +47,9 @@
     <string name="show_requisition_form">Show Requisition Form</string>
 
 
+    <string name="viewRequisition">View Requisition</string>
+    <string name="stationeryRetrieval">Stationery Retrieval</string>
+    <string name="disbursementList">Disbursement List</string>
+    <string name="logout">Log Out</string>
+
 </resources>
