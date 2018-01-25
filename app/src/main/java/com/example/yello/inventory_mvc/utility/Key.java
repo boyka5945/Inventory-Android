@@ -78,6 +78,7 @@ public final class Key
 
     public static final String RETRIEVAL_ITEM_1_DESCRIPTION ="Description";
     public static final String RETRIEVAL_ITEM_2_QTY ="Qty";
+    public static final String RETRIEVAL_ITEM_3_LOCATION ="Location";
 
 
 }
