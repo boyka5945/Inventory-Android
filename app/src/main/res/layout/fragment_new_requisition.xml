@@ -11,78 +11,102 @@
         android:id="@+id/textView_category_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="@string/category"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textView_category_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:text="TextView"
-        android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textSize="16sp" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp" />
 
     <TextView
         android:id="@+id/textView_description_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:text="@string/description"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textView_description_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:text="TextView"
-        android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textSize="16sp" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp" />
 
     <TextView
         android:id="@+id/textView_UOM_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:text="@string/UOM"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textView_UOM_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:text="TextView"
-        android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textSize="16sp" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp" />
 
     <TextView
         android:id="@+id/textView_qty_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:text="@string/add_request"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/editText_qty_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:ems="10"
-        android:inputType="number" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:hint="@string/input_request_qty"
+        android:inputType="text"
+        android:singleLine="true"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/holo_green_dark"
+        android:elevation="0dp"
+        android:padding="8dp"
         android:text="@string/add"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light" />
 </LinearLayout>

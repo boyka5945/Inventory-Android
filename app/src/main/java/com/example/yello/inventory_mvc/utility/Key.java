@@ -10,6 +10,8 @@ public final class Key
     public  static  final String BUNDLE_URL = "url";
     public  static  final String BUNDLE_STATIONERY = "stationery";
     public  static  final String BUNDLE_REQUISITION = "requisitionRecord";
+    public  static  final String BUNDLE_CATEGORY = "category";
+    
     
     // <--- FOR MODEL : TO BE THE SAME AS THE PROPERTIES NAME IN WCF (JSON) --->
     
@@ -49,11 +51,10 @@ public final class Key
     
     
     // FOR CATEGORY
-    public static final String CATEGORY_1_ID = "ItemCode";
-    public static final String CATEGORY_2_NAME = "Description";
+    public static final String CATEGORY_1_ID = "CategoryID";
+    public static final String CATEGORY_2_NAME = "CategoryName";
 
     //FOR USER
-
     public static final String USER_1_USERID = "UserID";
     public static final String USER_2_PASSWORD = "Password";
     /*

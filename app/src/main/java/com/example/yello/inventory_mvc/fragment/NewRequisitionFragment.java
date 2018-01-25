@@ -25,6 +25,7 @@ public class NewRequisitionFragment extends Fragment implements View.OnClickList
 {
     private Requisition_Detail newItem = null;
     private EditText editTextQty = null;
+    private TextView textViewItemCode = null;
     
     public NewRequisitionFragment()
     {
@@ -40,6 +41,7 @@ public class NewRequisitionFragment extends Fragment implements View.OnClickList
         View view = inflater.inflate(R.layout.fragment_new_requisition, container, false);
         
         editTextQty = (EditText) view.findViewById(R.id.editText_qty_value);
+        textViewItemCode = (TextView) view.findViewById(R.id.textView_description_value);
         
         
         Bundle bundle = this.getArguments(); // get bundle
@@ -68,16 +70,42 @@ public class NewRequisitionFragment extends Fragment implements View.OnClickList
     @Override
     public void onClick(View v)
     {
-        newItem.put(Key.REQUISITION_DETAIL_6_REQUEST_QTY, String.valueOf(editTextQty.getText()));
+        int quantity = TryParse(editTextQty.getText().toString());
+        
+        if(editTextQty.getText().equals("") || editTextQty.getText().equals(null))
+        {
+            Toast.makeText(getActivity(), "Please enter the request quantity", Toast.LENGTH_LONG).show();
+        }
+        else if(quantity <= 0)
+        {
+            Toast.makeText(getActivity(), "Request quantity must be greater than or equal to 1", Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            newItem.put(Key.REQUISITION_DETAIL_6_REQUEST_QTY, String.valueOf(quantity));
+            try
+            {
+                RequisitionForm.addRequestItem(newItem);
+            }
+            catch (Exception e)
+            {
+                Toast.makeText(getActivity(), "Error while adding request item", Toast.LENGTH_LONG).show();
+            }
+    
+            Toast.makeText(getActivity(), quantity + "x " + textViewItemCode.getText() + " was added into form.", Toast.LENGTH_SHORT).show();
+        }
+    }
+    
+    private Integer TryParse(String s)
+    {
+      
         try
         {
-            RequisitionForm.addRequestItem(newItem);
+            return Integer.valueOf(s);
         }
         catch (Exception e)
         {
-            Toast.makeText(getActivity(), "Error while adding request item", Toast.LENGTH_LONG).show();
+            return 0;
         }
-        
-        Toast.makeText(getActivity(), editTextQty.getText(), Toast.LENGTH_LONG).show();
     }
 }

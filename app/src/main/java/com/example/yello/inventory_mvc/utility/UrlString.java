@@ -27,7 +27,7 @@ public final class UrlString
     public static final String getStationeryByCriteria = host + "/GetStationeries/";
     
     // UriTemplate = "/GetStationeries/{categoryName}"
-    public static final String getStationeryByCategory = host + "/GetStationeryByCategory/";
+    public static final String getStationeryByCategory = host + "/GetStationeries/";
     
     // UriTemplate = "/GetAllCategories"
     public static final String getAllCategories = host + "/GetAllCategories";
@@ -37,6 +37,10 @@ public final class UrlString
 
     // UriTemplate = "/GetUser/{userid}/{password}"
     public static final String validateUser = host + "/GetUser/";
+    
+    // UriTemplate = "/AddNewRequest/{requesterID}
+    public static final String addNewRequest = host + "/AddNewRequest/";
+    
 
     // UriTemplate = "/GetAllRequisitionRecords"
     public static final String getAllRequisitionRecords = host + "/GetAllRequisitionRecords";
