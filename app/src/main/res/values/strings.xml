@@ -18,7 +18,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search_stationery">search...</string>
-    <string name="filter_stationery">Filter stationery</string>
+    <string name="filter_stationery">Filter by category</string>
 
     <string name="category_1_clip">Clip</string>
     <string name="category_2_envelope">Envelope</string>
@@ -45,6 +45,11 @@
     <string name="add">Add To Form</string>
     <string name="menu">Menu</string>
     <string name="show_requisition_form">Show Requisition Form</string>
+    <string name="submit_requisition">Submit Requisition</string>
+    <string name="filter_by_category">Category</string>
+    <string name="input_request_qty">input request quantity</string>
+    <string name="clear_all">Clear All</string>
+    <string name="stationery_list">Stationery list</string>
 
 
 </resources>

@@ -78,5 +78,78 @@ public class RequisitionForm
             throw new Exception("Error when deleting item from form");
         }
     }
-
+    
+    public static Boolean clearAllRequestItems() throws Exception
+    {
+        try
+        {
+            _requisitionForm.clear();
+            return true;
+        }
+        catch (Exception e)
+        {
+            throw new Exception("Error when trying to clear form");
+        }
+    }
+    
+    
+    public static Boolean updateRequestQty(String itemCode, int quantity)
+    {
+        try
+        {
+            for (Requisition_Detail item : _requisitionForm)
+            {
+                if(item.get(Key.REQUISITION_DETAIL_2_ITEM_CODE).equals(itemCode))
+                {
+                    int currentQty = Integer.valueOf(item.get(Key.REQUISITION_DETAIL_6_REQUEST_QTY));
+                    int newQty = currentQty + quantity;
+                    if(newQty <= 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        item.put(Key.REQUISITION_DETAIL_6_REQUEST_QTY, String.valueOf(newQty));
+                        return true;
+                    }
+                }
+            }
+            
+            return false;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+    
+    public static boolean changeRequestQty(String itemCode, int newQty)
+    {
+        try
+        {
+            for (Requisition_Detail item : _requisitionForm)
+            {
+                if(item.get(Key.REQUISITION_DETAIL_2_ITEM_CODE).equals(itemCode))
+                {
+                    int currentQty = Integer.valueOf(item.get(Key.REQUISITION_DETAIL_6_REQUEST_QTY));
+                    // TODO:
+                    if(newQty <= 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        item.put(Key.REQUISITION_DETAIL_6_REQUEST_QTY, String.valueOf(newQty));
+                        return true;
+                    }
+                }
+            }
+        
+            return false;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
 }

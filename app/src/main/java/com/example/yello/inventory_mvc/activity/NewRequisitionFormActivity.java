@@ -1,41 +1,167 @@
 package com.example.yello.inventory_mvc.activity;
 
+import android.app.Activity;
 import android.app.ListActivity;
+import android.os.AsyncTask;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.example.yello.inventory_mvc.R;
+import com.example.yello.inventory_mvc.adapter.NewRequisitionFormAdapter;
 import com.example.yello.inventory_mvc.model.RequisitionForm;
 import com.example.yello.inventory_mvc.model.Requisition_Detail;
+import com.example.yello.inventory_mvc.model.Stationery;
 import com.example.yello.inventory_mvc.utility.Key;
 
 import java.util.List;
 
-public class NewRequisitionFormActivity extends ListActivity
+public class NewRequisitionFormActivity extends Activity implements AdapterView.OnItemLongClickListener
 {
+    private Button submitButton;
+    private Button clearButton;
+    private ListView listView;
     
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_requisition_form);
-        this.setListAdapter(new SimpleAdapter(
-                this,
-                RequisitionForm.getInstance(),
-                android.R.layout.simple_list_item_2,
-                new String[]{Key.REQUISITION_DETAIL_3_ITEM_DESCRIPTION, Key.REQUISITION_DETAIL_6_REQUEST_QTY},
-                new int[]{android.R.id.text1, android.R.id.text2}));
+        
+        listView = (ListView) this.findViewById(R.id.listView);
+        listView.setAdapter(new NewRequisitionFormAdapter(this, R.layout.new_requistion_row,
+                                                          RequisitionForm.getInstance()));
+        listView.setLongClickable(true);
+        listView.setOnItemLongClickListener(this);
+        
+        submitButton = (Button) this.findViewById(R.id.submit_btn);
+        submitButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                new AsyncTask<String, Void, Boolean>()
+                {
+                    @Override
+                    protected Boolean doInBackground(String... params)
+                    {
+                        try
+                        {
+                            Requisition_Detail.addNewRequisition(RequisitionForm.getInstance());
+                            return true;
+                        }
+                        catch (Exception e)
+                        {
+                            return false;
+                        }
+                        
+                    }
+                    
+                    @Override
+                    protected void onPostExecute(Boolean result)
+                    {
+                        if (result)
+                        {
+                            Toast.makeText(NewRequisitionFormActivity.this,
+                                           "Requsition form was submitted",
+                                           Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+                        else
+                        {
+                            Toast.makeText(NewRequisitionFormActivity.this,
+                                           "Error occured when submitting the requisition",
+                                           Toast.LENGTH_LONG).show();
+                        }
+                        
+                    }
+                }.execute();
+            }
+        });
+        
+        clearButton = (Button) this.findViewById(R.id.clear_btn);
+        clearButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                new AsyncTask<String, Void, Boolean>()
+                {
+                    @Override
+                    protected Boolean doInBackground(String... params)
+                    {
+                        try
+                        {
+                            RequisitionForm.clearAllRequestItems();
+                            return true;
+                        }
+                        catch (Exception e)
+                        {
+                            return false;
+                        }
+                    }
+                    
+                    @Override
+                    protected void onPostExecute(Boolean result)
+                    {
+                        if (result)
+                        {
+                            Toast.makeText(NewRequisitionFormActivity.this,
+                                           "Requsition form was cleared", Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+                        else
+                        {
+                            Toast.makeText(NewRequisitionFormActivity.this,
+                                           "Error occured when clearing the form",
+                                           Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }.execute();
+            }
+        });
     }
     
+    
+    
     @Override
-    public void onListItemClick(ListView l, View v, int position, long id)
+    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id)
     {
-        Requisition_Detail requestItem = (Requisition_Detail) getListAdapter().getItem(position);
-        Toast.makeText(getApplicationContext(), requestItem.get(Key.REQUISITION_DETAIL_3_ITEM_DESCRIPTION) + " selected", Toast.LENGTH_LONG).show();
+        Toast.makeText(this,position,Toast.LENGTH_SHORT).show();
+        return true;
     }
+
+
+//    @Override
+//    public void onListItemClick(ListView l, View v, int position, long id)
+//    {
+//        final Requisition_Detail requestItem = (Requisition_Detail) getListAdapter().getItem(
+//                position);
+//
+//        new AsyncTask<String, Void, Void>()
+//        {
+//            @Override
+//            protected Void doInBackground(String... params)
+//            {
+//                Requisition_Detail.addNewRequisition(RequisitionForm.getInstance());
+//                return null;
+//            }
+//
+//            @Override
+//            protected void onPostExecute(Void result)
+//            {
+//                finish();
+//            }
+//        }.execute();
+//
+//    }
     
 }

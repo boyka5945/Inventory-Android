@@ -26,6 +26,7 @@ public class Category extends HashMap<String, String>
     public static List<Category> ListCategories(String url) // based on url retrieve category list
     {
         ArrayList<Category> categories = new ArrayList<>();
+        categories.add(new Category("-1", "All"));
     
         try
         {

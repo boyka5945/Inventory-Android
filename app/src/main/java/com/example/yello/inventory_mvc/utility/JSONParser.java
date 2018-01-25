@@ -118,7 +118,6 @@ public class JSONParser
         {
             URL u = new URL(url);
             HttpURLConnection conn = (HttpURLConnection) u.openConnection();
-            
             conn.setRequestMethod("POST");
             conn.setDoInput(true);
             conn.setDoOutput(true);
@@ -126,17 +125,21 @@ public class JSONParser
             conn.setRequestProperty("Content-type", "application/json");
             conn.setFixedLengthStreamingMode(data.getBytes().length);
             conn.connect();
-            
             OutputStream os = new BufferedOutputStream(conn.getOutputStream());
             os.write(data.getBytes());
             os.flush();
-            
             is = conn.getInputStream();
+        }
+        catch (UnsupportedEncodingException e)
+        {
+            Log.e("postStream Exception", StackTrace.trace(e));
         }
         catch (Exception e)
         {
-            e.printStackTrace();
+            Log.e("postStream Exception", StackTrace.trace(e));
         }
         return readStream(is);
     }
+    
+    
 }
