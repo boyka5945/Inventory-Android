@@ -68,7 +68,16 @@ public class Requisition_Detail extends HashMap<String, String>
             }
         }
         
-        String result = JSONParser.postStream(UrlString.addNewRequest + requesterID, jarray.toString());
+        try
+        {
+            String result = JSONParser.postStream(UrlString.addNewRequest + requesterID, jarray.toString());
+            RequisitionForm.clearAllRequestItems();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        
     }
 
 }

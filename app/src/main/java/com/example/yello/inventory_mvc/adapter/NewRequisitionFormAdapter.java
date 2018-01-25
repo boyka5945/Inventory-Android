@@ -2,6 +2,7 @@ package com.example.yello.inventory_mvc.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.constraint.ConstraintLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +21,7 @@ import com.example.yello.inventory_mvc.model.RequisitionForm;
 import com.example.yello.inventory_mvc.model.Requisition_Detail;
 import com.example.yello.inventory_mvc.utility.Key;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,6 +31,7 @@ import java.util.List;
 public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
 {
     private List<Requisition_Detail> items;
+    
     int resource;
     Button plusButton;
     Button minusButton;
@@ -43,19 +47,21 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
     @Override
     public View getView(int position, View convertView, ViewGroup parent)
     {
+        
         LayoutInflater inflater = (LayoutInflater) getContext()
                 .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-        final View view = inflater.inflate(resource, null);
+        convertView = inflater.inflate(resource, null);
         
-        editTextQty = ((EditText) view.findViewById(R.id.editText_quantity));
+        editTextQty = ((EditText) convertView.findViewById(R.id.editText_quantity));
         editTextQty.setTag(position);
         
         final Requisition_Detail detail = items.get(position);
         if (detail != null)
         {
-            ((TextView) view.findViewById(R.id.textView_description_value)).setText(detail.get(
-                    Key.REQUISITION_DETAIL_3_ITEM_DESCRIPTION));
-            ((TextView) view.findViewById(R.id.textView_UOM_value)).setText(detail.get(
+            ((TextView) convertView.findViewById(R.id.textView_description_value)).setText(
+                    detail.get(
+                            Key.REQUISITION_DETAIL_3_ITEM_DESCRIPTION));
+            ((TextView) convertView.findViewById(R.id.textView_UOM_value)).setText(detail.get(
                     Key.REQUISITION_DETAIL_4_ITEM_UOM));
             editTextQty.setText(detail.get(Key.REQUISITION_DETAIL_6_REQUEST_QTY));
         }
@@ -69,25 +75,31 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
                 {
                     int position = (Integer) v.getTag();
                     Requisition_Detail requestItem = items.get(position);
-    
-                    int newQty = TryParse(editTextQty.getText().toString());
                     
-                    if(newQty == 0)
+                    EditText currentEditText = (EditText) v;
+                    
+                    int newQty = TryParse(currentEditText.getText().toString());
+                    
+                    if (newQty <= 0)
                     {
-                        editTextQty.setText(requestItem.get(Key.REQUISITION_DETAIL_6_REQUEST_QTY));
+                        currentEditText.setText(
+                                requestItem.get(Key.REQUISITION_DETAIL_6_REQUEST_QTY));
                         Toast.makeText(getContext(), "Quantity must be greater than or equal to 1.",
                                        Toast.LENGTH_SHORT).show();
                         return false;
                     }
-                    else if (RequisitionForm.changeRequestQty(requestItem.get(Key.REQUISITION_DETAIL_2_ITEM_CODE), newQty))
+                    else if (RequisitionForm.changeRequestQty(
+                            requestItem.get(Key.REQUISITION_DETAIL_2_ITEM_CODE), newQty))
                     {
-                        editTextQty.setText(String.valueOf(newQty));
-                        Toast.makeText(getContext(), "Quantity has been updated.", Toast.LENGTH_SHORT).show();
+                        currentEditText.setText(String.valueOf(newQty));
+                        Toast.makeText(getContext(), "Quantity has been updated.",
+                                       Toast.LENGTH_SHORT).show();
                         return true;
                     }
                     else
                     {
-                        editTextQty.setText(requestItem.get(Key.REQUISITION_DETAIL_6_REQUEST_QTY));
+                        currentEditText.setText(
+                                requestItem.get(Key.REQUISITION_DETAIL_6_REQUEST_QTY));
                         Toast.makeText(getContext(), "Opps...Some error occur. Pleas try again.",
                                        Toast.LENGTH_SHORT).show();
                         return false;
@@ -98,7 +110,7 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
         });
         
         // TODO : Use string resource
-        plusButton = (Button) view.findViewById(R.id.plus_button);
+        plusButton = (Button) convertView.findViewById(R.id.plus_button);
         plusButton.setTag(position);
         plusButton.setOnClickListener(new View.OnClickListener()
         {
@@ -108,11 +120,14 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
                 int position = (Integer) v.getTag();
                 Requisition_Detail requestItem = items.get(position);
                 
+                
+                EditText currentEditText = (EditText) ((View) v.getParent()).findViewById(R.id.editText_quantity);
+                
                 if (RequisitionForm.updateRequestQty(
                         requestItem.get(Key.REQUISITION_DETAIL_2_ITEM_CODE), 1))
                 {
                     int newQty = Integer.valueOf(editTextQty.getText().toString()) + 1;
-                    editTextQty.setText(String.valueOf(newQty));
+                    currentEditText.setText(String.valueOf(newQty));
                     
                     Toast.makeText(getContext(), "Quantity +1", Toast.LENGTH_SHORT).show();
                 }
@@ -125,7 +140,7 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
         });
         
         // TODO : Use string resource
-        minusButton = (Button) view.findViewById(R.id.minus_button);
+        minusButton = (Button) convertView.findViewById(R.id.minus_button);
         minusButton.setTag(position);
         minusButton.setOnClickListener(new View.OnClickListener()
         {
@@ -134,12 +149,14 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
             {
                 int position = (Integer) v.getTag();
                 Requisition_Detail requestItem = items.get(position);
+    
+                EditText currentEditText = (EditText) ((View) v.getParent()).findViewById(R.id.editText_quantity);
                 
                 if (RequisitionForm.updateRequestQty(
                         requestItem.get(Key.REQUISITION_DETAIL_2_ITEM_CODE), -1))
                 {
                     int newQty = Integer.valueOf(editTextQty.getText().toString()) - 1;
-                    editTextQty.setText(String.valueOf(newQty));
+                    currentEditText.setText(String.valueOf(newQty));
                     
                     Toast.makeText(getContext(), "Quantity -1", Toast.LENGTH_SHORT).show();
                 }
@@ -153,7 +170,7 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
         });
         
         
-        return view;
+        return convertView;
     }
     
     private Integer TryParse(String s)
@@ -167,6 +184,12 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
         {
             return 0;
         }
+    }
+    
+    protected class Tags
+    {
+        String name;
+        Integer pos;
     }
     
 }

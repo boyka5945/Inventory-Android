@@ -18,6 +18,7 @@ public class RequisitionForm
         return _requisitionForm;
     }
     
+    
     public static Boolean addRequestItem(Requisition_Detail newItem) throws Exception
     {
         Boolean contain = false;
@@ -131,8 +132,6 @@ public class RequisitionForm
             {
                 if(item.get(Key.REQUISITION_DETAIL_2_ITEM_CODE).equals(itemCode))
                 {
-                    int currentQty = Integer.valueOf(item.get(Key.REQUISITION_DETAIL_6_REQUEST_QTY));
-                    // TODO:
                     if(newQty <= 0)
                     {
                         return false;

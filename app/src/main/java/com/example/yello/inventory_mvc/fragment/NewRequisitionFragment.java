@@ -92,7 +92,7 @@ public class NewRequisitionFragment extends Fragment implements View.OnClickList
                 Toast.makeText(getActivity(), "Error while adding request item", Toast.LENGTH_LONG).show();
             }
     
-            Toast.makeText(getActivity(), quantity + "x " + textViewItemCode.getText() + " was added into form.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), quantity + " x " + textViewItemCode.getText() + " was added into form.", Toast.LENGTH_SHORT).show();
         }
     }
     
