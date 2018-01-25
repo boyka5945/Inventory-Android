@@ -47,6 +47,13 @@
         <activity android:name=".activity.NewRequisitionFormActivity" />
         <activity android:name=".activity.DisbursementMenuActivity" />
         <activity android:name=".activity.RetrievalListActivity"></activity>
+
+        <activity android:name=".activity.ViewRequisitionRecordsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.DetailRequisitionActivity"></activity>
     </application>
 
 </manifest>
