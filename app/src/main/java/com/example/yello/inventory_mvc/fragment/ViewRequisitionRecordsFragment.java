@@ -16,6 +16,7 @@ import android.widget.SimpleAdapter;
 
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.activity.DetailRequisitionActivity;
+import com.example.yello.inventory_mvc.model.Requisition_Detail;
 import com.example.yello.inventory_mvc.model.Requisition_Record;
 import com.example.yello.inventory_mvc.utility.Key;
 import com.example.yello.inventory_mvc.utility.UrlString;
@@ -84,48 +85,47 @@ public class ViewRequisitionRecordsFragment extends ListFragment
 
 
     @Override
-    public void onListItemClick(ListView l, View v, int position, long id)
-    {
-        Requisition_Record requisitionRecord = (Requisition_Record) l.getAdapter().getItem(position); // get selected stationery
-
-        displayDetail(requisitionRecord);
-    }
-
-    protected void displayDetail(Requisition_Record requisitionRecord)
-    {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(Key.BUNDLE_REQUISITION, requisitionRecord); // put selected stationery into bundle
-
-        if(this.getActivity().findViewById(R.id.frameLayoutRequisitionRecordInfo) != null)
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        Requisition_Record record = (Requisition_Record) l.getAdapter().getItem(position); // get selected requisition
+        if(getActivity().findViewById(R.id.frameLayoutRequisitionRecordInfo) == null)
         {
-            // in landscape mode => put fragment in frame layout
-            final String TAG = "DETAIL_REQUISITION_FRAGMENT";
-
-            Fragment fragment = new DetailRequisitionFragment(); // initialize fragment
-            fragment.setArguments(bundle); // put bundle inside fragment
-
-            FragmentManager manager = this.getFragmentManager(); // get fragment manager
-            FragmentTransaction transaction = manager.beginTransaction(); // get transaction
-
-            if(manager.findFragmentByTag(TAG) == null) // first time
-            {
-                transaction.add(R.id.frameLayoutRequisitionRecordInfo, fragment, TAG); // new
-            }
-            else // not first time
-            {
-                transaction.replace(R.id.frameLayoutRequisitionRecordInfo, fragment, TAG); // replace old fragmet
-            }
-
-            transaction.commit(); // commit transaction
+            //single-pane
+            Intent intent = new Intent (getActivity(),DetailRequisitionActivity.class);
+            intent.putExtra(Key.BUNDLE_REQUISITION, record.get(Key.REQUISITION_RECORD_1_REQUISITION_NO));
+            startActivity(intent);
         }
         else
         {
-            // in portrait mode => start another activity
-            Intent intent = new Intent(this.getActivity(), DetailRequisitionActivity.class);
-            intent.putExtras(bundle);
-
-            this.startActivity(intent);
+            //multi-pane
+            displayDetails(record.get(Key.REQUISITION_RECORD_1_REQUISITION_NO));
         }
+    }
+
+
+
+    protected void displayDetails(String reqNo)
+    {
+        final String TAG = "DETAIL_REQUISITION_FRAGMENT";
+        FragmentManager manager = getFragmentManager(); // get fragment manager
+        FragmentTransaction transaction = manager.beginTransaction(); // get transaction
+
+        Fragment fragment = new DetailRequisitionFragment(); // initialize fragment
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(Key.BUNDLE_REQUISITION, reqNo); // put selected requisition into bundle
+        fragment.setArguments(bundle); // put bundle inside fragment
+
+        if(manager.findFragmentByTag(TAG) == null) // first time
+        {
+            transaction.add(R.id.frameLayoutRequisitionRecordInfo, fragment, TAG); // new
+        }
+        else // not first time
+        {
+            transaction.replace(R.id.frameLayoutRequisitionRecordInfo, fragment, TAG); // replace old fragmet
+        }
+
+        transaction.commit(); // commit transaction
+
+
 
     }
 }
