@@ -6,8 +6,8 @@ package com.example.yello.inventory_mvc.utility;
 
 public final class UrlString
 {
-    public static final String ip = "192.168.0.176";
-    public static final String server = "/AD_inventory_WCF";
+    public static final String ip = "172.17.253.95";
+    public static final String server = "/AD_Inventory_WCF";
     public static final String host = "http://" + ip + server + "/Service.svc";
     
     
@@ -27,7 +27,7 @@ public final class UrlString
     public static final String getStationeryByCriteria = host + "/GetStationeries/";
     
     // UriTemplate = "/GetStationeries/{categoryName}"
-    public static final String getStationeryByCategory = host + "/GetStationeryByCategory/";
+    public static final String getStationeryByCategory = host + "/GetStationeries/";
     
     // UriTemplate = "/GetAllCategories"
     public static final String getAllCategories = host + "/GetAllCategories";
@@ -37,6 +37,27 @@ public final class UrlString
 
     //UriTemplate = "GetRequisitionByDept/{deptCode}"
     public static final String getRequistionRecordByDept=host+"/GetRequisitionRecordByDept/";
+
+
+
+    // UriTemplate = "/ValidateUser/{userid}/{password}"
+    //public static final String validateUser = host + "/ValidateUser/";
+
+    // UriTemplate = "/GetUser/{userid}/{password}"
+    public static final String validateUser = host + "/GetUser/";
+
+    // UriTemplate = "/AddNewRequest/{requesterID}
+    public static final String addNewRequest = host + "/AddNewRequest/";
+
+
+    // UriTemplate = "/GetAllRequisitionRecords"
+    public static final String getAllRequisitionRecords = host + "/GetAllRequisitionRecords";
+
+    // UriTemplate = "/GetRetrievalList"
+    public static final String GetRetrievalList = host + "/GetRetrievalList";
+
+    // UriTemplate = "/UpdateRetrieval"
+    public static final String UpdateRetrieval = host + "/UpdateRetrieval";
 
 
 }

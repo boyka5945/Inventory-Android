@@ -13,12 +13,11 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="no_stationery_found">There is not result found</string>
+    <string name="no_stationery_found">There is not result found.</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search_stationery">search...</string>
-    <string name="filter_stationery">Filter stationery</string>
+    <string name="filter_stationery">Filter by category</string>
 
     <string name="category_1_clip">Clip</string>
     <string name="category_2_envelope">Envelope</string>
@@ -38,6 +37,35 @@
     <string name="category_16_tape">Tape</string>
     <string name="category_17_tparency">Tparency</string>
     <string name="category_18_tray">Tray</string>
+    <string name="category">Category</string>
+    <string name="description">Description</string>
+    <string name="UOM">UOM</string>
+    <string name="add_request">Add Request</string>
+    <string name="add">Add To Form</string>
+    <string name="menu">Menu</string>
+    <string name="show_requisition_form">Show Requisition Form</string>
+    <string name="submit_requisition">Submit Requisition</string>
+    <string name="filter_by_category">Category</string>
+    <string name="input_request_qty">input request quantity</string>
+    <string name="clear_all">Clear All</string>
+    <string name="stationery_list">Stationery list</string>
 
+
+    <string name="viewRequisition">View Requisition</string>
+    <string name="stationeryRetrieval">Stationery Retrieval</string>
+    <string name="disbursementList">Disbursement List</string>
+    <string name="logout">Log Out</string>
+    <string name="back_to_catalogue">Back To Catalogue</string>
+    <string name="go_to_form">Go To Requisition Form</string>
+    <string name="remove">Remove Item</string>
+    <string name="no_request_item">Your requistion form is empty.</string>
+    <string name="success_submit_requisition">Requsition form was submitted.</string>
+    <string name="success_clear_requisition">Requsition form was cleared.</string>
+    <string name="error_clear_requisition">Error occured when clearing the form.</string>
+    <string name="must_be_greater_than_1">Quantity must be greater than or equal to 1.</string>
+    <string name="error_pls_try_again">Opps...Some error occur. Pleas try again.</string>
+    <string name="error_invalid_request_quantity">Please enter the request quantity.</string>
+    <string name="error_adding_request_item">Error while adding request item</string>
+    <string name="success_add_item_message">%1$d x %2$s was added into requisition form.</string>
 
 </resources>

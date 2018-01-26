@@ -9,9 +9,12 @@ public final class Key
     // <--- FOR PASSING VALUE BETWEEN BUNDLE --->
     public  static  final String BUNDLE_URL = "url";
     public  static  final String BUNDLE_STATIONERY = "stationery";
+    public  static  final String BUNDLE_REQUISITION = "requisitionRecord";
+    public  static  final String BUNDLE_CATEGORY = "category";
+    public  static  final String BUNDLE_SHOW_BUTTON = "button";
     public  static  final String BUNDLE_REQUESITION_RECORD="requisition_record";
     public  static  final String BUNDLE_REQUISITION_DETAIL="requisition_detail";
-    
+
     
     // <--- FOR MODEL : TO BE THE SAME AS THE PROPERTIES NAME IN WCF (JSON) --->
     
@@ -51,17 +54,35 @@ public final class Key
     
     
     // FOR CATEGORY
-    public static final String CATEGORY_1_ID = "ItemCode";
-    public static final String CATEGORY_2_NAME = "Description";
+    public static final String CATEGORY_1_ID = "CategoryID";
+    public static final String CATEGORY_2_NAME = "CategoryName";
 
     //FOR USER
-
     public static final String USER_1_USERID = "UserID";
     public static final String USER_2_PASSWORD = "Password";
+    /*
     public static final String USER_3_NAME = "Name";
     public static final String USER_4_CONTACT_NUMBER = "ContactNo";
     public static final String USER_5_ADDRESS = "Address";
+    public static final String USER_8_USER_EMAIL = "User_Email";
+    */
     public static final String USER_6_ROLE = "Role";
     public static final String USER_7_DEPARTMENT_CODE = "DepartmentCode";
-    public static final String USER_8_USER_EMAIL = "User_Email";
+
+    //FOR DEPARTMENT
+
+    public static final String DEPARTMENT_1_CODE = "DepartmentCode";
+    public static final String DEPARTMENT_2_NAME = "DepartmentName";
+    public static final String DEPARTMENT_3_CONTACT_NAME = "ContactName";
+/*    public static final String DEPARTMENT_4_PHONE_NO = "PhoneNo";
+    public static final String DEPARTMENT_5_FAX_NO = "FaxNo";*/
+    public static final String DEPARTMENT_6_COLLECTION_POINT_ID = "CollectionPointID";
+
+    //FOR RETRIEVAL_ITEM
+
+    public static final String RETRIEVAL_ITEM_1_DESCRIPTION ="Description";
+    public static final String RETRIEVAL_ITEM_2_QTY ="Qty";
+    public static final String RETRIEVAL_ITEM_3_LOCATION ="Location";
+
+
 }

@@ -3,6 +3,7 @@ package com.example.yello.inventory_mvc.activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -12,34 +13,83 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.SimpleAdapter;
+import android.widget.Spinner;
 
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.fragment.StationeryCatalogueFragment;
+import com.example.yello.inventory_mvc.model.Category;
+import com.example.yello.inventory_mvc.model.Stationery;
 import com.example.yello.inventory_mvc.utility.Key;
 import com.example.yello.inventory_mvc.utility.UrlString;
 
-public class BrowseCatalogueActivity extends AppCompatActivity
+import java.util.List;
+
+public class BrowseCatalogueActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener
 {
+    private Spinner categorySpinner;
     
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse_catalogue);
-    
+        
+        // set up spinner
+        categorySpinner = (Spinner) findViewById(R.id.spinner_category);
+        new AsyncTask<String, Void, List<Category>>()
+        {
+            @Override
+            protected List<Category> doInBackground(String... strings)
+            {
+                return Category.ListCategories(strings[0]);
+            }
+            
+            @Override
+            protected void onPostExecute(List<Category> result)
+            {
+                SimpleAdapter adapter = new SimpleAdapter(BrowseCatalogueActivity.this,
+                                                          result,
+                                                          android.R.layout.simple_list_item_1,
+                                                          new String[]{Key.CATEGORY_2_NAME},
+                                                          new int[]{android.R.id.text1});
+                adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+                categorySpinner.setAdapter(adapter);
+            }
+        }.execute(UrlString.getAllCategories);
+        categorySpinner.setOnItemSelectedListener(this);
+        
+        // Set up toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         this.setSupportActionBar(myToolbar);
         
+        // Handle search query
         Intent intent = this.getIntent();
+        handleIntent(intent);
+    }
+    
+    @Override
+    protected void onNewIntent(Intent intent)
+    {
+        // Handle search query in the same activity
+        handleIntent(intent);
+    }
+    
+    private void handleIntent(Intent intent)
+    {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) // if action_search come back this activity
         {
-            String query = intent.getStringExtra(SearchManager.QUERY); // get search query
-            doSearch("All", query); // TODO: FIX to suit all category
+            // retrieve selected category
+            Category c = (Category) categorySpinner.getSelectedItem();
+            String selectedCategory = c.get(Key.CATEGORY_2_NAME);
+ 
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            doSearch(selectedCategory, query); // perform search
         }
-        else
-        {
-            startListFragment(UrlString.getAllStationeries);
-        }
+        
     }
     
     @Override
@@ -59,21 +109,47 @@ public class BrowseCatalogueActivity extends AppCompatActivity
         return true;
     }
     
+    @Override
+    public boolean onSearchRequested()
+    {
+        Bundle selectedCategory = new Bundle();
+        Category c = (Category) categorySpinner.getSelectedItem();
+        String selected = c.get(Key.CATEGORY_2_NAME);
+        
+        selectedCategory.putString(Key.BUNDLE_CATEGORY, selected);
+        startSearch(null, false, selectedCategory, false);
+        return true;
+    }
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch (item.getItemId())
         {
-            case (R.id.category_1_clip):
-                startListFragment(UrlString.getStationeryByCriteria + R.string.category_1_clip);
+            case (R.id.show_new_requisition_form):
+                startActivity(new Intent(this, NewRequisitionFormActivity.class));
                 return true;
-  
+            
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
     
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+    {
+        Category c = (Category) parent.getItemAtPosition(position);
+        String selectedCategory = c.get(Key.CATEGORY_2_NAME);
+        
+        String url = UrlString.getStationeryByCategory + selectedCategory;
+        startListFragment(url);
+    }
+    
+    @Override
+    public void onNothingSelected(AdapterView<?> parent)
+    {
+        startListFragment(UrlString.getAllStationeries);
+    }
     
     protected void doSearch(String category, String searchString)
     {

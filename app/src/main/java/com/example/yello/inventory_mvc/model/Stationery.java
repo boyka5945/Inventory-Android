@@ -29,21 +29,21 @@ public class Stationery extends HashMap<String, String>
     public static List<Stationery> ListStationery(String url) // based on url retrieve stationery list (can be search query)
     {
         ArrayList<Stationery> stationeries = new ArrayList<>();
-        
+    
         try
         {
             JSONArray array = JSONParser.getJSONArrayFromUrl(url);
-            
+        
             for (int i = 0; i < array.length(); i++)
             {
                 JSONObject obj = array.getJSONObject(i);
-                
+    
                 stationeries.add(new Stationery(obj.getString(Key.STATIONERY_1_ITEM_CODE),
                                                 obj.getString(Key.STATIONERY_2_DESCRIPTION),
                                                 obj.getString(Key.STATIONERY_3_UOM),
                                                 obj.getString(Key.STATIONERY_4_CATEGORY),
                                                 obj.getString(Key.STATIONERY_5_LOCATION)
-                                                ));
+                ));
             }
         }
         catch (Exception e)

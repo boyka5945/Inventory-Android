@@ -7,15 +7,19 @@ import com.example.yello.inventory_mvc.utility.UrlString;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 /**
  * Created by CK Tan on 1/23/2018.
  */
 
 public class Requisition_Detail extends HashMap<String, String>
 {
+    public Requisition_Detail() {} // default constructor
+
     public Requisition_Detail(String requisitionNo, String itemCode, String description,
                               String uom, String remarks, String requestQty,
                               String fulfilledQty, String clerkID, String retrievedDate,
@@ -69,5 +73,49 @@ public class Requisition_Detail extends HashMap<String, String>
         return reqDetails;
     }
 
-    
+
+
+    public Requisition_Detail(String itemCode, String description,
+                              String uom, String requestQty)
+    {
+        this.put(Key.REQUISITION_DETAIL_2_ITEM_CODE, itemCode);
+        this.put(Key.REQUISITION_DETAIL_3_ITEM_DESCRIPTION, description);
+        this.put(Key.REQUISITION_DETAIL_4_ITEM_UOM, uom);
+        this.put(Key.REQUISITION_DETAIL_6_REQUEST_QTY, requestQty);
+    }
+
+    // TODO: remove hardcoded requesterID
+    public static void addNewRequisition(List<Requisition_Detail> detail)
+    {
+        String requesterID = "S1014";
+
+        JSONArray jarray = new JSONArray();
+        for (Requisition_Detail d: detail)
+        {
+            JSONObject jdetail = new JSONObject();
+            try
+            {
+                jdetail.put(Key.REQUISITION_DETAIL_2_ITEM_CODE, d.get(Key.REQUISITION_DETAIL_2_ITEM_CODE));
+                jdetail.put(Key.REQUISITION_DETAIL_6_REQUEST_QTY, Integer.parseInt(d.get(Key.REQUISITION_DETAIL_6_REQUEST_QTY)));
+
+                jarray.put(jdetail);
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+
+        try
+        {
+            String result = JSONParser.postStream(UrlString.addNewRequest + requesterID, jarray.toString());
+            RequisitionForm.clearAllRequestItems();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+
 }
