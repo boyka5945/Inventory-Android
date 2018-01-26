@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.yello.inventory_mvc.R;
@@ -36,6 +37,7 @@ public class NewRequisitionFormActivity extends Activity
     private Button submitButton;
     private Button clearButton;
     private ListView listView;
+    private TextView empty;
     private NewRequisitionFormAdapter adapter;
     
     @Override
@@ -43,6 +45,12 @@ public class NewRequisitionFormActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_requisition_form);
+        
+        empty = (TextView) this.findViewById(R.id.empty);
+        if(RequisitionForm.getLength() != 0)
+        {
+            empty.setVisibility(View.INVISIBLE);
+        }
         
         listView = (ListView) this.findViewById(R.id.listView);
         adapter = new NewRequisitionFormAdapter(this, R.layout.new_requistion_row,
