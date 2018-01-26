@@ -35,7 +35,6 @@ public class NewRequisitionFormActivity extends Activity
     private ListView listView;
     private NewRequisitionFormAdapter adapter;
     
-    // TODO: Create land layout
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -46,8 +45,7 @@ public class NewRequisitionFormActivity extends Activity
         adapter = new NewRequisitionFormAdapter(this, R.layout.new_requistion_row,
                                                 RequisitionForm.getInstance());
         listView.setAdapter(adapter);
-//        listView.setLongClickable(true);
-//        listView.setOnItemLongClickListener(this);
+        listView.setEmptyView(findViewById(android.R.id.empty));
         registerForContextMenu(listView);
         
         submitButton = (Button) this.findViewById(R.id.submit_btn);
@@ -84,14 +82,14 @@ public class NewRequisitionFormActivity extends Activity
                         if (result)
                         {
                             Toast.makeText(NewRequisitionFormActivity.this,
-                                           "Requsition form was submitted",
+                                           R.string.success_submit_requisition,
                                            Toast.LENGTH_LONG).show();
                             finish();
                         }
                         else
                         {
                             Toast.makeText(NewRequisitionFormActivity.this,
-                                           "Your requistion form is empty.",
+                                           R.string.no_request_item,
                                            Toast.LENGTH_LONG).show();
                         }
                         
@@ -128,13 +126,13 @@ public class NewRequisitionFormActivity extends Activity
                         if (result)
                         {
                             Toast.makeText(NewRequisitionFormActivity.this,
-                                           "Requsition form was cleared", Toast.LENGTH_LONG).show();
+                                           R.string.success_clear_requisition, Toast.LENGTH_LONG).show();
                             finish();
                         }
                         else
                         {
                             Toast.makeText(NewRequisitionFormActivity.this,
-                                           "Error occured when clearing the form",
+                                           R.string.error_clear_requisition,
                                            Toast.LENGTH_LONG).show();
                         }
                     }
@@ -179,7 +177,7 @@ public class NewRequisitionFormActivity extends Activity
                 }
                 catch (Exception e)
                 {
-                    Toast.makeText(this, "Opps..some error occurs...", Toast.LENGTH_LONG);
+                    Toast.makeText(this, R.string.error_pls_try_again, Toast.LENGTH_LONG);
                 }
                 
                 return true;

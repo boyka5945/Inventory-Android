@@ -2,6 +2,7 @@ package com.example.yello.inventory_mvc.fragment;
 
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -47,12 +48,12 @@ public class StationeryCatalogueFragment extends ListFragment
         String url = null;
         
         Bundle bundle = this.getArguments(); // Get bundle from starting activity
-        if(bundle != null)
+        if (bundle != null)
         {
             url = bundle.getString(Key.BUNDLE_URL);
         }
         
-        if(url == null) // If no search query from activity, get all stationery
+        if (url == null) // If no search query from activity, get all stationery
         {
             url = UrlString.getAllStationeries;
         }
@@ -61,7 +62,6 @@ public class StationeryCatalogueFragment extends ListFragment
         
         new AsyncTask<String, Void, List<Stationery>>()
         {
-            
             @Override
             protected List<Stationery> doInBackground(String... strings)
             {
@@ -74,8 +74,8 @@ public class StationeryCatalogueFragment extends ListFragment
                 SimpleAdapter adapter = new SimpleAdapter(containerActivity.getApplicationContext(),
                                                           result,
                                                           android.R.layout.simple_list_item_1,
-                                                          new String[] {Key.STATIONERY_2_DESCRIPTION},
-                                                          new int[] {android.R.id.text1});
+                                                          new String[]{Key.STATIONERY_2_DESCRIPTION},
+                                                          new int[]{android.R.id.text1});
                 
                 StationeryCatalogueFragment.this.setListAdapter(adapter);
             }
@@ -88,7 +88,8 @@ public class StationeryCatalogueFragment extends ListFragment
     @Override
     public void onListItemClick(ListView l, View v, int position, long id)
     {
-        Stationery stationery = (Stationery) l.getAdapter().getItem(position); // get selected stationery
+        Stationery stationery = (Stationery) l.getAdapter().getItem(
+                position); // get selected stationery
         
         displayDetail(stationery);
     }
@@ -96,26 +97,30 @@ public class StationeryCatalogueFragment extends ListFragment
     protected void displayDetail(Stationery stationery)
     {
         Bundle bundle = new Bundle();
-        bundle.putSerializable(Key.BUNDLE_STATIONERY, stationery); // put selected stationery into bundle
+        bundle.putSerializable(Key.BUNDLE_STATIONERY,
+                               stationery); // put selected stationery into bundle
         
-        if(this.getActivity().findViewById(R.id.frameLayoutStationeryInfo) != null)
+        if (this.getActivity().findViewById(R.id.frameLayoutStationeryInfo) != null)
         {
             // in landscape mode => put fragment in frame layout
             final String TAG = "NEW_REQUISITION_FRAGMENT";
             
             Fragment fragment = new NewRequisitionFragment(); // initialize fragment
+            bundle.putString(Key.BUNDLE_SHOW_BUTTON,
+                             "hide"); // to indicate whether to hide back to catalogue button
             fragment.setArguments(bundle); // put bundle inside fragment
             
             FragmentManager manager = this.getFragmentManager(); // get fragment manager
             FragmentTransaction transaction = manager.beginTransaction(); // get transaction
             
-            if(manager.findFragmentByTag(TAG) == null) // first time
+            if (manager.findFragmentByTag(TAG) == null) // first time
             {
                 transaction.add(R.id.frameLayoutStationeryInfo, fragment, TAG); // new
             }
             else // not first time
             {
-                transaction.replace(R.id.frameLayoutStationeryInfo, fragment, TAG); // replace old fragmet
+                transaction.replace(R.id.frameLayoutStationeryInfo, fragment,
+                                    TAG); // replace old fragmet
             }
             
             transaction.commit(); // commit transaction
