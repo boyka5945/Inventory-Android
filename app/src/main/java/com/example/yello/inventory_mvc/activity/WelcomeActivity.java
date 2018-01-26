@@ -35,7 +35,7 @@ public class WelcomeActivity extends AppCompatActivity {
         Intent i;
         switch (item.getItemId()) {
             case R.id.viewRequisition:
-                startActivity(new Intent(this, NewRequisitionActivity.class));
+                startActivity(new Intent(this, BrowseCatalogueActivity.class));
                 return true;
             case R.id.stationeryRetrieval:
                 startActivity(new Intent(this, RetrievalListActivity.class));
@@ -44,7 +44,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(new Intent(this, DisbursementMenuActivity.class));
                 return true;
             case R.id.logout:
-                startActivity(new Intent(this, LoginActivity                            .class));
+                startActivity(new Intent(this, LoginActivity.class));
                 return true;
 
             default:

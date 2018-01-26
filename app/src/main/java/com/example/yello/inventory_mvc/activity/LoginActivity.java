@@ -337,6 +337,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 // TODO: AFTER LOGIN DO SOMETHING
                 // finish();
                 Intent intent = new Intent(getApplicationContext(), BrowseCatalogueActivity.class);
+
+                //ps
+                intent.putExtra("email", mEmailView.getText().toString());
+                intent.putExtra("password", mPasswordView.getText().toString());
                 LoginActivity.this.startActivity(intent);
                 
             } else {

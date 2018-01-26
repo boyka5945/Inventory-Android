@@ -46,4 +46,7 @@ public final class UrlString
     public static final String getAllRequisitionRecords = host + "/GetAllRequisitionRecords";
 
 
+//ps
+   // public static final String userChangePassword = host + "/ChangePassword/";
+
 }

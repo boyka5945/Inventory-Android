@@ -27,8 +27,10 @@ public class Retrieval_Item extends HashMap<String,String> {
 
     public static List<Retrieval_Item> ListRetrieval()
     {
-        String url = UrlString.getRetrievalItems;
+        //String url = UrlString.getRetrievalItems;
+        String url = null;
         ArrayList<Retrieval_Item> retrieval = new ArrayList<>();
+
 
         try
         {
