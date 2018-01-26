@@ -1,10 +1,13 @@
 package com.example.yello.inventory_mvc.activity;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.constraint.ConstraintLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -35,7 +38,6 @@ public class NewRequisitionFormActivity extends Activity
     private ListView listView;
     private NewRequisitionFormAdapter adapter;
     
-    // TODO: Create land layout
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -46,8 +48,7 @@ public class NewRequisitionFormActivity extends Activity
         adapter = new NewRequisitionFormAdapter(this, R.layout.new_requistion_row,
                                                 RequisitionForm.getInstance());
         listView.setAdapter(adapter);
-//        listView.setLongClickable(true);
-//        listView.setOnItemLongClickListener(this);
+        listView.setEmptyView(findViewById(android.R.id.empty));
         registerForContextMenu(listView);
         
         submitButton = (Button) this.findViewById(R.id.submit_btn);
@@ -56,47 +57,75 @@ public class NewRequisitionFormActivity extends Activity
             @Override
             public void onClick(View v)
             {
-                new AsyncTask<String, Void, Boolean>()
-                {
-                    @Override
-                    protected Boolean doInBackground(String... params)
-                    {
-                        if (RequisitionForm.getLength() == 0)
-                        {
-                            return false;
-                        }
-                        
-                        try
-                        {
-                            Requisition_Detail.addNewRequisition(RequisitionForm.getInstance());
-                            return true;
-                        }
-                        catch (Exception e)
-                        {
-                            return false;
-                        }
-                        
-                    }
-                    
-                    @Override
-                    protected void onPostExecute(Boolean result)
-                    {
-                        if (result)
-                        {
-                            Toast.makeText(NewRequisitionFormActivity.this,
-                                           "Requsition form was submitted",
-                                           Toast.LENGTH_LONG).show();
-                            finish();
-                        }
-                        else
-                        {
-                            Toast.makeText(NewRequisitionFormActivity.this,
-                                           "Your requistion form is empty.",
-                                           Toast.LENGTH_LONG).show();
-                        }
-                        
-                    }
-                }.execute();
+                
+                
+                new AlertDialog.Builder(NewRequisitionFormActivity.this)
+                        .setTitle("Submit Requisition")
+                        .setMessage("Confirm submission?")
+                        .setPositiveButton(android.R.string.yes,
+                                           new DialogInterface.OnClickListener()
+                                           {
+                                               public void onClick(final DialogInterface dialog, int which)
+                                               {
+                                
+                                                   new AsyncTask<String, Void, Boolean>()
+                                                   {
+                                                       @Override
+                                                       protected Boolean doInBackground(String... params)
+                                                       {
+                                                           if (RequisitionForm.getLength() == 0)
+                                                           {
+                                                               Toast.makeText(
+                                                                       NewRequisitionFormActivity.this,
+                                                                       R.string.no_request_item,
+                                                                       Toast.LENGTH_LONG).show();
+                                                               return false;
+                                                           }
+                                        
+                                        
+                                                           try
+                                                           {
+                                                               Requisition_Detail.addNewRequisition(
+                                                                       RequisitionForm.getInstance());
+                                                               return true;
+                                                           }
+                                                           catch (Exception e)
+                                                           {
+                                                               Toast.makeText(
+                                                                       NewRequisitionFormActivity.this,
+                                                                       R.string.error_subtmit_new_requisition,
+                                                                       Toast.LENGTH_LONG).show();
+                                                               return false;
+                                                           }
+                                                       }
+                                    
+                                                       @Override
+                                                       protected void onPostExecute(Boolean result)
+                                                       {
+                                                           if (result)
+                                                           {
+                                                               Toast.makeText(
+                                                                       NewRequisitionFormActivity.this,
+                                                                       R.string.success_submit_requisition,
+                                                                       Toast.LENGTH_LONG).show();
+                                                               // TODO: Jump to requisitio list
+                                                               finish();
+                                                           }
+                                                       }
+                                                   }.execute();
+                                               }
+                                           })
+                        .setNegativeButton(android.R.string.no,
+                                           new DialogInterface.OnClickListener()
+                                           {
+                                               public void onClick(DialogInterface dialog, int which)
+                                               {
+                                                   dialog.dismiss();
+                                               }
+                                           })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+                
             }
         });
         
@@ -106,39 +135,77 @@ public class NewRequisitionFormActivity extends Activity
             @Override
             public void onClick(View v)
             {
-                new AsyncTask<String, Void, Boolean>()
-                {
-                    @Override
-                    protected Boolean doInBackground(String... params)
-                    {
-                        try
-                        {
-                            RequisitionForm.clearAllRequestItems();
-                            return true;
-                        }
-                        catch (Exception e)
-                        {
-                            return false;
-                        }
-                    }
-                    
-                    @Override
-                    protected void onPostExecute(Boolean result)
-                    {
-                        if (result)
-                        {
-                            Toast.makeText(NewRequisitionFormActivity.this,
-                                           "Requsition form was cleared", Toast.LENGTH_LONG).show();
-                            finish();
-                        }
-                        else
-                        {
-                            Toast.makeText(NewRequisitionFormActivity.this,
-                                           "Error occured when clearing the form",
-                                           Toast.LENGTH_LONG).show();
-                        }
-                    }
-                }.execute();
+                
+                
+                new AlertDialog.Builder(NewRequisitionFormActivity.this)
+                        .setTitle("Clear form")
+                        .setMessage("Are you sure you want to clear all items?")
+                        .setPositiveButton(android.R.string.yes,
+                                           new DialogInterface.OnClickListener()
+                                           {
+                                               public void onClick(final DialogInterface dialog, int which)
+                                               {
+                                
+                                                   new AsyncTask<String, Void, Boolean>()
+                                                   {
+                                                       @Override
+                                                       protected Boolean doInBackground(String... params)
+                                                       {
+                                                           if (RequisitionForm.getLength() == 0)
+                                                           {
+                                                               Toast.makeText(
+                                                                       NewRequisitionFormActivity.this,
+                                                                       R.string.no_request_item,
+                                                                       Toast.LENGTH_LONG).show();
+                                                               return false;
+                                                           }
+                                        
+                                                           try
+                                                           {
+                                                               RequisitionForm.clearAllRequestItems();
+                                                               return true;
+                                                           }
+                                                           catch (Exception e)
+                                                           {
+                                                               Toast.makeText(
+                                                                       NewRequisitionFormActivity.this,
+                                                                       R.string.error_clear_requisition,
+                                                                       Toast.LENGTH_LONG).show();
+                                            
+                                                               return false;
+                                                           }
+                                                       }
+                                    
+                                                       @Override
+                                                       protected void onPostExecute(Boolean result)
+                                                       {
+                                                           if (result)
+                                                           {
+                                                               Toast.makeText(
+                                                                       NewRequisitionFormActivity.this,
+                                                                       R.string.success_clear_requisition,
+                                                                       Toast.LENGTH_LONG).show();
+                                            
+                                                               finish();
+                                                           }
+                                        
+                                        
+                                                       }
+                                                   }.execute();
+                                               }
+                                           })
+                        .setNegativeButton(android.R.string.no,
+                                           new DialogInterface.OnClickListener()
+                                           {
+                                               public void onClick(DialogInterface dialog, int which)
+                                               {
+                                                   dialog.dismiss();
+                                               }
+                                           })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+                
+                
             }
         });
         
@@ -179,7 +246,7 @@ public class NewRequisitionFormActivity extends Activity
                 }
                 catch (Exception e)
                 {
-                    Toast.makeText(this, "Opps..some error occurs...", Toast.LENGTH_LONG);
+                    Toast.makeText(this, R.string.error_pls_try_again, Toast.LENGTH_LONG);
                 }
                 
                 return true;
@@ -187,37 +254,6 @@ public class NewRequisitionFormActivity extends Activity
                 return super.onContextItemSelected(item);
         }
     }
-
-//    @Override
-//    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id)
-//    {
-//        Toast.makeText(this.getApplicationContext(),position,Toast.LENGTH_LONG).show();
-//        return true;
-//    }
-
-
-//    @Override
-//    public void onListItemClick(ListView l, View v, int position, long id)
-//    {
-//        final Requisition_Detail requestItem = (Requisition_Detail) getListAdapter().getItem(
-//                position);
-//
-//        new AsyncTask<String, Void, Void>()
-//        {
-//            @Override
-//            protected Void doInBackground(String... params)
-//            {
-//                Requisition_Detail.addNewRequisition(RequisitionForm.getInstance());
-//                return null;
-//            }
-//
-//            @Override
-//            protected void onPostExecute(Void result)
-//            {
-//                finish();
-//            }
-//        }.execute();
-//
-//    }
+    
     
 }

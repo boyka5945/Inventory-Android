@@ -85,7 +85,7 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
                     {
                         currentEditText.setText(
                                 requestItem.get(Key.REQUISITION_DETAIL_6_REQUEST_QTY));
-                        Toast.makeText(getContext(), "Quantity must be greater than or equal to 1.",
+                        Toast.makeText(getContext(), R.string.must_be_greater_than_1,
                                        Toast.LENGTH_SHORT).show();
                         return false;
                     }
@@ -101,7 +101,7 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
                     {
                         currentEditText.setText(
                                 requestItem.get(Key.REQUISITION_DETAIL_6_REQUEST_QTY));
-                        Toast.makeText(getContext(), "Opps...Some error occur. Pleas try again.",
+                        Toast.makeText(getContext(), R.string.error_pls_try_again,
                                        Toast.LENGTH_SHORT).show();
                         return false;
                     }
@@ -110,7 +110,6 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
             }
         });
         
-        // TODO : Use string resource
         plusButton = (Button) convertView.findViewById(R.id.plus_button);
         plusButton.setTag(position);
         plusButton.setOnClickListener(new View.OnClickListener()
@@ -134,13 +133,13 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
                 }
                 else
                 {
-                    Toast.makeText(getContext(), "Opps...Some error occur. Pleas try again.",
+                    Toast.makeText(getContext(), R.string.error_pls_try_again,
                                    Toast.LENGTH_SHORT).show();
                 }
             }
         });
         
-        // TODO : Use string resource
+
         minusButton = (Button) convertView.findViewById(R.id.minus_button);
         minusButton.setTag(position);
         minusButton.setOnClickListener(new View.OnClickListener()
@@ -164,7 +163,7 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
                 else
                 {
                     Toast.makeText(getContext(),
-                                   "Request quantity must be greater than or equal to 1",
+                                   R.string.must_be_greater_than_1,
                                    Toast.LENGTH_SHORT).show();
                 }
             }
