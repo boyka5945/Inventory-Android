@@ -32,5 +32,39 @@ public class Requisition_Record extends HashMap<String, String>
         this.put(Key.REQUISITION_RECORD_9_STATUS, status);
         this.put(Key.REQUISITION_RECORD_10_REQUEST_DATE, requestDate);
     }
+
+    public static List<Requisition_Record> getRequistionRecordByDept(String deptCode)
+    {
+        String url = UrlString.getRequistionRecordByDept + deptCode;
+        ArrayList<Requisition_Record> reqRecord = new ArrayList<>();
+
+        try
+        {
+            JSONArray array = JSONParser.getJSONArrayFromUrl(url);
+
+            for (int i = 0; i < array.length(); i++)
+            {
+                JSONObject obj = array.getJSONObject(i);
+
+                reqRecord.add(new Requisition_Record(obj.getString(Key.REQUISITION_RECORD_1_REQUISITION_NO),
+                        obj.getString(Key.REQUISITION_RECORD_2_DEPT_CODE),
+                        obj.getString(Key.REQUISITION_RECORD_3_DEPT_NAME),
+                        obj.getString(Key.REQUISITION_RECORD_4_REQUESTER_ID),
+                        obj.getString(Key.REQUISITION_RECORD_5_REQUESTER_NAME),
+                        obj.getString(Key.REQUISITION_RECORD_6_APPROVER_ID),
+                        obj.getString(Key.REQUISITION_RECORD_7_APPROVER_NAME),
+                        obj.getString(Key.REQUISITION_RECORD_8_APPROVED_DATE),
+                        obj.getString(Key.REQUISITION_RECORD_9_STATUS),
+                        obj.getString(Key.REQUISITION_RECORD_10_REQUEST_DATE)
+                ));
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return reqRecord;
+    }
     
 }
