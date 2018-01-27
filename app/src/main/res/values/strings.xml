@@ -3,7 +3,7 @@
 
     <!-- Strings related to login -->
     <string name="prompt_email">UserID</string>
-    <string name="prompt_password">PassWord</string>
+    <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">This email address is invalid</string>
@@ -13,9 +13,8 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="no_stationery_found">There is not result found</string>
+    <string name="no_stationery_found">There is not result found.</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search_stationery">search...</string>
     <string name="filter_stationery">Filter by category</string>
@@ -56,6 +55,19 @@
     <string name="stationeryRetrieval">Stationery Retrieval</string>
     <string name="disbursementList">Disbursement List</string>
     <string name="logout">Log Out</string>
+    <string name="back_to_catalogue">Back To Catalogue</string>
+    <string name="go_to_form">Go To Requisition Form</string>
+    <string name="remove">Remove Item</string>
+    <string name="no_request_item">Your requistion form is empty.</string>
+    <string name="success_submit_requisition">Requsition form was submitted.</string>
+    <string name="success_clear_requisition">Requsition form was cleared.</string>
+    <string name="error_clear_requisition">Error occured when clearing the form.</string>
+    <string name="must_be_greater_than_1">Quantity must be greater than or equal to 1.</string>
+    <string name="error_pls_try_again">Opps...Some error occur. Pleas try again.</string>
+    <string name="error_invalid_request_quantity">Please enter the request quantity.</string>
+    <string name="error_adding_request_item">Error while adding request item</string>
+    <string name="error_subtmit_new_requisition">Error while submitting new requisition</string>
+    <string name="success_add_item_message">%1$d x %2$s was added into requisition form.</string>
 
 
     <string name="prompt_oldPassword">Old Password</string>

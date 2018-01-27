@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/retrievePendingCollection" android:title="@string/retrievePendingCollection"
+        android:orderInCategory="10"  />
+    <item android:id="@+id/changeCollectionPoint" android:title="@string/changeCollectionPoint"
+        android:orderInCategory="11" />
+
+    <item android:id="@+id/log_out1" android:title="@string/log_out1"
+        android:orderInCategory="12"  />
+
+</menu>
