@@ -53,4 +53,9 @@ public final class UrlString
 
     // UriTemplate = "/UpdateRetrieval"
     public static final String UpdateRetrieval = host + "/UpdateRetrieval";
+
+
+//ps
+   // public static final String userChangePassword = host + "/ChangePassword/";
+
 }

@@ -4,7 +4,7 @@
     <!-- Strings related to login -->
     <string name="prompt_email">UserID</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in">LogIn</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">This UserID is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
@@ -68,5 +68,27 @@
     <string name="error_adding_request_item">Error while adding request item</string>
     <string name="error_subtmit_new_requisition">Error while submitting new requisition</string>
     <string name="success_add_item_message">%1$d x %2$s was added into requisition form.</string>
+
+
+    <string name="prompt_oldPassword">Old Password</string>
+    <string name="prompt_newPassword">New Password</string>
+    <string name="prompt_confrimPassword">Confirm Password</string>
+    <string name="action_confirm">Confrim</string>
+
+    <string name="processRequest">Process Request</string>
+    <string name="delegateAuthority">Delegate Authority</string>
+    <string name="log_out">Log Out</string>
+
+
+    <string name="retrievePendingCollection">Retrieve Pending Collection</string>
+    <string name="changeCollectionPoint">Change Collection Point</string>
+    <string name="log_out1">Log Out</string>
+
+    <string name="submittedRequisition">Retrieve list of submitted </string>
+    <string name="modifySubmittedRequisition">Modify Submitted Requisition</string>
+    <string name="viewStatusSubmittedRequisition">View Status of submitted Requistion</string>
+    <string name="raiseStationeryRequistion">Raise Stationery Requistion</string>
+    <string name="log_out2">Log Out</string>
+
 
 </resources>

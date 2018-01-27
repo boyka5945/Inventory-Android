@@ -35,6 +35,7 @@ public class Retrieval_Item extends HashMap<String,String> {
         String url = UrlString.GetRetrievalList;
         ArrayList<Retrieval_Item> retrieval = new ArrayList<>();
 
+
         try
         {
             JSONArray array = JSONParser.getJSONArrayFromUrl(url);
