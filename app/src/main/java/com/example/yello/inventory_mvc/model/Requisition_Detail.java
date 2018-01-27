@@ -38,9 +38,9 @@ public class Requisition_Detail extends HashMap<String, String>
         this.put(Key.REQUISITION_DETAIL_11_NEXT_COLLECTION_DATE, nextCollectionDate);
     }
 
-    public static List<Requisition_Detail> getDetailsByReqNo(String deptCode)
+    public static List<Requisition_Detail> getDetailsByReqNo(String reqNo)
     {
-        String url = UrlString.getDetailsByReqNo + deptCode;
+        String url = UrlString.getDetailsByReqNo + reqNo;
         ArrayList<Requisition_Detail> reqDetails = new ArrayList<>();
 
         try

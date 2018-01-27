@@ -5,10 +5,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.ListFragment;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,6 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.example.yello.inventory_mvc.R;
-import com.example.yello.inventory_mvc.activity.NewRequisitionActivity;
 import com.example.yello.inventory_mvc.activity.RequestDetailsActivity;
 import com.example.yello.inventory_mvc.model.Requisition_Detail;
 import com.example.yello.inventory_mvc.model.Requisition_Record;
@@ -24,6 +24,7 @@ import com.example.yello.inventory_mvc.utility.Key;
 import com.example.yello.inventory_mvc.utility.UrlString;
 
 import java.io.Serializable;
+import java.net.URL;
 import java.util.List;
 
 /**
@@ -86,63 +87,46 @@ public class RequestListFragment extends ListFragment {
     }
 
     @Override
-    public void onListItemClick(ListView l, View v, int position, long id)
-    {
-        Requisition_Record reqRecord = (Requisition_Record) l.getAdapter().getItem(position); // get selected request record
-        new AsyncTask<String, Void, List<Requisition_Detail>>()
-        {
-            @Override
-            protected List<Requisition_Detail> doInBackground(String... strings)
-            {
-
-                return Requisition_Detail.getDetailsByReqNo(Key.REQUISITION_RECORD_1_REQUISITION_NO);
-            }
-
-            @Override
-            protected void onPostExecute(List<Requisition_Detail> result)
-            {
-                displayDetail(result);
-            }
-
-        }.execute();
-        //displayDetail(re);
-    }
-
-    protected void displayDetail(List<Requisition_Detail> req_detail)
-    {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(Key.BUNDLE_REQUISITION_DETAIL, (Serializable) req_detail); // put selected stationery into bundle
-
-        if(this.getActivity().findViewById(R.id.frameLayoutRequestDetails) != null)
-        {
-            // in landscape mode => put fragment in frame layout
-            final String TAG = "REQUEST_DETAIL_FRAGMENT";
-
-            Fragment fragment = new NewRequisitionFragment(); // initialize fragment
-            fragment.setArguments(bundle); // put bundle inside fragment
-
-            FragmentManager manager = this.getFragmentManager(); // get fragment manager
-            FragmentTransaction transaction = manager.beginTransaction(); // get transaction
-
-            if(manager.findFragmentByTag(TAG) == null) // first time
-            {
-                transaction.add(R.id.frameLayoutRequestDetails, fragment, TAG); // new
-            }
-            else // not first time
-            {
-                transaction.replace(R.id.frameLayoutRequestDetails, fragment, TAG); // replace old fragmet
-            }
-
-            transaction.commit(); // commit transaction
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        Requisition_Record record = (Requisition_Record) getListAdapter().getItem(position);
+      //  List<Requisition_Detail> reqDetails=Requisition_Detail.getDetailsByReqNo("23");
+        if (getActivity().findViewById(R.id.requestDetailsframe1) == null) {
+            // single-pane
+            Intent intent = new Intent(getActivity(), RequestDetailsActivity.class);
+            intent.putExtra("record", record);
+            startActivity(intent);
         }
         else
-        {
-            // in portrait mode => start another activity
-            Intent intent = new Intent(this.getActivity(), RequestDetailsActivity.class);
-            intent.putExtras(bundle);
+            displayDetails(record);
 
-            this.startActivity(intent);
-        }
 
     }
+
+    protected void displayDetails(Requisition_Record rec)
+    {
+       Bundle bundle=new Bundle();
+       bundle.putSerializable("record", rec);
+        final String TAG = "REQ_DETAIL_FRAG";
+
+        Fragment fragment = new RequestDetailsFragment(); // initialize fragment
+        //bundle.putString(Key.BUNDLE_SHOW_BUTTON, "hide"); // to indicate whether to hide back to catalogue button
+        fragment.setArguments(bundle); // put bundle inside fragment
+
+        FragmentManager manager = this.getFragmentManager(); // get fragment manager
+        FragmentTransaction transaction = manager.beginTransaction(); // get transaction
+
+        if (manager.findFragmentByTag(TAG) == null) // first time
+        {
+            transaction.add(R.id.requestDetailsframe1, fragment, TAG); // new
+        }
+        else // not first time
+        {
+            transaction.replace(R.id.requestDetailsframe1, fragment, TAG); // replace old fragmet
+        }
+
+        transaction.commit(); // commit transaction
+    }
+
+
+
 }
