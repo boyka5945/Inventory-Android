@@ -64,6 +64,7 @@ public class AllocationListActivity extends AppCompatActivity implements Adapter
 
         Intent intent = new Intent(getApplicationContext(),AllocationGroupedByItemActivity.class );
         intent.putExtra(Key.RETRIEVAL_ITEM_5_ITEMCODE, allocationItem.get(Key.RETRIEVAL_ITEM_5_ITEMCODE));
+        intent.putExtra(Key.RETRIEVAL_ITEM_1_DESCRIPTION, allocationItem.get(Key.RETRIEVAL_ITEM_1_DESCRIPTION));
         startActivity(intent);
 
     }

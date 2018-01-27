@@ -83,24 +83,46 @@ public class Requisition_Record extends HashMap<String, String> {
         return requisitionRecord;
     }
 
+    /*
+
+
+
+    public static List<Book> getBookByCategory(String category) {
+        List<Book> list = new ArrayList<Book>();
+        try {
+            JSONArray a = HttpHandler.getJSONArrayFromUrl(host+"/Book-category/"+category);
+            for (int i=0; i<a.length(); i++) {
+                JSONObject j = a.getJSONObject(i);
+                Book c = new Book (j.getString("id"), j.getString("title"), j.getString("author"),
+                        j.getString("isbn"), j.getString("category"), j.getString("stock"), j.getString("price"));
+                list.add(c);
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+     */
 
     public static List<Requisition_Record> GetAllRequestRecordForItemAllocation(String itemCode) {
         String url = UrlString.GetAllRequestRecordForItemAllocation + itemCode;
-        ArrayList<Requisition_Record> requisitionRecord = new ArrayList<>();
+        List<Requisition_Record> requisitionRecord = new ArrayList<>();
 
         try {
-            JSONObject obj = JSONParser.getJSONFromUrl(url);
-
-            requisitionRecord.add( new Requisition_Record(obj.getString(Key.REQUISITION_RECORD_1_REQUISITION_NO),
-                    obj.getString(Key.REQUISITION_RECORD_2_DEPT_CODE),
-                    obj.getString(Key.REQUISITION_RECORD_3_DEPT_NAME),
-                    obj.getString(Key.REQUISITION_RECORD_4_REQUESTER_ID),
-                    obj.getString(Key.REQUISITION_RECORD_5_REQUESTER_NAME),
-                    obj.getString(Key.REQUISITION_RECORD_6_APPROVER_ID),
-                    obj.getString(Key.REQUISITION_RECORD_7_APPROVER_NAME),
-                    obj.getString(Key.REQUISITION_RECORD_8_APPROVED_DATE),
-                    obj.getString(Key.REQUISITION_RECORD_9_STATUS),
-                    obj.getString(Key.REQUISITION_RECORD_10_REQUEST_DATE)));
+            JSONArray a = JSONParser.getJSONArrayFromUrl(url);
+            for (int i=0; i<a.length(); i++) {
+                JSONObject obj = a.getJSONObject(i);
+                Requisition_Record c = new Requisition_Record (obj.getString(Key.REQUISITION_RECORD_1_REQUISITION_NO),
+                        obj.getString(Key.REQUISITION_RECORD_2_DEPT_CODE),
+                        obj.getString(Key.REQUISITION_RECORD_3_DEPT_NAME),
+                        obj.getString(Key.REQUISITION_RECORD_4_REQUESTER_ID),
+                        obj.getString(Key.REQUISITION_RECORD_5_REQUESTER_NAME),
+                        obj.getString(Key.REQUISITION_RECORD_6_APPROVER_ID),
+                        obj.getString(Key.REQUISITION_RECORD_7_APPROVER_NAME),
+                        obj.getString(Key.REQUISITION_RECORD_8_APPROVED_DATE),
+                        obj.getString(Key.REQUISITION_RECORD_9_STATUS),
+                        obj.getString(Key.REQUISITION_RECORD_10_REQUEST_DATE));
+                requisitionRecord.add(c);
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
