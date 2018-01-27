@@ -1,6 +1,7 @@
 package com.example.yello.inventory_mvc.activity;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,23 +25,24 @@ public class AllocationListActivity extends AppCompatActivity implements Adapter
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_allocation_list);
-        final ListView lv = (ListView) findViewById(R.id.listView);
+        final ListView lv = (ListView) findViewById(R.id.listview1);
 
-        new AsyncTask<Void, Void, List<Requisition_Detail>>() {
+
+        new AsyncTask<Void, Void, List<Retrieval_Item>>() {
 
             @Override
-            protected List<Requisition_Detail> doInBackground(Void... params) {
-                return Requisition_Detail.ToAllocate();
+            protected List<Retrieval_Item> doInBackground(Void... params) {
+                return Retrieval_Item.ListRetrieval();
             }
 
             @Override
-            protected void onPostExecute(List<Requisition_Detail> result) {
+            protected void onPostExecute(List<Retrieval_Item> result) {
 
                 SimpleAdapter adapter =
                         new SimpleAdapter(getApplicationContext(), result,
                                 R.layout.allocation_row,
-                                new String[]{Key.REQUISITION_DETAIL_2_ITEM_CODE, Key.REQUISITION_DETAIL_3_ITEM_DESCRIPTION},
-                                new int[]{android.R.id.text1, android.R.id.text2});
+                                new String[]{Key.RETRIEVAL_ITEM_1_DESCRIPTION, Key.RETRIEVAL_ITEM_2_QTY},
+                                new int[]{R.id.textView4, R.id.textView3});
 
                 lv.setAdapter(adapter);
             }
@@ -48,7 +50,7 @@ public class AllocationListActivity extends AppCompatActivity implements Adapter
 
 
 
-        lv.setOnItemClickListener(this);
+            lv.setOnItemClickListener(this);
 
 
 
@@ -57,6 +59,12 @@ public class AllocationListActivity extends AppCompatActivity implements Adapter
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        Retrieval_Item  allocationItem = (Retrieval_Item) parent.getAdapter().getItem(position);
+
+        Intent intent = new Intent(getApplicationContext(),AllocationGroupedByItemActivity.class );
+        intent.putExtra(Key.RETRIEVAL_ITEM_5_ITEMCODE, allocationItem.get(Key.RETRIEVAL_ITEM_5_ITEMCODE));
+        startActivity(intent);
 
     }
 
