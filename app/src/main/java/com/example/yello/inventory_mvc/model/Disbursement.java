@@ -19,11 +19,12 @@ public class Disbursement extends HashMap<String, String> {
 
     public Disbursement(){}
 
-    public Disbursement(String itemCode, String description, String need, String actualQty){
+    public Disbursement(String itemCode, String description, String need, String actualQty, String deptCode){
         this.put(Key.STATIONERY_1_ITEM_CODE, itemCode);
         this.put("StationeryDescription", description);
         this.put("NeedQty", need);
         this.put("ActualQty", actualQty);
+        this.put(Key.DEPARTMENT_1_CODE, deptCode);
     }
     public static List<Disbursement> GetDisbursementList(String url) // based on url retrieve stationery list (can be search query)
     {
@@ -40,7 +41,8 @@ public class Disbursement extends HashMap<String, String> {
                 disbursements.add(new Disbursement(obj.getString(Key.STATIONERY_1_ITEM_CODE),
                         obj.getString("StationeryDescription"),
                         obj.getString("NeedQty"),
-                        obj.getString("ActualQty")
+                        obj.getString("ActualQty"),
+                        obj.getString("DeptCode")
                 ));
             }
         }
