@@ -48,9 +48,9 @@
         <activity android:name=".activity.DisbursementMenuActivity" />
         <activity android:name=".activity.RetrievalListActivity" />
         <activity android:name=".activity.ViewRequisitionRecordsActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-            <!--</intent-filter>-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
         </activity>
         <activity android:name=".activity.DetailRequisitionActivity" />
         <activity android:name=".activity.WelcomeActivity">
@@ -59,11 +59,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".activity.DisbursementDeptActivity" />
         <activity android:name=".activity.DisbursementDetails"></activity>
         <activity android:name=".activity.ChangePasswordActivity"></activity>
+        <activity android:name=".activity.InputQuantityActivity"></activity>
     </application>
 
 </manifest>
