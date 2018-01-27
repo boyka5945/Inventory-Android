@@ -33,7 +33,7 @@ public class ViewRequisitionRecordsActivity extends AppCompatActivity
         /*if (Intent.ACTION_SEARCH.equals(intent.getAction())) // if action_search come back this activity
         {
             String query = intent.getStringExtra(SearchManager.QUERY); // get search query
-            doSearch("All", query); // TODO: FIX to suit all category
+            doSearch("All", query);
         }
         else
         {*/

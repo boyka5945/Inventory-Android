@@ -13,9 +13,8 @@
         android:id="@android:id/empty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
-        android:text=""
+        android:padding="12dp"
+        android:text="@string/no_stationery_found"
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        android:textStyle="bold|italic"
-        tools:text="@string/no_stationery_found" />
+        android:textStyle="bold|italic" />
 </LinearLayout>
