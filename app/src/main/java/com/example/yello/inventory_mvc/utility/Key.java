@@ -11,9 +11,9 @@ public final class Key
     public  static  final String BUNDLE_STATIONERY = "stationery";
     public  static  final String BUNDLE_REQUISITION = "requisitionRecord";
     public  static  final String BUNDLE_CATEGORY = "category";
+    public  static  final String BUNDLE_REQUISITION_DETAIL = "requisitionDetail";
     public  static  final String BUNDLE_SHOW_BUTTON = "button";
-    
-    
+
     // <--- FOR MODEL : TO BE THE SAME AS THE PROPERTIES NAME IN WCF (JSON) --->
     
     // FOR STATIONERY
@@ -81,6 +81,7 @@ public final class Key
     public static final String RETRIEVAL_ITEM_1_DESCRIPTION ="Description";
     public static final String RETRIEVAL_ITEM_2_QTY ="Qty";
     public static final String RETRIEVAL_ITEM_3_LOCATION ="Location";
+    public static final String RETRIEVAL_ITEM_4_QTY_RETRIEVED = "QtyRetrieved";
 
 
 }

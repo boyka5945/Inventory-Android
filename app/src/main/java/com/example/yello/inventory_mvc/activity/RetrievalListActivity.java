@@ -50,6 +50,8 @@ public class RetrievalListActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v,
                                    int position, long id) {
+
+
         Retrieval_Item  ri= (Retrieval_Item) getListAdapter().getItem(position);
         Intent intent = new Intent(this, RetrievalDetailsActivity.class);
         intent.putExtra(Key.RETRIEVAL_ITEM_1_DESCRIPTION, ri.get(Key.RETRIEVAL_ITEM_1_DESCRIPTION));

@@ -7,6 +7,7 @@ import com.example.yello.inventory_mvc.utility.UrlString;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,18 +18,21 @@ import java.util.List;
 
 public class Retrieval_Item extends HashMap<String,String> {
 
-    public Retrieval_Item(String description, String qty, String location)
+    public Retrieval_Item(String description, String qty, String location, String retrieved)
     {
         this.put(Key.RETRIEVAL_ITEM_1_DESCRIPTION, description);
         this.put(Key.RETRIEVAL_ITEM_2_QTY, qty);
         this.put(Key.RETRIEVAL_ITEM_3_LOCATION, location);
+        this.put(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED, retrieved);
 
     }
 
+    public Retrieval_Item(){}
+
     public static List<Retrieval_Item> ListRetrieval()
     {
-        //String url = UrlString.getRetrievalItems;
-        String url = null;
+
+        String url = UrlString.GetRetrievalList;
         ArrayList<Retrieval_Item> retrieval = new ArrayList<>();
 
 
@@ -42,7 +46,8 @@ public class Retrieval_Item extends HashMap<String,String> {
 
                 retrieval.add(new Retrieval_Item(obj.getString(Key.RETRIEVAL_ITEM_1_DESCRIPTION),
                         obj.getString(Key.RETRIEVAL_ITEM_2_QTY),
-                        obj.getString(Key.RETRIEVAL_ITEM_3_LOCATION)
+                        obj.getString(Key.RETRIEVAL_ITEM_3_LOCATION),
+                        obj.getString(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED)
 
                 ));
             }
@@ -54,4 +59,21 @@ public class Retrieval_Item extends HashMap<String,String> {
 
         return retrieval;
     }
+
+    public static void UpdateRetrieval(Retrieval_Item ri){
+
+        JSONObject jretrieval = new JSONObject();
+        try {
+            jretrieval.put(Key.RETRIEVAL_ITEM_1_DESCRIPTION, ri.get(Key.RETRIEVAL_ITEM_1_DESCRIPTION));
+            jretrieval.put(Key.RETRIEVAL_ITEM_2_QTY, Integer.parseInt(ri.get(Key.RETRIEVAL_ITEM_2_QTY)));
+            jretrieval.put(Key.RETRIEVAL_ITEM_3_LOCATION, ri.get(Key.RETRIEVAL_ITEM_3_LOCATION));
+            jretrieval.put(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED, Integer.parseInt(ri.get(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED)));
+
+        } catch (Exception e) {
+        }
+        String result = JSONParser.postStream(UrlString.UpdateRetrieval, jretrieval.toString());
+
+    }
+
+
 }
