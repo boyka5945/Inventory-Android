@@ -6,50 +6,76 @@
     android:layout_height="match_parent"
     tools:context="com.example.yello.inventory_mvc.activity.RetrievalDetailsActivity">
 
-    <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="551dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="8dp">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textview_header"
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Stationery Retrieval Details" />
+            android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/textview_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stationery Retrieval Details" />
 
+        </TableRow>
 
-        <TextView
-            android:id="@+id/textview_descrp"
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Item Name" />
+            android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/textview_descrp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Item Name" />
 
+            <TextView
+                android:id="@+id/tvDescrp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+        </TableRow>
 
-        <TextView
-            android:id="@+id/textview_location"
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Location" />
+            android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/textview_qty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Qty" />
 
+            <TextView
+                android:id="@+id/tvQty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+        </TableRow>
 
-        <TextView
-            android:id="@+id/textview_qty"
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Qty" />
+            android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/textview_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Location" />
 
+            <TextView
+                android:id="@+id/tvLoc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+        </TableRow>
 
-        <LinearLayout
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="94dp"
-            android:orientation="horizontal"
-            tools:layout_editor_absoluteY="88dp">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textview_retrieved"
@@ -57,7 +83,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Retrieved Qty:" />
-
 
             <EditText
                 android:id="@+id/editText3"
@@ -68,29 +93,25 @@
                 android:inputType="textPersonName"
                 android:text="Name" />
 
-        </LinearLayout>
+        </TableRow>
 
-        <LinearLayout
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="242dp">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Confirm" />
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Cancel" />
-        </LinearLayout>
+                android:text="Confirm" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+        </TableRow>
+
+    </TableLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -1,5 +1,7 @@
 package com.example.yello.inventory_mvc.fragment;
 
+import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -7,10 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.yello.inventory_mvc.R;
+import com.example.yello.inventory_mvc.activity.BrowseCatalogueActivity;
+import com.example.yello.inventory_mvc.activity.NewRequisitionActivity;
+import com.example.yello.inventory_mvc.activity.NewRequisitionFormActivity;
 import com.example.yello.inventory_mvc.model.RequisitionForm;
 import com.example.yello.inventory_mvc.model.Requisition_Detail;
 import com.example.yello.inventory_mvc.utility.Key;
@@ -26,6 +32,7 @@ public class NewRequisitionFragment extends Fragment implements View.OnClickList
     private Requisition_Detail newItem = null;
     private EditText editTextQty = null;
     private TextView textViewItemCode = null;
+    private String showBackToCatalogeBtn;
     
     public NewRequisitionFragment()
     {
@@ -43,11 +50,15 @@ public class NewRequisitionFragment extends Fragment implements View.OnClickList
         editTextQty = (EditText) view.findViewById(R.id.editText_qty_value);
         textViewItemCode = (TextView) view.findViewById(R.id.textView_description_value);
         
-        
         Bundle bundle = this.getArguments(); // get bundle
         if (bundle != null)
         {
             HashMap<String, String> stationery = (HashMap<String, String>) bundle.getSerializable(Key.BUNDLE_STATIONERY);
+            showBackToCatalogeBtn = bundle.getString(Key.BUNDLE_SHOW_BUTTON);
+            if(showBackToCatalogeBtn == null)
+            {
+                showBackToCatalogeBtn = "";
+            }
             
             ((TextView) view.findViewById(R.id.textView_category_value)).setText(stationery.get(Key.STATIONERY_4_CATEGORY));
             ((TextView) view.findViewById(R.id.textView_description_value)).setText(stationery.get(Key.STATIONERY_2_DESCRIPTION));
@@ -60,25 +71,54 @@ public class NewRequisitionFragment extends Fragment implements View.OnClickList
             newItem = new Requisition_Detail(itemCode, description, uom, String.valueOf(0));
         }
         
-        Button addToFormBtn = (Button) view.findViewById(R.id.button);
         
+        
+        Button addToFormBtn = (Button) view.findViewById(R.id.button);
         addToFormBtn.setOnClickListener(this);
+        
+        
+        
+        Button backToCatalogue = (Button) view.findViewById(R.id.button_back_to_catalogue);
+        if(showBackToCatalogeBtn.equals("hide")) // hide the button when in landscape mode
+        {
+            backToCatalogue.setVisibility(View.GONE);
+        }
+        
+        backToCatalogue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                startActivity(new Intent(getActivity(), BrowseCatalogueActivity.class));
+            }
+        });
+        
+        Button goToForm = (Button) view.findViewById(R.id.button_go_to_form);
+        goToForm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                startActivity(new Intent(getActivity(), NewRequisitionFormActivity.class));
+            }
+        });
+        
+        
         return view;
     }
-    
     
     @Override
     public void onClick(View v)
     {
         int quantity = TryParse(editTextQty.getText().toString());
+        Resources res = getResources();
+        
         
         if(editTextQty.getText().equals("") || editTextQty.getText().equals(null))
         {
-            Toast.makeText(getActivity(), "Please enter the request quantity", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), R.string.error_invalid_request_quantity, Toast.LENGTH_LONG).show();
         }
         else if(quantity <= 0)
         {
-            Toast.makeText(getActivity(), "Request quantity must be greater than or equal to 1", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), R.string.must_be_greater_than_1, Toast.LENGTH_LONG).show();
         }
         else
         {
@@ -89,10 +129,12 @@ public class NewRequisitionFragment extends Fragment implements View.OnClickList
             }
             catch (Exception e)
             {
-                Toast.makeText(getActivity(), "Error while adding request item", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), R.string.error_adding_request_item, Toast.LENGTH_LONG).show();
             }
     
-            Toast.makeText(getActivity(), quantity + " x " + textViewItemCode.getText() + " was added into form.", Toast.LENGTH_SHORT).show();
+            String text = res.getString(R.string.success_add_item_message, quantity, textViewItemCode.getText());
+    
+            Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT).show();
         }
     }
     

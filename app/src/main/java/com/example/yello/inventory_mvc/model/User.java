@@ -51,6 +51,28 @@ public class User extends HashMap<String, String> {
         return user;
     }
 
+//ps
+  /*  public static User setPassword(String email,String oldPassword,String newPassword){
+
+        String url = UrlString.userChangePassword + email + "/" + oldPassword + "/"+newPassword ;
+        User user = null;
+
+        try{
+            JSONObject obj = JSONParser.getJSONFromUrl(url);
+            user = new User(obj.getString(Key.USER_1_USERID),
+                    obj.getString(Key.USER_6_ROLE),
+                    obj.getString(Key.USER_7_DEPARTMENT_CODE));
+
+
+        }
+
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return user;
+    }   */
+
 
 
 }

@@ -45,5 +45,17 @@ public final class UrlString
     // UriTemplate = "/GetAllRequisitionRecords"
     public static final String getAllRequisitionRecords = host + "/GetAllRequisitionRecords";
 
+    // UriTemplate = "/GetDetailByReqNo/{reqNo}"
+    public static final String getRequisitionDetailByReqNo = host + "/GetDetailByReqNo/";
+
+    // UriTemplate = "/GetRetrievalList"
+    public static final String GetRetrievalList = host + "/GetRetrievalList";
+
+    // UriTemplate = "/UpdateRetrieval"
+    public static final String UpdateRetrieval = host + "/UpdateRetrieval";
+
+
+//ps
+   // public static final String userChangePassword = host + "/ChangePassword/";
 
 }
