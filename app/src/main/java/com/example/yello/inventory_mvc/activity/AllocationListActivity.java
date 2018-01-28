@@ -6,23 +6,26 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.example.yello.inventory_mvc.R;
+import com.example.yello.inventory_mvc.model.Requisition_Detail;
 import com.example.yello.inventory_mvc.model.Retrieval_Item;
 import com.example.yello.inventory_mvc.utility.Key;
 
 import java.util.List;
 
-public class RetrievalListActivity extends ListActivity {
+public class AllocationListActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-   @Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_retrieval_list);
-
-
+        setContentView(R.layout.activity_allocation_list);
+        final ListView lv = (ListView) findViewById(R.id.listview1);
 
 
         new AsyncTask<Void, Void, List<Retrieval_Item>>() {
@@ -37,28 +40,36 @@ public class RetrievalListActivity extends ListActivity {
 
                 SimpleAdapter adapter =
                         new SimpleAdapter(getApplicationContext(), result,
-                                android.R.layout.simple_list_item_2,
+                                R.layout.allocation_row,
                                 new String[]{Key.RETRIEVAL_ITEM_1_DESCRIPTION, Key.RETRIEVAL_ITEM_2_QTY},
-                                new int[]{android.R.id.text1, android.R.id.text2});
+                                new int[]{R.id.textView4, R.id.textView3});
 
-                setListAdapter(adapter);
+                lv.setAdapter(adapter);
             }
         }.execute();
+
+
+
+            lv.setOnItemClickListener(this);
+
+
 
 
     }
 
     @Override
-    protected void onListItemClick(ListView l, View v,
-                                   int position, long id) {
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+        Retrieval_Item  allocationItem = (Retrieval_Item) parent.getAdapter().getItem(position);
 
-        Retrieval_Item  ri= (Retrieval_Item) getListAdapter().getItem(position);
-        Intent intent = new Intent(this, RetrievalDetailsActivity.class);
-        intent.putExtra(Key.RETRIEVAL_ITEM_1_DESCRIPTION, ri.get(Key.RETRIEVAL_ITEM_1_DESCRIPTION));
-        intent.putExtra(Key.RETRIEVAL_ITEM_2_QTY, ri.get(Key.RETRIEVAL_ITEM_2_QTY));
-        intent.putExtra(Key.RETRIEVAL_ITEM_3_LOCATION, ri.get(Key.RETRIEVAL_ITEM_3_LOCATION));
-
+        Intent intent = new Intent(getApplicationContext(),AllocationGroupedByItemActivity.class );
+        intent.putExtra(Key.RETRIEVAL_ITEM_5_ITEMCODE, allocationItem.get(Key.RETRIEVAL_ITEM_5_ITEMCODE));
+        intent.putExtra(Key.RETRIEVAL_ITEM_1_DESCRIPTION, allocationItem.get(Key.RETRIEVAL_ITEM_1_DESCRIPTION));
         startActivity(intent);
+
     }
+
+
+
+
 }
