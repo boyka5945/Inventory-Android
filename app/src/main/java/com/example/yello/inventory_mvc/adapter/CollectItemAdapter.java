@@ -38,27 +38,25 @@ public class CollectItemAdapter extends ArrayAdapter<Disbursement>{
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        View v = inflater.inflate(resource, null);
+
+
+     View rowView = inflater.inflate(resource,null);
         final Disbursement disburse = items.get(position);
-     View rowView = inflater.inflate(R.layout.collect_item_row, parent, false);
-        TextView textViewItemName = (TextView) rowView.findViewById(R.id.textView5);
-        TextView textViewItemCat = (TextView) rowView.findViewById(R.id.textView6);
-        TextView textViewItemQty = (TextView) rowView.findViewById(R.id.textView7);
 
-//        textViewItemName.setText(items[position]);
-//
-//        // Change icon based on name
-//        String s = items[position];
 
-        System.out.println(disburse);
-
-        if (items != null) {
-            ((TextView) rowView.findViewById(R.id.textView5)).setText(
-                    disburse.get("StationeryDescription"));
-            ((TextView) rowView.findViewById(R.id.textView6)).setText(disburse.get(
-                    "ActualQty"));
-            ((TextView) rowView.findViewById(R.id.textView7)).setText(disburse.get(
-                    "NeedQty"));
+        if (disburse != null) {
+            TextView text1 = (TextView) rowView.findViewById(R.id.textView5);
+            text1.setText(disburse.get("StationeryDescription"));
+            TextView text2 = (TextView) rowView.findViewById(R.id.textView6);
+            text2.setText(disburse.get("ActualQty"));
+            TextView text3 = (TextView) rowView.findViewById(R.id.textView7);
+            text3.setText(disburse.get("NeedQty"));
+//            ((TextView) rowView.findViewById(R.id.textView5)).setText(
+//                    disburse.get("StationeryDescription"));
+//            ((TextView) rowView.findViewById(R.id.textView6)).setText(disburse.get(
+//                    "ActualQty"));
+//            ((TextView) rowView.findViewById(R.id.textView7)).setText(disburse.get(
+//                    "NeedQty"));
         }
         return rowView;
     }

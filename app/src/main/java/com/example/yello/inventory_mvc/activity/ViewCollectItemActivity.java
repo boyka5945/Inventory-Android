@@ -1,5 +1,7 @@
 package com.example.yello.inventory_mvc.activity;
 
+import android.annotation.SuppressLint;
+import android.app.ListActivity;
 import android.os.AsyncTask;
 
 import android.support.v7.app.AppCompatActivity;
@@ -19,38 +21,66 @@ import com.example.yello.inventory_mvc.model.RequisitionForm;
 
 import java.util.List;
 
-//public class ViewCollectItemActivity extends AppCompatActivity {
-//
-//
-//    private ListView listView;
-//   private String url = "";
-//    private CollectItemAdapter adapter;
-//
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//        listView = (ListView) this.findViewById(R.id.listView);
-//        adapter = new CollectItemAdapter(this, R.layout.collect_item_row,
-//                Disbursement.GetDisbursementList(url));
-//        listView.setAdapter(adapter);
-//
-//        registerForContextMenu(listView);
-//
-//        new AsyncTask<String, Void, List<Disbursement>>() {
-//            @Override
-//            protected List<Disbursement> doInBackground(String... params) {
-//                return Disbursement.GetDisbursementList(params[0]);
-//            }
-//            @Override
-//            protected void onPostExecute(List<Disbursement> result) {
-//               CollectItemAdapter adapter = new CollectItemAdapter(getApplicationContext(),
-//                        result, android.R.layout.,
-//                        new String[]{"StationeryDescription", "NeedQty","ActualQty"},
-//                        new int[]{ android.R.id.text1, android.R.id.text2,android.R.id.});
+import static com.example.yello.inventory_mvc.utility.UrlString.GetDisbursementByDept;
+
+
+public class ViewCollectItemActivity extends ListActivity {
+
+
+
+
+    private String url = GetDisbursementByDept+"ZOOL";
+    @SuppressLint({"StaticFieldLeak", "SetTextI18n"})
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //setContentView(R.layout.activity_view_collect_item);
+
+      //TextView t1 = findViewById(R.id.collect_item_title);
+     // t1.setText("Items Ready to be Collected");
+//        t1.setText("Items Ready to be Collected");
+       //TextView t2 = findViewById(R.id.collect_item_department);
+//        t1.setText("Department Name:");
+       //TextView t3 = findViewById(R.id.collect_item_collectpoint);
+//        t1.setText("shit");
+       //TextView t4 = findViewById(R.id.collect_item_representative);
+//        t1.setText("Collection Point:");
+//        t5 = findViewById(R.id.collect_item_cpshow);
+//        t1.setText("shit");
+//        t6 = findViewById(R.id.collect_item_rep);
+//        t1.setText("Representative:");
+//        t7 = findViewById(R.id.collect_item_repshow);
+//        t1.setText("shit");
+
+//        setContentView(R.layout.activity_view_collect_item);
+
+      //  listView listView = (ListView) this.findViewById(R.id.listView);
+        //adapter = new CollectItemAdapter(this, R.layout.collect_item_row,
+         //       Disbursement.GetDisbursementList(url));
+
+
+        //registerForContextMenu(listView);
+
+        new AsyncTask<String, Void, List<Disbursement>>() {
+            @Override
+            protected List<Disbursement> doInBackground(String... params) {
+                return Disbursement.GetDisbursementList(params[0]);
+            }
+            @Override
+            protected void onPostExecute(List<Disbursement> result) {
+//               CollectItemAdapter adapter = new CollectItemAdapter(get),
+//                        result, R.layout.collect_item_row,
+//                        new String[]{"StationeryDescription", "NeedQty"},
+//                        new int[]{ R.id.text, R.id.text2});
 //                setListAdapter(adapter);
-//            }
-//        }.execute(url);
-//    }
-//
-//}
+                SimpleAdapter adapter = new SimpleAdapter(getApplicationContext(), result,
+                        R.layout.collect_item_row,
+                        new String[]{"StationeryDescription", "ItemCode", "NeedQty"},
+                        new int[]{ R.id.textView_wh1,R.id.textView_wh2,R.id.textView_wh3});
+                setListAdapter(adapter);
+                }
+
+        }.execute(url);
+    }
+
+}

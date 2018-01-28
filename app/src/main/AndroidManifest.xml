@@ -64,6 +64,13 @@
         <activity android:name=".activity.DisbursementDetails"></activity>
         <activity android:name=".activity.ChangePasswordActivity"></activity>
         <activity android:name=".activity.InputQuantityActivity"></activity>
+        <activity android:name=".activity.ViewCollectItemActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

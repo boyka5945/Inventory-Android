@@ -122,7 +122,7 @@ public class Requisition_Detail extends HashMap<String, String>
     }
 
     public static  List<Requisition_Detail> ToAllocate(){
-        String url = UrlString.GetAllRequisitionforAllocation;
+        String url = UrlString.getAllRequisitionRecords;
         ArrayList<Requisition_Detail> rq = new ArrayList<>();
 
         try
