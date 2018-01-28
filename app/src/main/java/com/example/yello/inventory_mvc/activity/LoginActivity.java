@@ -90,7 +90,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         });
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-        /*mEmailSignInButton.setBackgroundColor(Integer.parseInt("#FFFFFF"));*/
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -205,7 +204,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return password.length() > 2;
+        return password.length() > 4;
     }
 
     /**
@@ -359,15 +358,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             if (success) {
                 // TODO: AFTER LOGIN DO SOMETHING
                 // finish();
-               /* Intent intent = null;
-                startActivity(intent);
-                //ps*/
-                Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
-
-                //ps
-                //intent.putExtra("email", mEmailView.getText().toString());
-               // intent.putExtra("password", mPasswordView.getText().toString());
-                LoginActivity.this.startActivity(intent); //I changed intent to i
+                Intent intent = new Intent(getApplicationContext(), BrowseCatalogueActivity.class);
+                LoginActivity.this.startActivity(intent);
                 
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

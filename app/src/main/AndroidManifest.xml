@@ -60,7 +60,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.DisbursementDeptActivity" />
+        <activity android:name=".activity.DisbursementDeptActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".activity.DisbursementDetails"></activity>
         <activity android:name=".activity.ChangePasswordActivity"></activity>
         <activity android:name=".activity.InputQuantityActivity"></activity>

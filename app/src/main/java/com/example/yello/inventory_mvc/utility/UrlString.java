@@ -48,13 +48,29 @@ public final class UrlString
     // UriTemplate = "/GetDetailByReqNo/{reqNo}"
     public static final String getRequisitionDetailByReqNo = host + "/GetDetailByReqNo/";
 
+    // UriTemplate = "/GetRequisitionDetailsBy2Keys/{itemCode}/{requisitionNo}"
+    public static final String GetRequisitionDetailsBy2Keys = host + "/GetRequisitionDetailsBy2Keys/";
+
     // UriTemplate = "/GetRetrievalList"
     public static final String GetRetrievalList = host + "/GetRetrievalList";
 
     // UriTemplate = "/UpdateRetrieval"
     public static final String UpdateRetrieval = host + "/UpdateRetrieval";
 
-    public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequisitionforAllocation";
+    //UriTemplate = "/UpdateRequisitionDetail"
+    public  static final String updateReqDetail = host + "/UpdateRequisitionDetail";
 
-    public static final String updateReqDetail = host + "/UpdateRequisitionDetail";
+    // UriTemplate = "/updateRequisitionDetails"
+    public static final String updateRequisitionDetails = host + "/updateRequisitionDetails";
+
+    // UriTemplate = "/GetRetrievalForm/{itemCode}"
+    public static final String GetRetrievalForm = host + "/GetRetrievalForm/";
+
+    // UriTemplate = "/GetAllRequisitionDetailsforAllocation"
+    public static final String GetAllRequisitionDetailsforAllocation = host + "/GetAllRequisitionDetailsforAllocation";
+
+//ps
+   // public static final String userChangePassword = host + "/ChangePassword/";
+
+    public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequisitionforAllocation";
 }
