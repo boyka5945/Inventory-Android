@@ -1,5 +1,6 @@
 package com.example.yello.inventory_mvc.activity;
 
+import android.annotation.SuppressLint;
 import android.app.ListActivity;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -20,31 +21,32 @@ import java.util.List;
 
 public class AllocationListActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
+    @SuppressLint("StaticFieldLeak")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_allocation_list);
         final ListView lv = (ListView) findViewById(R.id.listView);
 
-        new AsyncTask<Void, Void, List<Requisition_Detail>>() {
-
-            @Override
-            protected List<Requisition_Detail> doInBackground(Void... params) {
-                return Requisition_Detail.ToAllocate();
-            }
-
-            @Override
-            protected void onPostExecute(List<Requisition_Detail> result) {
-
-                SimpleAdapter adapter =
-                        new SimpleAdapter(getApplicationContext(), result,
-                                R.layout.allocation_row,
-                                new String[]{Key.REQUISITION_DETAIL_2_ITEM_CODE, Key.REQUISITION_DETAIL_3_ITEM_DESCRIPTION},
-                                new int[]{android.R.id.text1, android.R.id.text2});
-
-                lv.setAdapter(adapter);
-            }
-        }.execute();
+//        new AsyncTask<Void, Void, List<Requisition_Detail>>() {
+//
+//            @Override
+//            protected List<Requisition_Detail> doInBackground(Void... params) {
+//                //return Requisition_Detail.ToAllocate();
+//            }
+//
+//            @Override
+//            protected void onPostExecute(List<Requisition_Detail> result) {
+//
+//                SimpleAdapter adapter =
+//                        new SimpleAdapter(getApplicationContext(), result,
+//                                R.layout.allocation_row,
+//                                new String[]{Key.REQUISITION_DETAIL_2_ITEM_CODE, Key.REQUISITION_DETAIL_3_ITEM_DESCRIPTION},
+//                                new int[]{android.R.id.text1, android.R.id.text2});
+//
+//                lv.setAdapter(adapter);
+//            }
+//        }.execute();
 
 
 

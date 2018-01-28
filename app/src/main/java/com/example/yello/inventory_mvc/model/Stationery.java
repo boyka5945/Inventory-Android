@@ -17,14 +17,17 @@ import java.util.List;
 
 public class Stationery extends HashMap<String, String>
 {
-    public Stationery(String itemCode, String description, String UOM, String category, String location)
+    public Stationery(String itemCode, String description, String UOM, String category, String location, String qty)
     {
         this.put(Key.STATIONERY_1_ITEM_CODE, itemCode);
         this.put(Key.STATIONERY_2_DESCRIPTION, description);
         this.put(Key.STATIONERY_3_UOM, UOM);
         this.put(Key.STATIONERY_4_CATEGORY, category);
         this.put(Key.STATIONERY_5_LOCATION, location);
+        this.put("ActualQty", qty);
     }
+
+    public Stationery(){}
     
     public static List<Stationery> ListStationery(String url) // based on url retrieve stationery list (can be search query)
     {
@@ -42,8 +45,8 @@ public class Stationery extends HashMap<String, String>
                                                 obj.getString(Key.STATIONERY_2_DESCRIPTION),
                                                 obj.getString(Key.STATIONERY_3_UOM),
                                                 obj.getString(Key.STATIONERY_4_CATEGORY),
-                                                obj.getString(Key.STATIONERY_5_LOCATION)
-                ));
+                                                obj.getString(Key.STATIONERY_5_LOCATION),
+                                                obj.getString("ActualQty")));
             }
         }
         catch (Exception e)
@@ -64,10 +67,11 @@ public class Stationery extends HashMap<String, String>
             JSONObject obj = JSONParser.getJSONFromUrl(url);
             
             stationery = new Stationery(obj.getString(Key.STATIONERY_1_ITEM_CODE),
-                                        obj.getString(Key.STATIONERY_2_DESCRIPTION),
-                                        obj.getString(Key.STATIONERY_3_UOM),
-                                        obj.getString(Key.STATIONERY_4_CATEGORY),
-                                        obj.getString(Key.STATIONERY_5_LOCATION));
+                    obj.getString(Key.STATIONERY_2_DESCRIPTION),
+                    obj.getString(Key.STATIONERY_3_UOM),
+                    obj.getString(Key.STATIONERY_4_CATEGORY),
+                    obj.getString(Key.STATIONERY_5_LOCATION),
+                    obj.getString("ActualQty"));
         }
         catch (Exception e)
         {
@@ -76,4 +80,5 @@ public class Stationery extends HashMap<String, String>
         
         return stationery;
     }
+
 }

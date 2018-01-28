@@ -93,5 +93,39 @@ public class Requisition_Record extends HashMap<String, String>
 
         return requisitionRecord;
     }
+
+    public static List<Requisition_Record> GetRecordListByItemCode(String ItemCode, String Dept)
+    {
+        ArrayList<Requisition_Record> requisition_records = new ArrayList<>();
+
+        try
+        {
+            JSONArray array = JSONParser.getJSONArrayFromUrl("http://172.17.255.3/AD_Inventory_WCF/Service.svc/" + ItemCode);
+
+            for (int i = 0; i < array.length(); i++)
+            {
+                JSONObject obj = array.getJSONObject(i);
+
+                requisition_records.add(new Requisition_Record(obj.getString(Key.REQUISITION_RECORD_1_REQUISITION_NO),
+                        obj.getString(Key.REQUISITION_RECORD_2_DEPT_CODE),
+                        obj.getString(Key.REQUISITION_RECORD_3_DEPT_NAME),
+                        obj.getString(Key.REQUISITION_RECORD_4_REQUESTER_ID),
+                        obj.getString(Key.REQUISITION_RECORD_5_REQUESTER_NAME),
+                        obj.getString(Key.REQUISITION_RECORD_6_APPROVER_ID),
+                        obj.getString(Key.REQUISITION_RECORD_7_APPROVER_NAME),
+                        obj.getString(Key.REQUISITION_RECORD_8_APPROVED_DATE),
+                        obj.getString(Key.REQUISITION_RECORD_9_STATUS),
+                        obj.getString(Key.REQUISITION_RECORD_10_REQUEST_DATE)
+                ));
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return requisition_records;
+    }
+
     
 }
