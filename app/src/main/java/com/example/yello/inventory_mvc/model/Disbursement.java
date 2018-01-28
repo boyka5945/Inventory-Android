@@ -57,27 +57,8 @@ public class Disbursement extends HashMap<String, String> {
     public static void updateActualQty(String url) // based on url retrieve stationery list (can be search query)
     {
         JSONArray array = JSONParser.getJSONArrayFromUrl(url);
-//        )
-//        ArrayList<Disbursement> disbursements = new ArrayList<>();
-//
-//        try
-//        {
-//            JSONArray array = JSONParser.getJSONArrayFromUrl(url);
-//
-//            for (int i = 0; i < array.length(); i++)
-//            {
-//                JSONObject obj = array.getJSONObject(i);
-//
-//                disbursements.add(new Disbursement(obj.getString(Key.STATIONERY_1_ITEM_CODE),
-//                        obj.getString("StationeryDescription"),
-//                        obj.getString("NeedQty")
-//                ));
-//            }
-//        }
-//        catch (Exception e)
-//        {
-//            e.printStackTrace();
-//        }
 
     }
+
+
 }

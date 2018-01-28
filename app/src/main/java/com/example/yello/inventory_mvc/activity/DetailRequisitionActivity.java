@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.fragment.DetailRequisitionFragment;
@@ -28,6 +30,7 @@ public class DetailRequisitionActivity extends AppCompatActivity
         if(intent.hasExtra(Key.BUNDLE_REQUISITION))
         {
             Bundle bundle = new Bundle();
+            String s = intent.getStringExtra(Key.BUNDLE_REQUISITION);
             bundle.putString(Key.BUNDLE_REQUISITION, intent.getStringExtra(Key.BUNDLE_REQUISITION));
 
             Fragment fragment = new DetailRequisitionFragment();
@@ -39,6 +42,8 @@ public class DetailRequisitionActivity extends AppCompatActivity
                     .commit();
         }
     }
+
+
 }
 
 
