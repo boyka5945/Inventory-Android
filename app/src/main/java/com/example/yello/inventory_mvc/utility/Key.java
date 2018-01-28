@@ -13,6 +13,7 @@ public final class Key
     public  static  final String BUNDLE_CATEGORY = "category";
     public  static  final String BUNDLE_REQUISITION_DETAIL = "requisitionDetail";
     public  static  final String BUNDLE_SHOW_BUTTON = "button";
+    public  static  final String BUNDLE_REQUISITION_STATUS = "status";
 
     // <--- FOR MODEL : TO BE THE SAME AS THE PROPERTIES NAME IN WCF (JSON) --->
     
@@ -49,7 +50,8 @@ public final class Key
     public static final String REQUISITION_DETAIL_9_RETRIEVED_DATE = "RetrievedDate";
     public static final String REQUISITION_DETAIL_10_ALLOCATE_QTY = "AllocateQty";
     public static final String REQUISITION_DETAIL_11_NEXT_COLLECTION_DATE = "NextCollectionDate";
-    
+    public static final String REQUISITION_DETAIL_12_STATUS = "Status";
+
     
     // FOR CATEGORY
     public static final String CATEGORY_1_ID = "CategoryID";
