@@ -18,12 +18,13 @@ import java.util.List;
 
 public class Retrieval_Item extends HashMap<String,String> {
 
-    public Retrieval_Item(String description, String qty, String location, String retrieved)
+    public Retrieval_Item(String description, String qty, String location, String retrieved, String itemCode)
     {
         this.put(Key.RETRIEVAL_ITEM_1_DESCRIPTION, description);
         this.put(Key.RETRIEVAL_ITEM_2_QTY, qty);
         this.put(Key.RETRIEVAL_ITEM_3_LOCATION, location);
         this.put(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED, retrieved);
+        this.put(Key.RETRIEVAL_ITEM_5_ITEMCODE, itemCode);
 
     }
 
@@ -47,7 +48,8 @@ public class Retrieval_Item extends HashMap<String,String> {
                 retrieval.add(new Retrieval_Item(obj.getString(Key.RETRIEVAL_ITEM_1_DESCRIPTION),
                         obj.getString(Key.RETRIEVAL_ITEM_2_QTY),
                         obj.getString(Key.RETRIEVAL_ITEM_3_LOCATION),
-                        obj.getString(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED)
+                        obj.getString(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED),
+                        obj.getString(Key.RETRIEVAL_ITEM_5_ITEMCODE)
 
                 ));
             }
@@ -74,6 +76,8 @@ public class Retrieval_Item extends HashMap<String,String> {
         String result = JSONParser.postStream(UrlString.UpdateRetrieval, jretrieval.toString());
 
     }
+
+
 
 
 }

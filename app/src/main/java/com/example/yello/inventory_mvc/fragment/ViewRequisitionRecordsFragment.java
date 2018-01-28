@@ -11,6 +11,7 @@ import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -29,6 +30,8 @@ import java.util.List;
 
 public class ViewRequisitionRecordsFragment extends ListFragment
 {
+    private Button edit;
+    private Button remove;
 
     public ViewRequisitionRecordsFragment()
     {
@@ -87,6 +90,13 @@ public class ViewRequisitionRecordsFragment extends ListFragment
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         Requisition_Record record = (Requisition_Record) l.getAdapter().getItem(position); // get selected requisition
+        /*if (record.get(Key.REQUISITION_RECORD_9_STATUS).equals("1"))
+        {
+            edit = (Button) getActivity().findViewById(R.id.edit_button);
+            edit.setVisibility(View.VISIBLE);
+            remove = (Button) getActivity().findViewById(R.id.remove_button);
+            remove.setVisibility(View.VISIBLE);
+        }*/
         if(getActivity().findViewById(R.id.frameLayoutRequisitionRecordInfo) == null)
         {
             //single-pane
@@ -111,7 +121,7 @@ public class ViewRequisitionRecordsFragment extends ListFragment
 
         Fragment fragment = new DetailRequisitionFragment(); // initialize fragment
         Bundle bundle = new Bundle();
-        bundle.putSerializable(Key.BUNDLE_REQUISITION, reqNo); // put selected requisition into bundle
+        bundle.putString(Key.BUNDLE_REQUISITION, reqNo); // put selected requisition into bundle
         fragment.setArguments(bundle); // put bundle inside fragment
 
         if(manager.findFragmentByTag(TAG) == null) // first time
