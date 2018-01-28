@@ -1,179 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical"-->
+    <!--tools:context="com.example.yello.inventory_mvc.activity.ViewCollectItemActivity">-->
+
+    <!--<android.support.constraint.ConstraintLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+    <!--</android.support.constraint.ConstraintLayout>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/collect_item_title"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Items Ready to be Collected" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/collect_item_department"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Department: " />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/collect_item_collectpoint"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Collection Point:" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/collect_item_representative"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Representative" />-->
+
+    <!--<ListView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
+
+<!--</LinearLayout>-->
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="com.example.yello.inventory_mvc.activity.ViewCollectItemActivity">
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.yello.inventory_mvc.activity.ViewCollectItemActivity"
-    tools:layout_editor_absoluteY="25dp">
+    android:orientation="vertical">
 
-    <!--<LinearLayout-->
-        <!--android:layout_width="368dp"-->
-        <!--android:layout_height="551dp"-->
-        <!--android:layout_marginBottom="8dp"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginTop="8dp"-->
-        <!--android:orientation="vertical"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintHorizontal_bias="0.0"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent">-->
+    <TextView
+        android:id="@+id/collect_item_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Items Ready to be Collected" />
 
-        <!--<TextView-->
-            <!--android:id="@+id/collect_item_title"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Item Ready For Collection"-->
-            <!--android:textSize="18sp"-->
-            <!--android:textStyle="bold" />-->
+    <TextView
+        android:id="@+id/collect_item_department"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Department: " />
 
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="horizontal">-->
+    <TextView
+        android:id="@+id/collect_item_collectpoint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Collection Point:" />
 
-            <!--<TextView-->
-                <!--android:id="@+id/collect_item_deptName"-->
-                <!--android:layout_width="55dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:text="Department Name:" />-->
-
-            <!--<TextView-->
-                <!--android:id="@+id/collect_item_deptNameShow"-->
-                <!--android:layout_width="148dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:text="TextView" />-->
-
-        <!--</LinearLayout>-->
-
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="horizontal">-->
-
-            <!--<TextView-->
-                <!--android:id="@+id/collect_item_cp"-->
-                <!--android:layout_width="55dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:text="Collection Point:" />-->
-
-            <!--<TextView-->
-                <!--android:id="@+id/collect_item_cpshow"-->
-                <!--android:layout_width="148dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:text="TextView" />-->
-
-        <!--</LinearLayout>-->
-
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="horizontal">-->
-
-            <!--<TextView-->
-                <!--android:id="@+id/collect_item_rep"-->
-                <!--android:layout_width="55dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:text="Representative:" />-->
-
-            <!--<TextView-->
-                <!--android:id="@+id/collect_item_repshow"-->
-                <!--android:layout_width="148dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:text="TextView" />-->
-
-        <!--</LinearLayout>-->
-
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="368dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.059">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/collect_item_title"
-                android:layout_width="370dp"
-                android:layout_height="wrap_content"
-                android:text="Items Ready to be Collected" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/collect_item_department"
-                android:layout_width="370dp"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/collect_item_collectpoint"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/collect_item_representative"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-        </TableRow>
-
-    </TableLayout>
+    <TextView
+        android:id="@+id/collect_item_representative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Representative" />
 
     <ListView
-        android:id="@+id/listView"
-        android:layout_width="wrap_content"
-        android:layout_height="412dp"
-        android:layout_marginTop="80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.789">
-
-    </ListView>
-
-    <!--</LinearLayout>-->
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="-12dp" />
+        android:id="@+id/collect_item_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
 </android.support.constraint.ConstraintLayout>

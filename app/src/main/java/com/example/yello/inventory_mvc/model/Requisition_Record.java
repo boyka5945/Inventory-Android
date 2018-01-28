@@ -131,7 +131,7 @@ public class Requisition_Record extends HashMap<String, String> {
         return requisitionRecord;
 
     }
-    }
+
 
     public static List<Requisition_Record> GetRecordListByItemCode(String ItemCode, String Dept)
     {
