@@ -20,7 +20,7 @@ public class AllocationListActivity extends AppCompatActivity implements Adapter
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_allocation_grouped_by_item);
+        setContentView(R.layout.activity_allocation_list);
         final ListView lv = (ListView) findViewById(R.id.listViewMain);
 
 

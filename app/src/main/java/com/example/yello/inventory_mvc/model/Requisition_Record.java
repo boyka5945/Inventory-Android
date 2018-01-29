@@ -83,28 +83,10 @@ public class Requisition_Record extends HashMap<String, String> {
         return requisitionRecord;
     }
 
-    /*
 
-
-
-    public static List<Book> getBookByCategory(String category) {
-        List<Book> list = new ArrayList<Book>();
-        try {
-            JSONArray a = HttpHandler.getJSONArrayFromUrl(host+"/Book-category/"+category);
-            for (int i=0; i<a.length(); i++) {
-                JSONObject j = a.getJSONObject(i);
-                Book c = new Book (j.getString("id"), j.getString("title"), j.getString("author"),
-                        j.getString("isbn"), j.getString("category"), j.getString("stock"), j.getString("price"));
-                list.add(c);
-            }
-        } catch (Exception e) {
-        }
-        return list;
-    }
-     */
 
     public static List<Requisition_Record> GetAllRequestRecordForItemAllocation(String itemCode) {
-        String url = UrlString.getAllRequisitionRecords + itemCode;
+        String url = UrlString.GetAllRequestRecordForItemAllocation + itemCode;
         List<Requisition_Record> requisitionRecord = new ArrayList<>();
 
         try {

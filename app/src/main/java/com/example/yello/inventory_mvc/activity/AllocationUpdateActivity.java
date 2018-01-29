@@ -22,15 +22,15 @@ public class AllocationUpdateActivity extends AppCompatActivity   {
         setContentView(R.layout.activity_allocation_update);
 
 
-        final String itemCode = getIntent().getExtras().getString(Key.RETRIEVAL_ITEM_5_ITEMCODE);
+        final String itemCode = getIntent().getExtras().getString("itemCode");
         final String orderNum = getIntent().getExtras().getString("orderNum");
         TextView tvOrderNum = (TextView) findViewById(R.id.textView18);
         TextView tvItemCode = (TextView) findViewById(R.id.textView16);
         final TextView tvDepartment = (TextView) findViewById(R.id.textView20);
-        //final TextView tvEmployee = (TextView) findViewById(R.id.textView22);
-        final TextView tvReqQty = (TextView) findViewById(R.id.textView25);
+        final TextView tvUnfulfilled = (TextView) findViewById(R.id.textView25);
         final TextView tvRetrievedQty = (TextView) findViewById(R.id.textView27);
         final EditText tvAllocatedQty = (EditText) findViewById(R.id.editText2);
+        //final TextView tvEmployee = (TextView) findViewById(R.id.textView22);
         Button b = (Button) findViewById(R.id.button4);
 
 
@@ -38,26 +38,19 @@ public class AllocationUpdateActivity extends AppCompatActivity   {
             @Override
             public void onClick(View v) {
 
-
-
-
                 Requisition_Detail.updateRequisitionDetails(orderNum, itemCode, tvAllocatedQty.getText().toString());
-
-
-
                 Intent intent = new Intent(getApplicationContext(), AllocationGroupedByItemActivity.class);
                 startActivity(intent);
             }
         });
 
-
-
         tvOrderNum.setText(orderNum);
         tvItemCode.setText(itemCode);
+        tvDepartment.setText(getIntent().getExtras().getString("departmentCode"));
+        tvUnfulfilled.setText(getIntent().getExtras().getString("qtyUnfulfilled"));
 
 
-
-        new AsyncTask<Void, Void, Requisition_Detail>() {
+/*        new AsyncTask<Void, Void, Requisition_Detail>() {
 
             @Override
             protected Requisition_Detail doInBackground(Void... params) {
@@ -72,7 +65,7 @@ public class AllocationUpdateActivity extends AppCompatActivity   {
 
 
             }
-        }.execute();
+        }.execute();*/
 
         new AsyncTask< String, Void, Retrieval_Item>() {
 
@@ -83,7 +76,8 @@ public class AllocationUpdateActivity extends AppCompatActivity   {
 
             @Override
             protected void onPostExecute(Retrieval_Item result) {
-                tvReqQty.setText(result.get(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED));
+
+                tvRetrievedQty.setText(result.get(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED));
 
 
             }
