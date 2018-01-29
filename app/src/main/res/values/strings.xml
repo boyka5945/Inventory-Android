@@ -3,10 +3,10 @@
 
     <!-- Strings related to login -->
     <string name="prompt_email">UserID</string>
-    <string name="prompt_password">PassWord</string>
+    <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_email">This UserID is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
@@ -66,6 +66,7 @@
     <string name="error_pls_try_again">Opps...Some error occur. Pleas try again.</string>
     <string name="error_invalid_request_quantity">Please enter the request quantity.</string>
     <string name="error_adding_request_item">Error while adding request item</string>
+    <string name="error_subtmit_new_requisition">Error while submitting new requisition</string>
     <string name="success_add_item_message">%1$d x %2$s was added into requisition form.</string>
 
 </resources>

@@ -9,6 +9,7 @@ import org.json.JSONObject;
 
 
 import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -19,7 +20,7 @@ import java.util.List;
 public class Requisition_Detail extends HashMap<String, String>
 {
     public Requisition_Detail() {} // default constructor
-
+    
     public Requisition_Detail(String requisitionNo, String itemCode, String description,
                               String uom, String remarks, String requestQty,
                               String fulfilledQty, String clerkID, String retrievedDate,
@@ -83,12 +84,12 @@ public class Requisition_Detail extends HashMap<String, String>
         this.put(Key.REQUISITION_DETAIL_4_ITEM_UOM, uom);
         this.put(Key.REQUISITION_DETAIL_6_REQUEST_QTY, requestQty);
     }
-
+    
     // TODO: remove hardcoded requesterID
     public static void addNewRequisition(List<Requisition_Detail> detail)
     {
         String requesterID = "S1014";
-
+    
         JSONArray jarray = new JSONArray();
         for (Requisition_Detail d: detail)
         {
@@ -97,7 +98,7 @@ public class Requisition_Detail extends HashMap<String, String>
             {
                 jdetail.put(Key.REQUISITION_DETAIL_2_ITEM_CODE, d.get(Key.REQUISITION_DETAIL_2_ITEM_CODE));
                 jdetail.put(Key.REQUISITION_DETAIL_6_REQUEST_QTY, Integer.parseInt(d.get(Key.REQUISITION_DETAIL_6_REQUEST_QTY)));
-
+        
                 jarray.put(jdetail);
             }
             catch (Exception e)
@@ -116,6 +117,46 @@ public class Requisition_Detail extends HashMap<String, String>
             e.printStackTrace();
         }
 
+    }
+
+    public static List<Requisition_Detail> getDetailsByReqNo(String reqNo)
+    {
+        String url = UrlString.getRequisitionDetailByReqNo + reqNo;
+
+        ArrayList<Requisition_Detail> requisition_details = new ArrayList<>();
+
+
+        try
+        {
+            JSONArray array = JSONParser.getJSONArrayFromUrl(url);
+
+            for (int i = 0; i < array.length(); i++)
+            {
+                JSONObject obj = array.getJSONObject(i);
+
+                requisition_details.add(
+
+                        new Requisition_Detail(
+                                obj.getString(Key.REQUISITION_DETAIL_1_REQUISITION_NO),
+                        obj.getString(Key.REQUISITION_DETAIL_2_ITEM_CODE),
+                        obj.getString(Key.REQUISITION_DETAIL_3_ITEM_DESCRIPTION),
+                        obj.getString(Key.REQUISITION_DETAIL_4_ITEM_UOM),
+                        obj.getString(Key.REQUISITION_DETAIL_5_REMARKS),
+                        obj.getString(Key.REQUISITION_DETAIL_6_REQUEST_QTY),
+                        obj.getString(Key.REQUISITION_DETAIL_7_FULFILLED_QTY),
+                        obj.getString(Key.REQUISITION_DETAIL_8_CLERK_ID),
+                        obj.getString(Key.REQUISITION_DETAIL_9_RETRIEVED_DATE),
+                        obj.getString(Key.REQUISITION_DETAIL_10_ALLOCATE_QTY),
+                                obj.getString(Key.REQUISITION_DETAIL_11_NEXT_COLLECTION_DATE)
+                ));
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return requisition_details;
     }
 
 }
