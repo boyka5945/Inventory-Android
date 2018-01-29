@@ -58,6 +58,7 @@ public class RetrievalListActivity extends ListActivity {
         intent.putExtra(Key.RETRIEVAL_ITEM_1_DESCRIPTION, ri.get(Key.RETRIEVAL_ITEM_1_DESCRIPTION));
         intent.putExtra(Key.RETRIEVAL_ITEM_2_QTY, ri.get(Key.RETRIEVAL_ITEM_2_QTY));
         intent.putExtra(Key.RETRIEVAL_ITEM_3_LOCATION, ri.get(Key.RETRIEVAL_ITEM_3_LOCATION));
+        intent.putExtra(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED, ri.get(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED));
 
         startActivity(intent);
     }
