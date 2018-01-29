@@ -29,7 +29,7 @@ public class DisbursementDeptActivity extends ListActivity {
 
             @Override
             protected List<Department> doInBackground(Void... params) {
-                return Department.ListDepartments("http://172.17.255.3/AD_Inventory_WCF/Service.svc/GetAllDepartments");
+                return Department.ListDepartments("http://192.168.1.3/AD_Inventory_WCF/Service.svc/GetAllDepartments");
             }
 
             @Override
