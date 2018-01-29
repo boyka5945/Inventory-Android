@@ -15,7 +15,8 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Stationery Retrieval" />
+            android:text="Stationery Retrieval"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
         <ListView
             android:id="@android:id/list"

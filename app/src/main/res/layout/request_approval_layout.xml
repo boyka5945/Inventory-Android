@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/reqidtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="14dp"
+            android:text="@string/requesition_id" />
+
+        <TextView
+            android:id="@+id/reqid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/reqidtext"
+            android:layout_alignBottom="@+id/reqidtext"
+            android:layout_marginStart="42dp"
+            android:layout_toEndOf="@+id/reqnametext"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/reqnametext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/reqidtext"
+            android:layout_below="@+id/reqidtext"
+            android:layout_marginTop="11dp"
+            android:text="@string/requester_name" />
+
+        <TextView
+            android:id="@+id/reqname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/reqnametext"
+            android:layout_alignBottom="@+id/reqnametext"
+            android:layout_alignStart="@+id/reqid"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/reqdatetext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/reqnametext"
+            android:layout_below="@+id/reqnametext"
+            android:layout_marginTop="15dp"
+            android:text="@string/requestt_date" />
+
+        <TextView
+            android:id="@+id/reqdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/reqdatetext"
+            android:layout_alignBottom="@+id/reqdatetext"
+            android:layout_alignStart="@+id/reqname"
+            android:ems="10" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/detailsframe"
+        android:layout_width="match_parent"
+        android:layout_height="403dp">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@android:id/list"
+            android:layout_gravity="left|center_vertical" >
+
+
+        </ListView>
+    </FrameLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/approve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="75dp"
+            android:text="Approve"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/background_light"/>
+
+        <Button
+            android:id="@+id/reject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="45dp"
+            android:layout_toEndOf="@+id/approve"
+            android:text="Reject"
+            android:background="@android:color/darker_gray"
+            android:textColor="@android:color/background_light"/>
+    </RelativeLayout>
+
+</LinearLayout>
+
+
+

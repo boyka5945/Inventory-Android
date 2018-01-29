@@ -40,8 +40,22 @@ public class RetrievalDetailsActivity extends AppCompatActivity {
         final EditText qtyRetrieved = (EditText) findViewById(R.id.editText3);
 
         Button confirm = (Button) findViewById(R.id.button3);
-/*        Button cancel = (Button) findViewById(R.id.button3);*/
+        Button cancel = (Button) findViewById(R.id.button2);
 
+
+
+
+        cancel.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent intent = new Intent(getApplicationContext(), RetrievalListActivity.class);
+                        startActivity(intent);
+
+                    }}
+
+        );
 
 
 
@@ -59,7 +73,7 @@ public class RetrievalDetailsActivity extends AppCompatActivity {
                 ri.put(Key.RETRIEVAL_ITEM_1_DESCRIPTION, name);
                 ri.put(Key.RETRIEVAL_ITEM_2_QTY, qty);
                 ri.put(Key.RETRIEVAL_ITEM_3_LOCATION, location);
-                ri.put(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED, "123456");
+                ri.put(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED, qtyR);
 
                 new AsyncTask<Retrieval_Item, Void, Void>() {
 

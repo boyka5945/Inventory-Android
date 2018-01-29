@@ -17,11 +17,11 @@ public class AllocationViewModel extends HashMap<String,String> {
     //department code
     //qty requested
 
-    public AllocationViewModel(String orderNum, String departmentCode, String qtyReq){
+    public AllocationViewModel(String orderNum, String departmentCode, String qtyUnfulfilled){
 
         this.put("orderNum", orderNum);
         this.put("departmentCode", departmentCode);
-        this.put("qtyReq", qtyReq);
+        this.put("qtyUnfulfilled", qtyUnfulfilled);
 
 
     }
@@ -32,16 +32,20 @@ public class AllocationViewModel extends HashMap<String,String> {
         List<Requisition_Record> reqRec = Requisition_Record.GetAllRequestRecordForItemAllocation(itemCode);
 
         for (Requisition_Record rr : reqRec){
-            String qty = null;
+            int qtyUnfulfilled ;
+            String unFulfilled = null;
+
             String reqNum = rr.get(Key.REQUISITION_RECORD_1_REQUISITION_NO);
             List<Requisition_Detail> rdList = Requisition_Detail.getDetailsByReqNo(reqNum);
             for(Requisition_Detail rd : rdList){
                 if(rd.containsValue(itemCode)){
 
-                     qty = rd.get(Key.REQUISITION_DETAIL_6_REQUEST_QTY);
+                    qtyUnfulfilled = Integer.parseInt(rd.get(Key.REQUISITION_DETAIL_6_REQUEST_QTY)) -
+                            Integer.parseInt(rd.get(Key.REQUISITION_DETAIL_7_FULFILLED_QTY)) -  Integer.parseInt(rd.get(Key.REQUISITION_DETAIL_10_ALLOCATE_QTY)) ;
+                    unFulfilled = Integer.toString(qtyUnfulfilled);
                 }
             }
-            list.add( new AllocationViewModel(reqNum, rr.get(Key.REQUISITION_RECORD_2_DEPT_CODE), qty ));
+            list.add( new AllocationViewModel(reqNum, rr.get(Key.REQUISITION_RECORD_2_DEPT_CODE), unFulfilled ));
         }
 
         return list;

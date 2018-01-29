@@ -7,6 +7,8 @@ import com.example.yello.inventory_mvc.utility.UrlString;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+
+import java.util.ArrayList;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -37,8 +39,44 @@ public class Requisition_Detail extends HashMap<String, String>
         this.put(Key.REQUISITION_DETAIL_11_NEXT_COLLECTION_DATE, nextCollectionDate);
         this.put(Key.REQUISITION_DETAIL_12_STATUS,status);
     }
-    
-    
+
+/*    public static List<Requisition_Detail> getDetailsByReqNo(String reqNo)
+    {
+        String url = UrlString.getDetailsByReqNo + reqNo;
+        ArrayList<Requisition_Detail> reqDetails = new ArrayList<>();
+
+        try
+        {
+            JSONArray array = JSONParser.getJSONArrayFromUrl(url);
+
+            for (int i = 0; i < array.length(); i++)
+            {
+                JSONObject obj = array.getJSONObject(i);
+
+                reqDetails.add(new Requisition_Detail(obj.getString(Key.REQUISITION_DETAIL_1_REQUISITION_NO),
+                        obj.getString(Key.REQUISITION_DETAIL_2_ITEM_CODE),
+                        obj.getString(Key.REQUISITION_DETAIL_3_ITEM_DESCRIPTION),
+                        obj.getString(Key.REQUISITION_DETAIL_4_ITEM_UOM),
+                        obj.getString(Key.REQUISITION_DETAIL_5_REMARKS),
+                        obj.getString(Key.REQUISITION_DETAIL_6_REQUEST_QTY),
+                        obj.getString(Key.REQUISITION_DETAIL_7_FULFILLED_QTY),
+                        obj.getString(Key.REQUISITION_DETAIL_8_CLERK_ID),
+                        obj.getString(Key.REQUISITION_DETAIL_9_RETRIEVED_DATE),
+                        obj.getString(Key.REQUISITION_DETAIL_10_ALLOCATE_QTY),
+                        obj.getString(Key.REQUISITION_DETAIL_11_NEXT_COLLECTION_DATE)
+                ));
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return reqDetails;
+    }*/
+
+
+
     public Requisition_Detail(String itemCode, String description,
                               String uom, String requestQty)
     {
@@ -48,10 +86,10 @@ public class Requisition_Detail extends HashMap<String, String>
         this.put(Key.REQUISITION_DETAIL_6_REQUEST_QTY, requestQty);
     }
     
-    // TODO: remove hardcoded requesterID
+
     public static void addNewRequisition(List<Requisition_Detail> detail)
     {
-        String requesterID = "S1014";
+        String requesterID = LoginUser.userID;
     
         JSONArray jarray = new JSONArray();
         for (Requisition_Detail d: detail)
@@ -69,7 +107,7 @@ public class Requisition_Detail extends HashMap<String, String>
                 e.printStackTrace();
             }
         }
-        
+
         try
         {
             String result = JSONParser.postStream(UrlString.addNewRequest + requesterID, jarray.toString());
@@ -79,7 +117,7 @@ public class Requisition_Detail extends HashMap<String, String>
         {
             e.printStackTrace();
         }
-        
+
     }
 
     public static List<Requisition_Detail> getDetailsByReqNo(String reqNo)
@@ -180,7 +218,7 @@ public class Requisition_Detail extends HashMap<String, String>
         } catch (Exception e) {
         }
 
-        String result = JSONParser.postStream(UrlString.updateRequisitionDetails, obj.toString());
+        String result = JSONParser.postStream(UrlString.updateReqDetail, obj.toString());
 
 
         //still need to minus away allocated qty from the retrieved?
@@ -202,6 +240,7 @@ public class Requisition_Detail extends HashMap<String, String>
 
 
             requisition_details =  new Requisition_Detail(
+
                     obj.getString(Key.REQUISITION_DETAIL_1_REQUISITION_NO),
                     obj.getString(Key.REQUISITION_DETAIL_2_ITEM_CODE),
                     obj.getString(Key.REQUISITION_DETAIL_3_ITEM_DESCRIPTION),
@@ -213,7 +252,7 @@ public class Requisition_Detail extends HashMap<String, String>
                     obj.getString(Key.REQUISITION_DETAIL_9_RETRIEVED_DATE),
                     obj.getString(Key.REQUISITION_DETAIL_10_ALLOCATE_QTY),
                     obj.getString(Key.REQUISITION_DETAIL_11_NEXT_COLLECTION_DATE),
-                    obj.getString(Key.REQUISITION_DETAIL_11_NEXT_COLLECTION_DATE)
+                    obj.getString(Key.REQUISITION_DETAIL_12_STATUS)
 
             );
         }
