@@ -69,6 +69,10 @@ public final class UrlString
     // UriTemplate = "/GetAllRequisitionDetailsforAllocation"
     public static final String GetAllRequisitionDetailsforAllocation = host + "/GetAllRequisitionDetailsforAllocation";
 
+    // UriTemplate = "/GetAllRequestRecordForItemAllocation/{itemCode}"
+    public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequestRecordForItemAllocation/";
+
+
 //ps
    // public static final String userChangePassword = host + "/ChangePassword/";
 
