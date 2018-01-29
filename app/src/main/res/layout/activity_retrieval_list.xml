@@ -6,22 +6,54 @@
     android:layout_height="match_parent"
     tools:context="com.example.yello.inventory_mvc.activity.RetrievalListActivity">
 
-    <LinearLayout
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView"
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Stationery Retrieval"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:layout_height="match_parent" >
 
-        <ListView
-            android:id="@android:id/list"
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Stationery Retrieval"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        </TableRow>
+
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView36"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Item Name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            <TextView
+                android:id="@+id/textView37"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Requested Qty"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ListView
+                android:id="@android:id/list"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </TableRow>
+
+    </TableLayout>
 
 </android.support.constraint.ConstraintLayout>
