@@ -78,6 +78,11 @@ public final class Key
     public static final String DEPARTMENT_5_FAX_NO = "FaxNo";*/
     public static final String DEPARTMENT_6_COLLECTION_POINT_ID = "CollectionPointID";
 
+    //FOR COLLECTION POINT
+    public static final String COLLECTION_POINT_NAME = "Collection_Point_Name";
+    public static final String COLLECTION_POINT_ID = "Collection_Point_ID";
+
+
     //FOR RETRIEVAL_ITEM
 
 

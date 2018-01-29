@@ -8,13 +8,16 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 
 import com.example.yello.inventory_mvc.R;
 
 import com.example.yello.inventory_mvc.model.Disbursement;
+import com.example.yello.inventory_mvc.utility.Key;
 
 import java.util.List;
 
@@ -24,11 +27,30 @@ import static com.example.yello.inventory_mvc.utility.UrlString.GetDisbursementB
 public class ViewCollectItemActivity extends AppCompatActivity {
 
     private String url = GetDisbursementByDept+"ZOOL";
+    private TextView cpoint;
+    private TextView departmentName;
 
+
+    private String DepartmentCode;
+    private String DepartmentName;
+    private String CollectionPointID;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_collect_item);
+
+//        DepartmentCode = getIntent().getExtras().getString(Key.DEPARTMENT_1_CODE);
+//        DepartmentName = getIntent().getExtras().getString(Key.DEPARTMENT_2_NAME);
+//        CollectionPointID = getIntent().getExtras().getString(Key.DEPARTMENT_6_COLLECTION_POINT_ID);
+//
+//
+//        departmentName = (TextView) findViewById(R.id.collect_item_department);
+//        cpoint = (TextView) findViewById(R.id.collect_item_collectpoint);
+//
+//
+//        departmentName.setText("Department: "+DepartmentName);
+//        cpoint.setText("Collection Point: "+CollectionPointID);
+
     final ListView lv = findViewById(R.id.collect_item_list);
 
 
