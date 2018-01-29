@@ -93,6 +93,20 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.ChangeCollectionPointActivity"></activity>
+
+        <activity android:name=".activity.AllocationListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activity.AllocationGroupedByItemActivity">
+        </activity>
+
+        <activity android:name=".activity.AllocationUpdateActivity">
+        </activity>
+
+
     </application>
 
 </manifest>
