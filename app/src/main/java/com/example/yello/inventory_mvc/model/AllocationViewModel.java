@@ -41,7 +41,7 @@ public class AllocationViewModel extends HashMap<String,String> {
                 if(rd.containsValue(itemCode)){
 
                     qtyUnfulfilled = Integer.parseInt(rd.get(Key.REQUISITION_DETAIL_6_REQUEST_QTY)) -
-                            Integer.parseInt(rd.get(Key.REQUISITION_DETAIL_7_FULFILLED_QTY));
+                            Integer.parseInt(rd.get(Key.REQUISITION_DETAIL_7_FULFILLED_QTY)) -  Integer.parseInt(rd.get(Key.REQUISITION_DETAIL_10_ALLOCATE_QTY)) ;
                     unFulfilled = Integer.toString(qtyUnfulfilled);
                 }
             }

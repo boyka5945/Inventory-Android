@@ -55,7 +55,7 @@ public class AllocationGroupedByItemActivity extends AppCompatActivity {
                         new SimpleAdapter(AllocationGroupedByItemActivity.this, result,
                                 R.layout.allocation_group_row,
                                 new String[]{"orderNum", "departmentCode", "qtyUnfulfilled"}, //CHANGE TO UNFULFILLED
-                                new int[]{R.id.textView5, R.id.textView6, R.id.textView7});
+                                new int[]{R.id.textView5, R.id.textView7, R.id.textView6});
 
                 lv.setAdapter(adapter);
             }

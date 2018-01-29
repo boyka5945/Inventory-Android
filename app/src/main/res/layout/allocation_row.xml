@@ -10,7 +10,7 @@
 
         <TextView
             android:id="@+id/itemNameCol"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="TextView"
@@ -18,7 +18,7 @@
 
         <TextView
             android:id="@+id/totalReqCol"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="TextView"
@@ -26,7 +26,7 @@
 
         <TextView
             android:id="@+id/totalRetCol"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="TextView"
