@@ -32,15 +32,23 @@ public final class UrlString
     // UriTemplate = "/GetAllCategories"
     public static final String getAllCategories = host + "/GetAllCategories";
 
+    //UriTemplate = "GetDetailByReqNo/{reqNo}"
+    public static final String getDetailsByReqNo=host+"/GetDetailByReqNo/";
+
+    //UriTemplate = "GetRequisitionByDept/{deptCode}"
+    public static final String getRequistionRecordByDept=host+"/GetRequisitionRecordByDept/";
+
+
+
     // UriTemplate = "/ValidateUser/{userid}/{password}"
     //public static final String validateUser = host + "/ValidateUser/";
 
     // UriTemplate = "/GetUser/{userid}/{password}"
     public static final String validateUser = host + "/GetUser/";
-    
+
     // UriTemplate = "/AddNewRequest/{requesterID}
     public static final String addNewRequest = host + "/AddNewRequest/";
-    
+
 
     // UriTemplate = "/GetAllRequisitionRecords"
     public static final String getAllRequisitionRecords = host + "/GetAllRequisitionRecords/";
@@ -56,6 +64,10 @@ public final class UrlString
 
     // UriTemplate = "/UpdateRetrieval"
     public static final String UpdateRetrieval = host + "/UpdateRetrieval";
+
+    // UriTemplate = "/UpdateRequistion/{requisitionNo}/{status}/{approvestaff_id}"
+    public static final String UpdateRequisition=host+"/UpdateRequisition/";
+
 
     //UriTemplate = "/UpdateRequisitionDetail"
     public  static final String updateReqDetail = host + "/UpdateRequisitionDetail";
@@ -74,11 +86,11 @@ public final class UrlString
     public static final String GetPendingItemsByItem = host + "/GetPendingItemsByItem/";
 
     // UriTemplate = "/GetAllRequestRecordForItemAllocation/{itemCode}"
-    public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequestRecordForItemAllocation/";
+   // public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequestRecordForItemAllocation/";
 
 
 //ps
    // public static final String userChangePassword = host + "/ChangePassword/";
 
-    //public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequisitionforAllocation";
+    public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequisitionforAllocation";
 }
