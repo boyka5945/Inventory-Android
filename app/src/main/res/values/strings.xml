@@ -84,7 +84,7 @@
     <string name="log_out">Log Out</string>
 
 
-    <string name="retrievePendingCollection">Retrieve Pending Collection</string>
+    <string name="retrieveReadyCollection">Retrieve ready for Collection</string>
     <string name="changeCollectionPoint">Change Collection Point</string>
     <string name="log_out1">Log Out</string>
 

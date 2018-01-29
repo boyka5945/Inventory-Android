@@ -32,7 +32,7 @@ import static com.example.yello.inventory_mvc.utility.UrlString.GetDisbursementB
 public class ViewCollectItemActivity extends AppCompatActivity {
 
     private String url = GetDisbursementByDept+"ZOOL";
-    private String departmentCode = LoginUser.deptCode.toString();
+//    private String departmentCode = LoginUser.deptCode.toString();
     private TextView cpoint;
     private TextView departmentName;
 private TextView rep;
@@ -46,14 +46,14 @@ private TextView rep;
         setContentView(R.layout.activity_view_collect_item);
 
 
-        departmentName = (TextView) findViewById(R.id.collect_item_department);
-        cpoint = (TextView) findViewById(R.id.collect_item_collectpoint);
-        rep = (TextView) findViewById(R.id.collect_item_representative);
-//
-//
-        departmentName.setText("Department: "+ Key.DEPARTMENT_2_NAME);
-        cpoint.setText("Collection Point: "+ Key.DEPARTMENT_7_COLLECTION_NAME);
-        rep.setText("Representative: "+ Key.USER_3_NAME);
+//        departmentName = (TextView) findViewById(R.id.collect_item_department);
+//        cpoint = (TextView) findViewById(R.id.collect_item_collectpoint);
+//        rep = (TextView) findViewById(R.id.collect_item_representative);
+////
+////
+//        departmentName.setText("Department: "+ Key.DEPARTMENT_2_NAME);
+//        cpoint.setText("Collection Point: "+ Key.DEPARTMENT_7_COLLECTION_NAME);
+//        rep.setText("Representative: "+ Key.USER_3_NAME);
 
 
     final ListView lv = findViewById(R.id.collect_item_list);
