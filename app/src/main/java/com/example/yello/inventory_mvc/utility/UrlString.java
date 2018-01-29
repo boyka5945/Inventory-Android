@@ -6,7 +6,7 @@ package com.example.yello.inventory_mvc.utility;
 
 public final class UrlString
 {
-    public static final String ip = "192.168.0.104";
+    public static final String ip = "192.168.1.3";
     public static final String server = "/AD_Inventory_WCF";
     public static final String host = "http://" + ip + server + "/Service.svc";
     
@@ -48,6 +48,9 @@ public final class UrlString
     // UriTemplate = "/GetDetailByReqNo/{reqNo}"
     public static final String getRequisitionDetailByReqNo = host + "/GetDetailByReqNo/";
 
+    // UriTemplate = "/GetRequisitionDetailsBy2Keys/{itemCode}/{requisitionNo}"
+    public static final String GetRequisitionDetailsBy2Keys = host + "/GetRequisitionDetailsBy2Keys/";
+
     // UriTemplate = "/GetRetrievalList"
     public static final String GetRetrievalList = host + "/GetRetrievalList";
 
@@ -57,8 +60,25 @@ public final class UrlString
     //UriTemplate = "/UpdateRequisitionDetail"
     public  static final String updateReqDetail = host + "/UpdateRequisitionDetail";
 
+    // UriTemplate = "/updateRequisitionDetails"
+    public static final String updateRequisitionDetails = host + "/updateRequisitionDetails";
+
+    // UriTemplate = "/GetRetrievalForm/{itemCode}"
+    public static final String GetRetrievalForm = host + "/GetRetrievalForm/";
+
+    // UriTemplate = "/GetAllRequisitionDetailsforAllocation"
+    public static final String GetAllRequisitionDetailsforAllocation = host + "/GetAllRequisitionDetailsforAllocation";
+    // UriTemplate = "/GetDisbursementByDept/{deptCode}""
+    public static final String GetDisbursementByDept = host + "/GetDisbursementByDept/";
+    // UriTemplate = "/GetPendingItemsByItem/{deptCode}"
+    public static final String GetPendingItemsByItem = host + "/GetPendingItemsByItem/";
+
+    // UriTemplate = "/GetAllRequestRecordForItemAllocation/{itemCode}"
+    public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequestRecordForItemAllocation/";
+
 
 //ps
    // public static final String userChangePassword = host + "/ChangePassword/";
 
+    public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequisitionforAllocation";
 }

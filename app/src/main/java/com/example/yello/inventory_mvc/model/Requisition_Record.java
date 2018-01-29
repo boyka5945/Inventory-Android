@@ -104,7 +104,7 @@ public class Requisition_Record extends HashMap<String, String> {
      */
 
     public static List<Requisition_Record> GetAllRequestRecordForItemAllocation(String itemCode) {
-        String url = UrlString.GetAllRequestRecordForItemAllocation + itemCode;
+        String url = UrlString.getAllRequisitionRecords + itemCode;
         List<Requisition_Record> requisitionRecord = new ArrayList<>();
 
         try {

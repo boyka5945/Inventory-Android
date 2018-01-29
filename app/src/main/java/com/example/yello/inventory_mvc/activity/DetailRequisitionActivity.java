@@ -30,6 +30,7 @@ public class DetailRequisitionActivity extends AppCompatActivity
         if(intent.hasExtra(Key.BUNDLE_REQUISITION))
         {
             Bundle bundle = new Bundle();
+            String s = intent.getStringExtra(Key.BUNDLE_REQUISITION);
             bundle.putString(Key.BUNDLE_REQUISITION, intent.getStringExtra(Key.BUNDLE_REQUISITION));
 
             Fragment fragment = new DetailRequisitionFragment();

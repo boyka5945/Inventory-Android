@@ -77,6 +77,36 @@ public class Retrieval_Item extends HashMap<String,String> {
 
     }
 
+    public static Retrieval_Item GetRetrievalForm(String itemCode )
+    {
+        String url = UrlString.GetRetrievalForm + itemCode;
+
+        Retrieval_Item retrieval_Item = null;
+
+        try
+        {
+
+            JSONObject ri = JSONParser.getJSONFromUrl(url);
+
+
+            retrieval_Item =  new Retrieval_Item();
+
+            retrieval_Item.put(Key.RETRIEVAL_ITEM_1_DESCRIPTION, ri.getString(Key.RETRIEVAL_ITEM_1_DESCRIPTION));
+            retrieval_Item.put(Key.RETRIEVAL_ITEM_2_QTY, ri.getString(Key.RETRIEVAL_ITEM_2_QTY));
+            retrieval_Item.put(Key.RETRIEVAL_ITEM_3_LOCATION, ri.getString(Key.RETRIEVAL_ITEM_3_LOCATION));
+            retrieval_Item.put(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED, ri.getString(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED));
+
+
+        }
+
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return retrieval_Item;
+    }
+
 
 
 
