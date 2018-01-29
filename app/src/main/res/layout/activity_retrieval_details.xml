@@ -18,7 +18,8 @@
                 android:id="@+id/textview_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Stationery Retrieval Details" />
+                android:text="Retrieval Details"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
         </TableRow>
 
@@ -28,15 +29,19 @@
 
             <TextView
                 android:id="@+id/textview_descrp"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Item Name" />
+                android:layout_weight="1"
+                android:text="Item Name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             <TextView
                 android:id="@+id/tvDescrp"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
         </TableRow>
 
         <TableRow
@@ -45,15 +50,19 @@
 
             <TextView
                 android:id="@+id/textview_qty"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Qty" />
+                android:layout_weight="1"
+                android:text="Qty"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             <TextView
                 android:id="@+id/tvQty"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
         </TableRow>
 
         <TableRow
@@ -62,15 +71,19 @@
 
             <TextView
                 android:id="@+id/textview_location"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Location" />
+                android:layout_weight="1"
+                android:text="Location"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             <TextView
                 android:id="@+id/tvLoc"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
         </TableRow>
 
         <TableRow
@@ -79,14 +92,15 @@
 
             <TextView
                 android:id="@+id/textview_retrieved"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Retrieved Qty:" />
+                android:text="Retrieved Qty:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             <EditText
                 android:id="@+id/editText3"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -101,15 +115,17 @@
 
             <Button
                 android:id="@+id/button3"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Confirm" />
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_weight="1"
+                android:text="Cancel" />
         </TableRow>
 
     </TableLayout>
