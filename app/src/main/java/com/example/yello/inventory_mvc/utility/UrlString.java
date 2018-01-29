@@ -61,4 +61,8 @@ public final class UrlString
 
     // UriTemplate = "/UpdateRetrieval"
     public static final String UpdateRetrieval = host + "/UpdateRetrieval";
+
+    // UriTemplate = "/UpdateRequistion/{requisitionNo}/{status}/{approvestaff_id}"
+    public static final String UpdateRequisition=host+"/UpdateRequisition/";
+
 }

@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.ListFragment;
 
 import android.support.v4.app.Fragment;
@@ -92,8 +93,11 @@ public class RequestListFragment extends ListFragment {
       //  List<Requisition_Detail> reqDetails=Requisition_Detail.getDetailsByReqNo("23");
         if (getActivity().findViewById(R.id.requestDetailsframe1) == null) {
             // single-pane
+            String check=record.get(Key.BUNDLE_REQUESITION_RECORD);
             Intent intent = new Intent(getActivity(), RequestDetailsActivity.class);
-            intent.putExtra("record", record);
+            //intent.putExtra(Key.BUNDLE_REQUESITION_RECORD, record.get(Key.REQUISITION_RECORD_1_REQUISITION_NO));
+            intent.putExtra(Key.BUNDLE_REQUESITION_RECORD, record);
+
             startActivity(intent);
         }
         else
@@ -105,7 +109,7 @@ public class RequestListFragment extends ListFragment {
     protected void displayDetails(Requisition_Record rec)
     {
        Bundle bundle=new Bundle();
-       bundle.putSerializable("record", rec);
+       bundle.putParcelable(Key.BUNDLE_REQUESITION_RECORD, (Parcelable) rec);
         final String TAG = "REQ_DETAIL_FRAG";
 
         Fragment fragment = new RequestDetailsFragment(); // initialize fragment

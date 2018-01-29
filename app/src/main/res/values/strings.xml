@@ -68,5 +68,9 @@
     <string name="error_adding_request_item">Error while adding request item</string>
     <string name="error_subtmit_new_requisition">Error while submitting new requisition</string>
     <string name="success_add_item_message">%1$d x %2$s was added into requisition form.</string>
+    
+    <string name="requesition_id">Requesition ID</string>
+    <string name="requester_name">Requester Name</string>
+    <string name="requestt_date">Request Date</string>
 
 </resources>

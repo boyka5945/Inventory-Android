@@ -11,7 +11,7 @@ public final class Key
     public  static  final String BUNDLE_STATIONERY = "stationery";
     public  static  final String BUNDLE_REQUISITION = "requisitionRecord";
     public  static  final String BUNDLE_CATEGORY = "category";
-    public  static  final String BUNDLE_REQUISITION_DETAIL = "requisitionDetail";
+
     public  static  final String BUNDLE_SHOW_BUTTON = "button";
 
     public  static  final String BUNDLE_REQUESITION_RECORD="requisition_record";

@@ -33,6 +33,10 @@ public class Requisition_Record extends HashMap<String, String>
         this.put(Key.REQUISITION_RECORD_10_REQUEST_DATE, requestDate);
     }
 
+    public Requisition_Record() {
+
+    }
+
     public static List<Requisition_Record> getRequistionRecordByDept(String deptCode)
     {
         String url = UrlString.getRequistionRecordByDept + deptCode;
@@ -126,6 +130,26 @@ public class Requisition_Record extends HashMap<String, String>
         }
 
         return requisitionRecord;
+    }
+
+    public static void UpdateRequisition(String reqrecord, String status, String approvestaff_id)
+    {
+
+        String url = UrlString.UpdateRequisition + reqrecord + "/" + status + "/" + approvestaff_id;
+
+       // JSONObject jretrieval = new JSONObject();
+       // try {
+       //     jretrieval.put(Key.REQUISITION_RECORD_1_REQUISITION_NO, reqrecord.get(Key.REQUISITION_RECORD_1_REQUISITION_NO));
+       //     jretrieval.put(Key.REQUISITION_RECORD_9_STATUS, Integer.parseInt(reqrecord.get(Key.REQUISITION_RECORD_9_STATUS)));
+       //     jretrieval.put(Key.REQUISITION_RECORD_6_APPROVER_ID, reqrecord.get(Key.REQUISITION_RECORD_6_APPROVER_ID));
+
+       // } catch (Exception e) {
+       // }
+       // String result = JSONParser.postStream(UrlString.UpdateRequisition, jretrieval.toString());
+
+        String result = JSONParser.getStream(url);
+
+
     }
 
 }

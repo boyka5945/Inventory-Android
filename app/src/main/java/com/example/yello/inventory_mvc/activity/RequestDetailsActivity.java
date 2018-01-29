@@ -7,26 +7,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.yello.inventory_mvc.R;
+import com.example.yello.inventory_mvc.fragment.DetailRequisitionFragment;
 import com.example.yello.inventory_mvc.fragment.RequestDetailsFragment;
+import com.example.yello.inventory_mvc.utility.Key;
 
 import java.util.HashMap;
 
-public class RequestDetailsActivity extends Activity {
+public class RequestDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_details);
-        Intent intent = getIntent();
-        if (intent.hasExtra("details")) {
-            HashMap<String, String> m = (HashMap<String,String>)intent.getSerializableExtra("details");
-            Bundle args = new Bundle();
-            args.putSerializable("item", m);
-            Fragment f = new RequestDetailsFragment();
-            f.setArguments(args);
-           // getFragmentManager().beginTransaction()
-           //         .add(R.id.requestDetailsFrame2, f)
-           //         .commit();
+        Intent intent = this.getIntent();
+
+        if(intent.hasExtra(Key.BUNDLE_REQUESITION_RECORD))
+        {
+            Bundle bundle = new Bundle();
+            //bundle.putString(Key.BUNDLE_REQUESITION_RECORD, intent.getStringExtra(Key.BUNDLE_REQUESITION_RECORD));
+            bundle.putSerializable(Key.BUNDLE_REQUESITION_RECORD, intent.getSerializableExtra(Key.BUNDLE_REQUESITION_RECORD));
+            Fragment fragment = new RequestDetailsFragment();
+            fragment.setArguments(bundle);
+
+            this.getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.requestDetailsFrame2, fragment)
+                    .commit();
         }
 
     }
