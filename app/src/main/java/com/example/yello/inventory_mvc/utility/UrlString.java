@@ -86,11 +86,10 @@ public final class UrlString
     public static final String GetPendingItemsByItem = host + "/GetPendingItemsByItem/";
 
     // UriTemplate = "/GetAllRequestRecordForItemAllocation/{itemCode}"
-   // public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequestRecordForItemAllocation/";
+   public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequestRecordForItemAllocation/";
 
 
 //ps
    // public static final String userChangePassword = host + "/ChangePassword/";
 
-    public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequisitionforAllocation";
 }
