@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical"-->
+    <!--tools:context="com.example.yello.inventory_mvc.activity.ViewCollectItemActivity">-->
+
+    <!--<android.support.constraint.ConstraintLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+    <!--</android.support.constraint.ConstraintLayout>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/collect_item_title"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Items Ready to be Collected" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/collect_item_department"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Department: " />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/collect_item_collectpoint"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Collection Point:" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/collect_item_representative"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Representative" />-->
+
+    <!--<ListView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
+
+<!--</LinearLayout>-->
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="com.example.yello.inventory_mvc.activity.ViewCollectItemActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/collect_item_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Items Ready to be Collected" />
+
+    <TextView
+        android:id="@+id/collect_item_department"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Department: " />
+
+    <TextView
+        android:id="@+id/collect_item_collectpoint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Collection Point:" />
+
+    <TextView
+        android:id="@+id/collect_item_representative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Representative" />
+
+    <ListView
+        android:id="@+id/collect_item_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
+</android.support.constraint.ConstraintLayout>

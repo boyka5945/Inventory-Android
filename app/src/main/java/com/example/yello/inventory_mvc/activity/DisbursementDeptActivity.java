@@ -1,5 +1,6 @@
 package com.example.yello.inventory_mvc.activity;
 
+import android.annotation.SuppressLint;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -10,55 +11,49 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.example.yello.inventory_mvc.R;
+import com.example.yello.inventory_mvc.model.Department;
 import com.example.yello.inventory_mvc.model.Retrieval_Item;
 import com.example.yello.inventory_mvc.utility.Key;
 
 import java.util.List;
 
-public class RetrievalListActivity extends ListActivity {
+public class DisbursementDeptActivity extends ListActivity {
 
-   @Override
+    @SuppressLint("StaticFieldLeak")
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_retrieval_list);
+        setContentView(R.layout.activity_disbursement_dept);
 
-
-
-
-        new AsyncTask<Void, Void, List<Retrieval_Item>>() {
+        new AsyncTask<Void, Void, List<Department>>() {
 
             @Override
-            protected List<Retrieval_Item> doInBackground(Void... params) {
-                return Retrieval_Item.ListRetrieval();
+            protected List<Department> doInBackground(Void... params) {
+                return Department.ListDepartments("http://192.168.1.3/AD_Inventory_WCF/Service.svc/GetAllDepartments");
             }
 
             @Override
-            protected void onPostExecute(List<Retrieval_Item> result) {
+            protected void onPostExecute(List<Department> result) {
 
                 SimpleAdapter adapter =
                         new SimpleAdapter(getApplicationContext(), result,
                                 android.R.layout.simple_list_item_2,
-                                new String[]{Key.RETRIEVAL_ITEM_1_DESCRIPTION, Key.RETRIEVAL_ITEM_2_QTY},
+                                new String[]{Key.DEPARTMENT_2_NAME, Key.DEPARTMENT_1_CODE},
                                 new int[]{android.R.id.text1, android.R.id.text2});
 
                 setListAdapter(adapter);
             }
         }.execute();
-
-
     }
 
     @Override
     protected void onListItemClick(ListView l, View v,
                                    int position, long id) {
-
-
-        Retrieval_Item  ri= (Retrieval_Item) getListAdapter().getItem(position);
-        Intent intent = new Intent(this, RetrievalDetailsActivity.class);
-        intent.putExtra(Key.RETRIEVAL_ITEM_1_DESCRIPTION, ri.get(Key.RETRIEVAL_ITEM_1_DESCRIPTION));
-        intent.putExtra(Key.RETRIEVAL_ITEM_2_QTY, ri.get(Key.RETRIEVAL_ITEM_2_QTY));
-        intent.putExtra(Key.RETRIEVAL_ITEM_3_LOCATION, ri.get(Key.RETRIEVAL_ITEM_3_LOCATION));
-
+        Department  ri= (Department) getListAdapter().getItem(position);
+        Intent intent = new Intent(this, DisbursementDetails.class);
+        intent.putExtra(Key.DEPARTMENT_1_CODE, ri.get(Key.DEPARTMENT_1_CODE));
+        intent.putExtra(Key.DEPARTMENT_2_NAME, ri.get(Key.DEPARTMENT_2_NAME));
+        intent.putExtra(Key.DEPARTMENT_6_COLLECTION_POINT_ID, ri.get(Key.DEPARTMENT_6_COLLECTION_POINT_ID));
         startActivity(intent);
     }
 }

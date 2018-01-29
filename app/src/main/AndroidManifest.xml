@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -24,23 +23,24 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.BrowseCatalogueActivity"
             android:launchMode="singleTop">
-
             <intent-filter>
-                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!-- <action android:name="android.intent.action.MAIN" /> -->
                 <action android:name="android.intent.action.SEARCH" />
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+                <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             </intent-filter>
 
             <meta-data
                 android:name="android.app.searchable"
-                android:value=".activity.BrowseCatalogueActivity"
-                android:resource="@xml/searchable" />
+                android:resource="@xml/searchable"
+                android:value=".activity.BrowseCatalogueActivity" />
         </activity>
         <activity android:name=".activity.NewRequisitionActivity" />
         <activity
@@ -54,24 +54,45 @@
         <activity android:name=".activity.RequestDetailsActivity"></activity>
         <activity android:name=".activity.NewRequisitionFormActivity" />
         <activity android:name=".activity.DisbursementMenuActivity" />
-        <activity android:name=".activity.RetrievalListActivity"></activity>
-
+        <activity android:name=".activity.RetrievalListActivity" />
         <activity android:name=".activity.ViewRequisitionRecordsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.DetailRequisitionActivity"></activity>
+        <activity android:name=".activity.DetailRequisitionActivity" />
         <activity android:name=".activity.WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity android:name=".activity.DisbursementDeptActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.DisbursementDetails" />
+        <activity android:name=".activity.ChangePasswordActivity" />
+        <activity android:name=".activity.InputQuantityActivity" />
+        <activity android:name=".activity.ViewCollectItemActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.ViewPendingItemActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.ChangeCollectionPointActivity"></activity>
     </application>
 
 </manifest>

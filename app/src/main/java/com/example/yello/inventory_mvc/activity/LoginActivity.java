@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -31,6 +32,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.yello.inventory_mvc.R;
+import com.example.yello.inventory_mvc.model.LoginUser;
 import com.example.yello.inventory_mvc.model.User;
 import com.example.yello.inventory_mvc.utility.Key;
 
@@ -202,7 +204,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return password.length() > 4;
+        return password.length() > 2;
     }
 
     /**
@@ -317,6 +319,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             try {
 
                 login = User.validateUser(mEmail, mPassword);
+//                LoginUser loginUser = LoginUser.getLoginUser();
+                LoginUser.userID = login.get(Key.USER_1_USERID);
+                LoginUser.deptCode = login.get(Key.USER_7_DEPARTMENT_CODE);
+                LoginUser.roleID = Integer.valueOf(login.get(Key.USER_6_ROLE));
+
 
             } catch (Exception e) {
                return false;
@@ -333,15 +340,32 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = null;
             showProgress(false);
 
+            //ps
+            /*Intent intent;
+            switch(userType) {
+                case 1:
+                    intent = new Intent(LoginActivity.this, AdminActivity.class);
+                    break;
+                case 2:
+                    intent = new Intent(LoginActivity.this, User1Activity.class);
+                    break;
+                case 3:
+                    intent = new Intent(LoginActivity.this, User3Activity.class);
+                    break;
+            }
+            startActivity(intent);*/
+
             if (success) {
                 // TODO: AFTER LOGIN DO SOMETHING
                 // finish();
-                Intent intent = new Intent(getApplicationContext(), BrowseCatalogueActivity.class);
+                Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
                 LoginActivity.this.startActivity(intent);
                 
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
+
+
             }
         }
 

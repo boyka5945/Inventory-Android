@@ -13,6 +13,7 @@ public final class Key
     public  static  final String BUNDLE_CATEGORY = "category";
 
     public  static  final String BUNDLE_SHOW_BUTTON = "button";
+    public  static  final String BUNDLE_REQUISITION_STATUS = "status";
 
     public  static  final String BUNDLE_REQUESITION_RECORD="requisition_record";
     public  static  final String BUNDLE_REQUISITION_DETAIL="requisition_detail";
@@ -53,7 +54,8 @@ public final class Key
     public static final String REQUISITION_DETAIL_9_RETRIEVED_DATE = "RetrievedDate";
     public static final String REQUISITION_DETAIL_10_ALLOCATE_QTY = "AllocateQty";
     public static final String REQUISITION_DETAIL_11_NEXT_COLLECTION_DATE = "NextCollectionDate";
-    
+    public static final String REQUISITION_DETAIL_12_STATUS = "Status";
+
     
     // FOR CATEGORY
     public static final String CATEGORY_1_ID = "CategoryID";
@@ -82,10 +84,12 @@ public final class Key
 
     //FOR RETRIEVAL_ITEM
 
+
     public static final String RETRIEVAL_ITEM_1_DESCRIPTION ="Description";
     public static final String RETRIEVAL_ITEM_2_QTY ="Qty";
     public static final String RETRIEVAL_ITEM_3_LOCATION ="Location";
     public static final String RETRIEVAL_ITEM_4_QTY_RETRIEVED = "QtyRetrieved";
+    public static final String RETRIEVAL_ITEM_5_ITEMCODE = "ItemCode";
 
 
 }

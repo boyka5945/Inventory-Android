@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yello.inventory_mvc.activity.ViewPendingItemActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/pending_item_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pending Item to be Processed" />
+
+        <TextView
+            android:id="@+id/pending_item_department"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Department: " />
+
+        <TextView
+            android:id="@+id/pending_item_representative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Representative: " />
+
+
+
+        <ListView
+            android:id="@+id/pending_item_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
