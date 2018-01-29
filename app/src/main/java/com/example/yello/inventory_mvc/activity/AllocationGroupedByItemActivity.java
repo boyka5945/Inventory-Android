@@ -27,11 +27,15 @@ public class AllocationGroupedByItemActivity extends AppCompatActivity {
         final ListView lv = findViewById(R.id.listview1);
         final String itemCode = getIntent().getExtras().getString(Key.RETRIEVAL_ITEM_5_ITEMCODE);
         final TextView tvItemCode = (TextView) findViewById(R.id.textView29);
+        TextView header = (TextView) findViewById(R.id.textView8);
 /*        TextView code = (TextView) findViewById();*/
         TextView itemDescrp = (TextView) findViewById(R.id.textView11);
         String retrieved = getIntent().getExtras().getString(Key.RETRIEVAL_ITEM_1_DESCRIPTION);
         itemDescrp.setText(retrieved);
         tvItemCode.setText(itemCode);
+        header.setText("Pending Fulfilment" + "(" + itemCode + ")");
+
+
 
 
 
@@ -48,7 +52,7 @@ public class AllocationGroupedByItemActivity extends AppCompatActivity {
             protected void onPostExecute(List<AllocationViewModel> result) {
 
                 SimpleAdapter adapter =
-                        new SimpleAdapter(getApplicationContext(), result,
+                        new SimpleAdapter(AllocationGroupedByItemActivity.this, result,
                                 R.layout.allocation_group_row,
                                 new String[]{"orderNum", "departmentCode", "qtyUnfulfilled"}, //CHANGE TO UNFULFILLED
                                 new int[]{R.id.textView5, R.id.textView6, R.id.textView7});
