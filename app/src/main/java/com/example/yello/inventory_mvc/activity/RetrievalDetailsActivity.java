@@ -40,7 +40,7 @@ public class RetrievalDetailsActivity extends AppCompatActivity {
         final EditText qtyRetrieved = (EditText) findViewById(R.id.editText3);
 
         Button confirm = (Button) findViewById(R.id.button3);
-        Button cancel = (Button) findViewById(R.id.button3);
+        Button cancel = (Button) findViewById(R.id.button2);
 
 
 

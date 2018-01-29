@@ -72,9 +72,6 @@ public final class UrlString
     //UriTemplate = "/UpdateRequisitionDetail"
     public  static final String updateReqDetail = host + "/UpdateRequisitionDetail";
 
-    // UriTemplate = "/updateRequisitionDetails"
-    public static final String updateRequisitionDetails = host + "/updateRequisitionDetails";
-
     // UriTemplate = "/GetRetrievalForm/{itemCode}"
     public static final String GetRetrievalForm = host + "/GetRetrievalForm/";
 
@@ -91,5 +88,6 @@ public final class UrlString
 
 //ps
    // public static final String userChangePassword = host + "/ChangePassword/";
-
+/*    // UriTemplate = "/updateRequisitionDetails"
+    public static final String updateRequisitionDetails = host + "/updateRequisitionDetails";*/
 }

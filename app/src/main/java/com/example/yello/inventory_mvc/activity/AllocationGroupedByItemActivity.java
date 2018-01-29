@@ -30,7 +30,7 @@ public class AllocationGroupedByItemActivity extends AppCompatActivity {
         TextView header = (TextView) findViewById(R.id.textView8);
 /*        TextView code = (TextView) findViewById();*/
         TextView itemDescrp = (TextView) findViewById(R.id.textView11);
-        String retrieved = getIntent().getExtras().getString(Key.RETRIEVAL_ITEM_1_DESCRIPTION);
+        final String retrieved = getIntent().getExtras().getString(Key.RETRIEVAL_ITEM_1_DESCRIPTION);
         itemDescrp.setText(retrieved);
         tvItemCode.setText(itemCode);
         header.setText("Pending Fulfilment" + "(" + itemCode + ")");
@@ -75,6 +75,7 @@ public class AllocationGroupedByItemActivity extends AppCompatActivity {
                 intent.putExtra("qtyUnfulfilled", allocationItem.get("qtyUnfulfilled"));
                 intent.putExtra("itemCode", tvItemCode.getText().toString());
                 intent.putExtra("departmentCode", allocationItem.get("departmentCode"));
+                intent.putExtra("itemDescrp",retrieved);
                 startActivity(intent);
             }
         });

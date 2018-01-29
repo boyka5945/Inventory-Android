@@ -22,6 +22,7 @@ public class AllocationUpdateActivity extends AppCompatActivity   {
         setContentView(R.layout.activity_allocation_update);
 
 
+        final String itemDescrp = getIntent().getExtras().getString("itemDescrp");
         final String itemCode = getIntent().getExtras().getString("itemCode");
         final String orderNum = getIntent().getExtras().getString("orderNum");
         TextView tvOrderNum = (TextView) findViewById(R.id.textView18);
@@ -33,39 +34,11 @@ public class AllocationUpdateActivity extends AppCompatActivity   {
         //final TextView tvEmployee = (TextView) findViewById(R.id.textView22);
         Button b = (Button) findViewById(R.id.button4);
 
-
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Requisition_Detail.updateRequisitionDetails(orderNum, itemCode, tvAllocatedQty.getText().toString());
-                Intent intent = new Intent(getApplicationContext(), AllocationGroupedByItemActivity.class);
-                startActivity(intent);
-            }
-        });
-
         tvOrderNum.setText(orderNum);
         tvItemCode.setText(itemCode);
         tvDepartment.setText(getIntent().getExtras().getString("departmentCode"));
         tvUnfulfilled.setText(getIntent().getExtras().getString("qtyUnfulfilled"));
 
-
-/*        new AsyncTask<Void, Void, Requisition_Detail>() {
-
-            @Override
-            protected Requisition_Detail doInBackground(Void... params) {
-                return Requisition_Detail.GetRequisitionDetailsBy2Keys(itemCode, orderNum);
-            }
-
-            @Override
-            protected void onPostExecute(Requisition_Detail result) {
-
-                tvDepartment.setText(result.get(Key.REQUISITION_RECORD_2_DEPT_CODE));
-                //tvEmployee.setText(result.get(Key.Requisi)); //need to get from req details model/delete
-
-
-            }
-        }.execute();*/
 
         new AsyncTask< String, Void, Retrieval_Item>() {
 
@@ -82,6 +55,31 @@ public class AllocationUpdateActivity extends AppCompatActivity   {
 
             }
         }.execute(itemCode);
+
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                new AsyncTask<String, Void, Void>() {
+
+                    @Override
+                    protected Void doInBackground(String... params) {
+                        Requisition_Detail.updateRequisitionDetails(params[0], params[1], params[2]);
+
+                        return null;
+                    }
+                    @Override
+                    protected void onPostExecute(Void result) {
+                        finish();
+                    }
+                }.execute(orderNum, itemCode, tvAllocatedQty.getText().toString());
+
+                Intent intent = new Intent(getApplicationContext(), AllocationGroupedByItemActivity.class);
+                intent.putExtra(Key.RETRIEVAL_ITEM_5_ITEMCODE, itemCode );
+                intent.putExtra(Key.RETRIEVAL_ITEM_1_DESCRIPTION,itemDescrp);
+                startActivity(intent);
+            }
+        });
 
 
     }

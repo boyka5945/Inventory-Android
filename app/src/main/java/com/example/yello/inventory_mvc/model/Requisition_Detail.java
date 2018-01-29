@@ -218,7 +218,7 @@ public class Requisition_Detail extends HashMap<String, String>
         } catch (Exception e) {
         }
 
-        String result = JSONParser.postStream(UrlString.updateRequisitionDetails, obj.toString());
+        String result = JSONParser.postStream(UrlString.updateReqDetail, obj.toString());
 
 
         //still need to minus away allocated qty from the retrieved?
@@ -240,6 +240,7 @@ public class Requisition_Detail extends HashMap<String, String>
 
 
             requisition_details =  new Requisition_Detail(
+
                     obj.getString(Key.REQUISITION_DETAIL_1_REQUISITION_NO),
                     obj.getString(Key.REQUISITION_DETAIL_2_ITEM_CODE),
                     obj.getString(Key.REQUISITION_DETAIL_3_ITEM_DESCRIPTION),
@@ -251,7 +252,7 @@ public class Requisition_Detail extends HashMap<String, String>
                     obj.getString(Key.REQUISITION_DETAIL_9_RETRIEVED_DATE),
                     obj.getString(Key.REQUISITION_DETAIL_10_ALLOCATE_QTY),
                     obj.getString(Key.REQUISITION_DETAIL_11_NEXT_COLLECTION_DATE),
-                    obj.getString(Key.REQUISITION_DETAIL_11_NEXT_COLLECTION_DATE)
+                    obj.getString(Key.REQUISITION_DETAIL_12_STATUS)
 
             );
         }

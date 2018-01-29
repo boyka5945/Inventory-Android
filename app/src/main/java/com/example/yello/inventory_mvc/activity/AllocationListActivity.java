@@ -24,6 +24,7 @@ public class AllocationListActivity extends AppCompatActivity implements Adapter
         final ListView lv = (ListView) findViewById(R.id.listViewMain);
 
 
+
         new AsyncTask<Void, Void, List<Retrieval_Item>>() {
 
             @Override
