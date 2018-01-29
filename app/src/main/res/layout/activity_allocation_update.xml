@@ -24,9 +24,10 @@
 
             <TextView
                 android:id="@+id/textView31"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Allocate Stationery Qty" />
+                android:text="Allocate Stationery Qty"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
         </TableRow>
 
         <TableRow
@@ -38,14 +39,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Item Code" />
+                android:text="Item Code"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             <TextView
                 android:id="@+id/textView16"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
         </TableRow>
 
         <TableRow
@@ -57,14 +60,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Request Number" />
+                android:text="Request Number"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             <TextView
                 android:id="@+id/textView18"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
         </TableRow>
 
         <TableRow
@@ -76,14 +81,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Department" />
+                android:text="Department"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             <TextView
                 android:id="@+id/textView20"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
         </TableRow>
 
         <TableRow
@@ -95,14 +102,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Unfulfilled Qty" />
+                android:text="Unfulfilled Qty"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             <TextView
                 android:id="@+id/textView25"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
         </TableRow>
 
         <TableRow
@@ -114,14 +123,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Retrieved Qty" />
+                android:text="Retrieved Qty"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             <TextView
                 android:id="@+id/textView27"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
         </TableRow>
 
         <TableRow
@@ -133,7 +144,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Allocated Qty" />
+                android:text="Allocated Qty"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             <EditText
                 android:id="@+id/editText2"

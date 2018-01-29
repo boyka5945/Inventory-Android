@@ -37,8 +37,8 @@ public class AllocationListActivity extends AppCompatActivity implements Adapter
                 SimpleAdapter adapter =
                         new SimpleAdapter(getApplicationContext(), result,
                                 R.layout.allocation_row,
-                                new String[]{Key.RETRIEVAL_ITEM_1_DESCRIPTION, Key.RETRIEVAL_ITEM_2_QTY},
-                                new int[]{R.id.textView4, R.id.textView3});
+                                new String[]{Key.RETRIEVAL_ITEM_1_DESCRIPTION, Key.RETRIEVAL_ITEM_2_QTY, Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED, },
+                                new int[]{R.id.itemNameCol, R.id.totalReqCol, R.id.totalRetCol});
 
                 lv.setAdapter(adapter);
             }
