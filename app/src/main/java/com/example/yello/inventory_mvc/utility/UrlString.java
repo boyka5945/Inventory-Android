@@ -35,6 +35,9 @@ public final class UrlString
     // UriTemplate = "/GetAllCollectionPoints"
     public static final String GetAllCollectionPoints = host + "/GetAllCollectionPoints";
 
+    // UriTemplate = "/GetDepartment/{deptCode}"
+    public static final String GetDepartment = host + "/GetDepartment";
+
     //UriTemplate = "GetDetailByReqNo/{reqNo}"
     public static final String getDetailsByReqNo=host+"/GetDetailByReqNo/";
 

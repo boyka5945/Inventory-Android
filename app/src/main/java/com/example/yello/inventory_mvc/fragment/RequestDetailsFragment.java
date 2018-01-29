@@ -21,6 +21,7 @@ import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.activity.ManageRequestActivity;
 import com.example.yello.inventory_mvc.activity.RequestDetailsActivity;
 import com.example.yello.inventory_mvc.adapter.RequisitionDetailAdapter;
+import com.example.yello.inventory_mvc.model.LoginUser;
 import com.example.yello.inventory_mvc.model.Requisition_Detail;
 import com.example.yello.inventory_mvc.model.Requisition_Record;
 import com.example.yello.inventory_mvc.model.Retrieval_Item;
@@ -110,7 +111,7 @@ public class RequestDetailsFragment extends ListFragment {
 
                     @Override
                     protected Void doInBackground(String... params) {
-                        Requisition_Record.UpdateRequisition(params[0], "Approved and Processing", "S1000");
+                        Requisition_Record.UpdateRequisition(params[0], "Approved and Processing", LoginUser.userID);
 
                         return null;
                     }
@@ -135,7 +136,7 @@ public class RequestDetailsFragment extends ListFragment {
 
                     @Override
                     protected Void doInBackground(String... params) {
-                        Requisition_Record.UpdateRequisition(params[0], "Rejected", "S1000");
+                        Requisition_Record.UpdateRequisition(params[0], "Rejected", LoginUser.userID);
 
                         return null;
                     }
