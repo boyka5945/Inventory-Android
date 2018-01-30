@@ -2,8 +2,14 @@ package com.example.yello.inventory_mvc.activity;
 
 import android.annotation.SuppressLint;
 import android.app.ListActivity;
+import android.content.ActivityNotFoundException;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,7 +27,12 @@ import com.example.yello.inventory_mvc.model.Requisition_Record;
 import com.example.yello.inventory_mvc.model.Stationery;
 import com.example.yello.inventory_mvc.model.disbursementUpdate;
 import com.example.yello.inventory_mvc.utility.Key;
+import com.example.yello.inventory_mvc.utility.UrlString;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -41,7 +52,7 @@ public class DisbursementDetails extends AppCompatActivity {
     private Button btn2;
     @SuppressLint("StaticFieldLeak")
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disbursement_details);
 
@@ -65,17 +76,46 @@ public class DisbursementDetails extends AppCompatActivity {
 
         lv = (ListView) findViewById(R.id.listv);
 
-        url = "http://172.17.255.3/AD_Inventory_WCF/Service.svc/GetDisbursementByDept/" + DepartmentCode;
+        url =  UrlString.GetDisbursementByDept + DepartmentCode;
         //List<Disbursement> list =
         //Disbursement.GetDisbursementList(url);
 
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btn.setVisibility(View.GONE);
+                btn2.setVisibility(View.GONE);
+                View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
+                Bitmap b = getScreenShot(rootView);
+                if (null != b) {
+                    ContentValues values = new ContentValues();
+                    Uri imageFileUri = getContentResolver().insert(
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);// 创建一个新的uri
+
+                    try {
+                        OutputStream imageFileOS = getContentResolver().openOutputStream(imageFileUri);// 输出流
+
+                        b.compress(Bitmap.CompressFormat.PNG, 90, imageFileOS);// 生成图片
+
+                        Toast.makeText(getApplicationContext(),
+                                "Save successfully", Toast.LENGTH_LONG).show();
+
+                        btn.setVisibility(View.VISIBLE);
+                        btn2.setVisibility(View.VISIBLE);
+                        Intent intent = new Intent(getApplicationContext(), Signature.class);
+                        startActivity(intent);
+
+                    } catch (FileNotFoundException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
 
             }
         });
+
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -181,4 +221,48 @@ public class DisbursementDetails extends AppCompatActivity {
 
         }
     }
+
+
+
+
+    public static Bitmap getScreenShot(View view) {
+        View screenView = view.getRootView();
+        screenView.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(screenView.getDrawingCache());
+        screenView.setDrawingCacheEnabled(false);
+        return bitmap;
+    }
+
+    public static void store(Bitmap bm, String fileName){
+        final String dirPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Screenshots";
+        File dir = new File(dirPath);
+        if(!dir.exists())
+            dir.mkdirs();
+        File file = new File(dirPath, fileName);
+        try {
+            FileOutputStream fOut = new FileOutputStream(file);
+            bm.compress(Bitmap.CompressFormat.PNG, 85, fOut);
+            fOut.flush();
+            fOut.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+//    private void shareImage(File file){
+//        Uri uri = Uri.fromFile(file);
+//        Intent intent = new Intent(this, Signature.class);
+//        intent.setAction(Intent.ACTION_SEND);
+//        intent.setType("image/*");
+//
+//        intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "");
+//        intent.putExtra(android.content.Intent.EXTRA_TEXT, "");
+//        intent.putExtra(Intent.EXTRA_STREAM, uri);
+//        try {
+//            startActivity(Intent.createChooser(intent, "Share Screenshot"));
+//        } catch (ActivityNotFoundException e) {
+//            Toast.makeText(this, "No App Available", Toast.LENGTH_SHORT).show();
+//        }
+//    }
+
 }

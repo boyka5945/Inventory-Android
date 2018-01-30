@@ -90,12 +90,18 @@ public final class UrlString
     public static final String GetPendingItemsByItem = host + "/GetPendingItemsByItem/";
 
     // UriTemplate = "/GetAllRequestRecordForItemAllocation/{itemCode}"
-   public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequestRecordForItemAllocation/";
+    public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequestRecordForItemAllocation/";
+
+    public static final String GetAllDepartments = host + "/GetAllDepartments";
+
+    public static final String SaveTmpDisbursement = host + "/SaveTmpDisbursement/";
+
+    public static final String UpdateDisbursement = host + "/UpdateDisbursement/";
 
     //UriTemplate = "/UpdateCollectionPoint/deptCode/collectionPtID"
    public static final String UpdateCollectionPoint = host +"/UpdateCollectionPoint/";
 //ps
    // public static final String userChangePassword = host + "/ChangePassword/";
-   // UriTemplate = "/updateRequisitionDetails"
+  // UriTemplate = "/updateRequisitionDetails"
     public static final String updateRequisitionDetails = host + "/updateRequisitionDetails";
 }

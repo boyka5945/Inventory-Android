@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.model.Disbursement;
 import com.example.yello.inventory_mvc.utility.Key;
+import com.example.yello.inventory_mvc.utility.UrlString;
 
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class InputQuantityActivity extends AppCompatActivity {
                             "Actual quantity can not be more than need.", Toast.LENGTH_LONG).show();
 
                 } else {
-                    String url = "http://172.17.255.3/AD_Inventory_WCF/Service.svc/SaveTmpDisbursement/" + itemCode +"/" + Integer.toString(needqty) + "/" + stationeryDescription + "/" + et.getText().toString() + "/" + deptCode;
+                    String url = UrlString.SaveTmpDisbursement + itemCode +"/" + Integer.toString(needqty) + "/" + stationeryDescription + "/" + et.getText().toString() + "/" + deptCode;
                     Disbursement.updateActualQty(url);
 
                     Intent intent = new Intent();
