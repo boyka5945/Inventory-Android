@@ -39,12 +39,13 @@ public class User extends HashMap<String, String> {
             userinfo.put(Key.USER_2_PASSWORD, password);
             userinfo.put(Key.USER_6_ROLE, 5);
             userinfo.put(Key.USER_7_DEPARTMENT_CODE, "xx");
-
+        }
         catch(Exception e){
             e.printStackTrace();
         }
 
-        return user;
+        String result = JSONParser.postStream(UrlString.validateUser, userinfo.toString());
+        return result;
     }
 
 //ps

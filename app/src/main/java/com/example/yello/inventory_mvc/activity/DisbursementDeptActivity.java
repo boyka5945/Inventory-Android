@@ -14,6 +14,7 @@ import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.model.Department;
 import com.example.yello.inventory_mvc.model.Retrieval_Item;
 import com.example.yello.inventory_mvc.utility.Key;
+import com.example.yello.inventory_mvc.utility.UrlString;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class DisbursementDeptActivity extends ListActivity {
 
             @Override
             protected List<Department> doInBackground(Void... params) {
-                return Department.ListDepartments("http://172.17.254.8/AD_Inventory_WCF/Service.svc/GetAllDepartments");
+                return Department.ListDepartments(UrlString.GetAllDepartments);
             }
 
             @Override
