@@ -92,9 +92,10 @@ public final class UrlString
     // UriTemplate = "/GetAllRequestRecordForItemAllocation/{itemCode}"
    public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequestRecordForItemAllocation/";
 
-
+    //UriTemplate = "/UpdateCollectionPoint/deptCode/collectionPtID"
+   public static final String UpdateCollectionPoint = host +"/UpdateCollectionPoint/";
 //ps
    // public static final String userChangePassword = host + "/ChangePassword/";
-/*    // UriTemplate = "/updateRequisitionDetails"
-    public static final String updateRequisitionDetails = host + "/updateRequisitionDetails";*/
+   // UriTemplate = "/updateRequisitionDetails"
+    public static final String updateRequisitionDetails = host + "/updateRequisitionDetails";
 }

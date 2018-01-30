@@ -68,7 +68,7 @@
     <string name="error_adding_request_item">Error while adding request item</string>
     <string name="error_subtmit_new_requisition">Error while submitting new requisition</string>
     <string name="success_add_item_message">%1$d x %2$s was added into requisition form.</string>
-    
+
     <string name="requesition_id">Requesition ID</string>
     <string name="requester_name">Requester Name</string>
     <string name="requestt_date">Request Date</string>
@@ -93,6 +93,9 @@
     <string name="viewStatusSubmittedRequisition">View Status of submitted Requistion</string>
     <string name="raiseStationeryRequistion">Raise Stationery Requistion</string>
     <string name="log_out2">Log Out</string>
+
+    <string name="error_update_new_cp">Error while updating new collection point</string>
+    <string name="success_change_cp">Collection Point Updated.</string>
 
 
 </resources>
