@@ -59,18 +59,18 @@ public class Department extends HashMap<String, String> {
         return departments;
     }
 
-    public static Department getDepartment(String deptCode) {
-        String url = UrlString.GetDepartment+deptCode;
+    public static Department getDepartment(String url) {
+
         Department d = null;
         try {
             JSONObject obj = JSONParser.getJSONFromUrl(url);
 
 
-            d = new Department(obj.getString(Key.DEPARTMENT_2_NAME),
-                    obj.getString(Key.DEPARTMENT_7_COLLECTION_NAME),
+            d = new Department(obj.getString(Key.DEPARTMENT_1_CODE),
+                    obj.getString(Key.DEPARTMENT_2_NAME),
                     obj.getString(Key.DEPARTMENT_3_CONTACT_NAME),
-                    obj.getString(Key.DEPARTMENT_1_CODE),
-                    obj.getString(Key.DEPARTMENT_6_COLLECTION_POINT_ID));
+                    obj.getString(Key.DEPARTMENT_6_COLLECTION_POINT_ID),
+                    obj.getString(Key.DEPARTMENT_7_COLLECTION_NAME));
 
         } catch (Exception e) {
             e.printStackTrace();
