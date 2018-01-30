@@ -8,27 +8,74 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 
 import com.example.yello.inventory_mvc.R;
 
+import com.example.yello.inventory_mvc.model.Collection_Point;
+import com.example.yello.inventory_mvc.model.Department;
 import com.example.yello.inventory_mvc.model.Disbursement;
+import com.example.yello.inventory_mvc.model.LoginUser;
+import com.example.yello.inventory_mvc.model.User;
+import com.example.yello.inventory_mvc.utility.Key;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
+import static com.example.yello.inventory_mvc.utility.UrlString.GetDepartment;
 import static com.example.yello.inventory_mvc.utility.UrlString.GetDisbursementByDept;
 
 
 public class ViewCollectItemActivity extends AppCompatActivity {
+//need to change to loginUser.DeptCode
+    private String url1 = GetDisbursementByDept+"ZOOL";
+    private String url2 = GetDepartment+"ZOOL";
 
-    private String url = GetDisbursementByDept+"ZOOL";
+private String departmentCode = "ZOOL";
+    private TextView cpoint;
+    private TextView departmentName;
+private TextView rep;
 
+
+    private String DepartmentName;
+    private String CollectionPointName;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_collect_item);
+
+//        Department d =Department.getDepartment(departmentCode);
+      //  User u = LoginUser.name;
+//        DepartmentName = d.get(Key.DEPARTMENT_2_NAME);
+//        CollectionPointName = d.get(Key.DEPARTMENT_7_COLLECTION_NAME);
+
+        departmentName = (TextView) findViewById(R.id.collect_item_department);
+        cpoint = (TextView) findViewById(R.id.collect_item_collectpoint);
+        rep = (TextView) findViewById(R.id.collect_item_representative);
+//
+//
+
+        new AsyncTask<String, Void, Department> () {
+            @Override
+            protected Department doInBackground(String... params) {
+                return Department.getDepartment(params[0]);
+            }
+            @Override
+            protected void onPostExecute(Department result) {
+                departmentName.setText("Department: "+ result.get(Key.DEPARTMENT_2_NAME));
+                cpoint.setText("Collection Point: "+ result.get(Key.DEPARTMENT_7_COLLECTION_NAME));
+
+
+
+            }
+
+        }.execute(url2);
+
     final ListView lv = findViewById(R.id.collect_item_list);
 
 
@@ -47,7 +94,7 @@ public class ViewCollectItemActivity extends AppCompatActivity {
                lv.setAdapter(adapter);
                 }
 
-        }.execute(url);
+        }.execute(url1);
     }
 
 }

@@ -13,11 +13,12 @@ import com.example.yello.inventory_mvc.model.Disbursement;
 import java.util.List;
 
 
-
+import static com.example.yello.inventory_mvc.utility.UrlString.GetDepartment;
 import static com.example.yello.inventory_mvc.utility.UrlString.GetPendingItemsByItem;
 
 public class ViewPendingItemActivity extends AppCompatActivity {
-    private String url = GetPendingItemsByItem+"ZOOL";
+    private String url2 = GetPendingItemsByItem+"ZOOL";
+    private String url1 = GetDepartment+"ZOOL";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +40,6 @@ public class ViewPendingItemActivity extends AppCompatActivity {
                 lv.setAdapter(adapter);
             }
 
-        }.execute(url);
+        }.execute(url1);
     }
 }

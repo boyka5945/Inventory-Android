@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.yello.inventory_mvc.R;
 
 
@@ -18,19 +20,26 @@ import com.example.yello.inventory_mvc.utility.Key;
 
 public class RetrievalDetailsActivity extends AppCompatActivity {
 
+    private  int Qty = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //StrictMode.setThreadPolicy(StrictMode.ThreadPolicy.LAX);
         setContentView(R.layout.activity_retrieval_details);
 
+        final int retrievedQty = Integer.parseInt( getIntent().getExtras().getString(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED));
         final String name = getIntent().getExtras().getString(Key.RETRIEVAL_ITEM_1_DESCRIPTION);
         final String qty = getIntent().getExtras().getString(Key.RETRIEVAL_ITEM_2_QTY);
         final String location = getIntent().getExtras().getString(Key.RETRIEVAL_ITEM_3_LOCATION);
+        final String itemCode = getIntent().getExtras().getString(Key.RETRIEVAL_ITEM_5_ITEMCODE);
 
-         TextView itemName = (TextView) findViewById(R.id.tvDescrp);
+        Qty = retrievedQty;
+
+        TextView itemName = (TextView) findViewById(R.id.tvDescrp);
          TextView loc = (TextView) findViewById(R.id.tvLoc);
          TextView itemCount = (TextView) findViewById(R.id.tvQty);
+         Button plus = (Button) findViewById(R.id.button5);
+         Button minus = (Button) findViewById(R.id.button6) ;
 
 
         itemName.setText( name);
@@ -38,57 +47,110 @@ public class RetrievalDetailsActivity extends AppCompatActivity {
         itemCount.setText( qty);
 
         final EditText qtyRetrieved = (EditText) findViewById(R.id.editText3);
+        qtyRetrieved.setText(Integer.toString(retrievedQty));
+
+
 
         Button confirm = (Button) findViewById(R.id.button3);
-/*        Button cancel = (Button) findViewById(R.id.button3);*/
+        Button cancel = (Button) findViewById(R.id.button2);
 
+        plus.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
 
+                    public void onClick(View v) {
 
+                        Qty++;
+                        qtyRetrieved.setText(Integer.toString(Qty));
 
+                    }
+                }
+        );
 
+        minus.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(Integer.parseInt(qtyRetrieved.getText().toString()) - 1 >= 0) {
+                            Qty--;
+                            qtyRetrieved.setText(Integer.toString(Qty));
+                        }
+                    }
+                }
+        );
+
+        cancel.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent intent = new Intent(getApplicationContext(), RetrievalListActivity.class);
+                        startActivity(intent);
+
+                    }}
+
+        );
 
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if(retrievedQty == Integer.parseInt(qtyRetrieved.getText().toString())){
 
+                    Toast t = Toast.makeText(RetrievalDetailsActivity.this, "No change to Qty Retrieved.", Toast.LENGTH_SHORT);
+                    t.show();
 
-                String qtyR = qtyRetrieved.getText().toString();
+                }
 
-                Retrieval_Item ri = new Retrieval_Item();
-                ri.put(Key.RETRIEVAL_ITEM_1_DESCRIPTION, name);
-                ri.put(Key.RETRIEVAL_ITEM_2_QTY, qty);
-                ri.put(Key.RETRIEVAL_ITEM_3_LOCATION, location);
-                ri.put(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED, "123456");
-
-                new AsyncTask<Retrieval_Item, Void, Void>() {
+                else {
 
 
 
+                /*final String qtyR = qtyRetrieved.getText().toString();*/
+
+                    Retrieval_Item ri = new Retrieval_Item();
+                    ri.put(Key.RETRIEVAL_ITEM_1_DESCRIPTION, name);
+                    ri.put(Key.RETRIEVAL_ITEM_2_QTY, qty);
+                    ri.put(Key.RETRIEVAL_ITEM_3_LOCATION, location);
+                    ri.put(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED, Integer.toString(Qty));
+                    ri.put(Key.RETRIEVAL_ITEM_5_ITEMCODE, itemCode);
 
 
-                    @Override
-                    protected Void doInBackground(Retrieval_Item... params) {
-                        Retrieval_Item.UpdateRetrieval(params[0]);
-
-                        return null;
-                    }
-                    @Override
-                    protected void onPostExecute(Void result) {
-                        finish();
-                    }
-                }.execute(ri);
+                    new AsyncTask<Retrieval_Item, Void, String>() {
 
 
-
-               Intent intent = new Intent(getApplicationContext(), RetrievalListActivity.class);
-               startActivity(intent);
-
-
+                        @Override
+                        protected String doInBackground(Retrieval_Item... params) {
+                            return Retrieval_Item.UpdateRetrieval(params[0]);
 
 
+                        }
 
+                        @Override
+                        protected void onPostExecute(String result) {
 
+                            if (result.toLowerCase().contains("true")) {
+
+                                StringBuilder sb = new StringBuilder();
+                                sb.append("Qty of " + name.toUpperCase() + " retrieved recorded as: " + Qty);
+                                Toast t = Toast.makeText(RetrievalDetailsActivity.this, sb.toString(), Toast.LENGTH_SHORT);
+                                t.show();
+
+                            } else {
+
+                                StringBuilder sb = new StringBuilder();
+                                sb.append("An Error occured: " + result);
+                                Toast t = Toast.makeText(RetrievalDetailsActivity.this, sb.toString(), Toast.LENGTH_LONG);
+                                t.show();
+
+                            }
+                            finish();
+                        }
+                    }.execute(ri);
+
+/*               Intent intent = new Intent(getApplicationContext(), RetrievalListActivity.class);
+               startActivity(intent);*/
+                }
 
             }
         });

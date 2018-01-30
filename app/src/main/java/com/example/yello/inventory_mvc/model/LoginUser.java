@@ -9,6 +9,7 @@ public class LoginUser
     public static String userID;
     public static Integer roleID;
     public static String deptCode;
+    public static String name;
     private static LoginUser _user = new LoginUser();
 
 

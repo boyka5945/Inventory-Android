@@ -54,7 +54,12 @@
         <activity android:name=".activity.RequestDetailsActivity"></activity>
         <activity android:name=".activity.NewRequisitionFormActivity" />
         <activity android:name=".activity.DisbursementMenuActivity" />
-        <activity android:name=".activity.RetrievalListActivity" />
+        <activity android:name=".activity.RetrievalListActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.RetrievalDetailsActivity" />
         <activity android:name=".activity.ViewRequisitionRecordsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -92,7 +97,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ChangeCollectionPointActivity"></activity>
+        <activity android:name=".activity.ChangeCollectionPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
 
         <activity android:name=".activity.AllocationListActivity">
             <intent-filter>

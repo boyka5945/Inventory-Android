@@ -154,7 +154,6 @@ public class Requisition_Record extends HashMap<String, String> {
 
     }
 
-
     public static List<Requisition_Record> GetRecordListByItemCode(String ItemCode, String Dept)
     {
         ArrayList<Requisition_Record> requisition_records = new ArrayList<>();

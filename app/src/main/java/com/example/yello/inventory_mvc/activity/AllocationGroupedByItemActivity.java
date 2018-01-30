@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.model.AllocationViewModel;
+import com.example.yello.inventory_mvc.model.Retrieval_Item;
 import com.example.yello.inventory_mvc.utility.Key;
 
 import java.util.List;
@@ -24,17 +25,34 @@ public class AllocationGroupedByItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_allocation_grouped_by_item);
-        final ListView lv = findViewById(R.id.listview1);
+
         final String itemCode = getIntent().getExtras().getString(Key.RETRIEVAL_ITEM_5_ITEMCODE);
+        final String retrieved = getIntent().getExtras().getString(Key.RETRIEVAL_ITEM_1_DESCRIPTION);
+
+        final ListView lv = findViewById(R.id.listview1);
         final TextView tvItemCode = (TextView) findViewById(R.id.textView29);
+        final TextView TvRetrievedQty = (TextView) findViewById(R.id.textView9) ;
         TextView header = (TextView) findViewById(R.id.textView8);
 /*        TextView code = (TextView) findViewById();*/
         TextView itemDescrp = (TextView) findViewById(R.id.textView11);
-        String retrieved = getIntent().getExtras().getString(Key.RETRIEVAL_ITEM_1_DESCRIPTION);
+
         itemDescrp.setText(retrieved);
         tvItemCode.setText(itemCode);
-        header.setText("Pending Fulfilment" + "(" + itemCode + ")");
+        header.setText("Pending Fulfilment " + "(" + itemCode + ")");
 
+
+        new AsyncTask< String, Void, Retrieval_Item>() {
+
+            @Override
+            protected Retrieval_Item doInBackground(String... params) {
+                return Retrieval_Item.GetRetrievalForm(params[0]);
+            }
+            @Override
+            protected void onPostExecute(Retrieval_Item result) {
+
+                TvRetrievedQty.setText(result.get(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED));
+            }
+        }.execute(itemCode);
 
 
 
@@ -55,7 +73,7 @@ public class AllocationGroupedByItemActivity extends AppCompatActivity {
                         new SimpleAdapter(AllocationGroupedByItemActivity.this, result,
                                 R.layout.allocation_group_row,
                                 new String[]{"orderNum", "departmentCode", "qtyUnfulfilled"}, //CHANGE TO UNFULFILLED
-                                new int[]{R.id.textView5, R.id.textView6, R.id.textView7});
+                                new int[]{R.id.textView5, R.id.textView7, R.id.textView6});
 
                 lv.setAdapter(adapter);
             }
@@ -75,6 +93,7 @@ public class AllocationGroupedByItemActivity extends AppCompatActivity {
                 intent.putExtra("qtyUnfulfilled", allocationItem.get("qtyUnfulfilled"));
                 intent.putExtra("itemCode", tvItemCode.getText().toString());
                 intent.putExtra("departmentCode", allocationItem.get("departmentCode"));
+                intent.putExtra("itemDescrp",retrieved);
                 startActivity(intent);
             }
         });

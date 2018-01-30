@@ -23,7 +23,8 @@ public class AllocationListActivity extends AppCompatActivity implements Adapter
         setContentView(R.layout.activity_allocation_list);
         final ListView lv = (ListView) findViewById(R.id.listViewMain);
 
-/*
+
+
         new AsyncTask<Void, Void, List<Retrieval_Item>>() {
 
             @Override
@@ -42,7 +43,7 @@ public class AllocationListActivity extends AppCompatActivity implements Adapter
 
                 lv.setAdapter(adapter);
             }
-        }.execute();*/
+        }.execute();
 
 
 

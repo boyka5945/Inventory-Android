@@ -40,7 +40,7 @@ public class Requisition_Detail extends HashMap<String, String>
         this.put(Key.REQUISITION_DETAIL_12_STATUS,status);
     }
 
-   /* public static List<Requisition_Detail> getDetailsByReqNo(String reqNo)
+/*    public static List<Requisition_Detail> getDetailsByReqNo(String reqNo)
     {
         String url = UrlString.getDetailsByReqNo + reqNo;
         ArrayList<Requisition_Detail> reqDetails = new ArrayList<>();
@@ -86,10 +86,10 @@ public class Requisition_Detail extends HashMap<String, String>
         this.put(Key.REQUISITION_DETAIL_6_REQUEST_QTY, requestQty);
     }
     
-    // TODO: remove hardcoded requesterID
+
     public static void addNewRequisition(List<Requisition_Detail> detail)
     {
-        String requesterID = "S1014";
+        String requesterID = LoginUser.userID;
     
         JSONArray jarray = new JSONArray();
         for (Requisition_Detail d: detail)
@@ -240,6 +240,7 @@ public class Requisition_Detail extends HashMap<String, String>
 
 
             requisition_details =  new Requisition_Detail(
+
                     obj.getString(Key.REQUISITION_DETAIL_1_REQUISITION_NO),
                     obj.getString(Key.REQUISITION_DETAIL_2_ITEM_CODE),
                     obj.getString(Key.REQUISITION_DETAIL_3_ITEM_DESCRIPTION),
@@ -251,7 +252,7 @@ public class Requisition_Detail extends HashMap<String, String>
                     obj.getString(Key.REQUISITION_DETAIL_9_RETRIEVED_DATE),
                     obj.getString(Key.REQUISITION_DETAIL_10_ALLOCATE_QTY),
                     obj.getString(Key.REQUISITION_DETAIL_11_NEXT_COLLECTION_DATE),
-                    obj.getString(Key.REQUISITION_DETAIL_11_NEXT_COLLECTION_DATE)
+                    obj.getString(Key.REQUISITION_DETAIL_12_STATUS)
 
             );
         }
