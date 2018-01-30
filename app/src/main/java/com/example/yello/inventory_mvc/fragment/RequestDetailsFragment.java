@@ -21,6 +21,7 @@ import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.activity.ManageRequestActivity;
 import com.example.yello.inventory_mvc.activity.RequestDetailsActivity;
 import com.example.yello.inventory_mvc.adapter.RequisitionDetailAdapter;
+import com.example.yello.inventory_mvc.model.LoginUser;
 import com.example.yello.inventory_mvc.model.Requisition_Detail;
 import com.example.yello.inventory_mvc.model.Requisition_Record;
 import com.example.yello.inventory_mvc.model.Retrieval_Item;
@@ -28,6 +29,8 @@ import com.example.yello.inventory_mvc.utility.Key;
 import com.example.yello.inventory_mvc.utility.UrlString;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -74,7 +77,11 @@ public class RequestDetailsFragment extends ListFragment {
 
         reqid.setText(rec.get(Key.REQUISITION_RECORD_1_REQUISITION_NO));
         reqname.setText(rec.get(Key.REQUISITION_RECORD_5_REQUESTER_NAME));
-        reqdate.setText(rec.get(Key.REQUISITION_RECORD_10_REQUEST_DATE));
+
+
+        String d = rec.get(Key.REQUISITION_RECORD_10_REQUEST_DATE);
+
+        reqdate.setText(ConvertJSONTimeToCalender(d));
 
         final Activity containerActivity = this.getActivity(); // get starting activity
         new AsyncTask<String, Void, List<Requisition_Detail>>() {
@@ -110,7 +117,7 @@ public class RequestDetailsFragment extends ListFragment {
 
                     @Override
                     protected Void doInBackground(String... params) {
-                        Requisition_Record.UpdateRequisition(params[0], "Approved and Processing", "S1000");
+                        Requisition_Record.UpdateRequisition(params[0], "Approved and Processing", LoginUser.userID);
 
                         return null;
                     }
@@ -135,7 +142,7 @@ public class RequestDetailsFragment extends ListFragment {
 
                     @Override
                     protected Void doInBackground(String... params) {
-                        Requisition_Record.UpdateRequisition(params[0], "Rejected", "S1000");
+                        Requisition_Record.UpdateRequisition(params[0], "Rejected", LoginUser.userID);
 
                         return null;
                     }
@@ -150,6 +157,19 @@ public class RequestDetailsFragment extends ListFragment {
             }
         });
         return view;
+    }
+
+    private String ConvertJSONTimeToCalender(String date)
+    {
+        Calendar calendar = Calendar.getInstance();
+        // /Date(1517155200000+0800)/
+
+        String d = date.replace("/Date(", "").replace("+0800)/", "");
+        Long timeInMillis = Long.valueOf(d);
+        calendar.setTimeInMillis(timeInMillis);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+
+        return  dateFormat.format(calendar.getTime());
     }
 
 

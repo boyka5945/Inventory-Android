@@ -69,7 +69,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
                 //Deptatment head
             case R.id.processRequest:
-                startActivity(new Intent(this, RetrievalListActivity.class));
+                startActivity(new Intent(this, ManageRequestActivity.class));
                 return true;
             case R.id.delegateAuthority:
                 startActivity(new Intent(this, DisbursementMenuActivity.class));
@@ -87,6 +87,7 @@ public class WelcomeActivity extends AppCompatActivity {
             case R.id.log_out2:
                 startActivity(new Intent(this, LoginActivity.class));
                 return true;
+        //store
 
             default:
                 return super.onOptionsItemSelected(item);

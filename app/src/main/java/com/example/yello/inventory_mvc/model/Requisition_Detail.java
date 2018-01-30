@@ -40,7 +40,7 @@ public class Requisition_Detail extends HashMap<String, String>
         this.put(Key.REQUISITION_DETAIL_12_STATUS,status);
     }
 
-    public static List<Requisition_Detail> getDetailsByReqNo(String reqNo)
+   /* public static List<Requisition_Detail> getDetailsByReqNo(String reqNo)
     {
         String url = UrlString.getDetailsByReqNo + reqNo;
         ArrayList<Requisition_Detail> reqDetails = new ArrayList<>();
@@ -73,7 +73,7 @@ public class Requisition_Detail extends HashMap<String, String>
         }
 
         return reqDetails;
-    }
+    }*/
 
 
 

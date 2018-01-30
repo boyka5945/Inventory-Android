@@ -19,6 +19,7 @@ import android.widget.SimpleAdapter;
 
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.activity.RequestDetailsActivity;
+import com.example.yello.inventory_mvc.model.LoginUser;
 import com.example.yello.inventory_mvc.model.Requisition_Detail;
 import com.example.yello.inventory_mvc.model.Requisition_Record;
 import com.example.yello.inventory_mvc.utility.Key;
@@ -38,6 +39,7 @@ public class RequestListFragment extends ListFragment {
         // Required empty public constructor
         super();
     }
+
 
 
     @Override
@@ -67,7 +69,7 @@ public class RequestListFragment extends ListFragment {
             protected List<Requisition_Record> doInBackground(String... strings)
             {
 
-                return Requisition_Record.getRequistionRecordByDept("ENGL");
+                return Requisition_Record.getRequistionRecordByDept(LoginUser.deptCode);
             }
 
             @Override
@@ -87,10 +89,11 @@ public class RequestListFragment extends ListFragment {
         return view;
     }
 
+
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         Requisition_Record record = (Requisition_Record) getListAdapter().getItem(position);
-      //  List<Requisition_Detail> reqDetails=Requisition_Detail.getDetailsByReqNo("23");
+
         if (getActivity().findViewById(R.id.requestDetailsframe1) == null) {
             // single-pane
             String check=record.get(Key.BUNDLE_REQUESITION_RECORD);
@@ -109,7 +112,7 @@ public class RequestListFragment extends ListFragment {
     protected void displayDetails(Requisition_Record rec)
     {
        Bundle bundle=new Bundle();
-       bundle.putParcelable(Key.BUNDLE_REQUESITION_RECORD, (Parcelable) rec);
+       bundle.putSerializable(Key.BUNDLE_REQUESITION_RECORD, rec);
         final String TAG = "REQ_DETAIL_FRAG";
 
         Fragment fragment = new RequestDetailsFragment(); // initialize fragment
@@ -130,6 +133,7 @@ public class RequestListFragment extends ListFragment {
 
         transaction.commit(); // commit transaction
     }
+
 
 
 
