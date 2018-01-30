@@ -68,11 +68,8 @@ public class WelcomeActivity extends AppCompatActivity {
                 return true;
 
                 //Deptatment head
-            case R.id.processRequest:
-                startActivity(new Intent(this, RetrievalListActivity.class));
-                return true;
-            case R.id.delegateAuthority:
-                startActivity(new Intent(this, DisbursementMenuActivity.class));
+            case R.id.manageRequest:
+                startActivity(new Intent(this, ManageRequestActivity.class));
                 return true;
             case R.id.log_out:
                 startActivity(new Intent(this, LoginActivity.class));

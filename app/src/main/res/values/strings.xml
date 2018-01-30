@@ -79,8 +79,8 @@
     <string name="prompt_confrimPassword">Confirm Password</string>
     <string name="action_confirm">Confrim</string>
 
-    <string name="processRequest">Process Request</string>
-    <string name="delegateAuthority">Delegate Authority</string>
+    <string name="manageRequest">Mangae Request</string>
+
     <string name="log_out">Log Out</string>
 
 
