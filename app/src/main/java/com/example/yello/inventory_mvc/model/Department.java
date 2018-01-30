@@ -83,7 +83,7 @@ public class Department extends HashMap<String, String> {
     {
         String url = UrlString.UpdateCollectionPoint + deptCode + "/" + collectionPtID;
 
-        String result = JSONParser.getStream(url);
+        JSONParser.getJSONArrayFromUrl(url);
     }
 }
 

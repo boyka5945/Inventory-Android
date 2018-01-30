@@ -1,68 +1,70 @@
 package com.example.yello.inventory_mvc.activity;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.SimpleAdapter;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
+        import android.app.Activity;
+        import android.app.AlertDialog;
+        import android.content.DialogInterface;
+        import android.content.Intent;
+        import android.os.AsyncTask;
+        import android.support.v7.app.AppCompatActivity;
+        import android.os.Bundle;
+        import android.view.View;
+        import android.widget.AdapterView;
+        import android.widget.Button;
+        import android.widget.SimpleAdapter;
+        import android.widget.Spinner;
+        import android.widget.TextView;
+        import android.widget.Toast;
 
-import com.example.yello.inventory_mvc.R;
+        import com.example.yello.inventory_mvc.R;
 
-import com.example.yello.inventory_mvc.model.Collection_Point;
-import com.example.yello.inventory_mvc.model.Department;
-import com.example.yello.inventory_mvc.model.RequisitionForm;
-import com.example.yello.inventory_mvc.model.Requisition_Detail;
-import com.example.yello.inventory_mvc.utility.Key;
-import com.example.yello.inventory_mvc.utility.UrlString;
+        import com.example.yello.inventory_mvc.model.Collection_Point;
+        import com.example.yello.inventory_mvc.model.Department;
+        import com.example.yello.inventory_mvc.model.RequisitionForm;
+        import com.example.yello.inventory_mvc.model.Requisition_Detail;
+        import com.example.yello.inventory_mvc.utility.Key;
+        import com.example.yello.inventory_mvc.utility.UrlString;
 
-import java.util.List;
+        import java.util.List;
 
-import static com.example.yello.inventory_mvc.utility.UrlString.GetDepartment;
+        import static com.example.yello.inventory_mvc.utility.UrlString.GetDepartment;
 
 public class ChangeCollectionPointActivity extends Activity {
     private String url2 = GetDepartment + "ZOOL";
     private Spinner collectionPointSpinner;
-
+    private String deptCode;
     private TextView cpoint;
     private TextView departmentName;
     private Button submitbtn;
     protected Department dept;
     protected String selectedCollectionPt;
-    private long collectionPointNameSelected;
+    private int collectionPointNameSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_collection_point);
 
-      //  departmentName = (TextView) findViewById(R.id.Collection_point_department);
-       // cpoint = (TextView) findViewById(R.id.Collection_point_current);
+        departmentName = (TextView) findViewById(R.id.Collection_point_department);
+        cpoint = (TextView) findViewById(R.id.Collection_point_current);
 
         new AsyncTask<String, Void, Department>() {
             @Override
             protected Department doInBackground(String... params) {
-                return Department.getDepartment(params[0]);
+                Department d = Department.getDepartment(params[0]);
+                deptCode = d.get(Key.DEPARTMENT_1_CODE);
+                return d;
             }
 
             @Override
             protected void onPostExecute(Department result) {
                 departmentName.setText("Department: " + result.get(Key.DEPARTMENT_2_NAME));
-                //cpoint.setText("Collection Point: " + result.get(Key.DEPARTMENT_7_COLLECTION_NAME));
+                cpoint.setText("Collection Point: " + result.get(Key.DEPARTMENT_7_COLLECTION_NAME));
                 dept=result;
             }
 
         }.execute(url2);
 
-       // collectionPointSpinner = (Spinner) findViewById(R.id.Collection_point_spinner);
+        collectionPointSpinner = (Spinner) findViewById(R.id.Collection_point_spinner);
         new AsyncTask<String, Void, List<Collection_Point>>() {
             @Override
             protected List<Collection_Point> doInBackground(String... strings) {
@@ -82,12 +84,12 @@ public class ChangeCollectionPointActivity extends Activity {
 
         }.execute(UrlString.GetAllCollectionPoints);
 
-        collectionPointNameSelected = collectionPointSpinner.getSelectedItemId();
-        cpoint.setText(String.valueOf(collectionPointNameSelected));
+
+        //cpoint.setText(collectionPointNameSelected);
 
 
 
-     //   submitbtn = (Button) this.findViewById(R.id.Collection_point_button_update);
+        submitbtn = (Button) this.findViewById(R.id.Collection_point_button_update);
         submitbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,8 +109,8 @@ public class ChangeCollectionPointActivity extends Activity {
 
                                                 try
                                                 {
-
-                                           //         Department.UpdateCollectionPoint("ZOOL", String.valueOf(collectionPointNameSelected));
+                                                    Collection_Point p = (Collection_Point) collectionPointSpinner.getSelectedItem();
+                                                    Department.UpdateAllocationPoint(deptCode, p.get(Key.COLLECTION_POINT_ID));
                                                     return true;
                                                 }
                                                 catch (Exception e)
@@ -131,16 +133,27 @@ public class ChangeCollectionPointActivity extends Activity {
                                                             R.string.success_change_cp,
                                                             Toast.LENGTH_LONG).show();
                                                     // TODO: Jump to requisitio list
-                                                    finish();
+                                                    recreate();
                                                 }
                                             }
                                         }.execute();
 
                                     }
 
-                                });
 
-            };
+
+
+                                }
+                                ) .setNegativeButton(android.R.string.no,
+                        new DialogInterface.OnClickListener()
+                        {
+                            public void onClick(DialogInterface dialog, int which)
+                            {
+                                dialog.dismiss();
+                            }
+                        }).show();
+
+            }
 
         });
     }
