@@ -16,7 +16,7 @@ public final class Key
     public  static  final String BUNDLE_REQUISITION_STATUS = "status";
 
     public  static  final String BUNDLE_REQUESITION_RECORD="requisition_record";
-    public  static  final String BUNDLE_REQUISITION_DETAIL="requisition_detail";
+
 
 
     // <--- FOR MODEL : TO BE THE SAME AS THE PROPERTIES NAME IN WCF (JSON) --->
