@@ -76,8 +76,8 @@ public class WelcomeActivity extends AppCompatActivity {
                 return true;
 
         //user representative
-            case R.id.log_out1:
-                startActivity(new Intent(this, LoginActivity.class));
+            case R.id.retrieveCollectItemCollection:
+                startActivity(new Intent(this, ViewCollectItemActivity.class));
                 return true;
 
         //employee

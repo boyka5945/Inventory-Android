@@ -62,7 +62,7 @@ public class Retrieval_Item extends HashMap<String,String> {
         return retrieval;
     }
 
-    public static void UpdateRetrieval(Retrieval_Item ri){
+    public static String UpdateRetrieval(Retrieval_Item ri){
 
         JSONObject jretrieval = new JSONObject();
         try {
@@ -74,6 +74,7 @@ public class Retrieval_Item extends HashMap<String,String> {
         } catch (Exception e) {
         }
         String result = JSONParser.postStream(UrlString.UpdateRetrieval, jretrieval.toString());
+        return result;
 
     }
 
