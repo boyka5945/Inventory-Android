@@ -94,5 +94,8 @@
     <string name="raiseStationeryRequistion">Raise Stationery Requistion</string>
     <string name="log_out2">Log Out</string>
 
+    <string name="error_update_new_cp">Error while updating new collection point</string>
+    <string name="success_change_cp">Collection Point Updated.</string>
+
 
 </resources>

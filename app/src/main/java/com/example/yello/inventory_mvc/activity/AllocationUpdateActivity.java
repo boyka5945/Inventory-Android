@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.model.Requisition_Detail;
@@ -32,12 +33,13 @@ public class AllocationUpdateActivity extends AppCompatActivity   {
         final TextView tvRetrievedQty = (TextView) findViewById(R.id.textView27);
         final EditText tvAllocatedQty = (EditText) findViewById(R.id.editText2);
         //final TextView tvEmployee = (TextView) findViewById(R.id.textView22);
-        Button b = (Button) findViewById(R.id.button4);
+        final int unFulfilledQty = Integer.parseInt(getIntent().getExtras().getString("qtyUnfulfilled"));
 
+        Button b = (Button) findViewById(R.id.button4);
         tvOrderNum.setText(orderNum);
         tvItemCode.setText(itemCode);
         tvDepartment.setText(getIntent().getExtras().getString("departmentCode"));
-        tvUnfulfilled.setText(getIntent().getExtras().getString("qtyUnfulfilled"));
+        tvUnfulfilled.setText(Integer.toString(unFulfilledQty));
 
 
         new AsyncTask< String, Void, Retrieval_Item>() {
@@ -53,6 +55,7 @@ public class AllocationUpdateActivity extends AppCompatActivity   {
                 tvRetrievedQty.setText(result.get(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED));
 
 
+
             }
         }.execute(itemCode);
 
@@ -60,24 +63,46 @@ public class AllocationUpdateActivity extends AppCompatActivity   {
             @Override
             public void onClick(View v) {
 
-                new AsyncTask<String, Void, Void>() {
+                if(Integer.parseInt(tvAllocatedQty.getText().toString()) > Integer.parseInt(tvRetrievedQty.getText().toString())){
 
-                    @Override
-                    protected Void doInBackground(String... params) {
-                        Requisition_Detail.updateRequisitionDetails(params[0], params[1], params[2]);
+                    Toast t = Toast.makeText(AllocationUpdateActivity.this, "Cannot allocate more than the Retrieved Qty", Toast.LENGTH_SHORT);
+                    t.show();
 
-                        return null;
+                }
+
+                else if (Integer.parseInt(tvAllocatedQty.getText().toString()) > unFulfilledQty ) {
+
+                    Toast t = Toast.makeText(AllocationUpdateActivity.this, "Cannot allocate more than the Unfulfilled Qty", Toast.LENGTH_SHORT);
+                    t.show();
+
+                }
+
+                else {
+                    try {
+                        new AsyncTask<String, Void, Void>() {
+
+                            @Override
+                            protected Void doInBackground(String... params) {
+                                Requisition_Detail.updateRequisitionDetails(params[0], params[1], params[2]);
+
+                                return null;
+                            }
+
+                            @Override
+                            protected void onPostExecute(Void result) {
+                                finish();
+                            }
+                        }.execute(orderNum, itemCode, tvAllocatedQty.getText().toString());
+                    } catch (Exception e) {
+
+
+
                     }
-                    @Override
-                    protected void onPostExecute(Void result) {
-                        finish();
-                    }
-                }.execute(orderNum, itemCode, tvAllocatedQty.getText().toString());
-
-                Intent intent = new Intent(getApplicationContext(), AllocationGroupedByItemActivity.class);
-                intent.putExtra(Key.RETRIEVAL_ITEM_5_ITEMCODE, itemCode );
-                intent.putExtra(Key.RETRIEVAL_ITEM_1_DESCRIPTION,itemDescrp);
-                startActivity(intent);
+                    Intent intent = new Intent(getApplicationContext(), AllocationGroupedByItemActivity.class);
+                    intent.putExtra(Key.RETRIEVAL_ITEM_5_ITEMCODE, itemCode);
+                    intent.putExtra(Key.RETRIEVAL_ITEM_1_DESCRIPTION, itemDescrp);
+                    startActivity(intent);
+                }
             }
         });
 

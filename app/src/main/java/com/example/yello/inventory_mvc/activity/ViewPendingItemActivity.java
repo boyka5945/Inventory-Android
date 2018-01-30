@@ -6,22 +6,48 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.example.yello.inventory_mvc.R;
+import com.example.yello.inventory_mvc.model.Department;
 import com.example.yello.inventory_mvc.model.Disbursement;
+import com.example.yello.inventory_mvc.utility.Key;
 
 import java.util.List;
 
 
-
+import static com.example.yello.inventory_mvc.utility.UrlString.GetDepartment;
 import static com.example.yello.inventory_mvc.utility.UrlString.GetPendingItemsByItem;
 
 public class ViewPendingItemActivity extends AppCompatActivity {
-    private String url = GetPendingItemsByItem+"ZOOL";
+    private String url1 = GetPendingItemsByItem+"ZOOL";
+    private String url2 = GetDepartment+"ZOOL";
+
+
+    private TextView departmentName;
+    private TextView rep;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_pending_item);
+
+        departmentName = (TextView) findViewById(R.id.pending_item_department);
+
+        rep = (TextView) findViewById(R.id.pending_item_representative);
+
+        new AsyncTask<String, Void, Department> () {
+            @Override
+            protected Department doInBackground(String... params) {
+                return Department.getDepartment(params[0]);
+            }
+            @Override
+            protected void onPostExecute(Department result) {
+                departmentName.setText("Department: "+ result.get(Key.DEPARTMENT_2_NAME));
+
+            }
+
+        }.execute(url2);
+
         final ListView lv = findViewById(R.id.pending_item_list);
 
         new AsyncTask<String, Void, List<Disbursement>>() {
@@ -39,6 +65,6 @@ public class ViewPendingItemActivity extends AppCompatActivity {
                 lv.setAdapter(adapter);
             }
 
-        }.execute(url);
+        }.execute(url1);
     }
 }

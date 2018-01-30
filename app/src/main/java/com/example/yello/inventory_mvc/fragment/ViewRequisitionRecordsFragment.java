@@ -209,7 +209,7 @@ public class ViewRequisitionRecordsFragment extends ListFragment
             @Override
             protected List<Requisition_Record> doInBackground(String... strings)
             {
-                return Requisition_Record.ListRequisitionRecord(strings[0]);
+                return Requisition_Record.getRequisitionRecordsByRequesterID("S1002");
             }
 
             @Override
