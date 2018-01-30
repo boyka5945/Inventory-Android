@@ -64,8 +64,9 @@ public final class Key
     //FOR USER
     public static final String USER_1_USERID = "UserID";
     public static final String USER_2_PASSWORD = "Password";
-    /*
+
     public static final String USER_3_NAME = "Name";
+    /*
     public static final String USER_4_CONTACT_NUMBER = "ContactNo";
     public static final String USER_5_ADDRESS = "Address";
     public static final String USER_8_USER_EMAIL = "User_Email";
@@ -81,6 +82,12 @@ public final class Key
 /*    public static final String DEPARTMENT_4_PHONE_NO = "PhoneNo";
     public static final String DEPARTMENT_5_FAX_NO = "FaxNo";*/
     public static final String DEPARTMENT_6_COLLECTION_POINT_ID = "CollectionPointID";
+    public static final String DEPARTMENT_7_COLLECTION_NAME = "CollectionPointName";
+
+    //FOR COLLECTION POINT
+    public static final String COLLECTION_POINT_NAME = "Collection_Point_Name";
+    public static final String COLLECTION_POINT_ID = "Collection_Point_ID";
+
 
     //FOR RETRIEVAL_ITEM
 
