@@ -11,12 +11,12 @@ public final class Key
     public  static  final String BUNDLE_STATIONERY = "stationery";
     public  static  final String BUNDLE_REQUISITION = "requisitionRecord";
     public  static  final String BUNDLE_CATEGORY = "category";
-
+    public  static  final String BUNDLE_REQUISITION_DETAIL = "requisitionDetail";
     public  static  final String BUNDLE_SHOW_BUTTON = "button";
     public  static  final String BUNDLE_REQUISITION_STATUS = "status";
 
     public  static  final String BUNDLE_REQUESITION_RECORD="requisition_record";
-    public  static  final String BUNDLE_REQUISITION_DETAIL="requisition_detail";
+
 
 
     // <--- FOR MODEL : TO BE THE SAME AS THE PROPERTIES NAME IN WCF (JSON) --->
@@ -63,8 +63,8 @@ public final class Key
 
     //FOR USER
     public static final String USER_1_USERID = "UserID";
-    public static final String USER_2_PASSWORD = "Password";
-
+    public static final String USER_2_PASSWORD = "PassWord";
+    /*
     public static final String USER_3_NAME = "Name";
     /*
     public static final String USER_4_CONTACT_NUMBER = "ContactNo";

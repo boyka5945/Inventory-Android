@@ -16,9 +16,11 @@ import android.widget.TextView;
 
 import com.example.yello.inventory_mvc.R;
 
+import com.example.yello.inventory_mvc.model.Collection_Point;
 import com.example.yello.inventory_mvc.model.Department;
 import com.example.yello.inventory_mvc.model.Disbursement;
 import com.example.yello.inventory_mvc.model.LoginUser;
+import com.example.yello.inventory_mvc.model.User;
 import com.example.yello.inventory_mvc.utility.Key;
 
 import org.w3c.dom.Text;
@@ -30,31 +32,49 @@ import static com.example.yello.inventory_mvc.utility.UrlString.GetDisbursementB
 
 
 public class ViewCollectItemActivity extends AppCompatActivity {
+//need to change to loginUser.DeptCode
+    private String url1 = GetDisbursementByDept+"ZOOL";
+    private String url2 = GetDepartment+"ZOOL";
 
-    private String url = GetDisbursementByDept+"ZOOL";
-//    private String departmentCode = LoginUser.deptCode.toString();
+private String departmentCode = "ZOOL";
     private TextView cpoint;
     private TextView departmentName;
 private TextView rep;
 
-    private String DepartmentCode;
+
     private String DepartmentName;
-    private String CollectionPointID;
+    private String CollectionPointName;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_collect_item);
 
+//        Department d =Department.getDepartment(departmentCode);
+      //  User u = LoginUser.name;
+//        DepartmentName = d.get(Key.DEPARTMENT_2_NAME);
+//        CollectionPointName = d.get(Key.DEPARTMENT_7_COLLECTION_NAME);
 
-//        departmentName = (TextView) findViewById(R.id.collect_item_department);
-//        cpoint = (TextView) findViewById(R.id.collect_item_collectpoint);
-//        rep = (TextView) findViewById(R.id.collect_item_representative);
-////
-////
-//        departmentName.setText("Department: "+ Key.DEPARTMENT_2_NAME);
-//        cpoint.setText("Collection Point: "+ Key.DEPARTMENT_7_COLLECTION_NAME);
-//        rep.setText("Representative: "+ Key.USER_3_NAME);
+        departmentName = (TextView) findViewById(R.id.collect_item_department);
+        cpoint = (TextView) findViewById(R.id.collect_item_collectpoint);
+        rep = (TextView) findViewById(R.id.collect_item_representative);
+//
+//
 
+        new AsyncTask<String, Void, Department> () {
+            @Override
+            protected Department doInBackground(String... params) {
+                return Department.getDepartment(params[0]);
+            }
+            @Override
+            protected void onPostExecute(Department result) {
+                departmentName.setText("Department: "+ result.get(Key.DEPARTMENT_2_NAME));
+                cpoint.setText("Collection Point: "+ result.get(Key.DEPARTMENT_7_COLLECTION_NAME));
+
+
+
+            }
+
+        }.execute(url2);
 
     final ListView lv = findViewById(R.id.collect_item_list);
 
@@ -74,7 +94,7 @@ private TextView rep;
                lv.setAdapter(adapter);
                 }
 
-        }.execute(url);
+        }.execute(url1);
     }
 
 }

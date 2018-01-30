@@ -38,6 +38,7 @@ public class DisbursementDetails extends AppCompatActivity {
     private String DepartmentName;
     private String CollectionPointID;
     private Button btn;
+    private Button btn2;
     @SuppressLint("StaticFieldLeak")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,7 @@ public class DisbursementDetails extends AppCompatActivity {
         departmentName = (TextView) findViewById(R.id.textView_DepartmentName);
         cpoint = (TextView) findViewById(R.id.textView_collectionPoint);
         btn = (Button) findViewById(R.id.confirmQty);
+        btn2 = (Button) findViewById(R.id.signature);
         //TextView itemCount = (TextView) findViewById(R.id.text);
 
         departmentName.setText(DepartmentName);
@@ -66,6 +68,14 @@ public class DisbursementDetails extends AppCompatActivity {
         url = "http://172.17.255.3/AD_Inventory_WCF/Service.svc/GetDisbursementByDept/" + DepartmentCode;
         //List<Disbursement> list =
         //Disbursement.GetDisbursementList(url);
+
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
