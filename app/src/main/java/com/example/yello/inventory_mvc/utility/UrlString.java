@@ -50,7 +50,7 @@ public final class UrlString
     //public static final String validateUser = host + "/ValidateUser/";
 
     // UriTemplate = "/GetUser/{userid}/{password}"
-    public static final String validateUser = host + "/GetUser/";
+    public static final String validateUser = host + "/ValidateUser";
 
     // UriTemplate = "/AddNewRequest/{requesterID}
     public static final String addNewRequest = host + "/AddNewRequest/";

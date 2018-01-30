@@ -17,13 +17,12 @@ import java.util.List;
 
 public class User extends HashMap<String, String> {
 
-    public User(String userID,String role, String departmentCode, String name )
+    public User(String userID, String password, String role, String departmentCode )
     {
         this.put(Key.USER_1_USERID, userID);
-        //this.put(Key.USER_2_PASSWORD, password);
-
-        this.put(Key.USER_3_NAME, name);
+        this.put(Key.USER_2_PASSWORD, password);
         /*
+        this.put(Key.USER_3_NAME, name);
         this.put(Key.USER_4_CONTACT_NUMBER, contactNo);
         this.put(Key.USER_5_ADDRESS, address);
         */
@@ -33,18 +32,13 @@ public class User extends HashMap<String, String> {
     }
 
 
-    public static User validateUser(String userID, String password){
-
-        String url = UrlString.validateUser + userID + "/" + password ;
-        User user = null;
-
-        try{
-            JSONObject obj = JSONParser.getJSONFromUrl(url);
-             user = new User(obj.getString(Key.USER_1_USERID),
-                     obj.getString(Key.USER_3_NAME),
-                    obj.getString(Key.USER_6_ROLE),
-                    obj.getString(Key.USER_7_DEPARTMENT_CODE));
-        }
+    public static String validateUser(String userID, String password){
+        JSONObject userinfo = new JSONObject();
+        try {
+            userinfo.put(Key.USER_1_USERID, userID);
+            userinfo.put(Key.USER_2_PASSWORD, password);
+            userinfo.put(Key.USER_6_ROLE, 5);
+            userinfo.put(Key.USER_7_DEPARTMENT_CODE, "xx");
 
         catch(Exception e){
             e.printStackTrace();

@@ -59,8 +59,8 @@ public class RetrievalDetailsActivity extends AppCompatActivity {
 
                     public void onClick(View v) {
 
-
-                        qtyRetrieved.setText(Integer.toString(Qty++));
+                        Qty++;
+                        qtyRetrieved.setText(Integer.toString(Qty));
 
                     }
                 }
@@ -71,8 +71,8 @@ public class RetrievalDetailsActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if(Integer.parseInt(qtyRetrieved.getText().toString()) - 1 >= 0) {
-
-                            qtyRetrieved.setText(Integer.toString(Qty--));
+                            Qty--;
+                            qtyRetrieved.setText(Integer.toString(Qty));
                         }
                     }
                 }
@@ -123,7 +123,7 @@ public class RetrievalDetailsActivity extends AppCompatActivity {
                         @Override
                         protected void onPostExecute(String result) {
 
-                            if(result.toLowerCase() == "true"){
+                            if(result == "true"){
                                 StringBuilder sb = new StringBuilder();
                                 sb.append("Retrieved" +" " + qtyR +" " + name );
                                 Toast t = Toast.makeText(RetrievalDetailsActivity.this, sb.toString(), Toast.LENGTH_SHORT);
