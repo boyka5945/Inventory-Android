@@ -186,7 +186,7 @@ public class ViewRequisitionRecordsFragment extends ListFragment
                              Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_requisition_records_view, container, false);
+        View view = inflater.inflate(R.layout.fragment_request_list, container, false);
 
         String url = null;
 

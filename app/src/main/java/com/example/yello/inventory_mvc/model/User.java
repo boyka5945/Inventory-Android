@@ -40,11 +40,11 @@ public class User extends HashMap<String, String> {
             userinfo.put(Key.USER_6_ROLE, 5);
             userinfo.put(Key.USER_7_DEPARTMENT_CODE, "xx");
 
-
-        } catch (Exception e) {
+        catch(Exception e){
+            e.printStackTrace();
         }
-        String result = JSONParser.postStream(UrlString.validateUser, userinfo.toString());
-        return result;
+
+        return user;
     }
 
 //ps

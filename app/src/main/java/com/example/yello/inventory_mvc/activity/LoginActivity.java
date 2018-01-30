@@ -204,7 +204,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return password.length() > 4;
+        return password.length() > 2;
     }
 
     /**
@@ -364,7 +364,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             if (success) {
                 // TODO: AFTER LOGIN DO SOMETHING
                 // finish();
-                Intent intent = new Intent(getApplicationContext(), BrowseCatalogueActivity.class);
+                Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
                 LoginActivity.this.startActivity(intent);
                 
             } else {

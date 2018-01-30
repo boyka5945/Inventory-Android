@@ -32,6 +32,20 @@ public final class UrlString
     // UriTemplate = "/GetAllCategories"
     public static final String getAllCategories = host + "/GetAllCategories";
 
+    // UriTemplate = "/GetAllCollectionPoints"
+    public static final String GetAllCollectionPoints = host + "/GetAllCollectionPoints";
+
+    // UriTemplate = "/GetDepartment/{deptCode}"
+    public static final String GetDepartment = host + "/GetDepartment";
+
+    //UriTemplate = "GetDetailByReqNo/{reqNo}"
+    public static final String getDetailsByReqNo=host+"/GetDetailByReqNo/";
+
+    //UriTemplate = "GetRequisitionByDept/{deptCode}"
+    public static final String getRequistionRecordByDept=host+"/GetRequisitionRecordByDept/";
+
+
+
     // UriTemplate = "/ValidateUser/{userid}/{password}"
     //public static final String validateUser = host + "/ValidateUser/";
 
@@ -40,10 +54,10 @@ public final class UrlString
     
     // UriTemplate = "/AddNewRequest/{requesterID}
     public static final String addNewRequest = host + "/AddNewRequest/";
-    
+
 
     // UriTemplate = "/GetAllRequisitionRecords"
-    public static final String getAllRequisitionRecords = host + "/GetAllRequisitionRecords";
+    public static final String getAllRequisitionRecords = host + "/GetAllRequisitionRecords/";
 
     // UriTemplate = "/GetDetailByReqNo/{reqNo}"
     public static final String getRequisitionDetailByReqNo = host + "/GetDetailByReqNo/";
@@ -57,11 +71,12 @@ public final class UrlString
     // UriTemplate = "/UpdateRetrieval"
     public static final String UpdateRetrieval = host + "/UpdateRetrieval";
 
+    // UriTemplate = "/UpdateRequistion/{requisitionNo}/{status}/{approvestaff_id}"
+    public static final String UpdateRequisition=host+"/UpdateRequisition/";
+
+
     //UriTemplate = "/UpdateRequisitionDetail"
     public  static final String updateReqDetail = host + "/UpdateRequisitionDetail";
-
-    // UriTemplate = "/updateRequisitionDetails"
-    public static final String updateRequisitionDetails = host + "/updateRequisitionDetails";
 
     // UriTemplate = "/GetRetrievalForm/{itemCode}"
     public static final String GetRetrievalForm = host + "/GetRetrievalForm/";
@@ -73,12 +88,12 @@ public final class UrlString
     // UriTemplate = "/GetPendingItemsByItem/{deptCode}"
     public static final String GetPendingItemsByItem = host + "/GetPendingItemsByItem/";
 
-//    // UriTemplate = "/GetAllRequestRecordForItemAllocation/{itemCode}"
-//    public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequestRecordForItemAllocation/";
+    // UriTemplate = "/GetAllRequestRecordForItemAllocation/{itemCode}"
+   public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequestRecordForItemAllocation/";
 
 
 //ps
    // public static final String userChangePassword = host + "/ChangePassword/";
-
-    public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequisitionforAllocation";
+/*    // UriTemplate = "/updateRequisitionDetails"
+    public static final String updateRequisitionDetails = host + "/updateRequisitionDetails";*/
 }

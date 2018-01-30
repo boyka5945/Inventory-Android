@@ -31,7 +31,47 @@ public class Requisition_Record extends HashMap<String, String> {
         this.put(Key.REQUISITION_RECORD_10_REQUEST_DATE, requestDate);
     }
 
-    public static List<Requisition_Record> ListRequisitionRecord(String url) {
+
+    public Requisition_Record() {
+
+    }
+
+    public static List<Requisition_Record> getRequistionRecordByDept(String deptCode)
+    {
+        String url = UrlString.getRequistionRecordByDept + deptCode;
+        ArrayList<Requisition_Record> reqRecord = new ArrayList<>();
+
+        try
+        {
+            JSONArray array = JSONParser.getJSONArrayFromUrl(url);
+
+            for (int i = 0; i < array.length(); i++)
+            {
+                JSONObject obj = array.getJSONObject(i);
+
+                reqRecord.add(new Requisition_Record(obj.getString(Key.REQUISITION_RECORD_1_REQUISITION_NO),
+                        obj.getString(Key.REQUISITION_RECORD_2_DEPT_CODE),
+                        obj.getString(Key.REQUISITION_RECORD_3_DEPT_NAME),
+                        obj.getString(Key.REQUISITION_RECORD_4_REQUESTER_ID),
+                        obj.getString(Key.REQUISITION_RECORD_5_REQUESTER_NAME),
+                        obj.getString(Key.REQUISITION_RECORD_6_APPROVER_ID),
+                        obj.getString(Key.REQUISITION_RECORD_7_APPROVER_NAME),
+                        obj.getString(Key.REQUISITION_RECORD_8_APPROVED_DATE),
+                        obj.getString(Key.REQUISITION_RECORD_9_STATUS),
+                        obj.getString(Key.REQUISITION_RECORD_10_REQUEST_DATE)
+                ));
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return reqRecord;
+    }
+
+    public static List<Requisition_Record> ListRequisitionRecord(String url)
+    {
         ArrayList<Requisition_Record> requisition_records = new ArrayList<>();
 
         try {
@@ -83,28 +123,10 @@ public class Requisition_Record extends HashMap<String, String> {
         return requisitionRecord;
     }
 
-    /*
 
-
-
-    public static List<Book> getBookByCategory(String category) {
-        List<Book> list = new ArrayList<Book>();
-        try {
-            JSONArray a = HttpHandler.getJSONArrayFromUrl(host+"/Book-category/"+category);
-            for (int i=0; i<a.length(); i++) {
-                JSONObject j = a.getJSONObject(i);
-                Book c = new Book (j.getString("id"), j.getString("title"), j.getString("author"),
-                        j.getString("isbn"), j.getString("category"), j.getString("stock"), j.getString("price"));
-                list.add(c);
-            }
-        } catch (Exception e) {
-        }
-        return list;
-    }
-     */
 
     public static List<Requisition_Record> GetAllRequestRecordForItemAllocation(String itemCode) {
-        String url = UrlString.getAllRequisitionRecords + itemCode;
+        String url = UrlString.GetAllRequestRecordForItemAllocation + itemCode;
         List<Requisition_Record> requisitionRecord = new ArrayList<>();
 
         try {
@@ -165,5 +187,26 @@ public class Requisition_Record extends HashMap<String, String> {
         return requisition_records;
     }
 
+
+
+    public static void UpdateRequisition(String reqrecord, String status, String approvestaff_id)
+    {
+
+        String url = UrlString.UpdateRequisition + reqrecord + "/" + status + "/" + approvestaff_id;
+
+       // JSONObject jretrieval = new JSONObject();
+       // try {
+       //     jretrieval.put(Key.REQUISITION_RECORD_1_REQUISITION_NO, reqrecord.get(Key.REQUISITION_RECORD_1_REQUISITION_NO));
+       //     jretrieval.put(Key.REQUISITION_RECORD_9_STATUS, Integer.parseInt(reqrecord.get(Key.REQUISITION_RECORD_9_STATUS)));
+       //     jretrieval.put(Key.REQUISITION_RECORD_6_APPROVER_ID, reqrecord.get(Key.REQUISITION_RECORD_6_APPROVER_ID));
+
+       // } catch (Exception e) {
+       // }
+       // String result = JSONParser.postStream(UrlString.UpdateRequisition, jretrieval.toString());
+
+        String result = JSONParser.getStream(url);
+
+
+    }
 
 }
