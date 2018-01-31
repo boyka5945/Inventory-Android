@@ -36,7 +36,6 @@
                 android:background="@android:color/holo_red_dark"
                 android:elevation="0dp"
                 android:text="Remove"
-                android:textStyle="bold"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_light" />
 
