@@ -23,7 +23,7 @@ public class DetailRequisitionActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_requisition);
+        setContentView(R.layout.activity_detail_requistion);
 
         Intent intent = this.getIntent();
 

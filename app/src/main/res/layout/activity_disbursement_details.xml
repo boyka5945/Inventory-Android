@@ -33,7 +33,9 @@
                 <TextView
                     android:layout_width="189dp"
                     android:layout_height="39dp"
-                    android:text="Department"
+                    android:text="Department:"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
                 <TextView
@@ -41,6 +43,7 @@
                     android:layout_width="142dp"
                     android:layout_height="match_parent"
                     android:text="TextView"
+                    android:textSize="19sp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
             </TableRow>
@@ -52,7 +55,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="33dp"
-                    android:text="CollectionPoint"
+                    android:text="CollectionPoint:"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
                 <TextView
@@ -60,6 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="TextView"
+                    android:textSize="19sp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
             </TableRow>
@@ -86,10 +92,14 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="DisbursementList"
+        android:textSize="26sp"
+        android:textColor="#009688"
+        android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/signature"
@@ -100,8 +110,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@color/colorPrimary"
         android:text="Signature"
+        android:background="#397EB9"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
@@ -117,8 +128,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@color/colorPrimary"
         android:text="CONFIRM"
+        android:background="#397EB9"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.753"

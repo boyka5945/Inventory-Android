@@ -67,13 +67,13 @@ public class DetailRequisitionFragment extends Fragment {
             reqNO = bundle.getString(Key.BUNDLE_REQUISITION);
         }
 
-        final Button edit = (Button) view.findViewById(R.id.confirm_button);
 
         final Button remove = (Button) view.findViewById(R.id.remove_button);
 
 
 
-        edit.setOnClickListener(new View.OnClickListener() {
+
+        remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new AsyncTask<String, Void, String>()
@@ -83,23 +83,21 @@ public class DetailRequisitionFragment extends Fragment {
                     {
                         //return Requisition_Detail.getDetailsByReqNo(strings[0]);
                         List<Requisition_Detail> rl = Requisition_Detail.getDetailsByReqNo(reqNO);
-                        for (int i = 0;i<rl.size();i++) {
-                            Requisition_Detail d = (Requisition_Detail)listView.getAdapter().getItem(i);
-                            String qty = ((EditText)listView.getChildAt(i).findViewById(R.id.editText_requested_qty)).getText().toString();
-                            String urls = UrlString.updateReqDetail + "/" + reqNO + "/" + rl.get(i).get(Key.REQUISITION_DETAIL_2_ITEM_CODE) + "/" + qty;
-                            Requisition_Detail.updateRequisitionDetail(urls);
-                        }
+                        String urls = UrlString.removePendingRequisition + "/" + reqNO ;
+                        Requisition_Detail.removePendingRequisition(urls);
+
                         return "0";
                     }
 
                     @Override
                     protected void onPostExecute(String result)
                     {
-
+                        Toast.makeText(getActivity(), R.string.remove_pending_requisition, Toast.LENGTH_LONG).show();
                     }
                 }.execute(reqNO);
             }
         });
+
 
 
         final Activity containerActivity = this.getActivity(); // get starting activity
@@ -122,15 +120,16 @@ public class DetailRequisitionFragment extends Fragment {
                 Requisition_Detail detail = result.get(0);
                 if (!detail.get(Key.REQUISITION_DETAIL_12_STATUS).equals("Pending Approval"))
                 {
-                    edit.setVisibility(View.GONE);
+
                     remove.setVisibility(View.GONE);
                 }
 
-                //displayDetail(result);
             }
         }.execute(reqNO);
 
         return view;
     }
+
+
 
 }

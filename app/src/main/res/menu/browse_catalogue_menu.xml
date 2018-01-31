@@ -9,18 +9,18 @@
         app:actionViewClass="android.support.v7.widget.SearchView"
         app:showAsAction="ifRoom|collapseActionView" />
 
-    <item
-        android:id="@+id/action_settings"
-        android:icon="@drawable/ic_menu_black_24dp"
-        android:orderInCategory="100"
-        android:title="@string/menu"
-        app:showAsAction="always">
+    <!--<item
+    android:id="@+id/action_settings"
+    android:icon="@drawable/ic_menu_black_24dp"
+    android:orderInCategory="100"
+    android:title="@string/menu"
+    app:showAsAction="always">
 
-        <menu>
-            <item
-                android:id="@+id/show_new_requisition_form"
-                android:title="@string/show_requisition_form" />
-        </menu>
+    <menu>
+        <item
+            android:id="@+id/show_new_requisition_form"
+            android:title="@string/show_requisition_form" />
+    </menu>
 
-    </item>
+    </item>-->
 </menu>

@@ -12,6 +12,4 @@
         android:id="@android:id/list"
         android:layout_gravity="left|center_vertical" />
 
-
-
 </FrameLayout>

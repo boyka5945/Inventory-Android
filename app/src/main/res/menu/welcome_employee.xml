@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/submittedRequisition" android:title="@string/submittedRequisition"
+    <item android:id="@+id/submitNewRequistionE" android:title="@string/submitNewRequistionE"
         android:orderInCategory="10"  />
-    <item android:id="@+id/modifySubmittedRequisition" android:title="@string/modifySubmittedRequisition"
-        android:orderInCategory="11" />
-    <item android:id="@+id/viewStatusSubmittedRequisition" android:title="@string/viewStatusSubmittedRequisition"
-        android:orderInCategory="10"  />
-    <item android:id="@+id/raiseStationeryRequistion" android:title="@string/raiseStationeryRequistion"
-        android:orderInCategory="11" />
-
-    <item android:id="@+id/log_out2" android:title="@string/log_out"
+    <item android:id="@+id/log_outE" android:title="@string/log_outE"
         android:orderInCategory="15"  />
 
 </menu>

@@ -34,8 +34,7 @@
                 android:layout_marginStart="42dp"
                 android:layout_toEndOf="@+id/reqnametext"
                 android:ems="10"
-                android:textSize="19sp"
-               />
+                android:textSize="19sp" />
 
             <TextView
                 android:id="@+id/reqnametext"
@@ -56,7 +55,7 @@
                 android:layout_alignBottom="@+id/reqnametext"
                 android:layout_alignStart="@+id/reqid"
                 android:ems="10"
-                android:textSize="19sp"/>
+                android:textSize="19sp" />
 
             <TextView
                 android:id="@+id/reqdatetext"
@@ -84,20 +83,21 @@
         <FrameLayout
             android:id="@+id/detailsframe"
             android:layout_width="match_parent"
-            android:layout_height="403dp">
+            android:layout_height="200dp">
 
             <ListView
+                android:id="@android:id/list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@android:id/list"
-                android:layout_gravity="left|center_vertical" >
+                android:layout_gravity="left|center_vertical">
 
 
             </ListView>
         </FrameLayout>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <Button
                 android:id="@+id/approve"
@@ -109,7 +109,7 @@
                 android:text="Approve"
                 android:textStyle="bold"
                 android:textColor="#FFFFFF"
-                android:background="#397EB9" />
+                android:background="#397EB9"/>
 
             <Button
                 android:id="@+id/reject"
@@ -121,14 +121,13 @@
                 android:text="Reject"
                 android:textStyle="bold"
                 android:textColor="#FFFFFF"
-                android:background="#FF0000"  />
+                android:background="#FF0000" />
         </RelativeLayout>
 
     </LinearLayout>
 
+
 </FrameLayout>
-
-
 
 
 

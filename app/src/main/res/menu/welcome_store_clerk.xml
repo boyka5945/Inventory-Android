@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/viewRequistion" android:title="@string/viewRequisition"
+        android:orderInCategory="10"  />
+    <item android:id="@+id/submit_new_requistion" android:title="@string/submit_new_requistion"
+        android:orderInCategory="11"  />
+    <item android:id="@+id/disbursementList" android:title="@string/disbursementList"
+        android:orderInCategory="12"  />
+    <item android:id="@+id/retrievalList" android:title="@string/retrievalList"
+        android:orderInCategory="13"  />
+    <item android:id="@+id/allocationList" android:title="@string/allocationList"
+        android:orderInCategory="14"  />
+    <item android:id="@+id/viewCollectionItem" android:title="@string/viewCollectionItem"
+        android:orderInCategory="15"  />
+    <item android:id="@+id/viewPendingItemSC" android:title="@string/viewPendingItemSC"
+        android:orderInCategory="16"  />
+    <item android:id="@+id/log_outSC" android:title="@string/log_outSC"
+        android:orderInCategory="17"  />
+
+</menu>

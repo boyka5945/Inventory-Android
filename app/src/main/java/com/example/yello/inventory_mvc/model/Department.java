@@ -78,6 +78,13 @@ public class Department extends HashMap<String, String> {
 
         return d;
     }
+
+    public static void UpdateAllocationPoint(String deptCode, String collectionPtID)
+    {
+        String url = UrlString.UpdateCollectionPoint + deptCode + "/" + collectionPtID;
+
+        JSONParser.getJSONArrayFromUrl(url);
     }
+}
 
 

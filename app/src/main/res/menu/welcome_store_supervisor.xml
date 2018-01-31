@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/viewRequisitionRecord" android:title="@string/viewRequisitionRecord"
+        android:orderInCategory="10"  />
+    <item android:id="@+id/submitNewRequistion" android:title="@string/submitNewRequistion"
+        android:orderInCategory="11"  />
+    <item android:id="@+id/disbursementDept" android:title="@string/disbursementDept"
+        android:orderInCategory="12"  />
+    <item android:id="@+id/log_outSS" android:title="@string/log_outSS"
+        android:orderInCategory="13"  />
+
+</menu>

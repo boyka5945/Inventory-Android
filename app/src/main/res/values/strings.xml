@@ -51,9 +51,9 @@
     <string name="stationery_list">Stationery list</string>
 
 
-    <string name="viewRequisition">View Requisition</string>
+
     <string name="stationeryRetrieval">Stationery Retrieval</string>
-    <string name="disbursementList">Disbursement List</string>
+
     <string name="logout">Log Out</string>
     <string name="back_to_catalogue">Back To Catalogue</string>
     <string name="go_to_form">Go To Requisition Form</string>
@@ -68,7 +68,7 @@
     <string name="error_adding_request_item">Error while adding request item</string>
     <string name="error_subtmit_new_requisition">Error while submitting new requisition</string>
     <string name="success_add_item_message">%1$d x %2$s was added into requisition form.</string>
-    
+
     <string name="requesition_id">Requesition ID</string>
     <string name="requester_name">Requester Name</string>
     <string name="requestt_date">Request Date</string>
@@ -79,13 +79,44 @@
     <string name="prompt_confrimPassword">Confirm Password</string>
     <string name="action_confirm">Confrim</string>
 
-    <string name="processRequest">Process Request</string>
-    <string name="delegateAuthority">Delegate Authority</string>
+   <!-- Department Head,Manager,Acting Department Head-->
+    <string name="manageRequest">Mangae Request</string>
+    <string name="changeCollectionPoint">Change Collection Point</string>
+    <string name="viewCollectionPoint">View Collection Point</string>
+    <string name="viewPendingItem">View Pending Item</string>
     <string name="log_out">Log Out</string>
 
+    <!--Store Clerk-->
+    <string name="viewRequisition">View Requisition</string>
+    <string name="submit_new_requistion">Submit New Requisition</string>
+    <string name="disbursementList">Disbursement List</string>
+    <string name="retrievalList">Retrieval List</string>
+    <string name="allocationList">Allocation List</string>
+    <string name="viewCollectionItem">View Collection Item</string>
+    <string name="viewPendingItemSC">View Pending Item</string>
+    <string name="log_outSC">Log Out</string>
+
+
+    <!--Store Supervisor-->
+    <string name="viewRequisitionRecord">View Requisition</string>
+    <string name="submitNewRequistion">Submit New Requisition</string>
+    <string name="disbursementDept">Disbursement List</string>
+    <string name="log_outSS">Log Out</string>
+
+    <!--User Representative-->
+    <string name="viewRequisitionRecordUR">View Requisition</string>
+    <string name="submitNewRequistionUR">Submit New Requisition</string>
+    <string name="changeCollectionPointUR">Change Collection Point</string>
+    <string name="viewCollectionItemUR">View Collection Item</string>
+    <string name="viewPendingItemUR">View Pending Item</string>
+    <string name="log_outUR">Log Out</string>
+
+   <!-- Employee-->
+    <string name="submitNewRequistionE">Submit New Requisition</string>
+    <string name="log_outE">Log Out</string>
 
     <string name="retrieveReadyCollection">Retrieve ready for Collection</string>
-    <string name="changeCollectionPoint">Change Collection Point</string>
+   <!-- <string name="changeCollectionPoint">Change Collection Point</string>-->
     <string name="log_out1">Log Out</string>
 
     <string name="submittedRequisition">Retrieve list of submitted </string>
@@ -94,5 +125,9 @@
     <string name="raiseStationeryRequistion">Raise Stationery Requistion</string>
     <string name="log_out2">Log Out</string>
 
+    <string name="error_update_new_cp">Error while updating new collection point</string>
+    <string name="success_change_cp">Collection Point Updated.</string>
 
+    <string name="pending_requestedQty_change">Requested Qty is successfully changed.</string>
+    <string name="remove_pending_requisition">Pending Requisition is successfully removed.</string>
 </resources>

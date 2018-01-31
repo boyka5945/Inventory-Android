@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/retrieveCollectItemCollection"
+        android:id="@+id/viewRequisitionRecordUR"
         android:orderInCategory="10"
-        android:title="@string/retrieveReadyCollection" />
-    <item android:id="@+id/changeCollectionPoint" android:title="@string/changeCollectionPoint"
+        android:title="@string/viewRequisitionRecordUR" />
+    <item android:id="@+id/submitNewRequistionUR" android:title="@string/submitNewRequistionUR"
         android:orderInCategory="11" />
+    <item android:id="@+id/changeCollectionPointUR" android:title="@string/changeCollectionPointUR"
+        android:orderInCategory="12" />
+    <item android:id="@+id/viewCollectionItemUR" android:title="@string/viewCollectionItemUR"
+        android:orderInCategory="13" />
+    <item android:id="@+id/viewPendingItemUR" android:title="@string/viewPendingItemUR"
+        android:orderInCategory="14" />
 
-    <item android:id="@+id/log_out1" android:title="@string/log_out1"
-        android:orderInCategory="12"  />
+    <item android:id="@+id/log_outUR" android:title="@string/log_outUR"
+        android:orderInCategory="15"  />
 
 </menu>

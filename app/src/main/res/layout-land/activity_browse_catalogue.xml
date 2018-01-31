@@ -26,7 +26,8 @@
         android:layout_marginTop="8dp"
         android:text="@string/filter_stationery"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:textSize="16sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/my_toolbar" />
 
@@ -39,7 +40,8 @@
         android:layout_marginStart="8dp"
         android:text="@string/stationery_list"
         android:textAppearance="@android:style/TextAppearance.Material.Title"
-        android:textSize="16sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner_category" />
 
@@ -50,6 +52,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:textAlignment="viewStart"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 

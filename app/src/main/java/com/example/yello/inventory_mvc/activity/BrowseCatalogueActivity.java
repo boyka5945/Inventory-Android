@@ -58,6 +58,7 @@ public class BrowseCatalogueActivity extends AppCompatActivity implements Adapte
                                                           new int[]{android.R.id.text1});
                 adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
                 categorySpinner.setAdapter(adapter);
+
             }
         }.execute(UrlString.getAllCategories);
         categorySpinner.setOnItemSelectedListener(this);
@@ -126,9 +127,9 @@ public class BrowseCatalogueActivity extends AppCompatActivity implements Adapte
     {
         switch (item.getItemId())
         {
-            case (R.id.show_new_requisition_form):
+            /*case (R.id.show_new_requisition_form):
                 startActivity(new Intent(this, NewRequisitionFormActivity.class));
-                return true;
+                return true;*/
             
             default:
                 return super.onOptionsItemSelected(item);

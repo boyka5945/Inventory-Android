@@ -58,25 +58,34 @@ tools:context="com.example.yello.inventory_mvc.activity.ViewCollectItemActivity"
         android:id="@+id/collect_item_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Items Ready to be Collected" />
+        android:textSize="26sp"
+        android:textColor="#009688"
+        android:text="Item Ready For Collection"
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/collect_item_department"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Department: " />
+        android:text="Department: "
+        android:textSize="20sp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/collect_item_collectpoint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Collection Point:" />
+        android:text="Collection Point:"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/collect_item_representative"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Representative" />
+        android:text="Representative:"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
 
     <ListView
         android:id="@+id/collect_item_list"

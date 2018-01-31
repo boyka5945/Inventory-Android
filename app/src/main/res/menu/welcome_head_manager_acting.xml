@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/manageRequest" android:title="@string/manageRequest"
+        android:orderInCategory="10"  />
+    <item android:id="@+id/changeCollectionPoint" android:title="@string/changeCollectionPoint"
+        android:orderInCategory="11"  />
+    <item android:id="@+id/viewCollectionPoint" android:title="@string/viewCollectionPoint"
+        android:orderInCategory="12"  />
+    <item android:id="@+id/viewPendingItem" android:title="@string/viewPendingItem"
+        android:orderInCategory="13"  />
+    <item android:id="@+id/log_out" android:title="@string/log_out"
+        android:orderInCategory="14"  />
+
+</menu>
