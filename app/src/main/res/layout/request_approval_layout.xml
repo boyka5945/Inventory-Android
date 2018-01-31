@@ -21,7 +21,9 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="14dp"
-                android:text="@string/requesition_id" />
+                android:text="@string/requesition_id"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/reqid"
@@ -31,7 +33,9 @@
                 android:layout_alignBottom="@+id/reqidtext"
                 android:layout_marginStart="42dp"
                 android:layout_toEndOf="@+id/reqnametext"
-                android:ems="10" />
+                android:ems="10"
+                android:textSize="19sp"
+               />
 
             <TextView
                 android:id="@+id/reqnametext"
@@ -40,7 +44,9 @@
                 android:layout_alignStart="@+id/reqidtext"
                 android:layout_below="@+id/reqidtext"
                 android:layout_marginTop="11dp"
-                android:text="@string/requester_name" />
+                android:text="@string/requester_name"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/reqname"
@@ -49,7 +55,8 @@
                 android:layout_alignBaseline="@+id/reqnametext"
                 android:layout_alignBottom="@+id/reqnametext"
                 android:layout_alignStart="@+id/reqid"
-                android:ems="10" />
+                android:ems="10"
+                android:textSize="19sp"/>
 
             <TextView
                 android:id="@+id/reqdatetext"
@@ -58,7 +65,9 @@
                 android:layout_alignStart="@+id/reqnametext"
                 android:layout_below="@+id/reqnametext"
                 android:layout_marginTop="15dp"
-                android:text="@string/requestt_date" />
+                android:text="@string/requestt_date"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/reqdate"
@@ -67,7 +76,8 @@
                 android:layout_alignBaseline="@+id/reqdatetext"
                 android:layout_alignBottom="@+id/reqdatetext"
                 android:layout_alignStart="@+id/reqname"
-                android:ems="10" />
+                android:ems="10"
+                android:textSize="19sp" />
 
         </RelativeLayout>
 
@@ -97,8 +107,9 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="75dp"
                 android:text="Approve"
-                android:background="@color/colorPrimary"
-                android:textColor="@android:color/background_light"/>
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="#397EB9" />
 
             <Button
                 android:id="@+id/reject"
@@ -108,8 +119,9 @@
                 android:layout_marginStart="45dp"
                 android:layout_toEndOf="@+id/approve"
                 android:text="Reject"
-                android:background="@android:color/darker_gray"
-                android:textColor="@android:color/background_light"/>
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="#FF0000"  />
         </RelativeLayout>
 
     </LinearLayout>

@@ -14,7 +14,8 @@
         android:layout_marginTop="8dp"
         android:text="@string/description"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:textSize="16sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,7 +27,8 @@
         android:layout_marginTop="8dp"
         android:text="@string/UOM"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:textSize="16sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_description_value" />
 
@@ -38,7 +40,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/UOM"
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        android:textSize="16sp"
+        android:textSize="19sp"
         app:layout_constraintStart_toEndOf="@+id/textView_UOM_label"
         app:layout_constraintTop_toBottomOf="@+id/textView_description_value" />
 
@@ -48,6 +50,9 @@
         android:layout_height="45dp"
         android:layout_marginTop="8dp"
         android:text="+"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="#009688"
         app:layout_constraintEnd_toStartOf="@+id/editText_quantity"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,6 +73,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
         android:text="-"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="#009688"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

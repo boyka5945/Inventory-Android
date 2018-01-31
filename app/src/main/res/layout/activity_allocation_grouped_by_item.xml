@@ -20,6 +20,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Pending Fulfillment "
+                android:textSize="26sp"
+                android:textColor="#009688"
+                android:gravity="center"
                 android:textAppearance="@android:style/TextAppearance.Material.Headline" />
 
         </TableRow>
@@ -35,6 +38,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Item Code:"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <TextView
@@ -42,7 +47,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="19sp"/>
 
         </TableRow>
 
@@ -56,6 +62,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Description:"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <TextView
@@ -63,7 +71,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="19sp"/>
         </TableRow>
 
         <TableRow
@@ -76,7 +85,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Retrieved Qty"
+                android:text="Retrieved Qty:"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <TextView
@@ -84,7 +95,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="19sp"/>
         </TableRow>
 
         <TableRow
@@ -99,6 +111,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Req No."
+                android:textSize="20sp"
+                android:textColor="#5CC065"
                 android:textAppearance="@android:style/TextAppearance.Material.Body1" />
 
             <TextView
@@ -107,6 +121,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Dept Code"
+                android:textSize="20sp"
+                android:textColor="#5CC065"
                 android:textAppearance="@android:style/TextAppearance.Material.Body1" />
 
             <TextView
@@ -115,6 +131,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Unfulfilled Qty"
+                android:textSize="20sp"
+                android:textColor="#5CC065"
                 android:textAppearance="@android:style/TextAppearance.Material.Body1" />
         </TableRow>
 

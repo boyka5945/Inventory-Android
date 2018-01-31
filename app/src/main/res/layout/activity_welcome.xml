@@ -38,6 +38,7 @@
             android:text="Welcome To Logic University"
             android:textStyle="bold"
             android:textColor="#009688"
+            android:textSize="28sp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_alignParentBottom="true"
             android:layout_gravity="center_horizontal"
