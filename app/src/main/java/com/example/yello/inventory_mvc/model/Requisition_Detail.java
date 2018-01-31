@@ -218,7 +218,7 @@ public class Requisition_Detail extends HashMap<String, String>
         } catch (Exception e) {
         }
 
-        String result = JSONParser.postStream(UrlString.updateReqDetail, obj.toString());
+        String result = JSONParser.postStream(UrlString.updateRequisitionDetails, obj.toString());
 
 
         //still need to minus away allocated qty from the retrieved?

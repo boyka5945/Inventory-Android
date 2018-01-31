@@ -70,6 +70,7 @@ public class Retrieval_Item extends HashMap<String,String> {
             jretrieval.put(Key.RETRIEVAL_ITEM_2_QTY, Integer.parseInt(ri.get(Key.RETRIEVAL_ITEM_2_QTY)));
             jretrieval.put(Key.RETRIEVAL_ITEM_3_LOCATION, ri.get(Key.RETRIEVAL_ITEM_3_LOCATION));
             jretrieval.put(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED, Integer.parseInt(ri.get(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED)));
+            jretrieval.put(Key.RETRIEVAL_ITEM_5_ITEMCODE, ri.get(Key.RETRIEVAL_ITEM_5_ITEMCODE));
 
         } catch (Exception e) {
         }
@@ -96,6 +97,7 @@ public class Retrieval_Item extends HashMap<String,String> {
             retrieval_Item.put(Key.RETRIEVAL_ITEM_2_QTY, ri.getString(Key.RETRIEVAL_ITEM_2_QTY));
             retrieval_Item.put(Key.RETRIEVAL_ITEM_3_LOCATION, ri.getString(Key.RETRIEVAL_ITEM_3_LOCATION));
             retrieval_Item.put(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED, ri.getString(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED));
+            retrieval_Item.put(Key.RETRIEVAL_ITEM_5_ITEMCODE, ri.getString(Key.RETRIEVAL_ITEM_5_ITEMCODE));
 
 
         }

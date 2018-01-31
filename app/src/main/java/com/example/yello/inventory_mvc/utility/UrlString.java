@@ -6,8 +6,8 @@ package com.example.yello.inventory_mvc.utility;
 
 public final class UrlString
 {
-    public static final String ip = "172.17.250.158";
-    public static final String server = "/AD_WCF";
+    public static final String ip = "172.17.254.10";
+    public static final String server = "/AD_Inventory_WCF";
     public static final String host = "http://" + ip + server + "/Service.svc";
     
     
@@ -44,7 +44,8 @@ public final class UrlString
     //UriTemplate = "GetRequisitionByDept/{deptCode}"
     public static final String getRequistionRecordByDept=host+"/GetRequisitionRecordByDept/";
 
-
+     //UriTemplate = "/GetRequisitionRecordByRequesterID/{requesterID}"
+    public static final String getRequisitionRecordsByRequesterID=host+"/GetRequisitionRecordByRequesterID/";
 
     // UriTemplate = "/ValidateUser/{userid}/{password}"
     //public static final String validateUser = host + "/ValidateUser/";
@@ -89,11 +90,18 @@ public final class UrlString
     public static final String GetPendingItemsByItem = host + "/GetPendingItemsByItem/";
 
     // UriTemplate = "/GetAllRequestRecordForItemAllocation/{itemCode}"
-   public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequestRecordForItemAllocation/";
+    public static final String GetAllRequestRecordForItemAllocation = host + "/GetAllRequestRecordForItemAllocation/";
 
+    public static final String GetAllDepartments = host + "/GetAllDepartments";
 
+    public static final String SaveTmpDisbursement = host + "/SaveTmpDisbursement/";
+
+    public static final String UpdateDisbursement = host + "/UpdateDisbursement/";
+
+    //UriTemplate = "/UpdateCollectionPoint/deptCode/collectionPtID"
+   public static final String UpdateCollectionPoint = host +"/UpdateCollectionPoint/";
 //ps
    // public static final String userChangePassword = host + "/ChangePassword/";
-/*    // UriTemplate = "/updateRequisitionDetails"
-    public static final String updateRequisitionDetails = host + "/updateRequisitionDetails";*/
+  // UriTemplate = "/updateRequisitionDetails"
+    public static final String updateRequisitionDetails = host + "/updateRequisitionDetails";
 }

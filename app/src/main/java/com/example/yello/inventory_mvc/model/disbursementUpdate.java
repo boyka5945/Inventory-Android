@@ -3,6 +3,8 @@ package com.example.yello.inventory_mvc.model;
 
 import com.example.yello.inventory_mvc.utility.JSONParser;
 import com.example.yello.inventory_mvc.utility.Key;
+import com.example.yello.inventory_mvc.utility.UrlString;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,7 +32,7 @@ public class disbursementUpdate extends HashMap<String, String> {
     }
 
     public static void updateDisbursement(disbursementUpdate d) {
-        String url = "http://172.17.255.3/AD_Inventory_WCF/Service.svc/UpdateDisbursement/" +
+        String url = UrlString.UpdateDisbursement +
                 d.get(Key.STATIONERY_1_ITEM_CODE) + "/" +
                 d.get("NeedQty") + "/" +
                 d.get("ActualQty") + "/" +

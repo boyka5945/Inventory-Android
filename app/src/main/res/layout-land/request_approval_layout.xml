@@ -74,13 +74,13 @@
         <FrameLayout
             android:id="@+id/detailsframe"
             android:layout_width="match_parent"
-            android:layout_height="403dp">
+            android:layout_height="200dp">
 
             <ListView
+                android:id="@android:id/list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@android:id/list"
-                android:layout_gravity="left|center_vertical" >
+                android:layout_gravity="left|center_vertical">
 
 
             </ListView>
@@ -114,9 +114,8 @@
 
     </LinearLayout>
 
+
 </FrameLayout>
-
-
 
 
 

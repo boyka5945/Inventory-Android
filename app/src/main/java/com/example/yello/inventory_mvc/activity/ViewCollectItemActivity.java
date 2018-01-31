@@ -32,27 +32,18 @@ import static com.example.yello.inventory_mvc.utility.UrlString.GetDisbursementB
 
 
 public class ViewCollectItemActivity extends AppCompatActivity {
-//need to change to loginUser.DeptCode
+    //need to change to loginUser.DeptCode
     private String url1 = GetDisbursementByDept+"ZOOL";
     private String url2 = GetDepartment+"ZOOL";
 
-private String departmentCode = "ZOOL";
     private TextView cpoint;
     private TextView departmentName;
-private TextView rep;
+    private TextView rep;
 
-
-    private String DepartmentName;
-    private String CollectionPointName;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_collect_item);
-
-//        Department d =Department.getDepartment(departmentCode);
-      //  User u = LoginUser.name;
-//        DepartmentName = d.get(Key.DEPARTMENT_2_NAME);
-//        CollectionPointName = d.get(Key.DEPARTMENT_7_COLLECTION_NAME);
 
         departmentName = (TextView) findViewById(R.id.collect_item_department);
         cpoint = (TextView) findViewById(R.id.collect_item_collectpoint);
@@ -76,7 +67,7 @@ private TextView rep;
 
         }.execute(url2);
 
-    final ListView lv = findViewById(R.id.collect_item_list);
+        final ListView lv = findViewById(R.id.collect_item_list);
 
 
         new AsyncTask<String, Void, List<Disbursement>>() {
@@ -91,8 +82,8 @@ private TextView rep;
                         R.layout.collect_item_row,
                         new String[]{"StationeryDescription", "ItemCode", "NeedQty"},
                         new int[]{ R.id.textView_wh1,R.id.textView_wh2,R.id.textView_wh3});
-               lv.setAdapter(adapter);
-                }
+                lv.setAdapter(adapter);
+            }
 
         }.execute(url1);
     }

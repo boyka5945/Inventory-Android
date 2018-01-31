@@ -31,6 +31,7 @@ public class RetrievalDetailsActivity extends AppCompatActivity {
         final String name = getIntent().getExtras().getString(Key.RETRIEVAL_ITEM_1_DESCRIPTION);
         final String qty = getIntent().getExtras().getString(Key.RETRIEVAL_ITEM_2_QTY);
         final String location = getIntent().getExtras().getString(Key.RETRIEVAL_ITEM_3_LOCATION);
+        final String itemCode = getIntent().getExtras().getString(Key.RETRIEVAL_ITEM_5_ITEMCODE);
 
         Qty = retrievedQty;
 
@@ -90,24 +91,29 @@ public class RetrievalDetailsActivity extends AppCompatActivity {
 
         );
 
-
-
-
-
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if(retrievedQty == Integer.parseInt(qtyRetrieved.getText().toString())){
+
+                    Toast t = Toast.makeText(RetrievalDetailsActivity.this, "No change to Qty Retrieved.", Toast.LENGTH_SHORT);
+                    t.show();
+
+                }
+
+                else {
 
 
-                final String qtyR = qtyRetrieved.getText().toString();
 
-                Retrieval_Item ri = new Retrieval_Item();
-                ri.put(Key.RETRIEVAL_ITEM_1_DESCRIPTION, name);
-                ri.put(Key.RETRIEVAL_ITEM_2_QTY, qty);
-                ri.put(Key.RETRIEVAL_ITEM_3_LOCATION, location);
-                ri.put(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED, qtyR);
+                /*final String qtyR = qtyRetrieved.getText().toString();*/
 
+                    Retrieval_Item ri = new Retrieval_Item();
+                    ri.put(Key.RETRIEVAL_ITEM_1_DESCRIPTION, name);
+                    ri.put(Key.RETRIEVAL_ITEM_2_QTY, qty);
+                    ri.put(Key.RETRIEVAL_ITEM_3_LOCATION, location);
+                    ri.put(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED, Integer.toString(Qty));
+                    ri.put(Key.RETRIEVAL_ITEM_5_ITEMCODE, itemCode);
 
 
                     new AsyncTask<Retrieval_Item, Void, String>() {
@@ -115,26 +121,26 @@ public class RetrievalDetailsActivity extends AppCompatActivity {
 
                         @Override
                         protected String doInBackground(Retrieval_Item... params) {
-                            Retrieval_Item.UpdateRetrieval(params[0]);
+                            return Retrieval_Item.UpdateRetrieval(params[0]);
 
-                            return null;
+
                         }
 
                         @Override
                         protected void onPostExecute(String result) {
 
-                            if(result == "true"){
+                            if (result.toLowerCase().contains("true")) {
+
                                 StringBuilder sb = new StringBuilder();
-                                sb.append("Retrieved" +" " + qtyR +" " + name );
+                                sb.append("Qty of " + name.toUpperCase() + " retrieved recorded as: " + Qty);
                                 Toast t = Toast.makeText(RetrievalDetailsActivity.this, sb.toString(), Toast.LENGTH_SHORT);
                                 t.show();
-                            }
 
-                            else{
+                            } else {
 
                                 StringBuilder sb = new StringBuilder();
                                 sb.append("An Error occured: " + result);
-                                Toast t = Toast.makeText(RetrievalDetailsActivity.this , sb.toString() , Toast.LENGTH_SHORT);
+                                Toast t = Toast.makeText(RetrievalDetailsActivity.this, sb.toString(), Toast.LENGTH_LONG);
                                 t.show();
 
                             }
@@ -142,19 +148,9 @@ public class RetrievalDetailsActivity extends AppCompatActivity {
                         }
                     }.execute(ri);
 
-
-
-
-
-
-               Intent intent = new Intent(getApplicationContext(), RetrievalListActivity.class);
-               startActivity(intent);
-
-
-
-
-
-
+/*               Intent intent = new Intent(getApplicationContext(), RetrievalListActivity.class);
+               startActivity(intent);*/
+                }
 
             }
         });
