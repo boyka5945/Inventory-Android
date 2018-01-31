@@ -20,6 +20,15 @@ import com.example.yello.inventory_mvc.utility.UrlString;
 public class ViewRequisitionRecordsActivity extends AppCompatActivity
 {
 
+
+    @Override
+    public void onRestart()
+    {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -30,56 +39,10 @@ public class ViewRequisitionRecordsActivity extends AppCompatActivity
         this.setSupportActionBar(myToolbar);
 
         Intent intent = this.getIntent();
-        /*if (Intent.ACTION_SEARCH.equals(intent.getAction())) // if action_search come back this activity
-        {
-            String query = intent.getStringExtra(SearchManager.QUERY); // get search query
-            doSearch("All", query);
-        }
-        else
-        {*/
-            startListFragment(UrlString.getAllRequisitionRecords);
-        //}
+        startListFragment(UrlString.getRequisitionRecordsByRequesterID);
+
     }
 
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        this.getMenuInflater().inflate(R.menu.requisition_records_meun, menu);
-
-        // Get the SearchView and set the searchable configuration
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-
-        // Assumes current activity is the searchable activity
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
-        searchView.setQueryRefinementEnabled(true);
-
-        return true;
-    }*/
-
-
-    /*@Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        switch (item.getItemId())
-        {
-            case (R.id.category_1_clip):
-                startListFragment(UrlString.getStationeryByCriteria + R.string.category_1_clip);
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }*/
-
-
-    /*protected void doSearch(String category, String searchString)
-    {
-        String url = UrlString.getStationeryByCriteria + "%s/%s";
-        url = String.format(url, category, searchString);
-        startListFragment(url);
-    }*/
 
     protected void startListFragment(String url)
     {
