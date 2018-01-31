@@ -162,6 +162,10 @@ public class Requisition_Detail extends HashMap<String, String>
     }
 
     public static void updateRequisitionDetail(String url){
+        JSONParser.getStream(url);
+    }
+
+    public static void removePendingRequisition(String url){
         JSONArray array = JSONParser.getJSONArrayFromUrl(url);
     }
 

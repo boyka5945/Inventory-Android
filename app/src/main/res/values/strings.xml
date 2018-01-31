@@ -128,5 +128,6 @@
     <string name="error_update_new_cp">Error while updating new collection point</string>
     <string name="success_change_cp">Collection Point Updated.</string>
 
-
+    <string name="pending_requestedQty_change">Requested Qty is successfully changed.</string>
+    <string name="remove_pending_requisition">Pending Requisition is successfully removed.</string>
 </resources>
