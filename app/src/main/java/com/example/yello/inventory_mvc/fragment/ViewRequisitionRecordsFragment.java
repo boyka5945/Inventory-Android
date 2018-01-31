@@ -17,6 +17,7 @@ import android.widget.SimpleAdapter;
 
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.activity.DetailRequisitionActivity;
+import com.example.yello.inventory_mvc.model.LoginUser;
 import com.example.yello.inventory_mvc.model.Requisition_Detail;
 import com.example.yello.inventory_mvc.model.Requisition_Record;
 import com.example.yello.inventory_mvc.utility.Key;
@@ -67,7 +68,7 @@ public class ViewRequisitionRecordsFragment extends ListFragment
             @Override
             protected List<Requisition_Record> doInBackground(String... strings)
             {
-                return Requisition_Record.getRequisitionRecordsByRequesterID("S1017");
+                return Requisition_Record.getRequisitionRecordsByRequesterID(LoginUser.userID);
             }
 
             @Override
