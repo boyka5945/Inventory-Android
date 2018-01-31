@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.activity.NewRequisitionActivity;
@@ -76,8 +77,9 @@ public class StationeryCatalogueFragment extends ListFragment
                                                           android.R.layout.simple_list_item_1,
                                                           new String[]{Key.STATIONERY_2_DESCRIPTION},
                                                           new int[]{android.R.id.text1});
-                
+
                 StationeryCatalogueFragment.this.setListAdapter(adapter);
+
             }
         }.execute(url);
         

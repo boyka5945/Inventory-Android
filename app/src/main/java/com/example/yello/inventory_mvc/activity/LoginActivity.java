@@ -36,6 +36,7 @@ import com.example.yello.inventory_mvc.model.LoginUser;
 import com.example.yello.inventory_mvc.model.User;
 import com.example.yello.inventory_mvc.utility.Key;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -314,21 +315,45 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         @Override
         protected Boolean doInBackground(Void... params) {
 
+            /*User login = null;
+            try {
+
+                login = User.validateUser(mEmail, mPassword);
+//                LoginUser loginUser = LoginUser.getLoginUser();
+                LoginUser.userID = login.get(Key.USER_1_USERID);
+                LoginUser.deptCode = login.get(Key.USER_7_DEPARTMENT_CODE);
+                LoginUser.roleID = Integer.valueOf(login.get(Key.USER_6_ROLE));
+
+
+            } catch (Exception e) {
+                return false;
+            }*/
 
             String loginstatus = null;
+            User login = null;
             try {
                 //User u = new User(mEmail, mPassword,"", "");
+
                 loginstatus = User.validateUser(mEmail,mPassword);
-                if (loginstatus.contains("true")){
+                String a = loginstatus.toString();
+
+                if (loginstatus != null){
+                    for (int i = 0;i<a.length();i++){
+                        if (a.charAt(i) == 82 && a.charAt(i+1) == 111 && a.charAt(i+2) == 108 && a.charAt(i+3) == 101){
+                            LoginUser.roleID = Character.getNumericValue(a.charAt(i+6));
+                        }
+                    }
+//                    LoginUser loginUser = loginstatus
+//                    LoginUser.userID = loginstatus.get(Key.USER_1_USERID);
+//                    LoginUser.deptCode = loginstatus.get(Key.USER_7_DEPARTMENT_CODE);
+//                    LoginUser.roleID = Integer.valueOf(login.get(Key.USER_6_ROLE));
+
                     return true;
                 }
                 else {
                     return false;
                 }
-//                LoginUser loginUser = LoginUser.getLoginUser();
-                //LoginUser.userID = login.get(Key.USER_1_USERID);
-                //LoginUser.deptCode = login.get(Key.USER_7_DEPARTMENT_CODE);
-                //LoginUser.roleID = Integer.valueOf(login.get(Key.USER_6_ROLE));
+//
 
 
             } catch (Exception e) {

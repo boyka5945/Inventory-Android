@@ -15,6 +15,8 @@ public class LoginUser
 
     public static LoginUser getLoginUser()
     {
-        return _user;
+       return _user;
     }
+
+
 }

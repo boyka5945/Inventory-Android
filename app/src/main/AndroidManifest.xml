@@ -81,7 +81,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.DisbursementDetails" />
-        <activity android:name=".activity.ChangePasswordActivity" />
         <activity android:name=".activity.InputQuantityActivity" />
         <activity android:name=".activity.ViewCollectItemActivity">
             <intent-filter>

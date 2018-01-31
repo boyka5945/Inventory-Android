@@ -51,9 +51,9 @@
     <string name="stationery_list">Stationery list</string>
 
 
-    <string name="viewRequisition">View Requisition</string>
+
     <string name="stationeryRetrieval">Stationery Retrieval</string>
-    <string name="disbursementList">Disbursement List</string>
+
     <string name="logout">Log Out</string>
     <string name="back_to_catalogue">Back To Catalogue</string>
     <string name="go_to_form">Go To Requisition Form</string>
@@ -79,13 +79,44 @@
     <string name="prompt_confrimPassword">Confirm Password</string>
     <string name="action_confirm">Confrim</string>
 
+   <!-- Department Head,Manager,Acting Department Head-->
     <string name="manageRequest">Mangae Request</string>
-
+    <string name="changeCollectionPoint">Change Collection Point</string>
+    <string name="viewCollectionPoint">View Collection Point</string>
+    <string name="viewPendingItem">View Pending Item</string>
     <string name="log_out">Log Out</string>
 
+    <!--Store Clerk-->
+    <string name="viewRequisition">View Requisition</string>
+    <string name="submit_new_requistion">Submit New Requisition</string>
+    <string name="disbursementList">Disbursement List</string>
+    <string name="retrievalList">Retrieval List</string>
+    <string name="allocationList">Allocation List</string>
+    <string name="viewCollectionItem">View Collection Item</string>
+    <string name="viewPendingItemSC">View Pending Item</string>
+    <string name="log_outSC">Log Out</string>
+
+
+    <!--Store Supervisor-->
+    <string name="viewRequisitionRecord">View Requisition</string>
+    <string name="submitNewRequistion">Submit New Requisition</string>
+    <string name="disbursementDept">Disbursement List</string>
+    <string name="log_outSS">Log Out</string>
+
+    <!--User Representative-->
+    <string name="viewRequisitionRecordUR">View Requisition</string>
+    <string name="submitNewRequistionUR">Submit New Requisition</string>
+    <string name="changeCollectionPointUR">Change Collection Point</string>
+    <string name="viewCollectionItemUR">View Collection Item</string>
+    <string name="viewPendingItemUR">View Pending Item</string>
+    <string name="log_outUR">Log Out</string>
+
+   <!-- Employee-->
+    <string name="submitNewRequistionE">Submit New Requisition</string>
+    <string name="log_outE">Log Out</string>
 
     <string name="retrieveReadyCollection">Retrieve ready for Collection</string>
-    <string name="changeCollectionPoint">Change Collection Point</string>
+   <!-- <string name="changeCollectionPoint">Change Collection Point</string>-->
     <string name="log_out1">Log Out</string>
 
     <string name="submittedRequisition">Retrieve list of submitted </string>
