@@ -15,19 +15,26 @@
             android:id="@+id/pending_item_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pending Item to be Processed" />
+            android:textSize="26sp"
+            android:textColor="#009688"
+            android:text="Pending Item to be Processed"
+            android:gravity="center"/>
 
         <TextView
             android:id="@+id/pending_item_department"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Department: " />
+            android:text="Department: "
+            android:textSize="20sp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/pending_item_representative"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Representative: " />
+            android:text="Representative: "
+            android:textSize="20sp"
+            android:textStyle="bold"/>
 
 
 

@@ -22,6 +22,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Allocation Overview "
+            android:textSize="26sp"
+            android:textColor="#009688"
+            android:gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
         <LinearLayout
@@ -37,6 +40,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textSize="17sp"
+                android:textColor="#5CC065"
                 android:text="Item Name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
@@ -45,6 +50,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textSize="17sp"
+                android:textColor="#5CC065"
                 android:text="Qty Requested"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
@@ -53,6 +60,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textSize="17sp"
+                android:textColor="#5CC065"
                 android:text="Qty Retrieved"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
         </LinearLayout>

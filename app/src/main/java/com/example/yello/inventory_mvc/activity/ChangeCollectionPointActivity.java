@@ -19,6 +19,7 @@ package com.example.yello.inventory_mvc.activity;
 
         import com.example.yello.inventory_mvc.model.Collection_Point;
         import com.example.yello.inventory_mvc.model.Department;
+        import com.example.yello.inventory_mvc.model.LoginUser;
         import com.example.yello.inventory_mvc.model.RequisitionForm;
         import com.example.yello.inventory_mvc.model.Requisition_Detail;
         import com.example.yello.inventory_mvc.utility.Key;
@@ -30,6 +31,7 @@ package com.example.yello.inventory_mvc.activity;
 
 public class ChangeCollectionPointActivity extends Activity {
     private String url2 = GetDepartment + "ZOOL";
+    /*private String url2 = GetDepartment + LoginUser.deptCode;*/
     private Spinner collectionPointSpinner;
     private String deptCode;
     private TextView cpoint;

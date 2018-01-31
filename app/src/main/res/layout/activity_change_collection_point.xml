@@ -26,8 +26,12 @@
             android:id="@+id/Collection_point_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Update Collection Point"
-            android:textSize="24sp"
+            android:text="Change Collection Point"
+            android:textSize="26sp"
+            android:textColor="#009688"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_gravity="center_horizontal"
             android:textStyle="bold" />
 
         <TextView
@@ -37,16 +41,16 @@
             android:autoText="false"
             android:shadowColor="@color/colorAccent"
             android:text="Department: "
-            android:textSize="14sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/Collection_point_current"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="50dp"
             android:shadowColor="@color/colorAccent"
             android:text="Current Collection Point: "
-            android:textSize="14sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -69,6 +73,8 @@
             android:layout_marginTop="28dp"
             android:text="Select New Collect Point"
             android:textStyle="italic"
+            android:textSize="15sp"
+            android:textColor="#139060"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -84,6 +90,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
@@ -96,8 +103,10 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="40dp"
-            android:background="@color/colorPrimary"
-            android:text="Update"
+            android:background="#397EB9"
+            android:text="Change"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

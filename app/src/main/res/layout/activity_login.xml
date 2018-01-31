@@ -79,8 +79,9 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/action_sign_in"
                 android:textSize="55px"
+                android:textColor="#FFFFFF"
                 android:textStyle="bold"
-                android:background="#5AA9C2"/>
+                android:background="#397EB9"/>
 
         </LinearLayout>
     </ScrollView>

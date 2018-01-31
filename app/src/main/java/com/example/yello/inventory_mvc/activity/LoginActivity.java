@@ -342,6 +342,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         if (a.charAt(i) == 82 && a.charAt(i+1) == 111 && a.charAt(i+2) == 108 && a.charAt(i+3) == 101){
                             LoginUser.roleID = Character.getNumericValue(a.charAt(i+6));
                         }
+                        if (a.charAt(i) == 68 && a.charAt(i+1) == 101 && a.charAt(i+2) == 112 && a.charAt(i+3) == 97){
+                            if ((a.charAt(i+21)>=65 && a.charAt(i+21) <=90) || (a.charAt(i+21)<=122 && a.charAt(i+21)>=97))
+                                LoginUser.deptCode = Character.toString(a.charAt(i+17)) + Character.toString(a.charAt(i+18)) + Character.toString(a.charAt(i + 19))+ Character.toString(a.charAt(i+20)) + Character.toString(a.charAt(i+21));
+                            else
+                                LoginUser.deptCode = Character.toString(a.charAt(i+17)) + Character.toString(a.charAt(i+18)) + Character.toString(a.charAt(i + 19))+ Character.toString(a.charAt(i+20));
+                        }
+                        if (a.charAt(i) == 85 && a.charAt(i+1) == 115 && a.charAt(i+2) == 101 && a.charAt(i+3) == 114){
+                            LoginUser.userID = Character.toString(a.charAt(i+9)) + Character.getNumericValue(a.charAt(i+10)) + Character.getNumericValue(a.charAt(i+11)) + Character.getNumericValue(a.charAt(i+12)) + Character.getNumericValue(a.charAt(i+13));
+                        }
                     }
 //                    LoginUser loginUser = loginstatus
 //                    LoginUser.userID = loginstatus.get(Key.USER_1_USERID);

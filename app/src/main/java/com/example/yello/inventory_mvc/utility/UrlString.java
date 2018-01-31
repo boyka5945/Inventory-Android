@@ -104,4 +104,8 @@ public final class UrlString
    // public static final String userChangePassword = host + "/ChangePassword/";
   // UriTemplate = "/updateRequisitionDetails"
     public static final String updateRequisitionDetails = host + "/updateRequisitionDetails";
+
+
+    //UriTemplate = "/RemovePendingRequisition/{NO}"
+    public  static final String removePendingRequisition = host + "/RemovePendingRequisition";
 }

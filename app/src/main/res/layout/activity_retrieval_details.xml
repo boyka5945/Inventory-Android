@@ -13,13 +13,17 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/textview_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Retrieval Details"
+                android:textSize="26sp"
+                android:textColor="#009688"
+                android:gravity="center_vertical|center_horizontal"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
         </TableRow>
@@ -33,7 +37,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Item Name"
+                android:text="Item Name:"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             <TextView
@@ -42,6 +48,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
         </TableRow>
 
@@ -54,7 +62,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Qty"
+                android:text="Qty:"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             <TextView
@@ -63,6 +73,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
         </TableRow>
 
@@ -75,7 +87,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Location"
+                android:text="Location:"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             <TextView
@@ -84,6 +98,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
         </TableRow>
 
@@ -98,6 +114,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Retrieved Qty:"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             <Button
@@ -105,7 +123,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
-                android:text="-" />
+                android:text="+"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="#009688"/>
 
             <EditText
                 android:id="@+id/editText3"
@@ -116,6 +137,8 @@
                 android:inputType="number"
                 android:selectAllOnFocus="true"
                 android:text="input number"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle" />
 
             <Button
@@ -123,7 +146,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
-                android:text="+" />
+                android:text="-"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="#009688"/>
 
         </TableRow>
 
@@ -132,18 +158,35 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Cancel" />
-
-            <Button
                 android:id="@+id/button3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_weight="1"
-                android:text="Confirm" />
+                android:text="Confirm"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="#397EB9"/>
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:text="Cancel"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="#FF0000"/>
+
+
         </TableRow>
 
     </TableLayout>
