@@ -41,6 +41,9 @@ public class WelcomeActivity extends AppCompatActivity {
                 break;
             case 7: getMenuInflater().inflate(R.menu.welcome_store_clerk,menu);
                 break;
+            case 8: getMenuInflater().inflate(R.menu.welcome_head_manager_acting,menu);
+                break;
+
             default:
                 break;
         }
