@@ -136,6 +136,9 @@ public class WelcomeActivity extends AppCompatActivity {
                 return true;
 
         //employee
+            case R.id.viewRequisitionRecordE:
+                startActivity(new Intent(this, ViewRequisitionRecordsActivity.class));
+                return true;
             case R.id.submitNewRequistionE:
                 startActivity(new Intent(this, NewRequisitionFormActivity.class));
                 return true;

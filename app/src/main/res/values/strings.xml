@@ -80,7 +80,7 @@
     <string name="action_confirm">Confrim</string>
 
    <!-- Department Head,Manager,Acting Department Head-->
-    <string name="manageRequest">Mangae Request</string>
+    <string name="manageRequest">Manage Request</string>
     <string name="changeCollectionPoint">Change Collection Point</string>
     <string name="viewCollectionPoint">View Collection Point</string>
     <string name="viewPendingItem">View Pending Item</string>
@@ -112,6 +112,7 @@
     <string name="log_outUR">Log Out</string>
 
    <!-- Employee-->
+    <string name="viewRequisitionRecordE">View Requisition Record</string>
     <string name="submitNewRequistionE">Submit New Requisition</string>
     <string name="log_outE">Log Out</string>
 

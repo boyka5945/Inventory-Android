@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/viewRequisitionRecordE" android:title="@string/viewRequisitionRecordE"
+        android:orderInCategory="9"  />
     <item android:id="@+id/submitNewRequistionE" android:title="@string/submitNewRequistionE"
         android:orderInCategory="10"  />
     <item android:id="@+id/log_outE" android:title="@string/log_outE"
