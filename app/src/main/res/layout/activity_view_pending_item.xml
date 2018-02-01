@@ -28,13 +28,13 @@
             android:textSize="20sp"
             android:textStyle="bold"/>
 
-        <TextView
+        <!--<TextView
             android:id="@+id/pending_item_representative"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Representative: "
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"/>-->
 
 
 

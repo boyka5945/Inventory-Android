@@ -30,8 +30,8 @@ package com.example.yello.inventory_mvc.activity;
         import static com.example.yello.inventory_mvc.utility.UrlString.GetDepartment;
 
 public class ChangeCollectionPointActivity extends Activity {
-    private String url2 = GetDepartment + "ZOOL";
-    /*private String url2 = GetDepartment + LoginUser.deptCode;*/
+    /*private String url2 = GetDepartment + "ZOOL";*/
+    private String url2 = GetDepartment + LoginUser.deptCode;
     private Spinner collectionPointSpinner;
     private String deptCode;
     private TextView cpoint;
