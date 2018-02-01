@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.model.Department;
 import com.example.yello.inventory_mvc.model.Disbursement;
+import com.example.yello.inventory_mvc.model.LoginUser;
 import com.example.yello.inventory_mvc.utility.Key;
 
 import java.util.List;
@@ -20,9 +21,10 @@ import static com.example.yello.inventory_mvc.utility.UrlString.GetDepartment;
 import static com.example.yello.inventory_mvc.utility.UrlString.GetPendingItemsByItem;
 
 public class ViewPendingItemActivity extends AppCompatActivity {
-    private String url1 = GetPendingItemsByItem+"ZOOL";
-    private String url2 = GetDepartment+"ZOOL";
-
+   /* private String url1 = GetPendingItemsByItem+"ZOOL";
+    private String url2 = GetDepartment+"ZOOL";*/
+    private String url1 = GetPendingItemsByItem + LoginUser.deptCode;
+    private String url2 = GetDepartment + LoginUser.deptCode;
 
     private TextView departmentName;
     private TextView rep;

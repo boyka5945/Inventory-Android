@@ -33,10 +33,10 @@ import static com.example.yello.inventory_mvc.utility.UrlString.GetDisbursementB
 
 public class ViewCollectItemActivity extends AppCompatActivity {
     //need to change to loginUser.DeptCode
-    private String url1 = GetDisbursementByDept+"ZOOL";
-    private String url2 = GetDepartment+"ZOOL";
-    /*private String url1 = GetDisbursementByDept + LoginUser.deptCode;
-    private String url2 = GetDepartment + LoginUser.deptCode;*/
+    /*private String url1 = GetDisbursementByDept+"ZOOL";
+    private String url2 = GetDepartment+"ZOOL";*/
+    private String url1 = GetDisbursementByDept + LoginUser.deptCode;
+    private String url2 = GetDepartment + LoginUser.deptCode;
 
     private TextView cpoint;
     private TextView departmentName;
