@@ -35,7 +35,7 @@ public class ViewPendingItemActivity extends AppCompatActivity {
 
         departmentName = (TextView) findViewById(R.id.pending_item_department);
 
-        rep = (TextView) findViewById(R.id.pending_item_representative);
+       /* rep = (TextView) findViewById(R.id.pending_item_representative);*/
 
         new AsyncTask<String, Void, Department> () {
             @Override

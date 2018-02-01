@@ -49,7 +49,7 @@ public class ViewCollectItemActivity extends AppCompatActivity {
 
         departmentName = (TextView) findViewById(R.id.collect_item_department);
         cpoint = (TextView) findViewById(R.id.collect_item_collectpoint);
-        rep = (TextView) findViewById(R.id.collect_item_representative);
+        /*rep = (TextView) findViewById(R.id.collect_item_representative);*/
 //
 //
 

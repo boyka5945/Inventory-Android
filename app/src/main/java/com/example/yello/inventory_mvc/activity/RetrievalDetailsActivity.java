@@ -38,8 +38,8 @@ public class RetrievalDetailsActivity extends AppCompatActivity {
         TextView itemName = (TextView) findViewById(R.id.tvDescrp);
          TextView loc = (TextView) findViewById(R.id.tvLoc);
          TextView itemCount = (TextView) findViewById(R.id.tvQty);
-         Button plus = (Button) findViewById(R.id.button5);
-         Button minus = (Button) findViewById(R.id.button6) ;
+         Button plus = (Button) findViewById(R.id.button6);
+         Button minus = (Button) findViewById(R.id.button5) ;
 
 
         itemName.setText( name);
