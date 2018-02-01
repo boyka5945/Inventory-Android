@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.model.Department;
 import com.example.yello.inventory_mvc.model.Disbursement;
+import com.example.yello.inventory_mvc.model.LoginUser;
 import com.example.yello.inventory_mvc.model.Requisition_Record;
 import com.example.yello.inventory_mvc.model.Stationery;
 import com.example.yello.inventory_mvc.model.disbursementUpdate;
@@ -91,12 +92,12 @@ public class DisbursementDetails extends AppCompatActivity {
                 if (null != b) {
                     ContentValues values = new ContentValues();
                     Uri imageFileUri = getContentResolver().insert(
-                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);// 创建一个新的uri
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
 
                     try {
-                        OutputStream imageFileOS = getContentResolver().openOutputStream(imageFileUri);// 输出流
+                        OutputStream imageFileOS = getContentResolver().openOutputStream(imageFileUri);
 
-                        b.compress(Bitmap.CompressFormat.PNG, 90, imageFileOS);// 生成图片
+                        b.compress(Bitmap.CompressFormat.PNG, 90, imageFileOS);
 
                         Toast.makeText(getApplicationContext(),
                                 "Save successfully", Toast.LENGTH_LONG).show();
@@ -131,7 +132,7 @@ public class DisbursementDetails extends AppCompatActivity {
                         for(int i = 0;i< result.size();i++) {
                             //Stationery s = new Stationery(result.get(i).get(Key.STATIONERY_1_ITEM_CODE), null, null, null, null, result.get(i).get("ActualQty"));
                             //Stationery.updateStock(s);
-                            disbursementUpdate d = new disbursementUpdate(result.get(i).get(Key.STATIONERY_1_ITEM_CODE), result.get(i).get("NeedQty") , result.get(i).get("ActualQty") , result.get(i).get(Key.DEPARTMENT_1_CODE), Integer.toString(i), "S1000");
+                            disbursementUpdate d = new disbursementUpdate(result.get(i).get(Key.STATIONERY_1_ITEM_CODE), result.get(i).get("NeedQty") , result.get(i).get("ActualQty") , result.get(i).get(Key.DEPARTMENT_1_CODE), Integer.toString(i), LoginUser.userID);
                             disbursementUpdate.updateDisbursement(d);
                         }
 
