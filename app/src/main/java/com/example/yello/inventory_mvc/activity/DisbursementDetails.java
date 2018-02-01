@@ -92,12 +92,12 @@ public class DisbursementDetails extends AppCompatActivity {
                 if (null != b) {
                     ContentValues values = new ContentValues();
                     Uri imageFileUri = getContentResolver().insert(
-                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);// 创建一个新的uri
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
 
                     try {
-                        OutputStream imageFileOS = getContentResolver().openOutputStream(imageFileUri);// 输出流
+                        OutputStream imageFileOS = getContentResolver().openOutputStream(imageFileUri);
 
-                        b.compress(Bitmap.CompressFormat.PNG, 90, imageFileOS);// 生成图片
+                        b.compress(Bitmap.CompressFormat.PNG, 90, imageFileOS);
 
                         Toast.makeText(getApplicationContext(),
                                 "Save successfully", Toast.LENGTH_LONG).show();
