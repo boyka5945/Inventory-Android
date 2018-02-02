@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.model.LoginUser;
+import com.example.yello.inventory_mvc.model.RequisitionForm;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -108,6 +109,11 @@ public class WelcomeActivity extends AppCompatActivity {
                 Intent intentSC = new Intent(this,LoginActivity.class);
                 /*startActivity(new Intent(this, LoginActivity.class));*/
                 intentSC.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                try {
+                    RequisitionForm.clearAllRequestItems();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 finish();
                 startActivity(intentSC);
                 return true;
@@ -125,6 +131,11 @@ public class WelcomeActivity extends AppCompatActivity {
             case R.id.log_outSS:
                 Intent intentSS = new Intent(this,LoginActivity.class);
                 /*startActivity(new Intent(this, LoginActivity.class));*/
+                try {
+                    RequisitionForm.clearAllRequestItems();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 intentSS.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 finish();
                 startActivity(intentSS);
@@ -149,6 +160,11 @@ public class WelcomeActivity extends AppCompatActivity {
             case R.id.log_outUR:
                 Intent intentUR = new Intent(this,LoginActivity.class);
                 /*startActivity(new Intent(this, LoginActivity.class));*/
+                try {
+                    RequisitionForm.clearAllRequestItems();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 intentUR.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 finish();
                 startActivity(intentUR);
@@ -164,6 +180,11 @@ public class WelcomeActivity extends AppCompatActivity {
             case R.id.log_outE:
                 Intent intentE = new Intent(this,LoginActivity.class);
                 /*startActivity(new Intent(this, LoginActivity.class));*/
+                try {
+                    RequisitionForm.clearAllRequestItems();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 intentE.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 finish();
                 startActivity(intentE);
