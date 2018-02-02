@@ -94,6 +94,7 @@ public class AllocationGroupedByItemActivity extends AppCompatActivity {
                 intent.putExtra("itemCode", tvItemCode.getText().toString());
                 intent.putExtra("departmentCode", allocationItem.get("departmentCode"));
                 intent.putExtra("itemDescrp",retrieved);
+
                 startActivity(intent);
             }
         });
