@@ -37,7 +37,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Item Name:"
+                android:text="  Item Name:"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
@@ -62,7 +62,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Qty:"
+                android:text="  Qty:"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
@@ -87,7 +87,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Location:"
+                android:text="  Location:"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
@@ -112,44 +112,48 @@
                 android:id="@+id/textview_retrieved"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
                 android:layout_weight="1"
-                android:text="Retrieved Qty:"
+                android:text=" Retrieved Qty:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/button6"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
                 android:layout_weight="0.3"
+                android:background="#009688"
                 android:text="+"
-                android:textStyle="bold"
                 android:textColor="#FFFFFF"
-                android:background="#009688"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editText3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number"
                 android:selectAllOnFocus="true"
                 android:text="input number"
+                android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle" />
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/button5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
                 android:layout_weight="0.3"
+                android:background="#009688"
                 android:text="-"
-                android:textStyle="bold"
                 android:textColor="#FFFFFF"
-                android:background="#009688"/>
+                android:textStyle="bold" />
 
         </TableRow>
 

@@ -7,10 +7,16 @@
 
     <ListView
         android:id="@+id/listView"
-        android:layout_width="392dp"
-        android:layout_height="456dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="56dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/clear_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/empty"
@@ -34,9 +40,9 @@
         android:layout_marginTop="16dp"
         android:background="@android:color/holo_red_dark"
         android:text="@string/clear_all"
-        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
         android:textColor="@android:color/background_light"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/empty"
         app:layout_constraintTop_toBottomOf="@+id/submit_btn" />
@@ -50,9 +56,9 @@
         android:layout_marginTop="16dp"
         android:background="@android:color/holo_green_dark"
         android:text="@string/submit_requisition"
-        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
         android:textColor="@android:color/background_light"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/empty"
         app:layout_constraintTop_toTopOf="@+id/listView" />
@@ -66,9 +72,9 @@
         android:layout_marginTop="16dp"
         android:background="@color/colorPrimary"
         android:text="@string/back_to_catalogue"
-        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
         android:textColor="@android:color/background_light"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/empty"
         app:layout_constraintTop_toBottomOf="@+id/clear_btn" />

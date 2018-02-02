@@ -17,6 +17,7 @@ import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.activity.BrowseCatalogueActivity;
 import com.example.yello.inventory_mvc.activity.NewRequisitionActivity;
 import com.example.yello.inventory_mvc.activity.NewRequisitionFormActivity;
+import com.example.yello.inventory_mvc.activity.WelcomeActivity;
 import com.example.yello.inventory_mvc.model.RequisitionForm;
 import com.example.yello.inventory_mvc.model.Requisition_Detail;
 import com.example.yello.inventory_mvc.utility.Key;

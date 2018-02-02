@@ -10,7 +10,7 @@
         android:layout_weight="1"
         android:text="TextView"
         android:textSize="17sp"
-        android:textColor="#5CC065"
+        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
@@ -20,7 +20,7 @@
         android:layout_weight="1"
         android:text="TextView"
         android:textSize="17sp"
-        android:textColor="#5CC065"
+        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
@@ -30,7 +30,7 @@
         android:layout_weight="1"
         android:text="TextView"
         android:textSize="17sp"
-        android:textColor="#5CC065"
+        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 </LinearLayout>
