@@ -82,7 +82,7 @@
    <!-- Department Head,Manager,Acting Department Head-->
     <string name="manageRequest">Manage Request</string>
     <string name="changeCollectionPoint">Change Collection Point</string>
-    <string name="viewCollectionPoint">View Collection Point</string>
+    <string name="viewCollectionPoint">View Collection Item</string>
     <string name="viewPendingItem">View Pending Item</string>
     <string name="log_out">Log Out</string>
 

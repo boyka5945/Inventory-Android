@@ -67,7 +67,7 @@ tools:context="com.example.yello.inventory_mvc.activity.ViewCollectItemActivity"
         android:id="@+id/collect_item_department"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Department: "
+        android:text="  Department: "
         android:textSize="20sp"
         android:textStyle="bold"/>
 
@@ -75,7 +75,7 @@ tools:context="com.example.yello.inventory_mvc.activity.ViewCollectItemActivity"
         android:id="@+id/collect_item_collectpoint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Collection Point:"
+        android:text="  Collection Point:"
         android:textSize="20sp"
         android:textStyle="bold"/>
 

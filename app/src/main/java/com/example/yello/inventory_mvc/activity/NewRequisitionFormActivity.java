@@ -262,6 +262,4 @@ public class NewRequisitionFormActivity extends Activity
                 return super.onContextItemSelected(item);
         }
     }
-    
-    
 }

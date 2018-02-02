@@ -75,7 +75,11 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(new Intent(this, ViewPendingItemActivity.class));
                 return true;
             case R.id.log_out:
-                startActivity(new Intent(this, LoginActivity.class));
+                Intent intent = new Intent(this,LoginActivity.class);
+                /*startActivity(new Intent(this, LoginActivity.class));*/
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intent);
                 return true;
 
         //Store Clerk
@@ -101,7 +105,11 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(new Intent(this, ViewPendingItemActivity.class));
                 return true;
             case R.id.log_outSC:
-                startActivity(new Intent(this, LoginActivity.class));
+                Intent intentSC = new Intent(this,LoginActivity.class);
+                /*startActivity(new Intent(this, LoginActivity.class));*/
+                intentSC.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intentSC);
                 return true;
 
         //Store Supervisor
@@ -115,7 +123,11 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(new Intent(this, DisbursementDeptActivity.class));
                 return true;
             case R.id.log_outSS:
-                startActivity(new Intent(this, LoginActivity.class));
+                Intent intentSS = new Intent(this,LoginActivity.class);
+                /*startActivity(new Intent(this, LoginActivity.class));*/
+                intentSS.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intentSS);
                 return true;
 
         //user representative
@@ -135,7 +147,11 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(new Intent(this, ViewPendingItemActivity.class));
                 return true;
             case R.id.log_outUR:
-                startActivity(new Intent(this, LoginActivity.class));
+                Intent intentUR = new Intent(this,LoginActivity.class);
+                /*startActivity(new Intent(this, LoginActivity.class));*/
+                intentUR.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intentUR);
                 return true;
 
         //employee
@@ -146,7 +162,11 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(new Intent(this, NewRequisitionFormActivity.class));
                 return true;
             case R.id.log_outE:
-                startActivity(new Intent(this, LoginActivity.class));
+                Intent intentE = new Intent(this,LoginActivity.class);
+                /*startActivity(new Intent(this, LoginActivity.class));*/
+                intentE.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intentE);
                 return true;
 
             default:
