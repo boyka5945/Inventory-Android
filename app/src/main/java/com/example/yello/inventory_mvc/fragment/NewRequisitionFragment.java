@@ -136,6 +136,12 @@ public class NewRequisitionFragment extends Fragment implements View.OnClickList
             String text = res.getString(R.string.success_add_item_message, quantity, textViewItemCode.getText());
     
             Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT).show();
+            
+            if(!showBackToCatalogeBtn.equals("hide"))
+            {
+                this.getActivity().finish();
+            }
+            
         }
     }
     

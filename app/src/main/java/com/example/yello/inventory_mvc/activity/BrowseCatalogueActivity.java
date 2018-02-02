@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 
@@ -32,11 +33,26 @@ public class BrowseCatalogueActivity extends AppCompatActivity implements Adapte
 {
     private Spinner categorySpinner;
     
+    
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse_catalogue);
+        
+        // set up go to form button
+        if(this.findViewById(R.id.button_go_to_form) != null)
+        {
+            Button goToForm = (Button) this.findViewById(R.id.button_go_to_form);
+            goToForm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v)
+                {
+                    startActivity(new Intent(BrowseCatalogueActivity.this, NewRequisitionFormActivity.class));
+                }
+            });
+        }
+        
         
         // set up spinner
         categorySpinner = (Spinner) findViewById(R.id.spinner_category);
@@ -183,4 +199,6 @@ public class BrowseCatalogueActivity extends AppCompatActivity implements Adapte
         
         transaction.commit();
     }
+    
+    // TODO - Change whether in pos or land - pos need to implement the button to go to form
 }

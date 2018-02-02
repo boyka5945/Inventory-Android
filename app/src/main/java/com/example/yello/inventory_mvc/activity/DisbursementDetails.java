@@ -1,17 +1,16 @@
 package com.example.yello.inventory_mvc.activity;
 
 import android.annotation.SuppressLint;
-import android.app.ListActivity;
-import android.content.ActivityNotFoundException;
-import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -21,21 +20,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.yello.inventory_mvc.R;
-import com.example.yello.inventory_mvc.model.Department;
 import com.example.yello.inventory_mvc.model.Disbursement;
 import com.example.yello.inventory_mvc.model.LoginUser;
-import com.example.yello.inventory_mvc.model.Requisition_Record;
-import com.example.yello.inventory_mvc.model.Stationery;
 import com.example.yello.inventory_mvc.model.disbursementUpdate;
 import com.example.yello.inventory_mvc.utility.Key;
 import com.example.yello.inventory_mvc.utility.UrlString;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
-import java.util.PriorityQueue;
 
 import static com.example.yello.inventory_mvc.model.Disbursement.GetDisbursementList;
 
@@ -89,28 +84,13 @@ public class DisbursementDetails extends AppCompatActivity {
                 btn2.setVisibility(View.GONE);
                 View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
                 Bitmap b = getScreenShot(rootView);
+
                 if (null != b) {
-                    ContentValues values = new ContentValues();
-                    Uri imageFileUri = getContentResolver().insert(
-                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-
-                    try {
-                        OutputStream imageFileOS = getContentResolver().openOutputStream(imageFileUri);
-
-                        b.compress(Bitmap.CompressFormat.PNG, 90, imageFileOS);
-
-                        Toast.makeText(getApplicationContext(),
-                                "Save successfully", Toast.LENGTH_LONG).show();
-
+                        addJpgSignatureToGallery(b);
                         btn.setVisibility(View.VISIBLE);
                         btn2.setVisibility(View.VISIBLE);
                         Intent intent = new Intent(getApplicationContext(), Signature.class);
                         startActivity(intent);
-
-                    } catch (FileNotFoundException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
                 }
 
             }
@@ -187,6 +167,47 @@ public class DisbursementDetails extends AppCompatActivity {
                 startActivityForResult(intent, 1);
             }
         });
+    }
+
+
+    public void saveBitmapToJPG(Bitmap bitmap, File photo) throws IOException {
+        Bitmap newBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(newBitmap);
+        canvas.drawColor(Color.WHITE);
+        canvas.drawBitmap(bitmap, 0, 0, null);
+        OutputStream stream = new FileOutputStream(photo);
+        newBitmap.compress(Bitmap.CompressFormat.JPEG, 80, stream);
+        stream.close();
+    }
+
+    public boolean addJpgSignatureToGallery(Bitmap signature) {
+        boolean result = false;
+        try {
+            File photo = new File(getAlbumStorageDir("SignaturePad"), String.format("Signature_%d.jpg", 1));
+            saveBitmapToJPG(signature, photo);
+            scanMediaFile(photo);
+            result = true;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public File getAlbumStorageDir(String albumName) {
+        // Get the directory for the user's public pictures directory.
+        File file = new File(Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES), albumName);
+        if (!file.mkdirs()) {
+            Log.e("SignaturePad", "Directory not created");
+        }
+        return file;
+    }
+
+    private void scanMediaFile(File photo) {
+        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        Uri contentUri = Uri.fromFile(photo);
+        mediaScanIntent.setData(contentUri);
+        this.sendBroadcast(mediaScanIntent);
     }
 
     @SuppressLint("StaticFieldLeak")

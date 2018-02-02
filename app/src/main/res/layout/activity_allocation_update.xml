@@ -28,11 +28,11 @@
                 android:id="@+id/textView31"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Allocate Stationery Qty"
-                android:textSize="26sp"
-                android:textColor="#009688"
                 android:gravity="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+                android:text="Allocate Stationery Qty"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#009688"
+                android:textSize="26sp" />
         </TableRow>
 
         <TableRow
@@ -192,13 +192,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginVertical="10dp"
+                android:background="#397EB9"
                 android:text="Confirm"
                 android:textColor="#FFFFFF"
-                android:background="#397EB9"
-                android:textStyle="bold"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:layout_centerInParent="true"/>
+                android:textStyle="bold" />
 
         </TableRow>
 
