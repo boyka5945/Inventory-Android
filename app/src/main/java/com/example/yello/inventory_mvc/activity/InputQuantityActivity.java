@@ -2,22 +2,18 @@ package com.example.yello.inventory_mvc.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.model.Disbursement;
 import com.example.yello.inventory_mvc.utility.Key;
 import com.example.yello.inventory_mvc.utility.UrlString;
-
-import java.util.List;
 
 public class InputQuantityActivity extends AppCompatActivity {
 
@@ -49,7 +45,7 @@ public class InputQuantityActivity extends AppCompatActivity {
                             "Actual quantity can not be more than need.", Toast.LENGTH_LONG).show();
 
                 } else {
-                    String url = UrlString.SaveTmpDisbursement + itemCode +"/" + Integer.toString(needqty) + "/" + stationeryDescription + "/" + et.getText().toString() + "/" + deptCode;
+                    String url = UrlString.SaveTmpDisbursement + itemCode +"/" + Integer.toString(needqty) + "/" + et.getText().toString() + "/" + deptCode;
                     Disbursement.updateActualQty(url);
 
                     Intent intent = new Intent();

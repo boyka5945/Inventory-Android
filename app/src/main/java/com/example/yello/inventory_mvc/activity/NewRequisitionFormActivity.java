@@ -46,8 +46,60 @@ public class NewRequisitionFormActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_requisition_form);
         
+        processOnCreateOrOnNewIntent();
+    }
+    
+    protected void onNewIntent(Intent intent)
+    {
+        
+        super.onNewIntent(intent);
+        
+        setIntent(intent);//must store the new intent unless getIntent() will return the old one
+        
+        processOnCreateOrOnNewIntent();
+        
+    }
+    
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo)
+    {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.requisition_form_context_menu, menu);
+    }
+    
+    @Override
+    public boolean onContextItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case R.id.remove_item:
+                // for ListView, can do following for index to data
+                AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+                int index = (int) info.id;
+                try
+                {
+                    adapter.remove(RequisitionForm.removeRequestItem(index));
+                    //adapter.notifyDataSetChanged();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    Toast.makeText(this, R.string.error_pls_try_again, Toast.LENGTH_LONG);
+                }
+                
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
+    
+    private void processOnCreateOrOnNewIntent()
+    {
+        Intent intent = getIntent();
+        
         empty = (TextView) this.findViewById(R.id.empty);
-        if(RequisitionForm.getLength() != 0)
+        if (RequisitionForm.getLength() != 0)
         {
             empty.setVisibility(View.INVISIBLE);
         }
@@ -60,6 +112,23 @@ public class NewRequisitionFormActivity extends Activity
         registerForContextMenu(listView);
         
         submitButton = (Button) this.findViewById(R.id.submit_btn);
+        
+        if (adapter != null)
+        {
+            if (adapter.getCount() > 0)
+            {
+                // listView not empty
+                submitButton.setEnabled(true);
+                submitButton.setVisibility(View.VISIBLE);
+            }
+            else
+            {
+                // listView  empty
+                submitButton.setEnabled(false);
+                submitButton.setVisibility(View.GONE);
+            }
+        }
+        
         submitButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -95,6 +164,7 @@ public class NewRequisitionFormActivity extends Activity
                                                            {
                                                                Requisition_Detail.addNewRequisition(
                                                                        RequisitionForm.getInstance());
+                                                               RequisitionForm.clearAllRequestItems();
                                                                return true;
                                                            }
                                                            catch (Exception e)
@@ -116,7 +186,7 @@ public class NewRequisitionFormActivity extends Activity
                                                                        NewRequisitionFormActivity.this,
                                                                        R.string.success_submit_requisition,
                                                                        Toast.LENGTH_LONG).show();
-                                                               // TODO: Jump to requisitio list
+                                            
                                                                finish();
                                                            }
                                                        }
@@ -138,6 +208,23 @@ public class NewRequisitionFormActivity extends Activity
         });
         
         clearButton = (Button) this.findViewById(R.id.clear_btn);
+        
+        if (adapter != null)
+        {
+            if (adapter.getCount() > 0)
+            {
+                // listView not empty
+                clearButton.setEnabled(true);
+                clearButton.setVisibility(View.VISIBLE);
+            }
+            else
+            {
+                // listView  empty
+                clearButton.setEnabled(false);
+                clearButton.setVisibility(View.GONE);
+            }
+        }
+        
         clearButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -227,41 +314,6 @@ public class NewRequisitionFormActivity extends Activity
                         new Intent(NewRequisitionFormActivity.this, BrowseCatalogueActivity.class));
             }
         });
+        
     }
-    
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo)
-    {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.requisition_form_context_menu, menu);
-    }
-    
-    @Override
-    public boolean onContextItemSelected(MenuItem item)
-    {
-        switch (item.getItemId())
-        {
-            case R.id.remove_item:
-                // for ListView, can do following for index to data
-                AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-                int index = (int) info.id;
-                try
-                {
-                    adapter.remove(RequisitionForm.removeRequestItem(index));
-                    //adapter.notifyDataSetChanged();
-                    return true;
-                }
-                catch (Exception e)
-                {
-                    Toast.makeText(this, R.string.error_pls_try_again, Toast.LENGTH_LONG);
-                }
-                
-                return true;
-            default:
-                return super.onContextItemSelected(item);
-        }
-    }
-    
-    
 }

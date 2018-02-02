@@ -6,29 +6,29 @@ package com.example.yello.inventory_mvc.utility;
 
 public final class UrlString
 {
-    public static final String ip = "172.17.250.158";
-    public static final String server = "/AD_WCF";
+    public static final String ip = "172.17.254.10";
+    public static final String server = "/AD_Inventory_WCF";
     public static final String host = "http://" + ip + server + "/Service.svc";
-    
-    
+
+
     // UriTemplate = "/GetRequisitionByItemCode/{itemCode}"
     public static final String getRequisitionByItemCode = host + "/GetRequisitionByItemCode/";
-    
+
     // UriTemplate = "/GetRequisitionDetailsBy2Keys/{itemCode}/{requisitionNo}"
     public static final String getRequisitionDetailsBy2Keys = host + "/GetRequisitionDetailsBy2Keys/";
-    
+
     // UriTemplate = "/GetAllStationeries"
     public static final String getAllStationeries = host + "/GetAllStationeries";
-    
+
     // UriTemplate = "/GetStationery/{itemCode}"
     public static final String getStationery = host + "/GetStationery/";
-    
+
     // UriTemplate = "/GetStationeries/{categoryName}/{searchString}"
     public static final String getStationeryByCriteria = host + "/GetStationeries/";
-    
+
     // UriTemplate = "/GetStationeries/{categoryName}"
     public static final String getStationeryByCategory = host + "/GetStationeries/";
-    
+
     // UriTemplate = "/GetAllCategories"
     public static final String getAllCategories = host + "/GetAllCategories";
 
@@ -44,7 +44,7 @@ public final class UrlString
     //UriTemplate = "GetRequisitionByDept/{deptCode}"
     public static final String getRequistionRecordByDept=host+"/GetRequisitionRecordByDept/";
 
-     //UriTemplate = "/GetRequisitionRecordByRequesterID/{requesterID}"
+    //UriTemplate = "/GetRequisitionRecordByRequesterID/{requesterID}"
     public static final String getRequisitionRecordsByRequesterID=host+"/GetRequisitionRecordByRequesterID/";
 
     // UriTemplate = "/ValidateUser/{userid}/{password}"
@@ -99,10 +99,10 @@ public final class UrlString
     public static final String UpdateDisbursement = host + "/UpdateDisbursement/";
 
     //UriTemplate = "/UpdateCollectionPoint/deptCode/collectionPtID"
-   public static final String UpdateCollectionPoint = host +"/UpdateCollectionPoint/";
-//ps
-   // public static final String userChangePassword = host + "/ChangePassword/";
-  // UriTemplate = "/updateRequisitionDetails"
+    public static final String UpdateCollectionPoint = host +"/UpdateCollectionPoint/";
+    //ps
+    // public static final String userChangePassword = host + "/ChangePassword/";
+    // UriTemplate = "/updateRequisitionDetails"
     public static final String updateRequisitionDetails = host + "/updateRequisitionDetails";
 
 

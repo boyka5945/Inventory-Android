@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://C:\Users\CK Tan\AndroidStudioProjects\Inventory-Android\AD_Android.iml" filepath="C:\Users\CK Tan\AndroidStudioProjects\Inventory-Android\AD_Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/Inventory-Android.iml" filepath="$PROJECT_DIR$/Inventory-Android.iml" />
-      <module fileurl="file://D:\AndroidProject\clone\Inventory-Android\Inventory-Android.iml" filepath="D:\AndroidProject\clone\Inventory-Android\Inventory-Android.iml" />
-      <module fileurl="file://C:\Users\czolb\Desktop\AD_Android\Inventory-Android.iml" filepath="C:\Users\czolb\Desktop\AD_Android\Inventory-Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\AndroidProject\clone\Inventory-Android\app\app.iml" filepath="D:\AndroidProject\clone\Inventory-Android\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/signaturepad/signaturepad.iml" filepath="$PROJECT_DIR$/signaturepad/signaturepad.iml" />
+      <module fileurl="file://C:\AD\Inventory-Android\signaturepad\signaturepad.iml" filepath="C:\AD\Inventory-Android\signaturepad\signaturepad.iml" />
     </modules>
   </component>
 </project>

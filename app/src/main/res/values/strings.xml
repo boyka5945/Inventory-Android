@@ -51,11 +51,10 @@
     <string name="stationery_list">Stationery list</string>
 
 
-
     <string name="stationeryRetrieval">Stationery Retrieval</string>
 
     <string name="logout">Log Out</string>
-    <string name="back_to_catalogue">Back To Catalogue</string>
+    <string name="back_to_catalogue">Go To Catalogue</string>
     <string name="go_to_form">Go To Requisition Form</string>
     <string name="remove">Remove Item</string>
     <string name="no_request_item">Your requistion form is empty.</string>
@@ -79,10 +78,10 @@
     <string name="prompt_confrimPassword">Confirm Password</string>
     <string name="action_confirm">Confrim</string>
 
-   <!-- Department Head,Manager,Acting Department Head-->
+    <!-- Department Head,Manager,Acting Department Head-->
     <string name="manageRequest">Manage Request</string>
     <string name="changeCollectionPoint">Change Collection Point</string>
-    <string name="viewCollectionPoint">View Collection Point</string>
+    <string name="viewCollectionPoint">View Collection Item</string>
     <string name="viewPendingItem">View Pending Item</string>
     <string name="log_out">Log Out</string>
 
@@ -111,13 +110,13 @@
     <string name="viewPendingItemUR">View Pending Item</string>
     <string name="log_outUR">Log Out</string>
 
-   <!-- Employee-->
+    <!-- Employee-->
     <string name="viewRequisitionRecordE">View Requisition Record</string>
     <string name="submitNewRequistionE">Submit New Requisition</string>
     <string name="log_outE">Log Out</string>
 
     <string name="retrieveReadyCollection">Retrieve ready for Collection</string>
-   <!-- <string name="changeCollectionPoint">Change Collection Point</string>-->
+    <!-- <string name="changeCollectionPoint">Change Collection Point</string>-->
     <string name="log_out1">Log Out</string>
 
     <string name="submittedRequisition">Retrieve list of submitted </string>
@@ -131,4 +130,8 @@
 
     <string name="pending_requestedQty_change">Requested Qty is successfully changed.</string>
     <string name="remove_pending_requisition">Pending Requisition is successfully removed.</string>
+
+    <string name="agreement">I agree the terms and conditions.</string>
+    <string name="clear_pad">Clear Pad</string>
+    <string name="save_signature">Save Signature</string>
 </resources>

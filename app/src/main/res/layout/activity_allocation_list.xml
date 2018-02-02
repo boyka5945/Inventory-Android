@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="17sp"
-                android:textColor="#5CC065"
+                android:textStyle="bold"
                 android:text="Item Name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="17sp"
-                android:textColor="#5CC065"
+                android:textStyle="bold"
                 android:text="Qty Requested"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="17sp"
-                android:textColor="#5CC065"
+                android:textStyle="bold"
                 android:text="Qty Retrieved"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
         </LinearLayout>

@@ -17,6 +17,7 @@ import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.activity.BrowseCatalogueActivity;
 import com.example.yello.inventory_mvc.activity.NewRequisitionActivity;
 import com.example.yello.inventory_mvc.activity.NewRequisitionFormActivity;
+import com.example.yello.inventory_mvc.activity.WelcomeActivity;
 import com.example.yello.inventory_mvc.model.RequisitionForm;
 import com.example.yello.inventory_mvc.model.Requisition_Detail;
 import com.example.yello.inventory_mvc.utility.Key;
@@ -135,6 +136,12 @@ public class NewRequisitionFragment extends Fragment implements View.OnClickList
             String text = res.getString(R.string.success_add_item_message, quantity, textViewItemCode.getText());
     
             Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT).show();
+            
+            if(!showBackToCatalogeBtn.equals("hide"))
+            {
+                this.getActivity().finish();
+            }
+            
         }
     }
     

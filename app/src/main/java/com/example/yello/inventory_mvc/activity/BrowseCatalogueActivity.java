@@ -4,25 +4,24 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.fragment.StationeryCatalogueFragment;
 import com.example.yello.inventory_mvc.model.Category;
-import com.example.yello.inventory_mvc.model.Stationery;
 import com.example.yello.inventory_mvc.utility.Key;
 import com.example.yello.inventory_mvc.utility.UrlString;
 
@@ -32,11 +31,26 @@ public class BrowseCatalogueActivity extends AppCompatActivity implements Adapte
 {
     private Spinner categorySpinner;
     
+    
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse_catalogue);
+        
+        // set up go to form button
+        if(this.findViewById(R.id.button_go_to_form) != null)
+        {
+            Button goToForm = (Button) this.findViewById(R.id.button_go_to_form);
+            goToForm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v)
+                {
+                    startActivity(new Intent(BrowseCatalogueActivity.this, NewRequisitionFormActivity.class));
+                }
+            });
+        }
+        
         
         // set up spinner
         categorySpinner = (Spinner) findViewById(R.id.spinner_category);
@@ -183,4 +197,6 @@ public class BrowseCatalogueActivity extends AppCompatActivity implements Adapte
         
         transaction.commit();
     }
+    
+    // TODO - Change whether in pos or land - pos need to implement the button to go to form
 }
