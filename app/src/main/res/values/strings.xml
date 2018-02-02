@@ -54,7 +54,7 @@
     <string name="stationeryRetrieval">Stationery Retrieval</string>
 
     <string name="logout">Log Out</string>
-    <string name="back_to_catalogue">Back To Catalogue</string>
+    <string name="back_to_catalogue">Go To Catalogue</string>
     <string name="go_to_form">Go To Requisition Form</string>
     <string name="remove">Remove Item</string>
     <string name="no_request_item">Your requistion form is empty.</string>

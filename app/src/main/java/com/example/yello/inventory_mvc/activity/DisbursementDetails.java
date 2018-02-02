@@ -21,10 +21,7 @@ import android.widget.Toast;
 
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.model.Disbursement;
-import com.example.yello.inventory_mvc.model.LoginUser;
-import com.example.yello.inventory_mvc.model.disbursementUpdate;
 import com.example.yello.inventory_mvc.utility.Key;
-import com.example.yello.inventory_mvc.utility.UrlString;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -61,7 +58,6 @@ public class DisbursementDetails extends AppCompatActivity {
         departmentName = (TextView) findViewById(R.id.textView_DepartmentName);
         cpoint = (TextView) findViewById(R.id.textView_collectionPoint);
         btn = (Button) findViewById(R.id.confirmQty);
-        btn2 = (Button) findViewById(R.id.signature);
         //TextView itemCount = (TextView) findViewById(R.id.text);
 
         departmentName.setText(DepartmentName);
@@ -72,65 +68,28 @@ public class DisbursementDetails extends AppCompatActivity {
 
         lv = (ListView) findViewById(R.id.listv);
 
-        url =  UrlString.GetDisbursementByDept + DepartmentCode;
+
         //List<Disbursement> list =
         //Disbursement.GetDisbursementList(url);
 
 
-        btn2.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 btn.setVisibility(View.GONE);
-                btn2.setVisibility(View.GONE);
                 View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
                 Bitmap b = getScreenShot(rootView);
 
                 if (null != b) {
                         addJpgSignatureToGallery(b);
                         btn.setVisibility(View.VISIBLE);
-                        btn2.setVisibility(View.VISIBLE);
                         Intent intent = new Intent(getApplicationContext(), Signature.class);
+                        intent.putExtra(Key.DEPARTMENT_1_CODE, DepartmentCode);
                         startActivity(intent);
                 }
 
             }
         });
-
-
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new AsyncTask<String, Void, Integer>() {
-
-                    @Override
-                    protected Integer doInBackground(String... params) {
-                        //get disbursement
-                        //pass argument
-                        //1.itemCode/2.deptCode/3.actualQty/4.need
-                        List<Disbursement> result = Disbursement.GetDisbursementList(url);
-                        for(int i = 0;i< result.size();i++) {
-                            //Stationery s = new Stationery(result.get(i).get(Key.STATIONERY_1_ITEM_CODE), null, null, null, null, result.get(i).get("ActualQty"));
-                            //Stationery.updateStock(s);
-                            disbursementUpdate d = new disbursementUpdate(result.get(i).get(Key.STATIONERY_1_ITEM_CODE), result.get(i).get("NeedQty") , result.get(i).get("ActualQty") , result.get(i).get(Key.DEPARTMENT_1_CODE), Integer.toString(i), LoginUser.userID);
-                            disbursementUpdate.updateDisbursement(d);
-                        }
-
-                        //update details
-
-                        return 0;
-                    }
-
-                    @Override
-                    protected void onPostExecute(Integer result) {
-                        Toast.makeText(getApplicationContext(),
-                                "update successfully", Toast.LENGTH_LONG).show();
-
-                    }
-                }.execute(DepartmentCode);
-            }
-        });
-
 
         new AsyncTask<String, Void, List<Disbursement>>() {
 
