@@ -316,6 +316,4 @@ public class NewRequisitionFormActivity extends Activity
         });
         
     }
-    
-    
 }

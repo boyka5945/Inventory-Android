@@ -85,6 +85,12 @@ public class AllocationUpdateActivity extends AppCompatActivity   {
                             protected Void doInBackground(String... params) {
                                 Requisition_Detail.updateRequisitionDetails(params[0], params[1], params[2]);
 
+/*                                StringBuilder sb = new StringBuilder();
+                                sb.append("Successfully allocated " + tvAllocatedQty.getText().toString() + " " + itemCode  );
+
+                                Toast t = Toast.makeText(AllocationUpdateActivity.this, sb.toString(), Toast.LENGTH_SHORT);
+                                t.show();*/
+
                                 return null;
                             }
 

@@ -10,7 +10,7 @@
         android:layout_weight="1"
         android:text="TextView"
         android:textSize="17sp"
-        android:textColor="#5CC065"/>
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/textView_needQty"
@@ -19,7 +19,7 @@
         android:layout_weight="1"
         android:text="TextView"
         android:textSize="17sp"
-        android:textColor="#5CC065"/>
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/textView_actualQty"
@@ -28,6 +28,6 @@
         android:layout_weight="1"
         android:text="TextView"
         android:textSize="17sp"
-        android:textColor="#5CC065"/>
+        android:textStyle="bold"/>
 
 </LinearLayout>
