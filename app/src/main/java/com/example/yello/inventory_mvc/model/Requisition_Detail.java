@@ -207,6 +207,42 @@ public class Requisition_Detail extends HashMap<String, String>
     }
 
 
+    public static  List<Requisition_Detail> GetConsolidatedAllocationList(){
+        String url = UrlString.GetConsolidatedRequisitionDetailsforAllocation;
+        ArrayList<Requisition_Detail> rq = new ArrayList<>();
+
+        try
+        {
+            JSONArray array = JSONParser.getJSONArrayFromUrl(url);
+
+            for (int i = 0; i < array.length(); i++)
+            {
+                JSONObject obj = array.getJSONObject(i);
+
+                rq.add(new Requisition_Detail(obj.getString(Key.REQUISITION_DETAIL_1_REQUISITION_NO),
+                        obj.getString(Key.REQUISITION_DETAIL_2_ITEM_CODE),
+                        obj.getString(Key.REQUISITION_DETAIL_3_ITEM_DESCRIPTION),
+                        obj.getString(Key.REQUISITION_DETAIL_4_ITEM_UOM),
+                        obj.getString(Key.REQUISITION_DETAIL_5_REMARKS),
+                        obj.getString(Key.REQUISITION_DETAIL_6_REQUEST_QTY),
+                        obj.getString(Key.REQUISITION_DETAIL_7_FULFILLED_QTY),
+                        obj.getString(Key.REQUISITION_DETAIL_8_CLERK_ID),
+                        obj.getString(Key.REQUISITION_DETAIL_9_RETRIEVED_DATE),
+                        obj.getString(Key.REQUISITION_DETAIL_10_ALLOCATE_QTY),
+                        obj.getString(Key.REQUISITION_DETAIL_11_NEXT_COLLECTION_DATE),
+                        obj.getString(Key.REQUISITION_DETAIL_12_STATUS)
+
+
+                ));
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return rq;
+    }
     public static void updateRequisitionDetails(String reqNo, String itemCode, String allocatedQty){
 
 
@@ -228,7 +264,6 @@ public class Requisition_Detail extends HashMap<String, String>
         //still need to minus away allocated qty from the retrieved?
 
     }
-
 
 
     public static Requisition_Detail GetRequisitionDetailsBy2Keys(String itemCode, String reqNo )

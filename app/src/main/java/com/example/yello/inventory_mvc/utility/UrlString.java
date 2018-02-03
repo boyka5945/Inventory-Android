@@ -103,9 +103,13 @@ public final class UrlString
     //ps
     // public static final String userChangePassword = host + "/ChangePassword/";
     // UriTemplate = "/updateRequisitionDetails"
-    public static final String updateRequisitionDetails = host + "/updateRequisitionDetails";
+    public static final String updateRequisitionDetails = host + "/updateRequisitionDetailAndroid";
 
 
     //UriTemplate = "/RemovePendingRequisition/{NO}"
     public  static final String removePendingRequisition = host + "/RemovePendingRequisition";
+
+
+    //UriTemplate = "/GetConsolidatedRequisitionDetailsforAllocation"
+    public static final String GetConsolidatedRequisitionDetailsforAllocation = host + "/GetConsolidatedRequisitionDetailsforAllocation";
 }

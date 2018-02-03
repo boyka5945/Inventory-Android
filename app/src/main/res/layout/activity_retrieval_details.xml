@@ -144,7 +144,9 @@
                 android:text="input number"
                 android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textAlignment="center"
+                />
 
             <Button
                 android:id="@+id/button6"

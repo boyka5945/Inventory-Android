@@ -26,6 +26,7 @@ public class Retrieval_Item extends HashMap<String,String> {
         this.put(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED, retrieved);
         this.put(Key.RETRIEVAL_ITEM_5_ITEMCODE, itemCode);
 
+
     }
 
     public Retrieval_Item(){}
@@ -35,6 +36,7 @@ public class Retrieval_Item extends HashMap<String,String> {
 
         String url = UrlString.GetRetrievalList;
         ArrayList<Retrieval_Item> retrieval = new ArrayList<>();
+        List<Requisition_Detail> listRD = Requisition_Detail.GetConsolidatedAllocationList();
 
 
         try
@@ -44,12 +46,20 @@ public class Retrieval_Item extends HashMap<String,String> {
             for (int i = 0; i < array.length(); i++)
             {
                 JSONObject obj = array.getJSONObject(i);
+                int qtyToRetrieve = 0;
+                for(Requisition_Detail rd : listRD){
+                    if(rd.get(Key.REQUISITION_DETAIL_2_ITEM_CODE).equals(obj.getString(Key.RETRIEVAL_ITEM_5_ITEMCODE))){
+                        qtyToRetrieve = Integer.parseInt(rd.get(Key.REQUISITION_DETAIL_6_REQUEST_QTY)) - Integer.parseInt(rd.get(Key.REQUISITION_DETAIL_7_FULFILLED_QTY))
+                                - Integer.parseInt(rd.get(Key.REQUISITION_DETAIL_10_ALLOCATE_QTY));
+                    }
+                }
 
                 retrieval.add(new Retrieval_Item(obj.getString(Key.RETRIEVAL_ITEM_1_DESCRIPTION),
-                        obj.getString(Key.RETRIEVAL_ITEM_2_QTY),
+                       Integer.toString(qtyToRetrieve),
                         obj.getString(Key.RETRIEVAL_ITEM_3_LOCATION),
                         obj.getString(Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED),
                         obj.getString(Key.RETRIEVAL_ITEM_5_ITEMCODE)
+
 
                 ));
             }
