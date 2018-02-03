@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.activity.RequestDetailsActivity;
@@ -35,6 +36,9 @@ import java.util.List;
 public class RequestListFragment extends ListFragment {
 
 
+   // private TextView empty;
+   // private ListView listView;
+
     public RequestListFragment() {
         // Required empty public constructor
         super();
@@ -42,8 +46,9 @@ public class RequestListFragment extends ListFragment {
 
 
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_request_list, container, false);
@@ -75,13 +80,36 @@ public class RequestListFragment extends ListFragment {
             @Override
             protected void onPostExecute(List<Requisition_Record> result)
             {
+                ListView lv = (ListView)getView().findViewById(android.R.id.list);
+                TextView emptyText = (TextView)getView().findViewById(android.R.id.empty);
+                lv.setEmptyView(emptyText);
                 SimpleAdapter adapter = new SimpleAdapter(containerActivity.getApplicationContext(),
                         result,
                         android.R.layout.simple_list_item_2,
                         new String[] {Key.REQUISITION_RECORD_1_REQUISITION_NO , Key.REQUISITION_RECORD_4_REQUESTER_ID},
                         new int[] {android.R.id.text1, android.R.id.text2});
+               // empty = (TextView) getView().findViewById(R.id.empty);
 
+               /* View  emptyView = getActivity().getLayoutInflater().inflate(empty, null);
+
+                ((ViewGroup)getListView().getParent()).addView(emptyView);
+                getListView().setEmptyView(emptyView);*/
                 RequestListFragment.this.setListAdapter(adapter);
+                //lv.setAdapter(adapter);
+               // RequestListFragment.this.setEmptyText("There is no pending request");
+
+
+
+
+                /*if(adapter!=null)
+                {
+                    if(adapter.getCount()<0)
+                    {
+                        containerActivity.finish();
+                    }
+                }*/
+
+
             }
 
         }.execute(url);
