@@ -20,13 +20,7 @@ import java.util.List;
 
 public class AllocationUpdateActivity extends AppCompatActivity   {
 
-/*    @Override
-    public void onBackPressed() {
-        // Write your code here
-        Intent intent = new Intent(getApplicationContext(), AllocationGroupedByItemActivity.class);
-        startActivity(intent);
-        super.onBackPressed();
-    }*/
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
