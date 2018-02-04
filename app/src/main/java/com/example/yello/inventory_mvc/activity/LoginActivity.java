@@ -174,6 +174,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             cancel = true;
         }
 
+        //ps
+        if(TextUtils.isEmpty(password))
+        {
+            mPasswordView.setError(getString(R.string.error_invalid_password));
+            focusView = mPasswordView;
+            cancel = true;
+        }
+
         // Check for a valid email address.
         if (TextUtils.isEmpty(email)) {
             mEmailView.setError(getString(R.string.error_field_required));
@@ -214,6 +222,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
+        //ps
+
         return password.length() > 2;
     }
 
@@ -321,6 +331,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mPassword = password;
         }
 
+
         @Override
         protected Boolean doInBackground(Void... params) {
 
@@ -340,13 +351,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             String loginstatus = null;
             User login = null;
+            String a = null;
             try {
                 //User u = new User(mEmail, mPassword,"", "");
 
-                loginstatus = User.validateUser(mEmail,mPassword);
-                String a = loginstatus.toString();
 
-                if (loginstatus != null){
+                    loginstatus = User.validateUser(mEmail,mPassword);
+                    a = loginstatus.toString();
+
+
+
+                if (!loginstatus.equals(""))
+                {
                     for (int i = 0;i<a.length();i++){
                         if (a.charAt(i) == 82 && a.charAt(i+1) == 111 && a.charAt(i+2) == 108 && a.charAt(i+3) == 101){
                             LoginUser.roleID = Character.getNumericValue(a.charAt(i+6));
@@ -368,7 +384,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
                     return true;
                 }
-                else {
+                else
+                {
                     return false;
                 }
 //
