@@ -15,10 +15,11 @@
             android:id="@+id/pending_item_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="26sp"
-            android:textColor="#009688"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
             android:text="Pending Item to be Processed"
-            android:gravity="center"/>
+            android:textColor="@android:color/background_light"
+            android:textSize="26sp" />
 
         <TextView
             android:id="@+id/pending_item_department"
