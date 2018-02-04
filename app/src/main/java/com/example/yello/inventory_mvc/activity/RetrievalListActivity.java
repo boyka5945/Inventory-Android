@@ -18,6 +18,15 @@ import java.util.List;
 
 public class RetrievalListActivity extends ListActivity {
 
+    public void onBackPressed() {
+        // Write your code here
+        Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
+        startActivity(intent);
+
+        super.onBackPressed();
+    }
+
+
    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

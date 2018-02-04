@@ -22,6 +22,14 @@ import com.example.yello.inventory_mvc.utility.Key;
 
 public class RetrievalDetailsActivity extends AppCompatActivity {
 
+    public void onBackPressed() {
+        // Write your code here
+        Intent intent = new Intent(getApplicationContext(), RetrievalListActivity.class);
+        startActivity(intent);
+
+        super.onBackPressed();
+    }
+
     private  int Qty = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
