@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.model.Disbursement;
 import com.example.yello.inventory_mvc.utility.Key;
+import com.example.yello.inventory_mvc.utility.UrlString;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -65,7 +66,7 @@ public class DisbursementDetails extends AppCompatActivity {
         //itemCount.setText("Qty: " + qty);
 
 
-
+        url = UrlString.GetDisbursementByDept + departmentName;
         lv = (ListView) findViewById(R.id.listv);
 
 
