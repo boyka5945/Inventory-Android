@@ -51,7 +51,7 @@ public class DisbursementDetails extends AppCompatActivity {
 
         DepartmentCode = getIntent().getExtras().getString(Key.DEPARTMENT_1_CODE);
         DepartmentName = getIntent().getExtras().getString(Key.DEPARTMENT_2_NAME);
-        CollectionPointID = getIntent().getExtras().getString(Key.DEPARTMENT_6_COLLECTION_POINT_ID);
+        CollectionPointID = getIntent().getExtras().getString(Key.COLLECTION_POINT_NAME);
 
         //store actual from sub activity
         //result = (TextView) findViewById(R.id.textView7);
