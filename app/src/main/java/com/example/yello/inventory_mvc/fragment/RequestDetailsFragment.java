@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.activity.ManageRequestActivity;
@@ -127,6 +128,7 @@ public class RequestDetailsFragment extends ListFragment {
                         Intent intent = new Intent(getActivity(), ManageRequestActivity.class);
                         startActivity(intent);
                         containerActivity.finish();
+                        Toast.makeText(getActivity(), R.string.request_approved, Toast.LENGTH_LONG).show();
                     }
                 }.execute(reqNumber);
             }
@@ -152,6 +154,7 @@ public class RequestDetailsFragment extends ListFragment {
                         Intent intent = new Intent(getActivity(), ManageRequestActivity.class);
                         startActivity(intent);
                         containerActivity.finish();
+                        Toast.makeText(getActivity(), R.string.request_rejected, Toast.LENGTH_LONG).show();
                     }
                 }.execute(reqNumber);
             }

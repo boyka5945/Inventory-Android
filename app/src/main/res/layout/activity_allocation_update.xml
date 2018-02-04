@@ -178,7 +178,8 @@
                 android:focusedByDefault="true"
                 android:inputType="number"
                 android:selectAllOnFocus="true"
-                android:textSize="19sp" />
+                android:textSize="19sp"
+                android:textAlignment="center"/>
 
         </TableRow>
 

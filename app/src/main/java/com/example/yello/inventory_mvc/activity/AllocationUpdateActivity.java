@@ -11,11 +11,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.yello.inventory_mvc.R;
+import com.example.yello.inventory_mvc.model.AllocationListViewModel;
 import com.example.yello.inventory_mvc.model.Requisition_Detail;
 import com.example.yello.inventory_mvc.model.Retrieval_Item;
 import com.example.yello.inventory_mvc.utility.Key;
 
+import java.util.List;
+
 public class AllocationUpdateActivity extends AppCompatActivity   {
+
+    @Override
+    public void onBackPressed() {
+        // Write your code here
+        Intent intent = new Intent(getApplicationContext(), AllocationGroupedByItemActivity.class);
+        startActivity(intent);
+        super.onBackPressed();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +53,8 @@ public class AllocationUpdateActivity extends AppCompatActivity   {
         tvUnfulfilled.setText(Integer.toString(unFulfilledQty));
 
 
+
+
         new AsyncTask< String, Void, Retrieval_Item>() {
 
             @Override
@@ -56,14 +69,47 @@ public class AllocationUpdateActivity extends AppCompatActivity   {
 
 
 
+
             }
         }.execute(itemCode);
+
+/*        new AsyncTask< String, Void, Requisition_Detail>() {
+
+            @Override
+            protected Requisition_Detail doInBackground(String... params) {
+                Requisition_Detail currentAllocated = new Requisition_Detail();
+
+                List<Requisition_Detail> temp = Requisition_Detail.GetConsolidatedAllocationList();
+                for(Requisition_Detail rd : temp){
+                    if(rd.get(Key.REQUISITION_DETAIL_2_ITEM_CODE).toString().equals(itemCode)){
+                        currentAllocated = rd;
+                    }
+                }
+                return currentAllocated;
+            }
+
+            @Override
+            protected void onPostExecute(Requisition_Detail result) {
+
+                tvAllocatedQty.setText(result.get(Key.REQUISITION_DETAIL_10_ALLOCATE_QTY));
+
+
+
+
+            }
+        }.execute(itemCode);*/
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(Integer.parseInt(tvAllocatedQty.getText().toString()) > Integer.parseInt(tvRetrievedQty.getText().toString())){
+                String emptyChecker = tvAllocatedQty.getText().toString();
+                if(emptyChecker.equals("")){
+                    Toast t = Toast.makeText(AllocationUpdateActivity.this, "No value entered.", Toast.LENGTH_SHORT);
+                    t.show();
+                }
+
+                else if(Integer.parseInt(tvAllocatedQty.getText().toString()) > Integer.parseInt(tvRetrievedQty.getText().toString())){
 
                     Toast t = Toast.makeText(AllocationUpdateActivity.this, "Cannot allocate more than the Retrieved Qty", Toast.LENGTH_SHORT);
                     t.show();
@@ -77,6 +123,11 @@ public class AllocationUpdateActivity extends AppCompatActivity   {
 
                 }
 
+                else if(Integer.parseInt(tvAllocatedQty.getText().toString()) ==0 ){
+                    Toast t = Toast.makeText(AllocationUpdateActivity.this, "No value entered.", Toast.LENGTH_SHORT);
+                    t.show();
+                }
+
                 else {
                     try {
                         new AsyncTask<String, Void, Void>() {
@@ -85,17 +136,19 @@ public class AllocationUpdateActivity extends AppCompatActivity   {
                             protected Void doInBackground(String... params) {
                                 Requisition_Detail.updateRequisitionDetails(params[0], params[1], params[2]);
 
-/*                                StringBuilder sb = new StringBuilder();
-                                sb.append("Successfully allocated " + tvAllocatedQty.getText().toString() + " " + itemCode  );
 
-                                Toast t = Toast.makeText(AllocationUpdateActivity.this, sb.toString(), Toast.LENGTH_SHORT);
-                                t.show();*/
 
                                 return null;
                             }
 
                             @Override
                             protected void onPostExecute(Void result) {
+
+                                StringBuilder sb = new StringBuilder();
+                                sb.append("Successfully allocated " + tvAllocatedQty.getText().toString() + " to item: " + itemCode  );
+
+                                Toast t = Toast.makeText(AllocationUpdateActivity.this, sb.toString(), Toast.LENGTH_SHORT);
+                                t.show();
                                 finish();
                             }
                         }.execute(orderNum, itemCode, tvAllocatedQty.getText().toString());

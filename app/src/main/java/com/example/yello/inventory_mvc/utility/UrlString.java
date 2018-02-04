@@ -6,8 +6,8 @@ package com.example.yello.inventory_mvc.utility;
 
 public final class UrlString
 {
-    public static final String ip = "172.17.254.10";
-    public static final String server = "/AD_Inventory_WCF";
+    public static final String ip = "172.17.252.229";
+    public static final String server = "/AD_inventory_WCF";
     public static final String host = "http://" + ip + server + "/Service.svc";
 
 
@@ -103,9 +103,13 @@ public final class UrlString
     //ps
     // public static final String userChangePassword = host + "/ChangePassword/";
     // UriTemplate = "/updateRequisitionDetails"
-    public static final String updateRequisitionDetails = host + "/updateRequisitionDetails";
+    public static final String updateRequisitionDetails = host + "/updateRequisitionDetailAndroid";
 
 
     //UriTemplate = "/RemovePendingRequisition/{NO}"
     public  static final String removePendingRequisition = host + "/RemovePendingRequisition";
+
+
+    //UriTemplate = "/GetConsolidatedRequisitionDetailsforAllocation"
+    public static final String GetConsolidatedRequisitionDetailsforAllocation = host + "/GetConsolidatedRequisitionDetailsforAllocation";
 }

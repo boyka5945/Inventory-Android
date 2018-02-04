@@ -12,13 +12,23 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.example.yello.inventory_mvc.R;
-import com.example.yello.inventory_mvc.model.AllocationViewModel;
+import com.example.yello.inventory_mvc.model.AllocationGroupViewModel;
+import com.example.yello.inventory_mvc.model.AllocationListViewModel;
 import com.example.yello.inventory_mvc.model.Retrieval_Item;
 import com.example.yello.inventory_mvc.utility.Key;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AllocationGroupedByItemActivity extends AppCompatActivity {
+
+    public void onBackPressed() {
+        // Write your code here
+        Intent intent = new Intent(getApplicationContext(), AllocationListActivity.class);
+        startActivity(intent);
+
+        super.onBackPressed();
+    }
 
     @SuppressLint("StaticFieldLeak")
     @Override
@@ -59,15 +69,29 @@ public class AllocationGroupedByItemActivity extends AppCompatActivity {
 
 
 
-        new AsyncTask<String, Void, List<AllocationViewModel>>() {
+        new AsyncTask<String, Void, List<AllocationGroupViewModel>>() {
 
             @Override
-            protected List<AllocationViewModel> doInBackground(String... params) {
-                return AllocationViewModel.getAllocationListGroupedByItem(params[0]);
+            protected List<AllocationGroupViewModel> doInBackground(String... params) {
+                return AllocationGroupViewModel.getAllocationListGroupedByItem(params[0]);
             }
 
             @Override
-            protected void onPostExecute(List<AllocationViewModel> result) {
+            protected void onPostExecute(List<AllocationGroupViewModel> result) {
+
+
+                List<AllocationGroupViewModel>removal = new ArrayList<>();
+                for (AllocationGroupViewModel alvm: result){
+                    if(Integer.parseInt(alvm.get("qtyUnfulfilled").toString()) == 0){
+                        removal.add(alvm);
+                    }
+                }
+                result.removeAll(removal);
+
+                if(result.size()==0){
+                    Intent intent = new Intent(getApplicationContext(), AllocationListActivity.class );
+                    startActivity(intent);
+                }
 
                 SimpleAdapter adapter =
                         new SimpleAdapter(AllocationGroupedByItemActivity.this, result,
@@ -86,7 +110,7 @@ public class AllocationGroupedByItemActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
 
-                AllocationViewModel allocationItem = (AllocationViewModel) adapter.getAdapter().getItem(position);
+                AllocationGroupViewModel allocationItem = (AllocationGroupViewModel) adapter.getAdapter().getItem(position);
 
                 Intent intent = new Intent(getApplicationContext(), AllocationUpdateActivity.class);
                 intent.putExtra("orderNum", allocationItem.get("orderNum"));

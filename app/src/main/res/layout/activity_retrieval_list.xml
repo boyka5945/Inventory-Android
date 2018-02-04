@@ -36,19 +36,30 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="  Item Name"
-                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="20sp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView37"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:text="  Requested"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Retrieved "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:text="  Requested Qty"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                />
         </TableRow>
 
         <TableRow
