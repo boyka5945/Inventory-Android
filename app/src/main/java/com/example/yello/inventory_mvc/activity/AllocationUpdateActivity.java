@@ -21,6 +21,14 @@ import java.util.List;
 public class AllocationUpdateActivity extends AppCompatActivity   {
 
     @Override
+    public void onBackPressed() {
+        // Write your code here
+        Intent intent = new Intent(getApplicationContext(), AllocationGroupedByItemActivity.class);
+        startActivity(intent);
+        super.onBackPressed();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_allocation_update);
@@ -43,6 +51,7 @@ public class AllocationUpdateActivity extends AppCompatActivity   {
         tvItemCode.setText(itemCode);
         tvDepartment.setText(getIntent().getExtras().getString("departmentCode"));
         tvUnfulfilled.setText(Integer.toString(unFulfilledQty));
+
 
 
 

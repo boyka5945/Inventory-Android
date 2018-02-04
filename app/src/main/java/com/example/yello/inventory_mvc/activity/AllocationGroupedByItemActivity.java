@@ -22,6 +22,14 @@ import java.util.List;
 
 public class AllocationGroupedByItemActivity extends AppCompatActivity {
 
+    public void onBackPressed() {
+        // Write your code here
+        Intent intent = new Intent(getApplicationContext(), AllocationListActivity.class);
+        startActivity(intent);
+
+        super.onBackPressed();
+    }
+
     @SuppressLint("StaticFieldLeak")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
