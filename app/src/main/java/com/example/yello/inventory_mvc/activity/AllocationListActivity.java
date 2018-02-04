@@ -14,9 +14,13 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.example.yello.inventory_mvc.R;
+import com.example.yello.inventory_mvc.model.AllocationGroupViewModel;
+import com.example.yello.inventory_mvc.model.AllocationListViewModel;
+import com.example.yello.inventory_mvc.model.Requisition_Detail;
 import com.example.yello.inventory_mvc.model.Retrieval_Item;
 import com.example.yello.inventory_mvc.utility.Key;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AllocationListActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
@@ -29,22 +33,39 @@ public class AllocationListActivity extends AppCompatActivity implements Adapter
 
 
 
-        new AsyncTask<Void, Void, List<Retrieval_Item>>() {
+        new AsyncTask<Void, Void, List<AllocationListViewModel>>() {
 
             @Override
-            protected List<Retrieval_Item> doInBackground(Void... params) {
-                return Retrieval_Item.ListRetrieval();
+            protected List<AllocationListViewModel> doInBackground(Void... params) {
+                return AllocationListViewModel.getAllocationList();
             }
 
             @Override
-            protected void onPostExecute(List<Retrieval_Item> result) {
+            protected void onPostExecute(List<AllocationListViewModel> result) {
+
+
+                List<AllocationListViewModel>removal = new ArrayList<>();
+                for (AllocationListViewModel alvm: result){
+                    if(Integer.parseInt(alvm.get("AllocateQty").toString()) == 0){
+                        removal.add(alvm);
+                    }
+                }
+                result.removeAll(removal);
+
+
 
                 SimpleAdapter adapter =
                         new SimpleAdapter(AllocationListActivity.this, result,
                                 R.layout.allocation_row,
-                                new String[]{Key.RETRIEVAL_ITEM_1_DESCRIPTION, Key.RETRIEVAL_ITEM_2_QTY, Key.RETRIEVAL_ITEM_4_QTY_RETRIEVED, },
+                                new String[]{"StationeryDescription", "AllocateQty", "qtyRetrieved"},
                                 new int[]{R.id.itemNameCol, R.id.totalReqCol, R.id.totalRetCol});
 
+                /*
+                        this.put("itemName", itemName);
+        this.put("itemCode", itemCode);
+        this.put("qtyPendingAllocation", qtyPendingAllocation);
+        this.put("qtyRetrieved", qtyRetrieved);
+                 */
                 lv.setAdapter(adapter);
             }
         }.execute();
@@ -61,32 +82,12 @@ public class AllocationListActivity extends AppCompatActivity implements Adapter
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        Retrieval_Item allocationItem = (Retrieval_Item) parent.getAdapter().getItem(position);
+        AllocationListViewModel allocationItem = (AllocationListViewModel) parent.getAdapter().getItem(position);
 
         Intent intent = new Intent(getApplicationContext(),AllocationGroupedByItemActivity.class );
         intent.putExtra(Key.RETRIEVAL_ITEM_5_ITEMCODE, allocationItem.get(Key.RETRIEVAL_ITEM_5_ITEMCODE));
-        intent.putExtra(Key.RETRIEVAL_ITEM_1_DESCRIPTION, allocationItem.get(Key.RETRIEVAL_ITEM_1_DESCRIPTION));
-//notification code
-        NotificationManager manager =
-                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        intent.putExtra(Key.RETRIEVAL_ITEM_1_DESCRIPTION, allocationItem.get("StationeryDescription"));
 
-        NotificationCompat.Builder builder =
-                new NotificationCompat.Builder(this, "MyId")
-                        .setTicker("You have been alerted now -- so be warned and very warned.")
-                        .setSmallIcon(R.drawable.ic_action_filter)
-                        .setContentTitle("This title")
-                        .setContentText("You can see what is happening now.")
-                        .setAutoCancel(true);
-                        //.setContentIntent(pending);
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            NotificationChannel mChannel = new NotificationChannel("MyId", "MyName", NotificationManager.IMPORTANCE_DEFAULT);
-            manager.createNotificationChannel(mChannel);
-            builder.setChannelId("MyId");
-        }
-        manager.notify("MyId",1, builder.build());
-
-//notification code
         startActivity(intent);
 
 

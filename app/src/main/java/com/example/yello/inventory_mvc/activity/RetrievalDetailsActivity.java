@@ -5,6 +5,8 @@ import android.os.AsyncTask;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,6 +56,25 @@ public class RetrievalDetailsActivity extends AppCompatActivity {
         Button confirm = (Button) findViewById(R.id.button3);
         Button cancel = (Button) findViewById(R.id.button2);
 
+        qtyRetrieved.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                Qty = Integer.parseInt(qtyRetrieved.getText().toString());
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
         plus.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -95,12 +116,18 @@ public class RetrievalDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+
                 if(retrievedQty == Integer.parseInt(qtyRetrieved.getText().toString())){
+
+
 
                     Toast t = Toast.makeText(RetrievalDetailsActivity.this, "No change to Qty Retrieved.", Toast.LENGTH_SHORT);
                     t.show();
 
                 }
+
+
 
                 else {
 
@@ -131,6 +158,8 @@ public class RetrievalDetailsActivity extends AppCompatActivity {
 
                             if (result.toLowerCase().contains("true")) {
 
+
+
                                 StringBuilder sb = new StringBuilder();
                                 sb.append("Qty of " + name.toUpperCase() + " retrieved recorded as: " + Qty);
                                 Toast t = Toast.makeText(RetrievalDetailsActivity.this, sb.toString(), Toast.LENGTH_SHORT);
@@ -148,8 +177,8 @@ public class RetrievalDetailsActivity extends AppCompatActivity {
                         }
                     }.execute(ri);
 
-/*               Intent intent = new Intent(getApplicationContext(), RetrievalListActivity.class);
-               startActivity(intent);*/
+               Intent intent = new Intent(getApplicationContext(), RetrievalListActivity.class);
+               startActivity(intent);
                 }
 
             }

@@ -49,6 +49,7 @@ public class NewRequisitionFormActivity extends Activity
         processOnCreateOrOnNewIntent();
     }
     
+    @Override
     protected void onNewIntent(Intent intent)
     {
         

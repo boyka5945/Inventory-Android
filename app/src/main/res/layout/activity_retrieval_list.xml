@@ -12,23 +12,25 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary">
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="26sp"
-                android:textColor="#009688"
-                android:text="Stationery Retrieval"
                 android:gravity="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+                android:text="Stationery Retrieval"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@android:color/background_light"
+                android:textSize="26sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray">
 
             <TextView
                 android:id="@+id/textView36"
@@ -36,19 +38,29 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="  Item Name"
-                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="20sp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView37"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:text="  Requested"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="  Requested Qty"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Retrieved "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow

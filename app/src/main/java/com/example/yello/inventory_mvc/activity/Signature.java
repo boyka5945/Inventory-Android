@@ -1,6 +1,7 @@
 package com.example.yello.inventory_mvc.activity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -8,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -22,12 +24,18 @@ import android.widget.Toast;
 
 import com.example.signaturepad.views.SignaturePad;
 import com.example.yello.inventory_mvc.R;
+import com.example.yello.inventory_mvc.model.Disbursement;
+import com.example.yello.inventory_mvc.model.LoginUser;
+import com.example.yello.inventory_mvc.model.disbursementUpdate;
+import com.example.yello.inventory_mvc.utility.Key;
+import com.example.yello.inventory_mvc.utility.UrlString;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.util.List;
 
 
 public class Signature extends AppCompatActivity {
@@ -41,13 +49,15 @@ public class Signature extends AppCompatActivity {
     private Button select;
     private Bitmap chooseBitmap;
     private Bitmap alteredBitmap;
+    private String DepartmentCode;
+    private String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         verifyStoragePermissions(this);
         setContentView(R.layout.activity_signature);
-
+        DepartmentCode = getIntent().getExtras().getString(Key.DEPARTMENT_1_CODE);
         mSignaturePad = (SignaturePad) findViewById(R.id.signature_pad);
         Uri uri = Uri.parse("file:///storage/emulated/0/Pictures/SignaturePad/Signature_1.jpg");
         Bitmap bitmap = null;
@@ -58,6 +68,8 @@ public class Signature extends AppCompatActivity {
         }
         mSignaturePad.setSignatureBitmap(bitmap);
 
+        url =  UrlString.GetDisbursementByDept + DepartmentCode;
+
         mSignaturePad.setOnSignedListener(new SignaturePad.OnSignedListener() {
             @Override
             public void onStartSigning() {
@@ -67,30 +79,21 @@ public class Signature extends AppCompatActivity {
             @Override
             public void onSigned() {
                 mSaveButton.setEnabled(true);
-                mClearButton.setEnabled(true);
             }
 
             @Override
             public void onClear() {
                 mSaveButton.setEnabled(false);
-                mClearButton.setEnabled(false);
             }
         });
 
-        mClearButton = (Button) findViewById(R.id.clear_button);
         mSaveButton = (Button) findViewById(R.id.save_button);
-        select = (Button) findViewById(R.id.button);
-
-        mClearButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mSignaturePad.clear();
-            }
-        });
 
         mSaveButton.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("StaticFieldLeak")
             @Override
             public void onClick(View view) {
+
                 Bitmap signatureBitmap = mSignaturePad.getSignatureBitmap();
                 if (addJpgSignatureToGallery(signatureBitmap)) {
                     Toast.makeText(getApplicationContext(), "Signature saved into the Gallery", Toast.LENGTH_SHORT).show();
@@ -98,10 +101,38 @@ public class Signature extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Unable to store the signature", Toast.LENGTH_SHORT).show();
                 }
                 if (addSvgSignatureToGallery(mSignaturePad.getSignatureSvg())) {
-                    Toast.makeText(getApplicationContext(), "SVG Signature saved into the Gallery", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "SVG Signature saved into the Gallery", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(), "Unable to store the SVG signature", Toast.LENGTH_SHORT).show();
                 }
+
+                new AsyncTask<Void, Void, Integer>() {
+
+                    @Override
+                    protected Integer doInBackground(Void... params) {
+                        //get disbursement
+                        //pass argument
+                        //1.itemCode/2.deptCode/3.actualQty/4.need
+                        List<Disbursement> result = Disbursement.GetDisbursementList(url);
+                        for(int i = 0;i< result.size();i++) {
+                            //Stationery s = new Stationery(result.get(i).get(Key.STATIONERY_1_ITEM_CODE), null, null, null, null, result.get(i).get("ActualQty"));
+                            //Stationery.updateStock(s);
+                            disbursementUpdate d = new disbursementUpdate(result.get(i).get(Key.STATIONERY_1_ITEM_CODE), result.get(i).get("NeedQty") , result.get(i).get("ActualQty") , result.get(i).get(Key.DEPARTMENT_1_CODE), Integer.toString(i), LoginUser.userID);
+                            disbursementUpdate.updateDisbursement(d);
+                        }
+
+                        //update details
+
+                        return 0;
+                    }
+
+                    @Override
+                    protected void onPostExecute(Integer result) {
+                        Toast.makeText(getApplicationContext(),
+                                "update successfully", Toast.LENGTH_LONG).show();
+
+                    }
+                }.execute();
             }
         });
     }

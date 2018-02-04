@@ -19,11 +19,12 @@
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pending Fulfillment "
-                android:textSize="26sp"
-                android:textColor="#009688"
+                android:background="@color/colorPrimary"
                 android:gravity="center"
-                android:textAppearance="@android:style/TextAppearance.Material.Headline" />
+                android:text="Pending Fulfillment "
+                android:textAppearance="@android:style/TextAppearance.Material.Headline"
+                android:textColor="@android:color/background_light"
+                android:textSize="26sp" />
 
         </TableRow>
 
@@ -103,42 +104,46 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
-            >
+            android:background="@android:color/darker_gray">
 
             <TextView
                 android:id="@+id/textView15"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/darker_gray"
                 android:text="Req No."
+                android:textAppearance="@android:style/TextAppearance.Material.Body1"
                 android:textSize="19sp"
-                android:textStyle="bold"
-                android:textAppearance="@android:style/TextAppearance.Material.Body1" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView14"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/darker_gray"
                 android:text="Dept Code"
+                android:textAppearance="@android:style/TextAppearance.Material.Body1"
                 android:textSize="19sp"
-                android:textStyle="bold"
-                android:textAppearance="@android:style/TextAppearance.Material.Body1" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@android:color/darker_gray"
                 android:text="Unfulfilled Qty"
+                android:textAppearance="@android:style/TextAppearance.Material.Body1"
                 android:textSize="19sp"
-                android:textStyle="bold"
-                android:textAppearance="@android:style/TextAppearance.Material.Body1" />
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@android:color/background_light">
 
             <ListView
                 android:id="@+id/listview1"
@@ -148,9 +153,9 @@
                 android:layout_marginBottom="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginTop="1dp"
-                android:visibility="visible"
                 android:divider="@android:color/holo_blue_light"
                 android:dividerHeight="1.0sp"
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

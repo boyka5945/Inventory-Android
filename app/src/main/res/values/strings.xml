@@ -134,4 +134,8 @@
     <string name="agreement">I agree the terms and conditions.</string>
     <string name="clear_pad">Clear Pad</string>
     <string name="save_signature">Save Signature</string>
+
+    <string name="request_approved">Request is approved.</string>
+    <string name="request_rejected">Request is rejected.</string>
+    <string name="no_new_request">There is no pending request.</string>
 </resources>

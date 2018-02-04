@@ -10,14 +10,16 @@ import java.util.List;
  * Created by czolb on 27/1/2018.
  */
 
-public class AllocationViewModel extends HashMap<String,String> {
+public class AllocationGroupViewModel extends HashMap<String,String> {
 
 //COLUMNS:
     //order number
     //department code
     //qty requested
 
-    public AllocationViewModel(String orderNum, String departmentCode, String qtyUnfulfilled){
+
+
+    public AllocationGroupViewModel(String orderNum, String departmentCode, String qtyUnfulfilled){
 
         this.put("orderNum", orderNum);
         this.put("departmentCode", departmentCode);
@@ -26,9 +28,9 @@ public class AllocationViewModel extends HashMap<String,String> {
 
     }
 
-    public static List<AllocationViewModel> getAllocationListGroupedByItem(String itemCode){
+    public static List<AllocationGroupViewModel> getAllocationListGroupedByItem(String itemCode){
 
-        List<AllocationViewModel> list = new ArrayList<>();
+        List<AllocationGroupViewModel> list = new ArrayList<>();
         List<Requisition_Record> reqRec = Requisition_Record.GetAllRequestRecordForItemAllocation(itemCode);
 
         for (Requisition_Record rr : reqRec){
@@ -45,7 +47,7 @@ public class AllocationViewModel extends HashMap<String,String> {
                     unFulfilled = Integer.toString(qtyUnfulfilled);
                 }
             }
-            list.add( new AllocationViewModel(reqNum, rr.get(Key.REQUISITION_RECORD_2_DEPT_CODE), unFulfilled ));
+            list.add( new AllocationGroupViewModel(reqNum, rr.get(Key.REQUISITION_RECORD_2_DEPT_CODE), unFulfilled ));
         }
 
         return list;
