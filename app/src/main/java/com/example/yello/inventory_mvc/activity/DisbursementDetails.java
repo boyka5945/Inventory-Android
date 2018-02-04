@@ -66,7 +66,7 @@ public class DisbursementDetails extends AppCompatActivity {
         //itemCount.setText("Qty: " + qty);
 
 
-        url = UrlString.GetDisbursementByDept + departmentName;
+        url = UrlString.GetDisbursementByDept + DepartmentCode;
         lv = (ListView) findViewById(R.id.listv);
 
 
