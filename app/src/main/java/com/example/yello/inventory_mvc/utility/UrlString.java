@@ -10,8 +10,7 @@ public final class UrlString
     public static final String ip = "192.168.43.135";
     public static final String server = "/AD_inventory_WCF";
     public static final String host = "http://" + ip + server + "/Service.svc";
-
- 
+    
     // UriTemplate = "/GetRequisitionByItemCode/{itemCode}"
     public static final String getRequisitionByItemCode = host + "/GetRequisitionByItemCode/";
 
