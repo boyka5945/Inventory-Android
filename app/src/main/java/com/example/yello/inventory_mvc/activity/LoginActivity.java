@@ -3,23 +3,20 @@ package com.example.yello.inventory_mvc.activity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
-
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -34,9 +31,7 @@ import android.widget.TextView;
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.model.LoginUser;
 import com.example.yello.inventory_mvc.model.User;
-import com.example.yello.inventory_mvc.utility.Key;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -335,25 +330,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         @Override
         protected Boolean doInBackground(Void... params) {
 
-            /*User login = null;
-            try {
-
-                login = User.validateUser(mEmail, mPassword);
-//                LoginUser loginUser = LoginUser.getLoginUser();
-                LoginUser.userID = login.get(Key.USER_1_USERID);
-                LoginUser.deptCode = login.get(Key.USER_7_DEPARTMENT_CODE);
-                LoginUser.roleID = Integer.valueOf(login.get(Key.USER_6_ROLE));
-
-
-            } catch (Exception e) {
-                return false;
-            }*/
 
             String loginstatus = null;
             User login = null;
             String a = null;
             try {
-                //User u = new User(mEmail, mPassword,"", "");
 
 
                     loginstatus = User.validateUser(mEmail,mPassword);
@@ -377,10 +358,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                             LoginUser.userID = Character.toString(a.charAt(i+9)) + Character.getNumericValue(a.charAt(i+10)) + Character.getNumericValue(a.charAt(i+11)) + Character.getNumericValue(a.charAt(i+12)) + Character.getNumericValue(a.charAt(i+13));
                         }
                     }
-//                    LoginUser loginUser = loginstatus
-//                    LoginUser.userID = loginstatus.get(Key.USER_1_USERID);
-//                    LoginUser.deptCode = loginstatus.get(Key.USER_7_DEPARTMENT_CODE);
-//                    LoginUser.roleID = Integer.valueOf(login.get(Key.USER_6_ROLE));
 
                     return true;
                 }
@@ -395,9 +372,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                return false;
            }
 
-            //return(login.get(Key.USER_1_USERID ) != "null");
-            
-            // NEW PASSWORD : S1234, PASSWORD 123456
+
 
         }
 
@@ -406,20 +381,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = null;
             showProgress(false);
 
-            //ps
-            /*Intent intent;
-            switch(userType) {
-                case 1:
-                    intent = new Intent(LoginActivity.this, AdminActivity.class);
-                    break;
-                case 2:
-                    intent = new Intent(LoginActivity.this, User1Activity.class);
-                    break;
-                case 3:
-                    intent = new Intent(LoginActivity.this, User3Activity.class);
-                    break;
-            }
-            startActivity(intent);*/
 
             if (success) {
                 // TODO: AFTER LOGIN DO SOMETHING

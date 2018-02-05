@@ -51,12 +51,6 @@ public class CollectItemAdapter extends ArrayAdapter<Disbursement>{
             text2.setText(disburse.get("ActualQty"));
             TextView text3 = (TextView) rowView.findViewById(R.id.textView7);
             text3.setText(disburse.get("NeedQty"));
-//            ((TextView) rowView.findViewById(R.id.textView5)).setText(
-//                    disburse.get("StationeryDescription"));
-//            ((TextView) rowView.findViewById(R.id.textView6)).setText(disburse.get(
-//                    "ActualQty"));
-//            ((TextView) rowView.findViewById(R.id.textView7)).setText(disburse.get(
-//                    "NeedQty"));
         }
         return rowView;
     }

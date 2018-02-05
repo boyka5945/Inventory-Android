@@ -11,12 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.yello.inventory_mvc.R;
-import com.example.yello.inventory_mvc.model.AllocationListViewModel;
 import com.example.yello.inventory_mvc.model.Requisition_Detail;
 import com.example.yello.inventory_mvc.model.Retrieval_Item;
 import com.example.yello.inventory_mvc.utility.Key;
-
-import java.util.List;
 
 public class AllocationUpdateActivity extends AppCompatActivity   {
 
@@ -67,31 +64,6 @@ public class AllocationUpdateActivity extends AppCompatActivity   {
             }
         }.execute(itemCode);
 
-/*        new AsyncTask< String, Void, Requisition_Detail>() {
-
-            @Override
-            protected Requisition_Detail doInBackground(String... params) {
-                Requisition_Detail currentAllocated = new Requisition_Detail();
-
-                List<Requisition_Detail> temp = Requisition_Detail.GetConsolidatedAllocationList();
-                for(Requisition_Detail rd : temp){
-                    if(rd.get(Key.REQUISITION_DETAIL_2_ITEM_CODE).toString().equals(itemCode)){
-                        currentAllocated = rd;
-                    }
-                }
-                return currentAllocated;
-            }
-
-            @Override
-            protected void onPostExecute(Requisition_Detail result) {
-
-                tvAllocatedQty.setText(result.get(Key.REQUISITION_DETAIL_10_ALLOCATE_QTY));
-
-
-
-
-            }
-        }.execute(itemCode);*/
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -115,8 +115,6 @@ public class Signature extends AppCompatActivity {
                         //1.itemCode/2.deptCode/3.actualQty/4.need
                         List<Disbursement> result = Disbursement.GetDisbursementList(url);
                         for(int i = 0;i< result.size();i++) {
-                            //Stationery s = new Stationery(result.get(i).get(Key.STATIONERY_1_ITEM_CODE), null, null, null, null, result.get(i).get("ActualQty"));
-                            //Stationery.updateStock(s);
                             disbursementUpdate d = new disbursementUpdate(result.get(i).get(Key.STATIONERY_1_ITEM_CODE), result.get(i).get("NeedQty") , result.get(i).get("ActualQty") , result.get(i).get(Key.DEPARTMENT_1_CODE), Integer.toString(i), LoginUser.userID);
                             disbursementUpdate.updateDisbursement(d);
                         }

@@ -1,12 +1,8 @@
 package com.example.yello.inventory_mvc.activity;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,10 +10,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.example.yello.inventory_mvc.R;
-import com.example.yello.inventory_mvc.model.AllocationGroupViewModel;
 import com.example.yello.inventory_mvc.model.AllocationListViewModel;
-import com.example.yello.inventory_mvc.model.Requisition_Detail;
-import com.example.yello.inventory_mvc.model.Retrieval_Item;
 import com.example.yello.inventory_mvc.utility.Key;
 
 import java.util.ArrayList;
@@ -67,12 +60,6 @@ public class AllocationListActivity extends AppCompatActivity implements Adapter
                                 new String[]{"StationeryDescription", "AllocateQty", "qtyRetrieved"},
                                 new int[]{R.id.itemNameCol, R.id.totalReqCol, R.id.totalRetCol});
 
-                /*
-                        this.put("itemName", itemName);
-        this.put("itemCode", itemCode);
-        this.put("qtyPendingAllocation", qtyPendingAllocation);
-        this.put("qtyRetrieved", qtyRetrieved);
-                 */
                 lv.setAdapter(adapter);
             }
         }.execute();

@@ -1,29 +1,17 @@
 package com.example.yello.inventory_mvc.activity;
 
-import android.annotation.SuppressLint;
-import android.app.ListActivity;
 import android.os.AsyncTask;
-
-
 import android.os.Bundle;
-
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-
 import com.example.yello.inventory_mvc.R;
-
-import com.example.yello.inventory_mvc.model.Collection_Point;
 import com.example.yello.inventory_mvc.model.Department;
 import com.example.yello.inventory_mvc.model.Disbursement;
 import com.example.yello.inventory_mvc.model.LoginUser;
-import com.example.yello.inventory_mvc.model.User;
 import com.example.yello.inventory_mvc.utility.Key;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -49,9 +37,7 @@ public class ViewCollectItemActivity extends AppCompatActivity {
 
         departmentName = (TextView) findViewById(R.id.collect_item_department);
         cpoint = (TextView) findViewById(R.id.collect_item_collectpoint);
-        /*rep = (TextView) findViewById(R.id.collect_item_representative);*/
-//
-//
+
 
         new AsyncTask<String, Void, Department> () {
             @Override

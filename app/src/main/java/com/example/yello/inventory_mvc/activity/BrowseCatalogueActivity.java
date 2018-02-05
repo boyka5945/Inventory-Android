@@ -141,9 +141,7 @@ public class BrowseCatalogueActivity extends AppCompatActivity implements Adapte
     {
         switch (item.getItemId())
         {
-            /*case (R.id.show_new_requisition_form):
-                startActivity(new Intent(this, NewRequisitionFormActivity.class));
-                return true;*/
+
             
             default:
                 return super.onOptionsItemSelected(item);

@@ -1,8 +1,7 @@
 package com.example.yello.inventory_mvc.activity;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.example.yello.inventory_mvc.R;
 
@@ -21,10 +20,7 @@ public class ManageRequestActivity extends AppCompatActivity {
         startActivity(getIntent());
     }
     public void onBackPressed() {
-        /*Intent mainActivity = new Intent(Intent.ACTION_MAIN);
-        mainActivity.addCategory(Intent.CATEGORY_HOME);
-        mainActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(mainActivity);*/
+
         finish();
     }
 

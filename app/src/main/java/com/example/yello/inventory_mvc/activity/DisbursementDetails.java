@@ -66,7 +66,7 @@ public class DisbursementDetails extends AppCompatActivity {
         //itemCount.setText("Qty: " + qty);
 
 
-        url = UrlString.GetDisbursementByDept + DepartmentCode;
+        url = UrlString.GetDisbursementByDept + departmentName;
         lv = (ListView) findViewById(R.id.listv);
 
 
@@ -230,21 +230,5 @@ public class DisbursementDetails extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
-//    private void shareImage(File file){
-//        Uri uri = Uri.fromFile(file);
-//        Intent intent = new Intent(this, Signature.class);
-//        intent.setAction(Intent.ACTION_SEND);
-//        intent.setType("image/*");
-//
-//        intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "");
-//        intent.putExtra(android.content.Intent.EXTRA_TEXT, "");
-//        intent.putExtra(Intent.EXTRA_STREAM, uri);
-//        try {
-//            startActivity(Intent.createChooser(intent, "Share Screenshot"));
-//        } catch (ActivityNotFoundException e) {
-//            Toast.makeText(this, "No App Available", Toast.LENGTH_SHORT).show();
-//        }
-//    }
 
 }

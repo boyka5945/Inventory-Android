@@ -5,12 +5,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.support.v4.app.ListFragment;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,13 +19,10 @@ import android.widget.TextView;
 import com.example.yello.inventory_mvc.R;
 import com.example.yello.inventory_mvc.activity.RequestDetailsActivity;
 import com.example.yello.inventory_mvc.model.LoginUser;
-import com.example.yello.inventory_mvc.model.Requisition_Detail;
 import com.example.yello.inventory_mvc.model.Requisition_Record;
 import com.example.yello.inventory_mvc.utility.Key;
 import com.example.yello.inventory_mvc.utility.UrlString;
 
-import java.io.Serializable;
-import java.net.URL;
 import java.util.List;
 
 /**
@@ -88,28 +83,8 @@ public class RequestListFragment extends ListFragment {
                         android.R.layout.simple_list_item_2,
                         new String[] {Key.REQUISITION_RECORD_1_REQUISITION_NO , Key.REQUISITION_RECORD_4_REQUESTER_ID},
                         new int[] {android.R.id.text1, android.R.id.text2});
-               // empty = (TextView) getView().findViewById(R.id.empty);
 
-               /* View  emptyView = getActivity().getLayoutInflater().inflate(empty, null);
-
-                ((ViewGroup)getListView().getParent()).addView(emptyView);
-                getListView().setEmptyView(emptyView);*/
                 RequestListFragment.this.setListAdapter(adapter);
-                //lv.setAdapter(adapter);
-               // RequestListFragment.this.setEmptyText("There is no pending request");
-
-
-
-
-                /*if(adapter!=null)
-                {
-                    if(adapter.getCount()<0)
-                    {
-                        containerActivity.finish();
-                    }
-                }*/
-
-
             }
 
         }.execute(url);
@@ -126,7 +101,6 @@ public class RequestListFragment extends ListFragment {
             // single-pane
             String check=record.get(Key.BUNDLE_REQUESITION_RECORD);
             Intent intent = new Intent(getActivity(), RequestDetailsActivity.class);
-            //intent.putExtra(Key.BUNDLE_REQUESITION_RECORD, record.get(Key.REQUISITION_RECORD_1_REQUISITION_NO));
             intent.putExtra(Key.BUNDLE_REQUESITION_RECORD, record);
 
             startActivity(intent);

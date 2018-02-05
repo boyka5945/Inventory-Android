@@ -2,9 +2,6 @@ package com.example.yello.inventory_mvc.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.constraint.ConstraintLayout;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,7 +17,6 @@ import com.example.yello.inventory_mvc.model.RequisitionForm;
 import com.example.yello.inventory_mvc.model.Requisition_Detail;
 import com.example.yello.inventory_mvc.utility.Key;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -93,8 +88,7 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
                             requestItem.get(Key.REQUISITION_DETAIL_2_ITEM_CODE), newQty))
                     {
                         currentEditText.setText(String.valueOf(newQty));
-                        //Toast.makeText(getContext(), "Quantity has been updated.",
-                                       //Toast.LENGTH_SHORT).show();
+
                         return true;
                     }
                     else
@@ -128,8 +122,7 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
                 {
                     int newQty = Integer.valueOf(currentEditText.getText().toString()) + 1;
                     currentEditText.setText(String.valueOf(newQty));
-                    
-                    //Toast.makeText(getContext(), "Quantity +1", Toast.LENGTH_SHORT).show();
+
                 }
                 else
                 {
@@ -157,8 +150,6 @@ public class NewRequisitionFormAdapter extends ArrayAdapter<Requisition_Detail>
                 {
                     int newQty = Integer.valueOf(currentEditText.getText().toString()) - 1;
                     currentEditText.setText(String.valueOf(newQty));
-                    
-                    //Toast.makeText(getContext(), "Quantity -1", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
